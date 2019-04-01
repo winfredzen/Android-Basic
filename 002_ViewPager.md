@@ -77,5 +77,6 @@
 + [ViewPager with FragmentPagerAdapter](https://guides.codepath.com/android/viewpager-with-fragmentpageradapter)
 
 + [Android 👆 Swipe Views using ViewPager • haerulmuttaqin](https://www.youtube.com/watch?v=UsXv6VRqZKs)
+  ![效果001](https://github.com/winfredzen/Android-Basic/blob/master/images/001.png)
 
   
