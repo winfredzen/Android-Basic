@@ -100,9 +100,28 @@ scale进行缩放，如下的例子，在`res/anim/`文件下创建`scale_animat
 
 效果如下：
 
-![002](![002](https://github.com/winfredzen/Android-Basic/raw/master/images/003.gif))
+![002](https://github.com/winfredzen/Android-Basic/raw/master/images/003.gif)
 
 
+
+## Alpha
+
+alpha进行透明度动画，`alpha_animation.xml`定义如下：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<alpha xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="5000"
+    android:toAlpha="1.0"
+    android:fromAlpha="0.0"
+    android:interpolator="@android:anim/accelerate_interpolator">
+
+</alpha>
+```
+
+效果如下：
+
+![003](https://github.com/winfredzen/Android-Basic/raw/master/images/004.gif)
 
 
 
