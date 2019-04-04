@@ -125,7 +125,41 @@ alpha进行透明度动画，`alpha_animation.xml`定义如下：
 
 
 
+## Translate
 
+平移动画，例子是使图片从左上角运动到右下角：
+
+```java
+    public void doTranslate(View view) {
+
+        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        imageView.setImageResource(R.drawable.stairs);
+        imageView.clearAnimation(); //取消view动画
+
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        imageView.setLayoutParams(layoutParams);
+
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
+        int top = relativeLayout.getTop();
+        int left = relativeLayout.getLeft();
+        int bottom = relativeLayout.getBottom();
+        int right = relativeLayout.getRight();
+
+        TranslateAnimation translateAnimation = new TranslateAnimation(left, right, top, bottom);
+        translateAnimation.setDuration(4000);
+        translateAnimation.setRepeatCount(0);
+        translateAnimation.setInterpolator(new AccelerateInterpolator());
+
+        imageView.startAnimation(translateAnimation);
+
+    }
+```
+
+效果如下：
+
+![004](https://github.com/winfredzen/Android-Basic/raw/master/images/005.gif)
 
 
 
