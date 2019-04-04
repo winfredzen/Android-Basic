@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ViewAnimationTest</string>
+
+    <string name="scale">Scale Animation</string>
+    <string name="alpha">Alpha Animation</string>
+    <string name="rotate">Rotate Animation</string>
+    <string name="translate">Translate Animation</string>
+</resources>
