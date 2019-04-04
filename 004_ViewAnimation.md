@@ -42,15 +42,65 @@ scale进行缩放，如下的例子，在`res/anim/`文件下创建`scale_animat
 
 效果如下：
 
-![001](![ææ001](https://github.com/winfredzen/Android-Basic/raw/master/images/002.gif))
+![001](![001](https://github.com/winfredzen/Android-Basic/raw/master/images/002.gif))
 
 属性说明：
 
 + android:pivotX - 缩放起点 X 轴坐标，可以是数值、百分数、百分数 p 三种样式，比如 50、50%、50%p，当为数值时，表示在当前 View 的左上角，即原点处加上 50px，做为起始缩放点；如果是 50%，表示在当前控件的左上角加上自己宽度的 50%做为起始点；如果是 50%p，那么就是表示在当前的左上角加上父控件宽度的 50%做为起始点 x 轴坐标
 
-  
+```java
+    public void doScale(View view) {
+
+        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        imageView.setImageResource(R.drawable.eye);
+        imageView.clearAnimation(); //取消view动画
 
 
+        //居中
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+        imageView.setLayoutParams(layoutParams);
+
+        Animation scaleAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale_animation);
+        imageView.setAnimation(scaleAnimation);
+    }
+```
+
+
+
+## Rotate
+
+这里使用了`set`标签，表示将2个旋转动画放在一起，`rotate_animation.xml`如下：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <rotate xmlns:android="http://schemas.android.com/apk/res/android"
+        android:duration="5000"
+        android:fromDegrees="0"
+        android:interpolator="@android:anim/accelerate_interpolator"
+        android:pivotY="50%"
+        android:pivotX="50%"
+        android:toDegrees="360">
+
+    </rotate>
+
+    <rotate xmlns:android="http://schemas.android.com/apk/res/android"
+        android:duration="2000"
+        android:fromDegrees="360"
+        android:interpolator="@android:anim/accelerate_interpolator"
+        android:pivotY="50%"
+        android:pivotX="50%"
+        android:startOffset="5000"
+        android:toDegrees="0">
+
+    </rotate>
+</set>
+```
+
+效果如下：
+
+![002](![002](https://github.com/winfredzen/Android-Basic/raw/master/images/003.gif))
 
 
 
