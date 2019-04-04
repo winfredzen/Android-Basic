@@ -42,7 +42,7 @@ scale进行缩放，如下的例子，在`res/anim/`文件下创建`scale_animat
 
 效果如下：
 
-![001](![001](https://github.com/winfredzen/Android-Basic/raw/master/images/002.gif))
+![001](https://github.com/winfredzen/Android-Basic/raw/master/images/002.gif)
 
 属性说明：
 
@@ -162,6 +162,69 @@ alpha进行透明度动画，`alpha_animation.xml`定义如下：
 ![004](https://github.com/winfredzen/Android-Basic/raw/master/images/005.gif)
 
 
+
+可使用animation listener来监听动画过程中的key event，如下，在动画结束后，启动另一个activity
+
+```java
+        //监听
+        translateAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                Intent intent = new Intent(MainActivity.this, MyAnimationCodeActivity.class);
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+```
+
+
+
+## 代码实现animation
+
+该动画旋转image 3圈，scale从0到1，透明度从0到1
+
+```java
+        //rotate animation
+        RotateAnimation rotateAnimation
+                = new RotateAnimation(0.0f, 1080.0f,    //3 rotation s of 360 degrees
+                Animation.RELATIVE_TO_PARENT, 0.5f,     //x coordinate for pivot type - 50% from left edge of parent
+                Animation.RELATIVE_TO_PARENT, 0.5f);    //y coordinate for pivot type - 50% from top edge of parent
+
+        //scale animation
+        ScaleAnimation scaleAnimation
+                = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f,        //from x to x, from y to y
+                Animation.RELATIVE_TO_PARENT, 0.5f,                 //x coordinate for pivot point - 50% from left edge of parent
+                Animation.RELATIVE_TO_PARENT, 0.5f);                //y coordinate for pivot point - 50% from top edge of parent
+
+        //alpha animation
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+
+        //animation set
+        AnimationSet animationSet = new AnimationSet(true);
+        animationSet.addAnimation(scaleAnimation);
+        animationSet.addAnimation(rotateAnimation);
+        animationSet.addAnimation(alphaAnimation);
+        animationSet.setDuration(2000);
+
+        //set the interpolator
+        animationSet.setInterpolator(new OvershootInterpolator());
+
+        ImageView imageViewBadge = (ImageView) findViewById(R.id.imageView);
+        imageViewBadge.startAnimation(animationSet);
+```
+
+![005](https://github.com/winfredzen/Android-Basic/raw/master/images/006.gif)
 
 
 
