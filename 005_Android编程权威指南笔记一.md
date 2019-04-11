@@ -41,7 +41,46 @@ drawable-mdpi、drawable-hdpi、drawable-xhdpi和drawable-xxhdpi四个目录
 
 每个Activity都有其生命周期，在其生命周期类，activity在运行、暂停、停止和不存在这四种状态键转换
 
-![007](https://github.com/winfredzen/Android-Basic/blob/master/images/008.png)
+![008](https://github.com/winfredzen/Android-Basic/blob/master/images/008.png)
+
+| 状态   | 有内存实例 | 用户可见 | 处于前台 |
+| ------ | ---------- | -------- | -------- |
+| 不存在 | 否         | 否       | 否       |
+| 停止   | 是         | 否       | 否       |
+| 暂停   | 是         | 是或部分 | 否       |
+| 运行   | 是         | 是       | 是       |
+
+![010](https://github.com/winfredzen/Android-Basic/blob/master/images/010.png)
+
+
+
+-----
+
+**创建过滤filter**
+
+选择`Edit Filter Configuration`选项
+
+![009](https://github.com/winfredzen/Android-Basic/blob/master/images/009.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
