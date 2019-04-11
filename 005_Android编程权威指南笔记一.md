@@ -52,6 +52,37 @@ drawable-mdpi、drawable-hdpi、drawable-xhdpi和drawable-xxhdpi四个目录
 
 ![010](https://github.com/winfredzen/Android-Basic/blob/master/images/010.png)
 
+应用启动并创建Activity初始实例后：
+
++ onCreate()
++ onStart()
++ onResume()
+
+Activity处于运行状态(在内存里，用户可见，活动在前台)
+
+单机后退键
+
++ onPause()
++ onStop()
++ onDestroy()
+
+Activity处于不存在状态(不在内存里，显然不可见，不会活动在前台)
+
+如果启动后，再单机主屏幕键
+
++ onPause()
++ onStop() 
++ onSaveInstanceState
+
+Activity已处于停止状态(在内存中，但不可见，不会活动在前台)
+
+然后再点击最近应用键
+
++ onStart()
++ onResume()
+
+可发现，系统没有调用`onCreate()`
+
 
 
 -----
