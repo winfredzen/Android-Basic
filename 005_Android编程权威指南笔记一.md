@@ -4,11 +4,20 @@
 
 可在目录`app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/`下，项目包名称中找到`R.java`文件。`R.java`文件在Android项目编译过程中自动生成
 
+
+
 **快捷键Option+Return**
 
 使用`Option+Return`(`Alt+Enter`)组合键，让Android Studio自动为你导入
 
-**资源ID总数int类型**
+
+
+**资源**
+
++ 资源是应用非代码形式的内容，如图像文件、音频文件以及XML文件等
++ 项目的所有资源文件都存放在目录`app/res`的子目录下
++ 布局也是一种资源
++ 资源id为int型
 
 
 
@@ -21,6 +30,22 @@ Mac下，选择`Preferences`->`Editor`->`Code Style`->`Java` 选择Code Generati
 ![007](https://github.com/winfredzen/Android-Basic/blob/master/images/007.png)
 
 设置后，需要Android Studio为`mTextResId`(int)生成获取方法时，它生成的是`getTextResId()`而不是`getMTextResId()`;而在为`mAnswerTrue`(boolean)生成获取方法时，生成的是`isAnswerTrue()`而不是`isMAnswerTrue()`。
+
+
+
+**this的使用**
+
+在Button的事件中，如果要使用Toast，注意this的区别，这里的this指的是监听器`View.OnClickListener`
+
+
+
+**在设备上运行**
+
+1.连接设备，Mac可以理解识别设备，如果在Windows上，则可能需要安装adb(Android Debug Bridge)
+
+2.如果开发者选项不可见，在"设置-关于手机/平板"，点击版本号(Build Number)7次启用
+
+3.找到开发者选项，勾选"USB调试"
 
 
 
@@ -68,7 +93,7 @@ Activity处于运行状态(在内存里，用户可见，活动在前台)
 
 Activity处于不存在状态(不在内存里，显然不可见，不会活动在前台)
 
-如果启动后，再单机主屏幕键
+如果启动后，再点击主屏幕键
 
 + onPause()
 + onStop() 
@@ -85,6 +110,19 @@ Activity已处于停止状态(在内存中，但不可见，不会活动在前�
 
 
 
+如果启动后，点击最近应用键，调用
+
++ onPause()
++ onStop()
++ onSaveInstanceState
+
+如果此时，选中应用，调用
+
++ onStart()
++ onResume()
+
+
+
 -----
 
 **创建过滤filter**
@@ -95,15 +133,34 @@ Activity已处于停止状态(在内存中，但不可见，不会活动在前�
 
 
 
+### 设备旋转与 activity 生命周期
 
+当旋转设备后，调用过程如下：
 
++ onPause()
++ onStop()
++ onSaveInstanceState
++ onDestroy()
++ onCreate()
++ onStart()
++ onResume()
 
+设备旋转时，系统会销毁Activity的实例，然后创建一个新的Activity的实例。
 
+**创建水平模式布局**
 
+res目录上右键，选择`New->Android resource directory`菜单项，Resource type选择`layout`，Source set保持main不变
 
+![011](https://github.com/winfredzen/Android-Basic/blob/master/images/011.png)
 
+选择Orientation，点击`>>`按钮
 
+![012](https://github.com/winfredzen/Android-Basic/blob/master/images/012.png)
 
+Android Stuido会创建`res/layout-land`目录
+
+设备处于水平方向时，Android会找到并使用`res/layout-land`目录下的布局资源。其他情况下，
+它会默认使用`res/layout`目录下的布局资源
 
 
 
