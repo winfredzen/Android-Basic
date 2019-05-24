@@ -195,15 +195,27 @@ Android Stuido会创建`res/layout-land`目录
 
 
 
+## Android应用调试
+
+### 异常断点
+
+选择`Run → View Breakpoints`，点击`+`号，选择`Java Exception Breakpoints`选项
+
+输入`RuntimeException`，按提示选择`RuntimeException` (java.lang)。`RuntimeException`是`NullPointerException`、`ClassCastException`及其他常见异常的超类，因此该设置基本适用于所有异常 
+
+![014](https://github.com/winfredzen/Android-Basic/blob/master/images/014.png)
+
+如果出错会直接跳转到出错点
+
+![015](https://github.com/winfredzen/Android-Basic/blob/master/images/015.png)
 
 
 
+### Android Lint
 
+`Android Lint`是Android应用代码的静态分析器(static analyzer)。作为一个特殊程序，它能在不运行代码的情况下检查代码错误。凭着对Android框架的熟练掌握，Android Lint能深入检查代码，找出编译器无法发现的问题。在大多数情况下，Android Lint检查出的问题都值得重视
 
-
-
-
-
+选择`Analyze → Inspect Code`
 
 
 
