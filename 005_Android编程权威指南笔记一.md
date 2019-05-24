@@ -162,6 +162,37 @@ Android Stuido会创建`res/layout-land`目录
 设备处于水平方向时，Android会找到并使用`res/layout-land`目录下的布局资源。其他情况下，
 它会默认使用`res/layout`目录下的布局资源
 
+然后将布局文件copy过来，注意2个布局文件的文件名必须相同
+
+
+
+#### 保存数据以应对设备旋转
+
+重写`onSaveInstanceState(Bundle outState)`方法，将数据保存在bundle中
+
+```java
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i(TAG, "onSaveInstanceState");
+        outState.putInt(KEY_INDEX, mCurrentIndex);
+    }
+```
+
+注意：在Bundle中存储和恢复的数据类型只能是基本类型(`primitive type`)以及可以实现`Serializable`或`Parcelable`接口的对象
+
+
+
+完整的activity生命周期
+
+![013](https://github.com/winfredzen/Android-Basic/blob/master/images/013.png)
+
+
+
+**测试相关**
+
+`Developer options`中有一项`Don’t keep activities`，启用后，点击主屏幕键会暂停并停止当前的activity
+
 
 
 
