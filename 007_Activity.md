@@ -99,3 +99,111 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data)
 >ActivityManager维护着一个非特定应用独享的回退栈。所有应用的activity都共享该回退栈。这也是将ActivityManager设计成操作系统级的activity管理器来负责启动应用activity的原因之一。显然，回退栈是作为一个整体共享于操作系统及设备，而不单单用于某个应用
 
 `finish()`方法可以将activity从栈中弹出
+
+
+
+## 启动模型
+
+启动模式一共4种，在`<activity>`标签上通过`android:launchMode`来指定启动模式
+
++ standard - 默认，每次启动都会创建该活动的一个新的实例
++ singleTop - 在启动活动时，如果发现返回栈的栈顶已经是该活动，则直接使用它，不会创建新的活动实例。如果不处于栈顶，启动时，还是会创建新的实例
++ singleTask - 启动活动时会在返回栈中检查是否存在该活动的实例，如果存在，就直接使用，并把该活动之上的所有活动统统出栈，如果没有发现就会创建一个新的活动实例
++ singleInstance - 启用一个新的返回栈来管理活动。在这种模式下会有一个单独的返回栈来管理这个活动，不管是哪个应用程序来范文这个活动，都共用同一个返回栈
+
+
+
+## 最佳实践
+
+1.当前在哪一个activity
+
+创建BaseActivity，其它activity继承自BaseActivity
+
+```java
+public class BaseActivity extends AppCompatActivity {
+
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Log.d("BaseActivity", getClass().getSimpleName());
+
+        ActivityController.addActivity(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Log.d("BaseActivity", "onDestroy");
+
+        ActivityController.removeActivity(this);
+
+    }
+}
+```
+
+
+
+2.随时退出程序
+
+创建一个专门的集合类对所有的activity进行管理
+
+```java
+public class ActivityController {
+
+
+    public static List<Activity> activities = new ArrayList<>();
+
+    public static void addActivity(Activity activity) {
+        activities.add(activity);
+    }
+
+    public static void removeActivity(Activity activity) {
+        activities.remove(activity);
+    }
+
+    public static void finishAll() {
+        for (Activity activity : activities) {
+            if (!activity.isFinishing()) {
+                activity.finish();
+            }
+        }
+    }
+
+}
+```
+
+
+
+3.启动活动
+
+例如启动SecondActivity，需要用来2个字符串参数，在启动时需要传递过来，通常我们会这样写
+
+```java
+Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+intent.putExtra("param1", "data1");
+intent.putExtra("param2", "data2");
+startActivity(intent);
+```
+
+这样写，如果SecondActivity是别人开发的，你就不知道需要传递那些参数
+
+可以修改`SecondActivity`，添加如下的静态方法
+
+```java
+    public static void actionStart(Context context, String data1, String data2) {
+        Intent intent = new Intent(context, SecondActivity.class);
+        intent.putExtra("param1", data1);
+        intent.putExtra("param2", data2);
+        context.startActivity(intent);
+    }
+```
+
+启动时
+
+```java
+SecondActivity.actionStart(FirstActivity.this, "data1", "data2");
+```
+
