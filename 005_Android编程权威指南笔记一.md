@@ -123,6 +123,31 @@ Activity已处于停止状态(在内存中，但不可见，不会活动在前�
 
 
 
+一个activity A打开另一个activity B
+
+如果被打开的B是全屏的，非透明的，A调用
+
++ onPause()
++ onStop()
+
+按Back键返回A，A调用
+
++ onRestart()
++ onStart()
++ onResume()
+
+
+
+如果B是非全屏，例如一个dialog，A调用
+
++ onPause()
+
+按Back键返回A，A调用
+
++ onResume()
+
+
+
 -----
 
 **创建过滤filter**
@@ -180,6 +205,28 @@ Android Stuido会创建`res/layout-land`目录
 ```
 
 注意：在Bundle中存储和恢复的数据类型只能是基本类型(`primitive type`)以及可以实现`Serializable`或`Parcelable`接口的对象
+
+然后可以在`onCreate()`取出数据
+
+```java
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Log.d(TAG, "onCreate() called");
+
+        setContentView(R.layout.activity_main);
+
+        if (savedInstanceState != null) {
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
+      	......
+	}
+```
+
+
+
+
 
 
 
