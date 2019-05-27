@@ -20,7 +20,7 @@ Intent构造方法
 public Intent(Context packageContext, Class<?> cls)
 ```
 
-通过Intent还可以传递数据给activity
+通过Intent还可以传递数据给activity，如
 
 ```java
 intent.putExtra(EXTRA_ANSWER_IS_TRUE, answerIsTrue);
@@ -56,7 +56,9 @@ public final void setResult(int resultCode, Intent data)
 protected void onActivityResult(int requestCode, int resultCode, Intent data)
 ```
 
-
++ requestCode请求码，判断来源
++ resultCode判断结构
++ data数据
 
 ## 使用menu
 
