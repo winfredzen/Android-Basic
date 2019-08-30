@@ -1,6 +1,6 @@
 # Android-Basic
 
-+ [CustomView](https://github.com/winfredzen/Android-Basic/blob/master/001_CustomView.md)
++ [自定义view](https://github.com/winfredzen/Android-Basic/blob/master/001_CustomView.md)
 + [ViewPager](https://github.com/winfredzen/Android-Basic/blob/master/002_ViewPager.md)
 + [TabLayout](https://github.com/winfredzen/Android-Basic/blob/master/003_TabLayout.md)
 + [ViewAnimation](https://github.com/winfredzen/Android-Basic/blob/master/004_ViewAnimation.md)
