@@ -7,6 +7,10 @@
 + [*android 自定义 View 之绘制*](https://hencoder.com/tag/hui-zhi/)
 + [安卓自定义View系列文章](https://www.gcssloop.com/timeline)
 
+ColorMatrix相关
+
++ [StyleImageView](https://github.com/chengdazhi/StyleImageView)
+
 自己的笔记：
 
 + [自定义view](https://github.com/winfredzen/Android-Basic/blob/master/001_CustomView.md)
