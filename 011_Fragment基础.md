@@ -77,8 +77,8 @@ activity托管UI fragment有如下两种方式：
          private Crime mCrime;
          @Override
          public void onCreate(Bundle savedInstanceState) {
-							super.onCreate(savedInstanceState); 
-             	mCrime = new Crime();
+           super.onCreate(savedInstanceState); 
+           mCrime = new Crime();
          }
 } 
 ```
