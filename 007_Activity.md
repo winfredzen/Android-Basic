@@ -26,7 +26,20 @@ public Intent(Context packageContext, Class<?> cls)
 intent.putExtra(EXTRA_ANSWER_IS_TRUE, answerIsTrue);
 ```
 
+然后可以在`onCreate`方法中取出对应的值：
 
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+	setContentView(R.layout.activity_cheat);
+	mAnswerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
+}
+```
+
+
+
+**从子 activity 获取返回结果** 
 
 另一种情况是需要从子activity获取返回信息
 
@@ -59,6 +72,28 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data)
 + requestCode请求码，判断来源
 + resultCode判断结构
 + data数据
+
+如下的例子:
+
+```java
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+
+        if (requestCode == REQUEST_CODE_CHEAT) {
+            if (data == null) {
+                return;
+            }
+            mIsCheater = CheatActivity.wasAnswerShown(data);
+        }
+
+    }
+```
+
+
 
 ## 使用menu
 
