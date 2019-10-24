@@ -242,3 +242,11 @@ startActivity(intent);
 SecondActivity.actionStart(FirstActivity.this, "data1", "data2");
 ```
 
+
+
+4.如果A Activity启动B Activity，在B Activity中修改了A传过来的数据，现在A要刷新页面
+
+此时最好重写A的`onResume()`方法
+
+> 为什么选择覆盖`onResume()`方法来刷新显示列表项，而不用`onStart()`方法呢?当有其他activity位于你的activity之前时，你无法确定自己的activity是否会被停止。如果前面的activity是透明的，你的activity可能会被暂停。对于此场景下暂停的activity，`onStart()`方法中的更新代码是不会起作用的。一般来说，要保证fragment视图得到刷新，在`onResume()`方法内更新代码是最安 全的选择。 
+
