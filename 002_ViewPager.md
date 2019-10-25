@@ -81,11 +81,21 @@
 
 设置显示的页面：`mViewPager.setCurrentItem(i);`
 
+
+
 ## 其它Demo例子
 
 + [ViewPager with FragmentPagerAdapter](https://guides.codepath.com/android/viewpager-with-fragmentpageradapter)
-
 + [Android 👆 Swipe Views using ViewPager • haerulmuttaqin](https://www.youtube.com/watch?v=UsXv6VRqZKs)
   ![效果001](https://github.com/winfredzen/Android-Basic/blob/master/images/001.png)
 
-  
+
+
+## 其它
+
+**1.ViewPager的布局参数是不支持边距设置的?**
+
+难道要设置padding？
+
+
+
