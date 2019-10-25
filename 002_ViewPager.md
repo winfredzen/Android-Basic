@@ -50,6 +50,15 @@
 
 ## FragmentStatePagerAdapter
 
+>When using FragmentPagerAdapter the host ViewPager must have a valid ID set.
+
+> Subclasses only need to implement `getItem(int)` and `getCount()` to have a working adapter.
+
+>```java
+>Fragment getItem (int position)
+>int getCount ()
+>```
+
 简单的使用例子：
 
 ```java
