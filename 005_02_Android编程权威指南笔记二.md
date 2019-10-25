@@ -12,3 +12,13 @@
 
 ![021](https://github.com/winfredzen/Android-Basic/raw/master/images/021.png)
 
+
+
+**抽取方法**
+
+右键单击并选择`Refactor → Extract → Method...`菜单项，弹出如图所示的界面
+
+ ![032](https://github.com/winfredzen/Android-Basic/raw/master/images/032.png)
+
+
+
