@@ -1,5 +1,10 @@
 # Android-Basic
 
+一些快捷键
+
++ Command + P - 显示方法参数
++ Control + J - 显示方法简介
+
 **1.自定义View**
 
 详细教程可参考：
