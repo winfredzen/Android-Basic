@@ -1,5 +1,13 @@
 # Android-Basic
 
+一些快捷键
+
++ Command + P - 显示方法参数
++ Control + J - 显示方法简介
+
+自动显示方法简介的设置，参考[How to view method information in Android Studio?](https://stackoverflow.com/questions/16619667/how-to-view-method-information-in-android-studio)
+
+
 **1.自定义View**
 
 详细教程可参考：
