@@ -82,6 +82,15 @@ for (i in 1..8 step 2) print(i) //1357
     println(a?.length) // 无需安全调用
 ```
 
+如果要只对非空值执行某个操作，安全调用操作符可以与 [`let`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html) 一起使用：
+
+```kotlin
+val listWithNulls: List<String?> = listOf("Kotlin", null)
+for (item in listWithNulls) {
+    item?.let { println(it) } // 输出 Kotlin 并忽略 null
+}
+```
+
 ### Elvis 操作符
 
 ```kotlin
