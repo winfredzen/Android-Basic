@@ -15,6 +15,47 @@
 
 使用`val`表示常量，只能为其赋值一次，使用`var`表示变量
 
+## 区间与数列
+
+调用 `kotlin.ranges` 包中的 [`rangeTo()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/range-to.html) 函数及其操作符形式的 `..` 轻松地创建两个值的区间
+
+通常，`rangeTo()` 会辅以 `in` 或 `!in` 函数
+
+```kotlin
+if (i in 1..4) {  // 等同于 1 <= i && i <= 4
+    print(i)
+}
+```
+
+整数类型区间（[`IntRange`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html)、[`LongRange`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-long-range/index.html)、[`CharRange`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-char-range/index.html)）还可以对其进行迭代
+
+```kotlin
+for (i in 1..4) print(i) //1234
+```
+
+ [`downTo`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/down-to.html) 反向数字迭代
+
+```kotlin
+for (i in 4 downTo 1) print(i) //4321
+```
+
+还可以通过 [`step`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/step.html) 函数指定步长
+
+```kotlin
+for (i in 1..8 step 2) print(i) //1357
+```
+
+ [`until`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/until.html) 函数，半闭区间
+
+```kotlin
+    //123456789
+    for (i in 1 until 10) {       // i in [1, 10), 10被排除
+        print(i)
+    }
+```
+
+
+
 ## 基本类型
 
 ### 数字
@@ -160,7 +201,35 @@ int转为string
 
 
 
+## 流程控制
 
+### when
+
+`when`取代了`switch`操作，`else`分支是必须的，除非编译器能够检测出所有的可能情况都已经覆盖了
+
+可以检测一个值在（`in`）或者不在（`!in`）一个[区间](https://www.kotlincn.net/docs/reference/ranges.html)或者集合中
+
+```kotlin
+    val fahrenheit = 42
+    when (fahrenheit) {
+        in 0..30 -> println("really cold")
+        in 31..40 -> println("getting cold")
+        in 41..50 -> println("kind of cold")
+        in 51..60 -> println("nippy")
+        else -> {
+            println("none")
+        }
+    }
+```
+
+检测一个值是（`is`）或者不是（`!is`）一个特定类型的值
+
+```kotlin
+fun hasPrefix(x: Any) = when(x) {
+    is String -> x.startsWith("prefix")
+    else -> false
+}
+```
 
 
 
