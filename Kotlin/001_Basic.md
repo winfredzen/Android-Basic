@@ -56,6 +56,50 @@ for (i in 1..8 step 2) print(i) //1357
 
 
 
+## null
+
+可参考：
+
++ [空安全](https://www.kotlincn.net/docs/reference/null-safety.html)
+
+总体感觉跟Swift的*可选类型*非常的相似
+
+```kotlin
+    var a: String = "abc"
+    a = null // 编译错误
+
+    var b: String? = "abc"
+    b = null // ok
+    print(b)
+```
+
+安全调用使用`?.`安全调用操作符
+
+```kotlin
+    var b: String? = "abc"
+    b = null // ok
+    println(b?.length)
+    println(a?.length) // 无需安全调用
+```
+
+### Elvis 操作符
+
+```kotlin
+val l: Int = if (b != null) b.length else -1
+```
+
+等同于
+
+```kotlin
+val l = b?.length ?: -1
+```
+
+### `!!` 操作符
+
+非空断言运算符（`!!`）将任何值转换为非空类型，若该值为空则抛出异常
+
+
+
 ## 基本类型
 
 ### 数字
