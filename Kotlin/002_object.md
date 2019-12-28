@@ -80,7 +80,19 @@ fun init() {
 
 ## Companion Object
 
-`companion object` 修饰为伴生对象,伴生对象在类中只能存在一个，类似于java中的静态方法 Java 中使用类访问静态成员，静态方法。
+我自己的理解类似一个static方法
+
+```kotlin
+class MyClass {
+    companion object Factory {
+        fun create(): MyClass = MyClass()
+    }
+}
+
+val instance = MyClass.create()
+```
+
+
 
 
 
