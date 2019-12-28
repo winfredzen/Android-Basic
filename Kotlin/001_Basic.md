@@ -254,6 +254,42 @@ int转为string
 
 
 
+### Pair
+
+[Pair](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html)表示的是：Represents a generic pair of two values. 表示2个值
+
+```kotlin
+data class Pair<out A, out B> : Serializable
+```
+
+```kotlin
+    val coordinates = Pair(1, 3)
+    val (x, y) = coordinates
+    println("x = $x, y = $y"); //x = 1, y = 3
+    println("x = ${coordinates.first}, y = ${coordinates.second}"); //x = 1, y = 3
+```
+
+
+
+### Triple
+
+[Triple](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-triple/index.html)表示的是：Represents a triad of values，表示三个值
+
+```kotlin
+data class Triple<out A, out B, out C> : Serializable
+```
+
+```kotlin
+    val coordinates3D = Triple(3, 2, 1)
+    val (x1, y1, z1) = coordinates3D
+    println("x1 = ${x1}, y1 = ${y1}, z1 = ${z1}") //x1 = 3, y1 = 2, z1 = 1
+
+    val (x2, y2, _) = coordinates3D
+    println("x2 = ${x2}, y2 = ${y2}")
+```
+
+
+
 ## 流程控制
 
 ### when
