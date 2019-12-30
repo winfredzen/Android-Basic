@@ -1,6 +1,15 @@
 # 自定义View
 官方教程[Custom View Components](https://developer.android.com/guide/topics/ui/custom-components)
 
+详细教程可参考：
+
++ [*android 自定义 View 之绘制*](https://hencoder.com/tag/hui-zhi/)
++ [安卓自定义View系列文章](https://www.gcssloop.com/timeline)
+
+ColorMatrix相关
+
++ [StyleImageView](https://github.com/chengdazhi/StyleImageView)
+
 ## 继承View
 
 可以直接继承`View`，也可以继承`View`的子类，如[Button](https://developer.android.com/reference/android/widget/Button.html)
