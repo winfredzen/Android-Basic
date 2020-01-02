@@ -1,5 +1,9 @@
 # Assets
 
+可参考：
+
++ [Android Studio增加assets目录、raw目录](https://www.jianshu.com/p/5974fcf88170)
+
 Android资源文件分类
 
 + res目录下存放的可编译的资源文件
@@ -17,11 +21,62 @@ Android资源文件分类
 
 > assets可以看作随应用打包的微型文件系统， 支持任意层次的文件目录结构。因为这个优点，assets常用来加载大量图片和声音资源，如游戏 这样的应用。
 
-
+`assets`目录中的所有文件都会随应用打包
 
 ## 创建assets目录
 
 在`app`目录上右键，选择`New → Folder → Assets Folder`
+
+![006](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/006.png)
+
+不勾选`Change Folder Location`选项，保持`Target Source Set`的`main`选项不变，单击`Finish`按钮完成
+
+![007](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/007.png)
+
+结果如下：
+
+![008](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/008.png)
+
+可以在`assets`目录下创建子目录，`New → Directory`
+
+
+
+## 处理assets
+
+使用`AssetManager`类访问`assets`
+
+1.获取`list(String)`方法获取对应path的assets数组
+
+```java
+public String[] list (String path)
+```
+
+该方法会抛[IOException](https://developer.android.com/reference/java/io/IOException.html)异常
+
+```xml
+    private void loadSounds() {
+        String[] soundNames;
+
+        try {
+            soundNames = mAssetManager.list(SOUNDS_FOLDER);
+            Log.i(TAG,  "Found " + soundNames.length + " sounds");
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e(TAG, "Could not list assets", e);
+            return;
+        }
+
+        for (String fileName : soundNames) {
+
+            String assetsPath = SOUNDS_FOLDER + "/" + fileName;
+            Sound sound = new Sound(assetsPath);
+
+            mSounds.add(sound);
+
+        }
+
+    }
+```
 
 
 
