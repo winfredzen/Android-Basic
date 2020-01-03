@@ -91,7 +91,47 @@ for (item in listWithNulls) {
 }
 ```
 
-### Elvis 操作符
+```kotlin
+    var authorName: String? = "zen"
+    //authorName = null
+    authorName?.let { name ->
+        println(name)
+    }
+    authorName?.let {//可以省略参数名称，默认参数名为it
+        println("$it")
+    }
+```
+
+
+
+如下的例子：
+
+```kotlin
+    var result: Int? = 40
+    println(result)
+    //Error:(61, 20) Kotlin: Operator call corresponds to a dot-qualified call 'result.plus(1)' which is not allowed on a nullable receiver 'result'.
+    println(result + 1)
+```
+
+提示：`'result.plus(1)' which is not allowed on a nullable receiver 'result'`
+
+我们可以这样调用
+
+```kotlin
+var newResult = result?.plus(1)
+```
+
+或者使用`!!` 操作符
+
+#### `!!` 操作符
+
+非空断言运算符（`!!`）将任何值转换为非空类型，若该值为空则抛出异常
+
+```kotlin
+    println(result!! + 1)
+```
+
+#### Elvis 操作符
 
 ```kotlin
 val l: Int = if (b != null) b.length else -1
@@ -103,9 +143,13 @@ val l: Int = if (b != null) b.length else -1
 val l = b?.length ?: -1
 ```
 
-### `!!` 操作符
+也可以这样使用
 
-非空断言运算符（`!!`）将任何值转换为非空类型，若该值为空则抛出异常
+```kotlin
+    var myFarSong: String? = "500 Miles"
+    myFarSong = null
+    myFarSong?.let { println("$it") } ?: println("NO song")
+```
 
 
 
@@ -294,7 +338,7 @@ data class Triple<out A, out B, out C> : Serializable
 
 ### Loops
 
-*while* 与 *do*..*while*基本一致
+*while* 与 *do*..*while*与别的语言基本一致
 
 
 
