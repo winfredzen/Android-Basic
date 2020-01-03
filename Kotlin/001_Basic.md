@@ -292,6 +292,12 @@ data class Triple<out A, out B, out C> : Serializable
 
 ## 流程控制
 
+### Loops
+
+*while* 与 *do*..*while*基本一致
+
+
+
 ### when
 
 `when`取代了`switch`操作，`else`分支是必须的，除非编译器能够检测出所有的可能情况都已经覆盖了
