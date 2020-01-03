@@ -16,6 +16,6 @@ fun main(args: Array<String>) {
 }
 ```
 
-2.学习的教程
+2.学习的教程资源
 
-+ []()
++ [kotlincn](https://www.kotlincn.net/)
