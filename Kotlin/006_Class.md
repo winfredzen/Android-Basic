@@ -275,3 +275,90 @@ fun main(args: Array<String>) {
 
 
 
+## Getters Setters
+
+声明一个属性的完整语法是
+
+```kotlin
+var <propertyName>[: <PropertyType>] [= <property_initializer>]
+    [<getter>]
+    [<setter>]
+```
+
+其初始器（initializer）、getter 和 setter 都是可选的
+
+属性类型如果可以从初始器中推断出来，可以省略
+
+```kotlin
+var allByDefault: Int? // 错误：需要显式初始化器，隐含默认 getter 和 setter
+var initialized = 1 // 类型 Int、默认 getter 和 setter
+```
+
+
+
+自定义getter
+
+```kotlin
+val isEmpty: Boolean
+    get() = this.size == 0
+```
+
+
+
+自定义的 setter，setter 参数的名称是 `value`
+
+```kotlin
+var stringRepresentation: String
+    get() = this.toString()
+    set(value) {
+        setDataFromString(value) // 解析字符串并赋值给其他属性
+    }
+```
+
+
+
+如果想修改可见性，可使用`private set` 
+
+```kotlin
+var setterVisibility: String = "abc"
+    private set // 此 setter 是私有的并且有默认实现
+```
+
+
+
+## 可见性
+
+参考：
+
++ [可见性修饰符](https://www.kotlincn.net/docs/reference/visibility-modifiers.html)
+
+类、对象、接口、构造函数、方法、属性和它们的 setter 都可以有 *可见性修饰符*。 （getter 总是与属性有着相同的可见性。） 在 Kotlin 中有这四个可见性修饰符：`private`、 `protected`、 `internal` 和 `public`。 如果没有显式指定修饰符的话，默认可见性是 `public`。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
