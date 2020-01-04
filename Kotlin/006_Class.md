@@ -1,6 +1,8 @@
 # Class
 
-使用*class*关键字来声明类
+使用*class*关键字来声明类，参考：
+
++ [类与继承](https://www.kotlincn.net/docs/reference/classes.html)
 
 ## 构造函数
 
@@ -133,35 +135,143 @@ class MyView : View {
 
 
 
+## open
+
+参考：
+
++ [Kotlin中的open关键字](https://juejin.im/post/5d08ddf75188254e8728a6a8)
+
+kotlin中它所有的类默认都是`final`的，那么就意味着不能被继承，而且在类中所有的方法也是默认是`final`的
+
++ 为类增加open，class就可以被继承了
++ 为方法增加open，那么方法就可以被重写了
 
 
 
+## 数据类
+
+参考：
+
++ [数据类](https://www.kotlincn.net/docs/reference/data-classes.html)
+
+> 我们经常创建一些只保存数据的类。 在这些类中，一些标准函数往往是从数据机械推导而来的。在 Kotlin 中，这叫做 *数据类* 并标记为 `data`
+
+在Java中，会创建Model类，仅仅用来存储数据，有许多变量和getter setter方法，在Java中，也需要创建`equal`方法，或者`hashCode`方法
+
+数据类，会自动的创建如下的成员：
+
++ `equals()`/`hashCode()`
++ `toString()`
++ Getter Setter
+
+数据类必须满足以下要求
+
++ 主构造函数需要至少有一个参数
++ 主构造函数的所有参数需要标记为 `val` 或 `var`
++ 数据类不能是抽象、开放、密封或者内部的
+
+```kotlin
+    data class Podcast(val title: String, val description: String, val url: String)
+
+    val podcast = Podcast("title", "description", "url")
+    val podcast2 = podcast.copy(title = "copy title")
+
+    val (title, description, url) = podcast2
+    println(title + " " + description + " " + url) //copy title description url
+```
 
 
 
+## 密封类
+
+参考：
+
++ [密封类](https://www.kotlincn.net/docs/reference/sealed-classes.html)
++ [面向对象高级：密封类](https://zhuanlan.zhihu.com/p/26761603)
+
+要声明一个密封类，需要在类名前面添加 `sealed` 修饰符。虽然密封类也可以有子类，但是所有子类都必须在与密封类自身相同的文件中声明。
+
+特点：
+
++ 密封类是为 **继承** 设计的，是一个抽象类
++ 密封类的子类是确定的，除了已经定义好的子类外，它不能再有其他子类
+
+```kotlin
+sealed class Person(val name: String, var age: Int) {
+    class Adult(name: String, age: Int) : Person(name, age)
+    class Child(name: String, age: Int) : Person(name, age)
+}
+```
+
+需注意：
+
+1.**因为密封类是一个抽象类，所以不能用 data 等非抽象类的修饰符来修饰它，也不用加 open 关键字。**
+
+2.**密封类的子类，要么写在密封类内部，要么写在父类同一个文件里，不能出现在其他地方。**但子类的子类可以出现在其他地方。
+
+接着反编译大法登场：
+
+```java
+// 为方便阅读，对反编译代码进行了优化
+public abstract class Person {
+  private final String name;
+  private int age;
+  // 省略 getter() 和 setter()
+  
+  public Person(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  public static final class Adult extends Person {
+    public Adult(@NotNull String name, int age) {
+      super(name, age);
+    }
+  }
+  
+  public static final class Child extends Person {
+    public Child(@NotNull String name, int age) {
+      super(name, age);
+    }
+  }
+}
+```
+
+这里 Adult 类和 Child 类被编译为 Person 类的**静态内部类**，是因为它们定义在密封类的内部；如果放在同一个文件里定义，则不会被编译为内部类。
+
+**密封类的使用**
+
+密封类的使用与一般抽象类并无不同，也就是说不能使用密封类实例化对象，只能用它的子类实例化对象。
+
+密封类功能更多在于限制继承，起到划分子类的作用。将抽象类定义为密封类，可以 **禁止外部继承**，对于一些只划分为固定类型的数据，可以保证安全。
+
+除此以外，密封类唯一的不同之处在于 when 语句对它有一个优化：因为密封类的子类型是确定的，所以在用 when 语句遍历密封类的子类时，可以不加 else 语句。
 
 
 
+使用密封类的关键好处在于使用 [`when` 表达式](https://www.kotlincn.net/docs/reference/control-flow.html#when-表达式) 的时候，如果能够验证语句覆盖了所有情况，就不需要为该语句再添加一个 `else` 子句了。当然，这只有当你用 `when` 作为表达式（使用结果）而不是作为语句时才有用。
 
+```kotlin
+sealed class Expression
 
+data class Num(val number: Double) : Expression()
+data class Sum(val e1: Expression, val e2: Expression) : Expression()
+object NotAnNumber : Expression()
 
+fun eval(expr: Expression) : Double = when(expr) {
+    is Num -> expr.number
+    is Sum -> eval(expr.e1) + eval(expr.e2)
+    NotAnNumber -> Double.NaN
+}
 
+fun main(args: Array<String>) {
 
+    val num1 = Num(5.5)
+    val num2 = Num(10.0)
+    println("The sum of 5.5 and 10.0 is ${eval(Sum(num1, num2))}") //The sum of 5.5 and 10.0 is 15.5
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
+```
 
 
 
