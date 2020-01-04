@@ -1,5 +1,9 @@
 # lambda
 
+参考：
+
++ [高阶函数与 lambda 表达式](https://www.kotlincn.net/docs/reference/lambdas.html)
+
 有时候一个函数以另一个函数作为参数
 
 ## Higher-Order VS lambda
@@ -39,6 +43,8 @@ fun main(args: Array<String>) {
 1.`it`表示的是单个参数的隐式名称。一个 lambda 表达式只有一个参数是很常见的。
 
 如果编译器自己可以识别出签名，也可以不用声明唯一的参数并忽略 `->`。 该参数会隐式声明为 `it`：
+
+
 
 
 
