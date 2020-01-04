@@ -336,23 +336,80 @@ var setterVisibility: String = "abc"
 
 
 
+## 嵌套类与内部类
+
+参考：
+
++ [嵌套类与内部类](https://www.kotlincn.net/docs/reference/nested-classes.html)
 
 
 
+## this
+
+参考：
+
++ [This 表达式](https://www.kotlincn.net/docs/reference/this-expressions.html)
+
+要访问来自外部作用域的*this*，我们使用`this@label`，其中 `@label` 是一个代指 *this* 来源的标签
+
+如下的例子：
+
+```kotlin
+class Person {
+    var firstName = ""
+    var child = Child()
+
+    inner class Child {
+        var firstName = ""
+        fun printParentage() {
+            println("Child ${this@Child.firstName} with parent ${this@Person.firstName}")
+        }
+    }
+}
+fun String.lastChar() : Char = this.get(this.length-1)
+
+fun main(args: Array<String>) {
+    val person = Person()
+    person.firstName = "Sam"
+    person.child.firstName = "Suzy"
+    person.child.printParentage() //Child Suzy with parent Sam
+
+    println("Hello there ${"Sammy".lastChar()}") //Hello there y
+}
+```
 
 
 
+## lateinit
 
+参考：
 
++ [延迟初始化属性与变量](https://www.kotlincn.net/docs/reference/properties.html#延迟初始化属性与变量)
 
+> 一般地，属性声明为非空类型必须在构造函数中初始化。 然而，这经常不方便。例如：属性可以通过依赖注入来初始化， 或者在单元测试的 setup 方法中初始化。 这种情况下，你不能在构造函数内提供一个非空初始器。 但你仍然想在类体中引用该属性时避免空检测。
 
+为处理这种情况，你可以用 `lateinit` 修饰符标记该属性：
 
+要检测一个 `lateinit var` 是否已经初始化过，请在[该属性的引用](https://www.kotlincn.net/docs/reference/reflection.html#属性引用)上使用 `.isInitialized`
 
+```kotlin
+class Person(var firstName: String, var lastName : String) {
+    lateinit var fullName : String
+    init {
+        fullName = firstName + " " + lastName
+    }
+    fun printFullName() {
+        if (!this::fullName.isInitialized) {
+            fullName = firstName + " " + lastName
+        }
+        println(fullName)
+    }
 
-
-
-
-
+}
+fun main(args: Array<String>) {
+    Person("Sam", "Gamgee").printFullName()
+}
+```
 
 
 
