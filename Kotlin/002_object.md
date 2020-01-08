@@ -97,7 +97,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-这些对象可以用超类型
+这些对象可以有超类型
 
 ```kotlin
 object DefaultListener : MouseAdapter() {
