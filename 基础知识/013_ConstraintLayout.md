@@ -17,3 +17,12 @@
 
 ![027](https://github.com/winfredzen/Android-Basic/raw/master/images/027.png)
 
+## Constraint Bias
+
+参考：
+
++ [Constraint Bias](https://www.raywenderlich.com/9193-constraintlayout-tutorial-for-android-getting-started)
+
+>When a view is constrained on both sides horizontally or vertically, either to parent or other views, by default it has 0.5 or 50% constraint bias. In other words, the view stays in the center between the two edges to which it’s constrained.
+>
+>Constraint bias ranges from 0.0 (0%) to 1.0 (100%). Horizontal constraint bias grows from left to right, while vertical constraint bias grows from top to bottom. Constraint bias is useful for positioning a view dynamically for different screen sizes.
