@@ -17,6 +17,25 @@
 
 ![027](https://github.com/winfredzen/Android-Basic/raw/master/images/027.png)
 
+## 居中和偏移
+
+`ConstraintLayout`中居中的写法是
+
+```kotlin
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintLeft_toLeftOf="parent"
+app:layout_constraintRight_toRightOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+```
+
+使用margin来设置偏移，如
+
+```xml
+android:layout_marginLeft="100dp"
+```
+
+
+
 ## Constraint Bias
 
 参考：
