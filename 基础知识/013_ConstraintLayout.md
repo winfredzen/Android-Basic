@@ -63,6 +63,27 @@
 
 
 
+## Chain
+
+**生成Chain**
+
+选择多个组件后，右键选择`Chains`
+
+注意`Chain heads`
+
+切换Chain的模式，也是右键，选择`Cycle Chain Mode`，例如：
+
+```xml
+ app:layout_constraintHorizontal_chainStyle="packed"
+```
+
+而且貌似只作用于`Chain heads`
+
+可参考：
+
++ [Chains](https://constraintlayout.com/basics/create_chains.html)
++ [ConstraintLayout Tutorial for Android: Complex Layouts](https://www.raywenderlich.com/9475-constraintlayout-tutorial-for-android-complex-layouts)
+
 
 
 
