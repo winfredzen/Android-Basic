@@ -109,6 +109,50 @@ class CreatureAdpater(private val creatures: MutableList<Creature>) : RecyclerVi
 
 
 
+## Nested RecyclerViews
+
+RecyclerView的嵌套，如下所示，list_item中又嵌入了一个水平滚动的RecyclerView，滑动起来有点卡顿
+
+![012](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/012.png)
+
+可以使用[RecycledViewPool](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.RecycledViewPool)来提高滚动的流程性
+
+> RecycledViewPool lets you share Views between multiple RecyclerViews.
+>
+> RecycledViewPool可在多个RecyclerViews间共享view
+>
+> If you want to recycle views across RecyclerViews, create an instance of RecycledViewPool and use `setRecycledViewPool(RecycledViewPool)`.
+>
+> RecyclerView automatically creates a pool for itself if you don't provide one.
+
+还可使用[SnapHelper](https://developer.android.com/reference/android/support/v7/widget/SnapHelper.html)，SnapHelper是个抽象类，可使用其子类[LinearSnapHelper](https://developer.android.com/reference/android/support/v7/widget/LinearSnapHelper)
+
+参考：
+
++ [让你明明白白的使用RecyclerView——SnapHelper详解](https://www.jianshu.com/p/e54db232df62)
++ [SnapHelper学习记录](https://juejin.im/entry/59bdc3575188256bce40dec6)
+
+>RecyclerView在24.2.0版本中新增了SnapHelper这个辅助类，用于辅助RecyclerView在滚动结束时将Item对齐到某个位置。特别是列表横向滑动时，很多时候不会让列表滑到任意位置，而是会有一定的规则限制，这时候就可以通过SnapHelper来定义对齐规则了。
+>
+>SnapHelper是一个抽象类，官方提供了一个LinearSnapHelper的子类，可以让RecyclerView滚动停止时相应的Item停留中间位置。25.1.0版本中官方又提供了一个PagerSnapHelper的子类，可以使RecyclerView像ViewPager一样的效果，一次只能滑一页，而且居中显示。
+>
+>这两个子类使用方式也很简单，只需要创建对象之后调用`attachToRecyclerView()`附着到对应的RecyclerView对象上就可以了。
+>
+>
+>
+>**Fling操作**
+>
+>首先来了解一个概念，手指在屏幕上滑动RecyclerView然后松手，RecyclerView中的内容会顺着惯性继续往手指滑动的方向继续滚动直到停止，这个过程叫做**Fling**。Fling操作从手指离开屏幕瞬间被触发，在滚动停止时结束。
+
+>LinearSnapHelper&PagerSnapHelper是抽象类SnapHelper的具体实现。
+>区别在于：
+>LinerSnapHelper，可滑动多页，居中显示；
+>PagerSnapHelper，每次只能滑动一页，居中显示；
+
+![013](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/013.png)
+
+
+
 ## 布局管理器
 
 Android 支持库包含三个标准布局管理器
