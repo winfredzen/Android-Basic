@@ -1,6 +1,6 @@
 # ImageView
 
-**1.知道图片的名称，来设置图片**
+**1.通过图片的名称，来设置图片**
 
 通过`int getIdentifier(String name, String defType, String defPackage)`方法获取resID
 
