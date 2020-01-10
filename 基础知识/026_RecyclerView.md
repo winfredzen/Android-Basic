@@ -28,7 +28,7 @@
 
 5.显示的数据项发生变化时，调用 `RecyclerView.Adapter.notify…()` 方法通知适配器
 
-
+6.布局管理器
 
 ### 如何处理点击事件
 
@@ -98,14 +98,36 @@ class CreatureAdpater(private val creatures: MutableList<Creature>) : RecyclerVi
     }
 
 }
+```
 
+设置`adapter`和`layoutManager`
+
+```kotlin
+    creatureRecyclerView.layoutManager = LinearLayoutManager(activity)
+    creatureRecyclerView.adapter = adpater
 ```
 
 
 
+## 布局管理器
+
+Android 支持库包含三个标准布局管理器
+
++ [LinearLayoutManager](https://developer.android.com/reference/androidx/recyclerview/widget/LinearLayoutManager.html)
++ [GridLayoutManager](https://developer.android.com/reference/androidx/gridlayout/widget/GridLayoutManager.html)
++ [StaggeredGridLayoutManager](https://developer.android.com/reference/androidx/recyclerview/widget/StaggeredGridLayoutManager.html)
 
 
 
+### LinearLayoutManager
+
+可实现竖直和水平布局
+
+如，实现水平布局：
+
+```kotlin
+foodRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+```
 
 
 
