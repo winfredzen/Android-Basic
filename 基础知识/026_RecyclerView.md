@@ -129,7 +129,7 @@ Android 支持库包含三个标准布局管理器
 foodRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 ```
 
-
+![011](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/011.png)
 
 
 
