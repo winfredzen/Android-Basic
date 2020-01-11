@@ -243,6 +243,11 @@ layoutManager.spanCount = 1
 >
 >All ItemDecorations are drawn in the order they were added, before the item views (in `onDraw()` and after the items (in `onDrawOver(Canvas, RecyclerView, RecyclerView.State)`.
 
+可参考：
+
++ [RecyclerView之ItemDecoration由浅入深](https://www.jianshu.com/p/b46a4ff7c10a)
++ [深入解析 RecyclerView.ItemDecoration类（含实例讲解）](https://juejin.im/entry/596587ea51882568cb6b49de)
+
 ### Offsets
 
 从上面例子的效果可以看出，item之间的spacing是不一致的，中间的大一些
