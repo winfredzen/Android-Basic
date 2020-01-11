@@ -211,7 +211,17 @@ creatureRecyclerView.layoutManager = GridLayoutManager(activity, 2, GridLayoutMa
 
 
 
+### StaggeredGridLayoutManager
 
+[StaggeredGridLayoutManager](https://developer.android.com/reference/android/support/v7/widget/StaggeredGridLayoutManager)可实现瀑布流式的布局
+
+```kotlin
+        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        creatureRecyclerView.layoutManager = layoutManager
+        creatureRecyclerView.adapter = adpater
+```
+
+![016](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/016.png)
 
 
 
