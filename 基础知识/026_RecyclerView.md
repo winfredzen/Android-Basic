@@ -301,7 +301,59 @@ class SpacingItemDecoration(private val spanCount: Int, private val spacing: Int
 
 
 
+### Divider
 
+分割线，一般重写`onDrawOver(Canvas c, RecyclerView parent, State state)`方法
+
+```kotlin
+class DividerItemDecoration(color: Int, private val heightPixels: Int) : RecyclerView.ItemDecoration() {
+
+    private val paint = Paint()
+
+    init {
+        paint.color = color
+        paint.isAntiAlias = true
+    }
+
+
+    override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State?) {
+        super.onDrawOver(c, parent, state)
+
+        val left = parent.paddingLeft
+        val right = parent.width - parent.paddingRight
+
+        val childCount = parent.childCount
+        for (i in 0 until childCount) {
+
+            val child = parent.getChildAt(i)
+
+            val params = child.layoutParams as RecyclerView.LayoutParams
+
+            val top = child.bottom + params.bottomMargin
+            val bottom = top + heightPixels
+
+            c.drawRect(left.toFloat(), top.toFloat(), right.toFloat(), bottom.toFloat(), paint)
+
+        }
+
+    }
+}
+```
+
+```kotlin
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+
+    favoritesRecyclerView.layoutManager = LinearLayoutManager(activity)
+    favoritesRecyclerView.adapter = adpater
+
+    val heightInPixels = resources.getDimensionPixelSize(R.dimen.list_item_divider_height)
+    favoritesRecyclerView.addItemDecoration(DividerItemDecoration(ContextCompat.getColor(context!!, R.color.black), heightInPixels))
+
+  }
+```
+
+![021](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/021.png)
 
 
 
