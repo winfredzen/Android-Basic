@@ -223,9 +223,13 @@ creatureRecyclerView.layoutManager = GridLayoutManager(activity, 2, GridLayoutMa
 
 ![016](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/016.png)
 
+通过设置`spanCount`，可以切换显示
 
+```kotlin
+layoutManager.spanCount = 1
+```
 
-
+![017](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/017.gif)
 
 
 
