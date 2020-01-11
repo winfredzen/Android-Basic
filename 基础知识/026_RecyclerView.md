@@ -157,9 +157,9 @@ RecyclerView的嵌套，如下所示，list_item中又嵌入了一个水平滚�
 
 Android 支持库包含三个标准布局管理器
 
-+ [LinearLayoutManager](https://developer.android.com/reference/androidx/recyclerview/widget/LinearLayoutManager.html)
-+ [GridLayoutManager](https://developer.android.com/reference/androidx/gridlayout/widget/GridLayoutManager.html)
-+ [StaggeredGridLayoutManager](https://developer.android.com/reference/androidx/recyclerview/widget/StaggeredGridLayoutManager.html)
++ [LinearLayoutManager](https://developer.android.com/reference/android/support/v7/widget/LinearLayoutManager?hl=en)
++ [GridLayoutManager](https://developer.android.com/reference/android/support/v7/widget/GridLayoutManager) - 网格
++ [StaggeredGridLayoutManager](https://developer.android.com/reference/android/support/v7/widget/StaggeredGridLayoutManager?hl=en) - 类似于Pinterest
 
 
 
@@ -174,6 +174,48 @@ foodRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.H
 ```
 
 ![011](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/011.png)
+
+
+
+###GridLayoutManager
+
+[GridLayoutManager](https://developer.android.com/reference/android/support/v7/widget/GridLayoutManager)实现网格布局
+
+简单的例子，指定一行有多少个span，下面的例子，2列
+
+```kotlin
+creatureRecyclerView.layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
+```
+
+![014](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/014.png)
+
+> By default, each item occupies 1 span. You can change it by providing a custom `GridLayoutManager.SpanSizeLookup` instance via `setSpanSizeLookup(SpanSizeLookup)`.
+>
+> 默认，每个item占据一个span。可以通过`GridLayoutManager.SpanSizeLookup` 实例的 `setSpanSizeLookup(SpanSizeLookup)`提供一个自定义的span
+
+如下面的例子
+
+```kotlin
+    val layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
+    layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+      override fun getSpanSize(position: Int): Int {
+        return if((position + 1) % 3 == 0) 2 else 1
+      }
+
+    }
+    creatureRecyclerView.layoutManager = layoutManager
+    creatureRecyclerView.adapter = adpater
+```
+
+![015](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/015.png)
+
+
+
+
+
+
+
+
 
 
 
