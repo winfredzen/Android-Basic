@@ -233,6 +233,72 @@ layoutManager.spanCount = 1
 
 
 
+## Item Decoration
+
+[ItemDecoration](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ItemDecoration)
+
+>An ItemDecoration allows the application to add a special drawing and layout offset to specific item views from the adapter's data set. This can be useful for drawing dividers between items, highlights, visual grouping boundaries and more.
+>
+>添加特殊形状和布局偏移。在绘制item之间的divider，highlights， grouping boundaries非常有用
+>
+>All ItemDecorations are drawn in the order they were added, before the item views (in `onDraw()` and after the items (in `onDrawOver(Canvas, RecyclerView, RecyclerView.State)`.
+
+### Offsets
+
+从上面例子的效果可以看出，item之间的spacing是不一致的，中间的大一些
+
+如果移除`android:layout_margin`，上面的recyclerView显示效果如下：
+
+![018](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/018.png)
+
+![019](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/019.png)
+
+如果想要控制item的准确间距，可使用`RecyclerView.ItemDecoration`
+
+如下自定义一个`SpacingItemDecoration`
+
+```kotlin
+class SpacingItemDecoration(private val spanCount: Int, private val spacing: Int) : RecyclerView.ItemDecoration() {
+
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+        super.getItemOffsets(outRect, view, parent, state)
+
+        val position = parent.getChildAdapterPosition(view)
+
+        outRect.top = spacing / 2
+        outRect.bottom = spacing / 2
+        outRect.left = spacing / 2
+        outRect.right = spacing / 2
+
+        //top
+        if (position < spanCount) {
+            outRect.top = spacing
+        }
+
+        //left
+        if (position % spanCount == 0) {
+            outRect.left = spacing
+        }
+
+        //right
+        if ((position + 1) % spanCount == 0) {
+            outRect.right = spacing
+        }
+    }
+
+}
+```
+
+```kotlin
+        gridItemDecoration = SpacingItemDecoration(2, spacingInPixels)
+
+        creatureRecyclerView.addItemDecoration(gridItemDecoration)
+```
+
+效果如下：
+
+![020](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/020.png)
+
 
 
 
