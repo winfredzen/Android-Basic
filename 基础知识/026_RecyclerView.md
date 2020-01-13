@@ -175,9 +175,7 @@ foodRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.H
 
 ![011](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/011.png)
 
-
-
-###GridLayoutManager
+### GridLayoutManager
 
 [GridLayoutManager](https://developer.android.com/reference/android/support/v7/widget/GridLayoutManager)实现网格布局
 
@@ -362,11 +360,38 @@ class DividerItemDecoration(color: Int, private val heightPixels: Int) : Recycle
 
 
 
+## Animation
 
+可以为列表中的单个view，添加动画
 
+如下定义缩放动画效果`scale_xy.xml`
 
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <scale android:duration="@android:integer/config_mediumAnimTime"
+        android:fromXScale="0.0"
+        android:fromYScale="0.0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toYScale="1.0"
+        android:toXScale="1.0"
+        />
 
+    <alpha android:duration="@android:integer/config_mediumAnimTime"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        />
+
+</set>
+```
+
+在Adpter中的ViewHolder下的`bind`方法，给itemView添加animation
+
+![022](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/022.png)
+
+![023](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/023.gif)
 
 
 
