@@ -407,7 +407,11 @@ class DividerItemDecoration(color: Int, private val heightPixels: Int) : Recycle
 
 
 
+## ItemTouchHelper
 
+[ItemTouchHelper](https://developer.android.com/reference/android/support/v7/widget/helper/ItemTouchHelper)继承自[ItemDecoration](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ItemDecoration.html)
+
+`ItemTouchHelper`用来实现`RecyclerView`拖动排序和滑动删除
 
 
 
