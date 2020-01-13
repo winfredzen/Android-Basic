@@ -395,6 +395,42 @@ class DividerItemDecoration(color: Int, private val heightPixels: Int) : Recycle
 
 
 
+## Section Header
+
+按iOS的理解，这里的sectionHeader应该是不同类型的cell
+
+注意重写`getItemViewType`方法
+
+![024](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/024.png)
+
+![025](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/025.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
