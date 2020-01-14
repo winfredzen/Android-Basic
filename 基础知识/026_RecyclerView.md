@@ -4,6 +4,8 @@
 
 + [使用 RecyclerView 创建列表](https://developer.android.com/guide/topics/ui/layout/recyclerview)
 
+下面的例子，参考[Beginning RecyclerView](https://www.raywenderlich.com/4568-beginning-recyclerview)教程，demo例子代码位于[BeginningRecyclerView](https://github.com/winfredzen/Android_Learn_Code/tree/master/BeginningRecyclerView)
+
 ## 如何使用
 
 1.需要在xml布局中添加`RecyclerView`
@@ -413,9 +415,35 @@ class DividerItemDecoration(color: Int, private val heightPixels: Int) : Recycle
 
 `ItemTouchHelper`用来实现`RecyclerView`拖动排序和滑动删除
 
+它与RecyclerView和Callback类一起使用，后者配置启用了哪种类型的交互，并在用户执行这些操作时接收事件。
 
+根据你支持的功能，可以重写`onMove(RecyclerView, ViewHolder, ViewHolder)`和`onSwiped(ViewHolder, int)`方法
 
+此类设计为可与任何`LayoutManager`一起使用，但在某些情况下，可以通过扩展`ItemTouchHelper.Callback`类中的方法或在`LayoutManager`中实现`ItemTouchHelper.ViewDropHandler`接口，针对自定义`LayoutManager`对其进行优化。
 
+默认情况下，`ItemTouchHelper`会移动项目的`translationX/Y`属性以重新定位它们。 您可以通过覆盖`onChildDraw(Canvas, RecyclerView, ViewHolder, float, float, int, boolean)` 或`onChildDrawOver(Canvas, RecyclerView, ViewHolder, float, float, int, boolean)`来自定义这些行为。
+
+其构造方法：
+
+```java
+ItemTouchHelper (ItemTouchHelper.Callback callback)
+```
+
+需要一个[ItemTouchHelper.Callback](https://developer.android.com/reference/android/support/v7/widget/helper/ItemTouchHelper.Callback)
+
+> To control which actions user can take on each view, you should override `getMovementFlags(RecyclerView, ViewHolder)` and return appropriate set of direction flags. (`LEFT`, `RIGHT`, `START`, `END`, `UP`, `DOWN`). You can use `makeMovementFlags(int, int)` to easily construct it. Alternatively, you can use `ItemTouchHelper.SimpleCallback`.
+>
+> 若要控制用户在每个视图上可执行的操作，重写`getMovementFlags(RecyclerView, ViewHolder)` 方法，返回适当的direction flags（LEFT, RIGHT, START, END, UP, DOWN）。可使用`makeMovementFlags(int, int)` 方法来构建它。或者使用 `ItemTouchHelper.SimpleCallback`
+
+> If user drags an item, ItemTouchHelper will call `onMove(recyclerView, dragged, target)`. Upon receiving this callback, you should move the item from the old position (`dragged.getAdapterPosition()`) to new position (`target.getAdapterPosition()`) in your adapter and also call `notifyItemMoved(int, int)`. 
+>
+> drag的时候会调用`onMove(recyclerView, dragged, target)`方法
+
+> When a View is swiped, ItemTouchHelper animates it until it goes out of bounds, then calls `onSwiped(ViewHolder, int)`. At this point, you should update your adapter (e.g. remove the item) and call related Adapter#notify event.
+>
+> swipe的时候，调用`onSwiped(ViewHolder, int)`
+
+![026](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/026.gif)
 
 
 
