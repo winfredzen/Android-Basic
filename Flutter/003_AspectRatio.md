@@ -17,5 +17,18 @@ AspectRatio({Key key, @required double aspectRatio, Widget child })
 
 如下的简单的例子：
 
+```dart
+      body: Container(
+        color: Colors.yellow,
+        height: 200.0,
+        child: AspectRatio(
+          aspectRatio: 1,
+          child: Container(
+            color: Colors.blue,
+          ),
+        ),
+      ),
+```
 
+![005](https://github.com/winfredzen/Android-Basic/blob/master/Flutter/images/005.png)
 
