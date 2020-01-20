@@ -63,7 +63,7 @@ Positioned控制Stack的child的位置。Positioned必须是Stack的后代
       ),
 ```
 
-![005](https://github.com/winfredzen/Android-Basic/blob/master/Flutter/images/005.png)
+![006](https://github.com/winfredzen/Android-Basic/blob/master/Flutter/images/006.png)
 
 
 
