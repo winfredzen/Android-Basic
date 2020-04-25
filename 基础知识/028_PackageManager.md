@@ -146,15 +146,34 @@ public abstract List<ResolveInfo> queryIntentActivities (Intent intent,
 
 
 
+## 使用NerdLauncher应用作为设备主屏幕
+
+添加**HOME**和**DEFAULT**类别定义后，NerdLauncher应用的activity会成为可选的主界面
+
+```xml
+<intent-filter>
+	<action android:name="android.intent.action.MAIN" /> 
+	<category android:name="android.intent.category.LAUNCHER" /> 
+	<category android:name="android.intent.category.HOME" /> 
+	<category android:name="android.intent.category.DEFAULT" />
+</intent-filter>
+```
 
 
 
+## 进程与任务
 
+对象需要内存和虚拟机的支持才能生存。**进程**是操作系统创建的、供应用对象生存以及应用运行的地方。
 
+进程通常会占用由操作系统管理着的系统资源，如内存、网络端口以及打开的文件等。进程还拥有至少一个(可能多个)执行线程。在Android系统中，每个进程都需要一个**虚拟机**来运行。
 
+尽管存在未知的异常情况，但总的来说，Android世界里的每个应用组件都仅与一个进程相关联。应用伴随着自己的进程一起完成创建，该进程同时也是应用中所有组件的默认进程。
 
+(虽然组件可以指派给不同的进程，但我们推荐使用默认进程。如果确实需要在不同进程中运行应用组件，通常也可以借助多线程来实现。相比多进程的使用，Android多线程的使用更加简单。)
 
+每一个activity实例都仅存在于一个进程之中，同一个任务关联。这也是进程与任务的唯一相似之处。任务只包含activity，这些activity通常来自于不同的应用进程;而进程则包含了应用的全部运行代码和对象。
 
+进程与任务很容易让人混淆，主要原因在于它们不仅在概念上有某种重叠，而且通常会被人以应用名提及。例如，从`NerdLauncher`启动器中启动`CriminalIntent`应用时，操作系统创建了一个`CriminalIntent`进程以及一个以`CrimeListActivity`为基栈activity的新任务。在overview screen中， 可以看到这个任务就被标名为`CriminalIntent`。
 
 
 
