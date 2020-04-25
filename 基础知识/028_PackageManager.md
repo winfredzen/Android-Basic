@@ -96,6 +96,68 @@ public abstract List<ResolveInfo> queryIntentActivities (Intent intent,
 
 
 
+### 任务与回退栈
+
+应用运行时，Android使用任务来跟踪用户的状态。通过**Android默认启动器**应用打开的应用都有自己的任务
+
+**任务**是一个activity栈。栈底部的activity通常称为基activity。栈顶的activity用户能看得到。如果按后退键，栈顶activity会弹出栈外。如果用户看到的是基activity，按后退键，系统就会回到主屏幕
+
+默认情况下，新activity都在当前任务中启动。
+
+![046](https://github.com/winfredzen/Android-Basic/blob/master/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/images/046.png)
+
+在当前任务中启动activity的好处是，用户可以在任务内而不是在应用层级间导航返回
+
+![047](https://github.com/winfredzen/Android-Basic/blob/master/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/images/047.png)
+
+
+
+### 启动新任务
+
+有时你需要在当前任务中启动activity，而有时又需要在新任务中启动activity
+
+在上面的例子中，从NerdLauncher启动的任何activity都会添加到NerdLauncher任务中
+
+![048](https://github.com/winfredzen/Android-Basic/blob/master/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/images/048.png)
+
+现在是需要NerdLauncher在**新任务**中启动activity
+
+![049](https://github.com/winfredzen/Android-Basic/blob/master/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/images/049.png)
+
+为了在启动新activity时启动新任务，需要为intent添加一个**标志**
+
+```java
+        /*点击监听*/
+        @Override
+        public void onClick(View v) {
+
+            ActivityInfo activityInfo = mResolveInfo.activityInfo;
+
+            Intent intent = new Intent(Intent.ACTION_MAIN)
+                    .setClassName(activityInfo.applicationInfo.packageName, activityInfo.name)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+            startActivity(intent);
+
+        }
+```
+
+![050](https://github.com/winfredzen/Android-Basic/blob/master/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/images/050.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
