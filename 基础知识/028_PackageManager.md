@@ -32,10 +32,13 @@ public abstract List<ResolveInfo> queryIntentActivities (Intent intent,
 + intent 查询条件，Activity所配置的action和category
 + flags：MATCH_DEFAULT_ONLY:Category必须带有CATEGORY_DEFAULT的Activity;GET_INTENT_FILTERS:匹配Intent条件即可;GET_RESOLVED_FILTER:匹配Intent条件即可;(本质上是Activity)
 
-如下，获取activity，并按activity标签首字母排序
+如下，获取activity，并按activity标签首字母排序。使用的是隐式Intent获取目标activity
 
 ```java
-        PackageManager pm = getActivity().getPackageManager();
+        Intent startIntent = new Intent(Intent.ACTION_MAIN);
+        startIntent.addCategory(Intent.CATEGORY_LAUNCHER); 
+
+				PackageManager pm = getActivity().getPackageManager();
         List<ResolveInfo> activities = pm.queryIntentActivities(startIntent, 0);
 
         Log.i(TAG, "Found " + activities.size() + " activities.");
@@ -64,13 +67,32 @@ public abstract List<ResolveInfo> queryIntentActivities (Intent intent,
         }
 ```
 
-
+![044](https://github.com/winfredzen/Android-Basic/blob/master/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/images/044.png)
 
 ## 启动目标Activity
 
+启动activity，需创建启动activity的显示intent，需要从`ResolveInfo`对象中获取activity的包名与类名
 
+```java
+        /*点击监听*/
+        @Override
+        public void onClick(View v) {
 
+            ActivityInfo activityInfo = mResolveInfo.activityInfo;
 
+            Intent intent = new Intent(Intent.ACTION_MAIN)
+                    .setClassName(activityInfo.applicationInfo.packageName, activityInfo.name);
+
+            startActivity(intent);
+
+        }
+```
+
+例如，此时点击“58同城”该应用，在overview screen会发现，并没用启动的新的应用，后台只有一个当前的应用`NerdLauncher`
+
+![045](https://github.com/winfredzen/Android-Basic/blob/master/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/images/045.png)
+
+这是为什么呢？
 
 
 
