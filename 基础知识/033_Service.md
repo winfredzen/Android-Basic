@@ -76,15 +76,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 界面效果如下：
 
+![052](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/052.png)
+
+当点击`START SERVICE`时，控制台输出如下：
+
+```xml
+06-03 16:53:13.474 31948-31948/com.example.servicetest D/MyService: onCreate executed
+06-03 16:53:13.474 31948-31948/com.example.servicetest D/MyService: onStartCommand executed
+```
+
+当点击`STOP SERVICE`时，控制天输出如下：
+
+```xml
+06-03 16:53:53.544 31948-31948/com.example.servicetest D/MyService: onDestroy executed
+```
+
+如果多次点击`START SERVICE`，只会输出
+
+```xml
+06-03 16:55:20.199 31948-31948/com.example.servicetest D/MyService: onStartCommand executed
+```
+
+表示`onStartCommand`方法被调用
 
 
-当点击
 
+通常可在Settings->Developer options->Running services中找到**正在运行的服务**
 
-
-
-
-
+![053](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/053.png)
 
 
 
