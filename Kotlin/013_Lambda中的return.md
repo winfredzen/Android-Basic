@@ -11,7 +11,7 @@
 
 我删除`@OnNavigationItemSelectedListener`，会提示如下的错误
 
-![011](https://github.com/winfredzen/Android-Basic/raw/master/Kotlin/images/010.png)
+![011](https://github.com/winfredzen/Android-Basic/raw/master/Kotlin/images/011.png)
 
 参考上面的教程，在lambda中直接返回，会提示如下的错误
 
