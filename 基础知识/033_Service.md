@@ -263,11 +263,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+点击下`BIND SERVICE`按钮，控制台输出如下：
 
+```xml
+06-03 18:02:33.722 1486-1486/com.example.servicetest D/MyService: onCreate executed
+06-03 18:02:33.726 1486-1486/com.example.servicetest D/MyService: startDownload executed
+06-03 18:02:33.727 1486-1486/com.example.servicetest D/MyService: getProgress executed
+```
 
+说明在活动中已近成功调用了服务里提供的方法了
 
+点击下`UNBIND SERVICE`按钮，控制台输出如下：
 
-
+```xml
+06-03 18:03:32.299 1486-1486/com.example.servicetest D/MyService: onDestroy executed
+```
 
 
 
