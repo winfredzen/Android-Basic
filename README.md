@@ -1,3 +1,8 @@
-# Android
+# Android笔记
 
-自学Android的笔记，可在对应的文件夹中查看具体内容
+
+
+## 配置编译版本
+
++ [为方法数超过 64K 的应用启用多 dex 文件](https://developer.android.com/studio/build/multidex)
+
