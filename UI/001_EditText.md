@@ -32,3 +32,14 @@ android:background="@color/transparent"
 
 ![002](https://github.com/winfredzen/Android-Basic/blob/master/UI/images/002.png)
 
+
+
+**2.单行文本**
+
+```xml
+            android:singleLine="true"
+            android:maxLines="1"
+```
+
+
+
