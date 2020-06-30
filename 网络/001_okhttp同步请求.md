@@ -9,6 +9,18 @@
 
 > **Synchronous:** your thread blocks until the response is readable.
 
+同步的请求需要一个`AsyncTask`来包裹它
+
+> **Synchronous** calls require an AsyncTask wrapper around it. That means it doesn’t support cancelling a request. Also, AsyncTasks generally leak the Activity’s context, which is not preferred.
+>
+> 这表示它不支持取消一个request。另外，AsyncTask会泄漏Activity的context，所以不建议这么做
+
+注意网络请求需要权限
+
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
 如下的例子，获取百度网页数据
 
 ```java
@@ -64,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-
+![001](https://github.com/winfredzen/Android-Basic/blob/master/网络/images/001.png)
 
 
 
