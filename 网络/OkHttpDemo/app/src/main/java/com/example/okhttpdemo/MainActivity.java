@@ -6,8 +6,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -27,12 +31,17 @@ public class MainActivity extends AppCompatActivity {
 
         mTextView = (TextView) findViewById(R.id.textView);
 
-        OkHttpHandler okHttpHandler = new OkHttpHandler();
-        okHttpHandler.execute(url);
+        //同步
+//        OkHttpHandler okHttpHandler = new OkHttpHandler();
+//        okHttpHandler.execute(url);
+
+        //异步
+        asycnRequest();
 
     }
 
 
+    //同步请求的方式
     public class OkHttpHandler extends AsyncTask<String, Void, String> {
 
         OkHttpClient client = new OkHttpClient();
@@ -59,6 +68,38 @@ public class MainActivity extends AppCompatActivity {
 
             mTextView.setText(s);
         }
+    }
+
+    //异步请求的方式
+    private void asycnRequest() {
+
+        OkHttpClient client = new OkHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+
+                final String myResponse = response.body().string();
+
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mTextView.setText(myResponse);
+                    }
+                });
+
+            }
+        });
+
     }
 
 }
