@@ -128,37 +128,58 @@ client.newCall(request).enqueue(new Callback() {
 
 
 
+## POST JSON
 
+```java
 
+public class MainActivity extends AppCompatActivity {
 
+    public String postUrl= "https://reqres.in/api/users/";
+    public String postBody="{\n" +
+            "    \"name\": \"morpheus\",\n" +
+            "    \"job\": \"leader\"\n" +
+            "}";
 
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
+        try {
+            postRequest(postUrl,postBody);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    void postRequest(String postUrl,String postBody) throws IOException {
 
+        OkHttpClient client = new OkHttpClient();
 
+        RequestBody body = RequestBody.create(JSON, postBody);
 
+        Request request = new Request.Builder()
+                .url(postUrl)
+                .post(body)
+                .build();
 
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                call.cancel();
+            }
 
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.d("TAG",response.body().string());
+            }
+        });
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
 
 
 
