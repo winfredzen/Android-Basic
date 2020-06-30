@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -145,6 +148,16 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+
+                        try {
+                            JSONObject jsonObject = new JSONObject(myResponse);
+
+                            Log.d("MainActivity", jsonObject.toString());
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                         mTextView.setText(myResponse);
                     }
                 });
