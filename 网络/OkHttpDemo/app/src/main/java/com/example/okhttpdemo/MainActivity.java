@@ -12,6 +12,7 @@ import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -32,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
         mTextView = (TextView) findViewById(R.id.textView);
 
         //同步
-//        OkHttpHandler okHttpHandler = new OkHttpHandler();
-//        okHttpHandler.execute(url);
+        OkHttpHandler okHttpHandler = new OkHttpHandler();
+        okHttpHandler.execute(url);
 
-        //异步
-        asycnRequest();
+//        //异步
+//        asycnRequest();
 
     }
 
@@ -53,6 +54,17 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 Response response = client.newCall(request).execute();
+
+                //输出headers
+
+                if (!response.isSuccessful()) {
+                    throw new IOException("Unexpected code " + response);
+                }
+                Headers responseHeaders = response.headers();
+                for (int i = 0; i < responseHeaders.size(); i++) {
+                    System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
+                }
+
                 return response.body().string();
 
             } catch (IOException e) {
