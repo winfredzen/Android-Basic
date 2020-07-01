@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
     //query param
     private void queryParamRequest() {
 
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new LogginInterceptor()).build(); //测试拦截器
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse("https://httpbin.org/get").newBuilder();
         urlBuilder.addQueryParameter("website", "www.journaldev.com");
