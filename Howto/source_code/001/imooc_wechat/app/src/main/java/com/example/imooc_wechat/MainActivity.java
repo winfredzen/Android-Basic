@@ -61,7 +61,18 @@ public class MainActivity extends AppCompatActivity {
 
 //                return mFragments.get(position);
 
-                return TabFragment.newInstance(mTitles.get(position));
+                TabFragment fragment = TabFragment.newInstance(mTitles.get(position));
+
+                if (position == 0) {
+                    fragment.setOnTitleClickListener(new TabFragment.OnTitleClickListener() {
+                        @Override
+                        public void onClick(String title) {
+                            changeWeChatTab(title);
+                        }
+                    });
+                }
+
+                return fragment;
             }
 
             @Override
@@ -104,6 +115,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void changeWeChatTab(String title) {
+        mBtnWechat.setText(title);
     }
 
 

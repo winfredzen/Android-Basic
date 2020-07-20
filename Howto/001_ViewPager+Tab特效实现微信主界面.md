@@ -174,11 +174,59 @@ private SparseArray<TabFragment> mFragments = new SparseArray<>();
 
 
 
+##Fragment调用Activity
+
+通常的写法，如下：
+
+```java
+        mTvTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //获取activity
+                MainActivity mainActivity =  (MainActivity) getActivity();
+                mainActivity.changeWeChatTab("微信Changed");
+
+
+            }
+        });
+```
+
+当有种情况是，TabFragment又被加入到了另一个Activity中，此时强转为`MainActivity`就会报错
+
+方式一：
+
+```xml
+                Activity activity = getActivity();
+                if (activity instanceof MainActivity) {
+                    ((MainActivity) activity).changeWeChatTab("微信Changed");
+                }
+```
+
+也比较恶心
 
 
 
+问题在于Fragment会触发一些事件，而Activity会响应一些事件。所以可以这样做：
+
+定义一个`OnTitleClickListener`
+
+```java
+    public static interface OnTitleClickListener {
+        void onClick(String title);
+    }
+    private OnTitleClickListener mListener;
+    public void setOnTitleClickListener(OnTitleClickListener listener) {
+        mListener = listener;
+    }
+```
+
+![004](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/004.png)
+
+![005](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/005.png)
 
 
+
+**一定要考虑到Fragment时独立的，可复用的单元**
 
 
 

@@ -1,5 +1,6 @@
 package com.example.imooc_wechat;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,14 @@ public class TabFragment extends Fragment {
     private TextView mTvTitle;
 
     private String mTitle;
+
+    public static interface OnTitleClickListener {
+        void onClick(String title);
+    }
+    private OnTitleClickListener mListener;
+    public void setOnTitleClickListener(OnTitleClickListener listener) {
+        mListener = listener;
+    }
 
 
     public static TabFragment newInstance(String title){
@@ -62,6 +71,25 @@ public class TabFragment extends Fragment {
         mTvTitle = view.findViewById(R.id.tv_title);
         mTvTitle.setText(mTitle);
 
+        mTvTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //获取activity
+//                MainActivity mainActivity =  (MainActivity) getActivity();
+//                mainActivity.changeWeChatTab("微信Changed");
+
+
+//                Activity activity = getActivity();
+////                if (activity instanceof MainActivity) {
+////                    ((MainActivity) activity).changeWeChatTab("微信Changed");
+////                }
+
+                if (mListener != null) {
+                    mListener.onClick("微信Changed!");
+                }
+
+            }
+        });
     }
 
     @Override
