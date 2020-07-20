@@ -8,8 +8,11 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.imooc_wechat.utils.L;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -27,10 +30,19 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnFind;
     private Button mBtnMine;
 
+    private List<TabFragment> mFragments = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        L.d("activity onCreate");
+
+        mFragments.add(TabFragment.newInstance(""));
+        mFragments.add(TabFragment.newInstance(""));
+        mFragments.add(TabFragment.newInstance(""));
+        mFragments.add(TabFragment.newInstance(""));
 
         initViews();
 
@@ -39,7 +51,12 @@ public class MainActivity extends AppCompatActivity {
             @NonNull
             @Override
             public Fragment getItem(int position) {
-                return TabFragment.newInstance(mTitles.get(position));
+
+                L.d("Fragement getItem i = " + position);
+
+                return mFragments.get(position);
+
+//                return TabFragment.newInstance(mTitles.get(position));
             }
 
             @Override

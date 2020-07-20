@@ -43,14 +43,14 @@ public class TabFragment extends Fragment {
             mTitle = arguments.getString(BUNDLE_KEY_TITLE, "");
         }
 
-        L.d("onCreate, title = " + mTitle);
+//        L.d("onCreate, title = " + mTitle);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        L.d("onCreateView, title = " + mTitle);
+//        L.d("onCreateView, title = " + mTitle);
 
         return inflater.inflate(R.layout.fragment_tab, container, false);
     }
@@ -67,13 +67,13 @@ public class TabFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        L.d("onDestroyView, title = " + mTitle);
+//        L.d("onDestroyView, title = " + mTitle);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        L.d("onDestroy, title = " + mTitle);
+//        L.d("onDestroy, title = " + mTitle);
     }
 
     public void changeTitle(String title) {
