@@ -9,7 +9,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.imooc_wechat.utils.L;
@@ -30,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnFind;
     private Button mBtnMine;
 
-    private List<TabFragment> mFragments = new ArrayList<>();
+//    private List<TabFragment> mFragments = new ArrayList<>();
+
+    private SparseArray<TabFragment> mFragments = new SparseArray<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +42,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         L.d("activity onCreate");
-
-        mFragments.add(TabFragment.newInstance(""));
-        mFragments.add(TabFragment.newInstance(""));
-        mFragments.add(TabFragment.newInstance(""));
-        mFragments.add(TabFragment.newInstance(""));
+//
+//        mFragments.add(TabFragment.newInstance(""));
+//        mFragments.add(TabFragment.newInstance(""));
+//        mFragments.add(TabFragment.newInstance(""));
+//        mFragments.add(TabFragment.newInstance(""));
+//        mFragments.get(0);
 
         initViews();
 
@@ -54,14 +59,28 @@ public class MainActivity extends AppCompatActivity {
 
                 L.d("Fragement getItem i = " + position);
 
-                return mFragments.get(position);
+//                return mFragments.get(position);
 
-//                return TabFragment.newInstance(mTitles.get(position));
+                return TabFragment.newInstance(mTitles.get(position));
             }
 
             @Override
             public int getCount() {
                 return mTitles.size();
+            }
+
+            @NonNull
+            @Override
+            public Object instantiateItem(@NonNull ViewGroup container, int position) {
+                TabFragment fragment = (TabFragment) super.instantiateItem(container, position);
+                mFragments.put(position, fragment);
+                return fragment;
+            }
+
+            @Override
+            public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+                mFragments.remove(position);
+                super.destroyItem(container, position, object);
             }
         });
 
@@ -78,7 +97,10 @@ public class MainActivity extends AppCompatActivity {
         mBtnWechat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                TabFragment fragment = mFragments.get(0);
+                if (fragment != null) {
+                    fragment.changeTitle("微信 changed!");
+                }
             }
         });
 

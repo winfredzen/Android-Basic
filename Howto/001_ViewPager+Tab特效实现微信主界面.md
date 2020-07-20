@@ -126,17 +126,51 @@ Fragment的初始化方法最佳实践，通过`newInstance`来创建一个Fragm
 
 ![002](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/002.png)
 
+启动时输出如下：
+
+```xml
+2020-07-20 15:54:27.583 6360-6360/com.example.imooc_wechat D/wangzhen: activity onCreate
+2020-07-20 15:54:27.626 6360-6360/com.example.imooc_wechat D/wangzhen: Fragement getItem i = 0
+2020-07-20 15:54:27.628 6360-6360/com.example.imooc_wechat D/wangzhen: Fragement getItem i = 1
+2020-07-20 15:54:27.629 6360-6360/com.example.imooc_wechat D/wangzhen: Fragement getItem i = 2
+2020-07-20 15:54:27.630 6360-6360/com.example.imooc_wechat D/wangzhen: Fragement getItem i = 3
+```
+
+但此时若屏幕发生了旋转：
+
+```xml
+2020-07-20 15:59:53.034 6360-6360/com.example.imooc_wechat D/wangzhen: activity onCreate
+```
+
+可见`onCreate`有被重新调用了，此时`mFragments`列表中，也会重新创建4个新的`TabFragment`，而且`FragmentPagerAdapter`也不会调用`getItem`方法。此时`mFragments.get(0);`去取第0个Fragment，和正在屏幕上显示的第0个，完全不是同一个Fragment
+
+为什么会这样？
+
+> FragmentPagerAdapter中有个FragmentManager，通过FragmentManager来管理Fragment。Fragment有一个特性，在发生旋转重建时，是可以去恢复上一次的Fragment的。
 
 
 
+可以使用如下的方式，使用`SparseArray`（类似于map），和`FragmentPagerAdapter`里面的方法来保存Fragment
 
+```java
+private SparseArray<TabFragment> mFragments = new SparseArray<>();
+```
 
+![003](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/003.png)
 
+取Fragment：
 
-
-
-
-
+```xml
+        mBtnWechat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TabFragment fragment = mFragments.get(0);
+                if (fragment != null) {
+                    fragment.changeTitle("微信 changed!");
+                }
+            }
+        });
+```
 
 
 
