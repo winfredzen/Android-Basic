@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        L.d("activity onCreate");
+//        L.d("activity onCreate");
 //
 //        mFragments.add(TabFragment.newInstance(""));
 //        mFragments.add(TabFragment.newInstance(""));
@@ -51,13 +51,19 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
 
+        initViewPagerAdapter();
+
+    }
+
+    private void initViewPagerAdapter() {
+
         mVpMain.setOffscreenPageLimit(mTitles.size());//Set the number of pages that should be retained to either side of the current page in the view hierarchy in an idle state.
         mVpMain.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @NonNull
             @Override
             public Fragment getItem(int position) {
 
-                L.d("Fragement getItem i = " + position);
+//                L.d("Fragement getItem i = " + position);
 
 //                return mFragments.get(position);
 
@@ -92,6 +98,23 @@ public class MainActivity extends AppCompatActivity {
             public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
                 mFragments.remove(position);
                 super.destroyItem(container, position, object);
+            }
+        });
+
+        mVpMain.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                L.d("onPageScrolled position = " + position + ", positionOffset = " + positionOffset);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                L.d("onPageSelected position = " + position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
             }
         });
 
