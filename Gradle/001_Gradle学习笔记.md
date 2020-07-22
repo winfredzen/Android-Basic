@@ -11,6 +11,41 @@
 
 
 
+## Gradle的一些基础知识
+
+参考：
+
++ [Gradle的基本使用（一）](https://waynell.github.io/2015/04/03/gradle-use-01/)
++ [Gradle的基本使用（二）](https://waynell.github.io/2015/04/08/gradle-use-02/)
++ [Gradle的基本使用（三）](https://waynell.github.io/2015/04/13/gradle-use-03/)
+
+
+
+> 项目(Project) 和 任务(tasks)，Gradle 里的任何东西都是基于这两个基础概念。
+>
+> + 项目是指我们的构建产物（比如Jar包）或实施产物（将应用程序部署到生产环境）
+> + 任务是指不可分的最小工作单元，执行构建工作（比如编译项目或执行测试）
+> + 每一个构建都是由一个或多个 projects 构成的，每一个 project 是由一个或多个 tasks 构成的，一个task是指不可分的最小工作单元，执行构建工作（比如编译项目或执行测试）
+
+
+
+> Gradle的构建系统是由以下几个文件组成
+>
+> + build.gradle 我们称这个文件为一个构建脚本，这个脚本定义了一个模块和编译用的tasks，它一般是放在项目的模块中，也可以放在项目的根目录用来作为编译结构全局设置，它是必须的
+> + settings.gradle 它描述了哪一个模块需要参与构建。每一个多模块的构建都必须在项目结构的根目录中加入这个设置文件，它也是必须的
+> + gradle.properties 用来配置构建属性，这个不是必须的
+
+
+
+> 例如下列一些task:
+>
+> + gradle build：编译整个项目，它会执行代码编译、代码检测和单元测试等
+> + gradle assemble：编译并打包你的代码, 但是并不运行代码检测和单元测试
+> + gradle clean：删除 build 生成的目录和所有生成的文件
+> + gradle check：编译并测试你的代码。其它的插件会加入更多的检查步骤，如使用 checkstyle、pmd、findbugs
+
+
+
 **Gradle 与 Android Studio 的关系**
 
 > Gradle 跟 Android Studio 其实没有关系，但是 Gradle 官方还是很看重 Android 开发的，Google 在推出 AS 的时候选中了 Gradle 作为构建工具，为了支持 Gradle 能在 AS 上使用，Google 做了个 AS 的插件叫 Android Gradle Plugin ，所以我们能在 AS 上使用 Gradle 完全是因为这个插件的原因。在项目的根目录有个 build.gradle 文件，里面有这么一句代码：
