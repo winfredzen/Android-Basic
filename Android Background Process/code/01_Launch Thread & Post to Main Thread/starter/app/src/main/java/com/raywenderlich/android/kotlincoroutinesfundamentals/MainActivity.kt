@@ -92,6 +92,7 @@ class MainActivity : AppCompatActivity() {
             .setRequiredNetworkType(NetworkType.NOT_ROAMING)
             .build()
 
+    //一次性 WorkRequest
     val downloadRequest = OneTimeWorkRequestBuilder<DownloadWorker>()
             .setConstraints(constraints)
             .build()
