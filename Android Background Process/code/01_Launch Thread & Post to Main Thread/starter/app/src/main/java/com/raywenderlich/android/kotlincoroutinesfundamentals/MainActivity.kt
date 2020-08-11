@@ -37,7 +37,17 @@ package com.raywenderlich.android.kotlincoroutinesfundamentals
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -53,6 +63,7 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
+    /*
     Thread(Runnable {
       val imageUrl = URL("https://upload-images.jianshu.io/upload_images/5809200-a99419bb94924e6d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240")
       val connection = imageUrl.openConnection() as HttpURLConnection
@@ -68,5 +79,43 @@ class MainActivity : AppCompatActivity() {
 
     }).start()
 
+     */
+
+    downloadImage()
+
+  }
+
+  private fun downloadImage() {
+    val constraints = Constraints.Builder()
+            .setRequiresBatteryNotLow(true)
+            .setRequiresStorageNotLow(true)
+            .setRequiredNetworkType(NetworkType.NOT_ROAMING)
+            .build()
+
+    val downloadRequest = OneTimeWorkRequestBuilder<DownloadWorker>()
+            .setConstraints(constraints)
+            .build()
+
+    val workManager = WorkManager.getInstance(this)
+    workManager.enqueue(downloadRequest)
+
+    workManager.getWorkInfoByIdLiveData(downloadRequest.id).observe(this, Observer { info ->
+      if (info.state.isFinished) {
+        val imageFile = File(externalMediaDirs.first(), "owl_image.jpg")
+        displayImage(imageFile.absolutePath)
+      }
+    })
+  }
+
+  private fun displayImage(imagePath: String) {
+    GlobalScope.launch(Dispatchers.Main) {
+      val bitmap = loadImageFromFile(imagePath)
+
+      image.setImageBitmap(bitmap)
+    }
+  }
+
+  private suspend fun loadImageFromFile(imagePath: String) = withContext(Dispatchers.IO) {
+    BitmapFactory.decodeFile(imagePath)
   }
 }
