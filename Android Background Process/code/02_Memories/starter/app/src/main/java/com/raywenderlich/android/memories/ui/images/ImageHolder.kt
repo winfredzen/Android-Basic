@@ -38,6 +38,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.raywenderlich.android.memories.model.Image
+import com.raywenderlich.android.memories.networking.BASE_URL
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_image.view.*
 
@@ -53,7 +54,9 @@ class ImageHolder(override val containerView: View) : RecyclerView.ViewHolder(co
       true
     }
 
+    val localImage = BASE_URL + "/files/${image.imagePath}"
+
     //加载图片
-    Glide.with(containerView).load(image.imagePath).into(containerView.image)
+    Glide.with(containerView).load(localImage).into(containerView.image)
   }
 }

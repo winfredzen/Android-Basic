@@ -46,13 +46,18 @@ import androidx.work.*
 import com.raywenderlich.android.memories.App
 import com.raywenderlich.android.memories.R
 import com.raywenderlich.android.memories.model.Image
+import com.raywenderlich.android.memories.model.result.Success
 import com.raywenderlich.android.memories.networking.NetworkStatusChecker
 import com.raywenderlich.android.memories.ui.images.dialog.ImageOptionsDialogFragment
 import com.raywenderlich.android.memories.utils.gone
 import com.raywenderlich.android.memories.utils.toast
 import com.raywenderlich.android.memories.utils.visible
 import com.raywenderlich.android.memories.worker.DownloadImageWorker
+import com.raywenderlich.android.memories.worker.LocalImageCheckWorker
 import kotlinx.android.synthetic.main.fragment_images.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 /**
  * Fetches and displays notes from the API.
@@ -98,22 +103,28 @@ class ImagesFragment : Fragment(), ImageOptionsDialogFragment.ImageOptionsListen
 
   override fun onImageDownload(imageUrl: String) {
 
-    val contraints = Constraints.Builder()
+    val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.NOT_ROAMING)
             .setRequiresBatteryNotLow(true)
             .setRequiresStorageNotLow(true)
             .build()
 
-
-    val downlaodImageWorker = OneTimeWorkRequestBuilder<DownloadImageWorker>()
+    val imageCheckWorker = OneTimeWorkRequestBuilder<LocalImageCheckWorker>()
             .setInputData(workDataOf("image_path" to imageUrl))
-            .setConstraints(contraints)
+            .build()
+
+    val downloadImageWorker = OneTimeWorkRequestBuilder<DownloadImageWorker>()
+            .setInputData(workDataOf("image_path" to imageUrl))
+            .setConstraints(constraints)
             .build()
 
     val workManager = WorkManager.getInstance(requireContext())
-    workManager.enqueue(downlaodImageWorker)
 
-    workManager.getWorkInfoByIdLiveData(downlaodImageWorker.id).observe(this, Observer { info ->
+    workManager.beginWith(imageCheckWorker)
+            .then(downloadImageWorker)
+            .enqueue()
+
+    workManager.getWorkInfoByIdLiveData(downloadImageWorker.id).observe(this, Observer { info ->
 
       if (info.state.isFinished == true) {
         activity?.toast("Image download!")
@@ -128,21 +139,21 @@ class ImagesFragment : Fragment(), ImageOptionsDialogFragment.ImageOptionsListen
   private fun getAllImages() {
     progress.visible()
 
-    onImageUrlsReceived(listOf(Image("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=357858179,2141091790&fm=26&gp=0.jpg")))
-
-    return
-
-//    networkStatusChecker.performIfConnectedToInternet {
-//      GlobalScope.launch(Dispatchers.Main) {
-//        val result = remoteApi.getImages()
+//    onImageUrlsReceived(listOf(Image("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=357858179,2141091790&fm=26&gp=0.jpg")))
 //
-//        if (result is Success) {
-//          onImageUrlsReceived(result.data)
-//        } else {
-//          onGetImagesFailed()
-//        }
-//      }
-//    }
+//    return
+
+    networkStatusChecker.performIfConnectedToInternet {
+      GlobalScope.launch(Dispatchers.Main) {
+        val result = remoteApi.getImages()
+
+        if (result is Success) {
+          onImageUrlsReceived(result.data)
+        } else {
+          onGetImagesFailed()
+        }
+      }
+    }
   }
 
   private fun onImageUrlsReceived(data: List<Image>) {
