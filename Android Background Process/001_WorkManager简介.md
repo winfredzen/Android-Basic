@@ -293,9 +293,70 @@ WorkManager 旨在用于**可延迟**运行（即不需要立即运行）并且�
 
 
 
+### 链接工作
+
+#### 简介
+
+您可以使用 [WorkManager](https://developer.android.google.cn/reference/androidx/work/WorkManager?hl=de) 创建工作链并为其排队。工作链用于指定多个关联任务并定义这些任务的运行顺序。当您需要以特定的顺序运行多个任务时，这尤其有用。
+
+为了创建工作链，您可以使用 [`WorkManager.beginWith(OneTimeWorkRequest)`](https://developer.android.google.cn/reference/androidx/work/WorkManager?hl=de#beginWith(androidx.work.OneTimeWorkRequest)) 或 [`WorkManager.beginWith(List)`](https://developer.android.google.cn/reference/androidx/work/WorkManager?hl=de#beginWith(java.util.List))，这会返回 [`WorkContinuation`](https://developer.android.google.cn/reference/androidx/work/WorkContinuation?hl=de) 实例。
+
+然后，可以使用 `WorkContinuation` 通过 [`WorkContinuation.then(OneTimeWorkRequest)`](https://developer.android.google.cn/reference/androidx/work/WorkContinuation?hl=de#then(androidx.work.OneTimeWorkRequest)) 或 [`WorkContinuation.then(List)`](https://developer.android.google.cn/reference/androidx/work/WorkContinuation?hl=de#then(java.util.List)) 添加从属 `OneTimeWorkRequest`。
+
+每次调用 `WorkContinuation.then(...)` 都会返回一个新的 `WorkContinuation` 实例。如果添加了 `OneTimeWorkRequest` 的 `List`，这些请求可能会并行运行。
+
+最后，您可以使用 [`WorkContinuation.enqueue()`](https://developer.android.google.cn/reference/androidx/work/WorkContinuation?hl=de#enqueue()) 方法为 `WorkContinuation` 链排队。
+
+让我们看一个示例：某个应用对 3 个不同的图像执行图像滤镜（可能会并行执行），然后将这些图像压缩在一起，再上传它们。
+
+```kotlin
+    WorkManager.getInstance(myContext)
+        // Candidates to run in parallel
+        .beginWith(listOf(filter1, filter2, filter3))
+        // Dependent work (only runs after all previous work in chain)
+        .then(compress)
+        .then(upload)
+        // Don't forget to enqueue()
+        .enqueue()
+
+    
+```
 
 
 
+#### Input Merger
+
+在使用 `OneTimeWorkRequest` 链时，父级 `OneTimeWorkRequest` 的输出将作为输入传递给子级。因此在上面的示例中，`filter1`、`filter2` 和 `filter3` 的输出将作为输入传递给 `compress` 请求。
+
+为了管理来自多个父级 `OneTimeWorkRequest` 的输入，WorkManager 使用 [`InputMerger`](https://developer.android.google.cn/reference/androidx/work/InputMerger?hl=de)。
+
+WorkManager 提供两种不同类型的 `InputMerger`：
+
+- [`OverwritingInputMerger`](https://developer.android.google.cn/reference/androidx/work/OverwritingInputMerger?hl=de) 会尝试将所有输入中的所有键添加到输出中。如果发生冲突，它会覆盖先前设置的键。
+- [`ArrayCreatingInputMerger`](https://developer.android.google.cn/reference/androidx/work/ArrayCreatingInputMerger?hl=de) 会尝试合并输入，并在必要时创建数组。
+
+对于上面的示例，如果我们要保留所有图像滤镜的输出，则应使用 `ArrayCreatingInputMerger`。
+
+```kotlin
+    val compress: OneTimeWorkRequest = OneTimeWorkRequestBuilder<CompressWorker>()
+        .setInputMerger(ArrayCreatingInputMerger::class)
+        .setConstraints(constraints)
+        .build()
+
+    
+```
+
+
+
+#### 链接和工作状态
+
+创建 `OneTimeWorkRequest` 链时，需要注意以下几点：
+
+- 从属 `OneTimeWorkRequest` 仅在其所有父级 `OneTimeWorkRequest` 都成功完成（即返回 `Result.success()`）时才会解除阻塞（变为 `ENQUEUED` 状态）。
+- 如果有任何父级 `OneTimeWorkRequest` 失败（返回 `Result.failure()`），则所有从属 `OneTimeWorkRequest` 也会被标记为 `FAILED`。
+- 如果有任何父级 `OneTimeWorkRequest` 被取消，则所有从属 `OneTimeWorkRequest` 也会被标记为 `CANCELLED`。
+
+如需了解详情，请参阅[取消和停止工作](https://developer.android.google.cn/topic/libraries/architecture/workmanager/how-to/cancel-stop-work?hl=de)。
 
 
 
