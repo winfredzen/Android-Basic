@@ -3,6 +3,7 @@ package com.raywenderlich.android.kotlincoroutinesfundamentals
 import android.content.Context
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import androidx.work.workDataOf
 import java.io.File
 import java.io.FileOutputStream
 import java.net.HttpURLConnection
@@ -17,7 +18,7 @@ class DownloadWorker(context: Context, workerParameters: WorkerParameters) : Wor
         conneection.doInput = true
         conneection.connect()
 
-        val imagePath = "owl_image.jpg"
+        val imagePath = "owl_image_${System.currentTimeMillis()}.jpg"
         val inputStream = conneection.inputStream
         val file = File(applicationContext.externalMediaDirs.first(), imagePath) //getExternalMediaDirs()可存放共享媒体文件
 
@@ -37,7 +38,9 @@ class DownloadWorker(context: Context, workerParameters: WorkerParameters) : Wor
 
         }
 
-        return Result.success()
+        val output = workDataOf("image_path" to file.absolutePath)
+
+        return Result.success(output)
 
     }
 

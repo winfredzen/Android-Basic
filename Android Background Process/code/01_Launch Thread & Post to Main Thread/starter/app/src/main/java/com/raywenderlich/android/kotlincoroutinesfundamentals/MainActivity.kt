@@ -56,67 +56,82 @@ import java.net.URL
  */
 class MainActivity : AppCompatActivity() {
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    // Switch to AppTheme for displaying the activity
-    setTheme(R.style.AppTheme)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        // Switch to AppTheme for displaying the activity
+        setTheme(R.style.AppTheme)
 
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-    /*
-    Thread(Runnable {
-      val imageUrl = URL("https://upload-images.jianshu.io/upload_images/5809200-a99419bb94924e6d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240")
-      val connection = imageUrl.openConnection() as HttpURLConnection
-      connection.doInput = true
-      connection.connect()
+        /*
+        Thread(Runnable {
+          val imageUrl = URL("https://upload-images.jianshu.io/upload_images/5809200-a99419bb94924e6d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240")
+          val connection = imageUrl.openConnection() as HttpURLConnection
+          connection.doInput = true
+          connection.connect()
 
-      val inputStream = connection.inputStream
-      val bitmap = BitmapFactory.decodeStream(inputStream)
+          val inputStream = connection.inputStream
+          val bitmap = BitmapFactory.decodeStream(inputStream)
 
-      runOnUiThread {
-        image.setImageBitmap(bitmap)
-      }
+          runOnUiThread {
+            image.setImageBitmap(bitmap)
+          }
 
-    }).start()
+        }).start()
 
-     */
+         */
 
-    downloadImage()
+        downloadImage()
 
-  }
-
-  private fun downloadImage() {
-    val constraints = Constraints.Builder()
-            .setRequiresBatteryNotLow(true)
-            .setRequiresStorageNotLow(true)
-            .setRequiredNetworkType(NetworkType.NOT_ROAMING)
-            .build()
-
-    //一次性 WorkRequest
-    val downloadRequest = OneTimeWorkRequestBuilder<DownloadWorker>()
-            .setConstraints(constraints)
-            .build()
-
-    val workManager = WorkManager.getInstance(this)
-    workManager.enqueue(downloadRequest)
-
-    workManager.getWorkInfoByIdLiveData(downloadRequest.id).observe(this, Observer { info ->
-      if (info.state.isFinished) {
-        val imageFile = File(externalMediaDirs.first(), "owl_image.jpg")
-        displayImage(imageFile.absolutePath)
-      }
-    })
-  }
-
-  private fun displayImage(imagePath: String) {
-    GlobalScope.launch(Dispatchers.Main) {
-      val bitmap = loadImageFromFile(imagePath)
-
-      image.setImageBitmap(bitmap)
     }
-  }
 
-  private suspend fun loadImageFromFile(imagePath: String) = withContext(Dispatchers.IO) {
-    BitmapFactory.decodeFile(imagePath)
-  }
+    private fun downloadImage() {
+        val constraints = Constraints.Builder()
+                .setRequiresBatteryNotLow(true)
+                .setRequiresStorageNotLow(true)
+                .setRequiredNetworkType(NetworkType.NOT_ROAMING)
+                .build()
+
+        //删除文件
+        val clearFilesWorker = OneTimeWorkRequestBuilder<FileClearWorker>().build()
+
+
+        //一次性 WorkRequest
+        val downloadRequest = OneTimeWorkRequestBuilder<DownloadWorker>()
+                .setConstraints(constraints)
+                .build()
+
+        //先删除文件再下载
+        val workManager = WorkManager.getInstance(this)
+        workManager.beginWith(clearFilesWorker)
+                .then(downloadRequest)
+                .enqueue()
+
+        workManager.getWorkInfoByIdLiveData(downloadRequest.id).observe(this, Observer { info ->
+            if (info.state.isFinished) {
+
+                val imagePath = info.outputData.getString("image_path");
+
+                if (!imagePath.isNullOrEmpty()) {
+                    displayImage(imagePath)
+                }
+
+
+//                val imageFile = File(externalMediaDirs.first(), "owl_image.jpg")
+//                displayImage(imageFile.absolutePath)
+            }
+        })
+    }
+
+    private fun displayImage(imagePath: String) {
+        GlobalScope.launch(Dispatchers.Main) {
+            val bitmap = loadImageFromFile(imagePath)
+
+            image.setImageBitmap(bitmap)
+        }
+    }
+
+    private suspend fun loadImageFromFile(imagePath: String) = withContext(Dispatchers.IO) {
+        BitmapFactory.decodeFile(imagePath)
+    }
 }
