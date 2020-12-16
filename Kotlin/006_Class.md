@@ -48,6 +48,14 @@ class Person(var firstName: String) {
 
 
 
+如果构造函数有注解或可见性修饰符，这个 *constructor* 关键字是必需的，并且这些修饰符在它前面：
+
+```kotlin
+class Customer public @Inject constructor(name: String) { /*……*/ }
+```
+
+
+
 ## init
 
 主构造函数不能包含任何的代码。初始化的代码可以放到以 `init` 关键字作为前缀的**初始化块（initializer blocks）**中
