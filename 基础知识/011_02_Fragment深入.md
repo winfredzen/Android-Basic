@@ -2,7 +2,7 @@
 
 **从 fragment 中启动 activity** 
 
-调用`Fragment.start Activity(Intent)`方法，由它在后台再调用对应的`Activity`方法 
+调用`Fragment.startActivity(Intent)`方法，由它在后台再调用对应的`Activity`方法 
 
 ```java
 public class CrimeActivity extends SingleFragmentActivity {
