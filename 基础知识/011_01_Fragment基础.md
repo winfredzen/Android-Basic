@@ -60,7 +60,7 @@ activity托管UI fragment有如下两种方式：
 
 通常使用`FrameLayout` 
 
-![061](https://github.com/winfredzen/Android-Basic/raw/master/images/061.png)
+![061](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/061.png)
 
 
 
@@ -107,7 +107,7 @@ activity托管UI fragment有如下两种方式：
 
 `activity_fragment.xml`的布局如下：
 
-![062](https://github.com/winfredzen/Android-Basic/raw/master/images/062.png)
+![062](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/062.png)
 
 ## 向 FragmentManager 添加 UI fragment 
 
