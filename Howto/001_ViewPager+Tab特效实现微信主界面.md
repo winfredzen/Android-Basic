@@ -6,7 +6,7 @@
 
 
 
-Fragment的初始化方法最佳实践，通过`newInstance`来创建一个Fragment，通过`setArguments`来传递参数，如下面对的例子：
+Fragment的初始化方法最佳实践，通过`newInstance`来创建一个Fragment，通过`setArguments`来传递参数，如下面的例子：
 
 ```java
     private static final String BUNDLE_KEY_TITLE = "key_title";
