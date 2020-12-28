@@ -60,7 +60,7 @@ activity托管UI fragment有如下两种方式：
 
 通常使用`FrameLayout` 
 
-
+![061](https://github.com/winfredzen/Android-Basic/raw/master/images/061.png)
 
 
 
@@ -105,7 +105,9 @@ activity托管UI fragment有如下两种方式：
     }
 ```
 
+`activity_fragment.xml`的布局如下：
 
+![062](https://github.com/winfredzen/Android-Basic/raw/master/images/062.png)
 
 ## 向 FragmentManager 添加 UI fragment 
 
@@ -126,9 +128,21 @@ FragmentManager fm = getSupportFragmentManager();
 
 **fragment 事务** 
 
-例如，添加一个fragment
+例如，添加一个fragment，这里是定义了一个持有单个`Fragment`的`Activity`的基类`SingleFragmentActivity`：
 
 ```java
+/**
+ * 通用超类
+ */
+public abstract class SingleFragmentActivity extends AppCompatActivity {
+
+    protected abstract Fragment createFragment();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_fragment);
+
         FragmentManager fm = getSupportFragmentManager();
 
         Fragment fragment = fm.findFragmentById(R.id.fragment_container);
@@ -138,6 +152,8 @@ FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
         }
 
+    }
+}
 ```
 
 > `Fragment fragment = fm.findFragmentById(R.id.fragment_container)`
