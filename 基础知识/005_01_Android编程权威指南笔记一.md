@@ -85,7 +85,7 @@ drawable-mdpi、drawable-hdpi、drawable-xhdpi和drawable-xxhdpi四个目录
 
 Activity处于运行状态(在内存里，用户可见，活动在前台)
 
-单机后退键
+点击后退键
 
 + onPause()
 + onStop()
