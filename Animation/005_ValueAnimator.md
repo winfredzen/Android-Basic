@@ -183,13 +183,65 @@ void setRepeatMode(@RepeatMode int value)
 
 
 
+> `ValueAnimator.INFINITE`无限动画时，当Activity结束的时候，必须调用`cancel`函数取消动画，否则动画将无限循环，从而导致view无法释放
 
 
 
+## 监听器
+
+前面都是通过方法`addUpdateListener(AnimatorUpdateListener listener)` 添加监听器
+
+`AnimatorUpdateListener`接口定义如下，用于监听动画过程中值的实时变化：
+
+```java
+    public static interface AnimatorUpdateListener {
+        /**
+         * <p>Notifies the occurrence of another frame of the animation.</p>
+         *
+         * @param animation The animation which was repeated.
+         */
+        void onAnimationUpdate(ValueAnimator animation);
+
+    }
+```
 
 
 
+`ValueAnimator`继承自`Animator`，在`Animator`中也有一个添加监听器的方法`addListener(AnimatorListener listener)`
 
+`AnimatorListener`定义如下：
+
+```java
+    public static interface AnimatorListener {
+
+        default void onAnimationStart(Animator animation, boolean isReverse) {
+            onAnimationStart(animation);
+        }
+
+        default void onAnimationEnd(Animator animation, boolean isReverse) {
+            onAnimationEnd(animation);
+        }
+      
+        void onAnimationStart(Animator animation);
+        void onAnimationEnd(Animator animation);
+        void onAnimationCancel(Animator animation);
+        void onAnimationRepeat(Animator animation);
+    }
+```
+
+主要监听Animation的4中状态：start、end、cancel和repeat
+
+
+
+**移除监听器**
+
+```java
+public void removeAllUpdateListeners()
+public void removeUpdateListener(AnimatorUpdateListener listener)
+  
+public void removeAllListeners()
+public void removeListener(AnimatorListener listener)
+```
 
 
 
