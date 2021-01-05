@@ -245,6 +245,153 @@ public void removeListener(AnimatorListener listener)
 
 
 
+## 插值器
+
+通过`ofInt(0, 400)`定义了动画的区间是0-400，那0-400的值是如何变化呢？是匀速变化，还是先减速再减速呢？
+
+插值器就是控制动画的区间值是如何被计算出来的。
+
++ `LinearInterpolator` - 表示匀速返回区间内的值
++ `DecelerateInterpolator` - 表示开始变化快，后期变化慢
+
+
+
+`LinearInterpolator`继承自`BaseInterpolator`,`BaseInterpolator`实现了`Interpolator`接口，`Interpolator`继承自`TimeInterpolator`
+
+![022](https://github.com/winfredzen/Android-Basic/blob/master/Animation/images/022.png)
+
+![023](https://github.com/winfredzen/Android-Basic/blob/master/Animation/images/023.png)
+
+![024](https://github.com/winfredzen/Android-Basic/blob/master/Animation/images/024.png)
+
+![025](https://github.com/winfredzen/Android-Basic/blob/master/Animation/images/025.png)
+
+
+
+`TimeInterpolator`定义如下：
+
+```java
+public interface TimeInterpolator {
+    float getInterpolation(float input);
+}
+```
+
++ input - 取值0-1，表示当前动画的进度
++ 返回值 - 表示时间想要显示的进度，可超过1，可小于0
+
+
+
+`ValueAnimator`通过`setInterpolator(TimeInterpolator value)` 方法设置插值器
+
+
+
+## Evaluator
+
+插值器返回的小数值表示的是当前动画的数值进度
+
+`Evaluator`把插值器返回的小数进度转换成当前数值进度对应的值
+
+通过`setEvaluator(TypeEvaluator value)`方法设置`Evaluator`
+
+如`animator.setEvaluator(new IntEvaluator());`
+
+`IntEvaluator`的定义如下，实现`TypeEvaluator`接口：
+
+```java
+public class IntEvaluator implements TypeEvaluator<Integer> {
+    public Integer evaluate(float fraction, Integer startValue, Integer endValue) {
+        int startInt = startValue;
+        return (int)(startInt + fraction * (endValue - startInt));
+    }
+}
+```
+
+```java
+public interface TypeEvaluator<T> {
+    public T evaluate(float fraction, T startValue, T endValue);
+}
+```
+
+
+
+## ofObject
+
+`ValueAnimator`还定义的有一个`ofObject`方法
+
+```java
+    public static ValueAnimator ofObject(TypeEvaluator evaluator, Object... values) {
+        ValueAnimator anim = new ValueAnimator();
+        anim.setObjectValues(values);
+        anim.setEvaluator(evaluator);
+        return anim;
+    }
+```
+
++ evaluator - 自定义的Evaluator
++ values - 可变长参数，`Object`类型
+
+
+
+如下的例子，将`TextView`中的字母从`A`变化到`Z`
+
+```java
+                ValueAnimator animator = ValueAnimator.ofObject(new CharEvaluator(), new Character('A'), new Character('Z'));
+                animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        char text = (Character) animation.getAnimatedValue();
+                        textView.setText(String.valueOf(text));
+                    }
+                });
+
+
+                animator.setDuration(1000);
+                animator.setInterpolator(new AccelerateInterpolator());
+                animator.start();
+```
+
+```java
+public class CharEvaluator implements TypeEvaluator<Character> {
+
+    @Override
+    public Character evaluate(float fraction, Character startValue, Character endValue) {
+        int startInt = (int)startValue;
+        int endInt = (int)endValue;
+        int curInt = (int) (startInt + fraction * (endInt - startInt));
+        char result = (char) curInt;
+        return result;
+    }
+}
+```
+
+效果为：
+
+![026](https://github.com/winfredzen/Android-Basic/blob/master/Animation/images/026.gif)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
