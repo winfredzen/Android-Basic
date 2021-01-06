@@ -186,9 +186,17 @@ public class MyLinLayout extends ViewGroup {
 
 
 
+一些疑问点？
+
+1.`getMeasuredWidth()`与`getWidth()`函数的区别？
+
+> `getMeasureWidth()`函数在`measure()`过程结束后就可以获取到宽度值；而`getWidth()`函数要在`layout()`过程结束后才能获取到宽度值。
+>
+> `getMeasureWidth()`函数中的值是通过`setMeasuredDimension()`函数来进行设置的；而`getWidth()`函数中的值则是通过`layout(left，top，right，bottom)`函数来进行设置的。
 
 
 
+## 添加边距
 
 
 
