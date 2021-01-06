@@ -1,6 +1,6 @@
 # 动画
 
-在Android动画中，有2中类型的动画：
+在Android动画中，有2种类型的动画：
 
 + View Animation 视图动画
   + Tween Animation 补间动画
