@@ -1,5 +1,9 @@
 # View
 
+参考：
+
++ [View](https://developer.android.com/reference/android/view/View)
+
 在Android中有2种坐标系
 
 + Android坐标系
@@ -168,6 +172,96 @@ public void scrollBy(int x, int y) {
 > 假设我们正用放大镜来看报纸，放大镜用来显示字的内容。同样我们可以把放大镜看作我们的手机屏幕，它们都是负责显示内容的；而报纸则可以被看作屏幕下的画布，它们都是用来提供内容的。放大镜外的内容，也就是报纸的内容不会随着放大镜的移动而消失，它一直存在。同样，我们的手机屏幕看不到的视图并不代表其不存在，如图3-6所示。画布上有3个控件，即Button、EditText 和 SwichButton。只有 Button 在手机屏幕中显示，它的坐标为（60，60）。现在我们调用scrollBy（50，50），按照字面的意思，这个 Button 应该会在屏幕右下侧，可是事实并非如此。如果我们调用scrollBy（50，50），里面的参数都是正值，我们的手机屏幕向 X 轴正方向，也就是向右边平移 50，然后手机屏幕向 Y 轴正方向，也就是向下方平移 50，平移后的效果如图3-7所示。虽然我们设置的数值是正数并且在X轴和Y轴的正方向移动，但 Button 却向相反方向移动了，这是参考对象不同导致的差异。所以我们用 scrollBy 方法的时候要设置负数才会达到自己想要的效果。
 >
 > ![013](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/013.png)
+
+
+
+### Scroller
+
+如下使用`Scroller`，实现滑动，沿着X轴滑动400像素
+
+```java
+public class CustomView_04 extends View {
+
+    private Scroller mScroller;
+
+    public CustomView_04(Context context) {
+        super(context);
+    }
+
+    public CustomView_04(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        mScroller = new Scroller(context);
+    }
+
+    @Override
+    public void computeScroll() {
+        super.computeScroll();
+        if (mScroller.computeScrollOffset()) {
+            Log.d("CustomView", "x : " + mScroller.getCurrX() + " y: " + mScroller.getCurrY());
+            ((View)getParent()).scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+            invalidate();
+        }
+    }
+
+    public void smoothScrollTo(int destX, int destY) {
+        int scrollX = getScrollX();
+        int delta = destX - scrollX;
+        mScroller.startScroll(scrollX, 0, delta, 0, 2000);
+        invalidate();
+    }
+
+}
+```
+
+在点击按钮的时候，调用`mCustomView.smoothScrollTo(-400, 0);`来滑动
+
+```java
+findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        CustomView_04 mCustomView = (CustomView_04)findViewById(R.id.customView);
+        mCustomView.smoothScrollTo(-400, 0);
+    }
+});
+```
+
+效果如下：
+
+![014](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/014.gif)
+
+> 原理：重写`computeScroll()`方法，系统会在绘制View的时候在`draw()`方法中调用该方法。在这个方法中，我们调用父类的`scrollTo()`方法并通过`Scroller`来不断获取当前的滚动值，每滑动一小段距离我们就调用`invalidate()`方法不断地进行重绘，重绘就会调用`computeScroll()`方法，这样我们通过不断地移动一个小的距离并连贯起来就实现了平滑移动的效果。
+>
+> `computeScroll()`方法说明
+>
+> > Called by a parent to request that a child update its values for mScrollX and mScrollY if necessary. This will typically be done if the child is animating a scroll using a `Scroller` object.
+>
+> `invalidate()`方法说明：
+>
+> > Invalidate the whole view. If the view is visible, `onDraw(android.graphics.Canvas)` will be called at some point in the future.
+> >
+> > This must be called from a UI thread. To call from a non-UI thread, call `postInvalidate()`.
+
+> 在 `startScroll()`方法中并没有调用类似开启滑动的方法，而是保存了传进来的各种参数：startX和startY表示滑动开始的起点，dx和dy表示滑动的距离，duration则表示滑动持续的时间。所以 `startScroll()`方法只是用来做前期准备的，并不能使 View 进行滑动。关键是我们在`startScroll()`方法后调用了 `invalidate()`方法，这个方法会导致View的重绘，而View的重绘会调用View的`draw()`方法，`draw()`方法又会调用View的`computeScroll()`方法。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
