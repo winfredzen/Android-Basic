@@ -262,10 +262,17 @@ findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
 
 
 > 首先讲一下点击事件由上而下的传递规则，当点击事件产生后会由 `Activity` 来处理，传递给`PhoneWindow`，再传递给`DecorView`，最后传递给顶层的`ViewGroup`。一般在事件传递中只考虑 `ViewGroup` 的 `onInterceptTouchEvent` 方法，因为一般情况下我们不会重写 `dispatchTouchEvent()` 方法。对于根`ViewGroup`，点击事件首先传递给它的`dispatchTouchEvent()`方法，如果该`ViewGroup`的`onInterceptTouchEvent()`方法返回`true`，则表示它要拦截这个事件，这个事件就会交给它的`onTouchEvent()`方法处理；如果`onInterceptTouchEvent()`方法返回`false`，则表示它不拦截这个事件，则这个事件会交给它的子元素的`dispatchTouchEvent()`来处理，如此反复下去。如果传递给底层的`View`，`View`是没有子`View`的，就会调用`View`的`dispatchTouchEvent()`方法，一般情况下最终会调用`View`的`onTouchEvent()`方法。
+>
+> ![017](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/017.png)
 
 
 
+## View的工作流程
 
+参考：
+
++ [Android View的工作流程](https://blog.csdn.net/qian520ao/article/details/78657084)
++ [Android 的 View 工作流程详解](https://juejin.cn/post/6844903694073331720)
 
 
 
