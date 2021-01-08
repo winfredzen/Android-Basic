@@ -245,9 +245,23 @@ findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
 
 
 
+## View事件分发机制
+
+点击事件用`MotionEvent`来表示，当一个点击事件产生后，事件最先传递给`Activity`
+
+`Activity`的构成可参考：[Activity的构成](https://blog.csdn.net/qq_38182125/article/details/86546813)
+
+![016](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/016.png)
+
+当我们点击屏幕时，就产生了点击事件，这个事件被封装成了一个类：`MotionEvent`。而当这个`MotionEvent`产生后，那么系统就会将这个`MotionEvent`传递给`View`的层级，`MotionEvent`在`View`中的层级传递过程就是点击事件分发。在了解了什么是事件分发后，我们还需要了解事件分发的3个重要方法。点击事件有3个重要的方法，它们分别是：
+
++ `dispatchTouchEvent(MotionEvent ev)`—用来进行事件的分发
++ `onInterceptTouchEvent(MotionEvent ev)`—用来进行事件的拦截，在`dispatchTouchEvent()`中调用，需要注意的是View没有提供该方法
++ `onTouchEvent(MotionEvent ev)`—用来处理点击事件，在`dispatchTouchEvent()`方法中进行调用
 
 
 
+> 首先讲一下点击事件由上而下的传递规则，当点击事件产生后会由 `Activity` 来处理，传递给`PhoneWindow`，再传递给`DecorView`，最后传递给顶层的`ViewGroup`。一般在事件传递中只考虑 `ViewGroup` 的 `onInterceptTouchEvent` 方法，因为一般情况下我们不会重写 `dispatchTouchEvent()` 方法。对于根`ViewGroup`，点击事件首先传递给它的`dispatchTouchEvent()`方法，如果该`ViewGroup`的`onInterceptTouchEvent()`方法返回`true`，则表示它要拦截这个事件，这个事件就会交给它的`onTouchEvent()`方法处理；如果`onInterceptTouchEvent()`方法返回`false`，则表示它不拦截这个事件，则这个事件会交给它的子元素的`dispatchTouchEvent()`来处理，如此反复下去。如果传递给底层的`View`，`View`是没有子`View`的，就会调用`View`的`dispatchTouchEvent()`方法，一般情况下最终会调用`View`的`onTouchEvent()`方法。
 
 
 
