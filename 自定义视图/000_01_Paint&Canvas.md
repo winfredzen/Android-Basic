@@ -246,13 +246,85 @@ void drawArc(@NonNull RectF oval, float startAngle, float sweepAngle, boolean us
 
 
 
+## Rect与RectF
 
+### contains
 
+`contains`用来判断rect是否包含某个点，用于判断点是否在矩形中
 
+```java
+boolean contains(int x, int y)
+```
 
+如下的例子，在矩形区域内点击时，边框由绿色变红色：
 
+```java
+public class RectPointView extends View {
 
+    private int mX, mY;
+    private Paint mPaint;
+    private Rect mrect;
 
+    public RectPointView(Context context) {
+        super(context);
+        init();
+    }
+
+    public RectPointView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+
+    public RectPointView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    private void init() {
+        mPaint = new Paint();
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(5);
+        mrect = new Rect(100, 10, 300, 100);
+
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        mX = (int) event.getX();
+        mY = (int) event.getY();
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            invalidate();
+            return true;
+        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+            mX = -1;
+            mY = -1;
+        }
+        postInvalidate();
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        if (mrect.contains(mX, mY)) {
+            mPaint.setColor(Color.RED);
+        } else {
+            mPaint.setColor(Color.GREEN);
+        }
+        canvas.drawRect(mrect, mPaint);
+    }
+}
+```
+
+![025](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/025.png)
+
+> `MotionEvent.ACTION_DOWN`中返回`true`，表示当前控件已经拦截（消费）了消息，后续的`ACTION_MOVE`、`ACTION_UP`消息仍会继续传过来。如果返回`false`（系统默认返回`false`），表示当前控件不需要这个消息，后续的`ACTION_MOVE`、`ACTION_UP`就不会传过来了
+>
+> `invalidate()`和`postInvalidate()`都是用来重绘控件的。
+>
+> + `invalidate()`一定要在主线程中执行，否则会报错
+> + `postInvalidate()` - 可以在任意线程中执行
 
 
 
