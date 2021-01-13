@@ -1,6 +1,6 @@
 # Paint&Canvas
 
-1.`setStyle(Style style)` - 设置样式
+**`setStyle(Style style)` - 设置样式**
 
 > Style是一个枚举，包括的值有：
 >
@@ -29,4 +29,244 @@
 ![008](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/008.png)
 
 ![009](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/009.png)
+
+
+
+**设置抗锯齿**
+
+```java
+void setAntiAlias(boolean aa)
+```
+
+> 在打开抗锯齿的情况下，可以产生平滑的边缘
+
+
+
+**设置颜色**
+
+```java
+setColor(int color)
+```
+
+> 颜色格式为0xAARRGGBB
+
+
+
+**设置描边宽度**
+
+```java
+setStrokeWidth(float width) 
+```
+
+> 单位为像素
+
+
+
+## Canvas使用基础
+
+
+
+### 画布背景颜色
+
+有三种方法：
+
+```java
+void drawColor(@ColorInt int color)
+void drawARGB(int a, int r, int g, int b)
+void drawRGB(int r, int g, int b)
+```
+
+如：
+
+```java
+@Override
+protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
+    canvas.drawRGB(255, 0, 255);
+}
+```
+
+![018](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/018.png)
+
+
+
+### 画直线
+
+```java
+void drawLine(float startX, float startY, float stopX, float stopY,
+            @NonNull Paint paint)
+```
+
+如：
+
+```java
+@Override
+protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
+    Paint paint = new Paint();
+    paint.setColor(Color.RED);
+    paint.setStyle(Paint.Style.STROKE);
+    paint.setStrokeWidth(50);
+    canvas.drawLine(100, 100, 300, 300, paint);
+}
+```
+
+![019](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/019.png)
+
+
+
+### 画多条直线
+
+```java
+void drawLines(float[] pts, Paint paint)
+```
+
+如：
+
+```java
+@Override
+protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
+    Paint paint = new Paint();
+    paint.setStrokeWidth(5);
+    float[] pts = {10, 10, 100, 100, 200, 200, 300, 300};
+    canvas.drawLines(pts, paint);
+}
+```
+
+![020](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/020.png)
+
+
+
+
+
+### 点
+
+```java
+//一个点
+void drawPoint(float x, float y, Paint paint)
+//多个点
+void drawPoints(float[] pts, Paint paint)
+void drawPoints(float[] pts, int offset, int count, Paint paint)  
+```
+
+
+
+### Rect、RectF
+
+`RectF`用来保存`Float`类型的矩形，`Rect`用来保存`int`类型的矩形
+
+**绘制圆角矩形**
+
+```java
+void drawRoundRect(@NonNull RectF rect, float rx, float ry, @NonNull Paint paint)
+```
+
++ rx - 椭圆的x轴半径
++ ry - 椭圆的y轴半径
+
+![021](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/021.png)
+
+如下：
+
+```java
+@Override
+protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
+   Paint paint = new Paint();
+   paint.setColor(Color.RED);
+   paint.setStyle(Paint.Style.FILL);
+   paint.setStrokeWidth(5);
+   canvas.drawRoundRect(new RectF(100, 10, 400, 200), 30, 60, paint);
+}
+```
+
+![022](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/022.png)
+
+
+
+
+
+### 圆形
+
+```java
+void drawCircle(float cx, float cy, float radius, @NonNull Paint paint)
+```
+
++ cx - 圆心x坐标
++ cy - 圆心y坐标
++ radius - 半径
+
+
+
+### 椭圆
+
+```java
+void drawOval(@NonNull RectF oval, @NonNull Paint paint)
+```
+
+利用矩形生成椭圆
+
+![023](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/023.png)
+
+
+
+### 圆弧
+
+```java
+void drawArc(@NonNull RectF oval, float startAngle, float sweepAngle, boolean useCenter,
+            @NonNull Paint paint)
+```
+
++ startAngle - 起始角度，以X轴正方向为0度
++ useCenter - 是否有弧的2边，为true时，带有2边，为false时，只有1边
+
+
+
+```java
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        Paint paint = new Paint();
+        paint.setColor(Color.RED);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(5);
+
+        RectF rect1 = new RectF(10, 10, 100, 100);
+        canvas.drawArc(rect1, 0, 90, true, paint);
+
+        RectF rect2 = new RectF(110, 10, 200, 100);
+        canvas.drawArc(rect2, 0, 90, false, paint);
+
+    }
+```
+
+![024](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/024.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
