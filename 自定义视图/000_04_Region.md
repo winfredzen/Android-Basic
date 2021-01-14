@@ -101,21 +101,106 @@ boolean setPath(@NonNull Path path, @NonNull Region clip)
 
 
 
+## 区域相交
+
+Region最重要的功能在区域的相交操作中
 
 
 
+**1.`union(@NonNull Rect r)`**
+
+用于与指定的矩形取并集
+
+```java
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.RED);
+
+        Region region = new Region(10, 10, 200, 100);
+        region.union(new Rect(10, 10, 50, 300));
+        
+        //画出区域
+        drawRegion(canvas, region, paint);
+
+    }
+```
+
+![044](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/044.png)
 
 
 
+**2.区域操作**
+
+```java
+boolean op(@NonNull Rect r, @NonNull Op op)
+boolean op(int left, int top, int right, int bottom, @NonNull Op op)
+boolean op(@NonNull Region region, @NonNull Op op)  
+```
+
+> 用当前的Region对象与指定的一个Rect对象或者Region对象执行相交操作，并将结果赋给当前的Region对象。如果计算成功，则返回true，否则返回false
+>
+> `Op`参数有如下的6个：
+>
+> ```java
+>     public enum Op {
+>         DIFFERENCE(0),
+>         INTERSECT(1),
+>         UNION(2),
+>         XOR(3),
+>         REVERSE_DIFFERENCE(4),
+>         REPLACE(5);
+> 
+>         Op(int nativeInt) {
+>             this.nativeInt = nativeInt;
+>         }
+> 
+>         /**
+>          * @hide
+>          */
+>         @UnsupportedAppUsage
+>         public final int nativeInt;
+>     }
+> ```
+>
+> ![045](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/045.png)
 
 
 
+如下的例子，横、竖两个矩形分别用描边画出来，相交区域用颜色填充
 
+```java
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
 
+        Rect rect1 = new Rect(100, 100, 400, 200);
+        Rect rect2 = new Rect(200, 0, 300, 300);
 
+        Paint paint = new Paint();
+        paint.setColor(Color.RED);
+        paint.setStyle(Paint.Style.STROKE);
+        canvas.drawRect(rect1, paint);
+        canvas.drawRect(rect2, paint);
 
+        Region region1 = new Region(rect1);
+        Region region2 = new Region(rect2);
+        region1.op(region2, Region.Op.INTERSECT);//取两个区域的交集
 
+        Paint paint_fill = new Paint();
+        paint_fill.setColor(Color.GREEN);
+        paint_fill.setStyle(Paint.Style.FILL);
 
+        //画出区域
+        drawRegion(canvas, region1, paint_fill);
+
+    }
+```
+
+![046](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/046.png)
 
 
 
