@@ -29,7 +29,10 @@ public class SecondActivity extends AppCompatActivity {
 
         List<TemperatureData> items = Arrays.asList(new TemperatureData("Hamburg", "5"), new TemperatureData("Berlin", "6"));
 
-        adapter = new MyAdapter(items);
+//        adapter = new MyAdapter(items);
+
+        adapter = new MyAdapter2(items);
+
         recyclerView.setAdapter(adapter);
 
     }
