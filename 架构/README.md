@@ -195,7 +195,12 @@ You can register for this property on `ImageView` with the following method. Thi
 
 
 
+## 其它
 
+教程
+
++ [DataBinding，再学不会你砍我](https://juejin.cn/post/6844903917424214029)
++ [Android DataBinding 从入门到进阶](https://juejin.cn/post/6844903609079971854)
 
 
 
