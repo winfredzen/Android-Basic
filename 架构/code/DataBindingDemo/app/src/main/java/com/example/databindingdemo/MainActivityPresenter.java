@@ -21,7 +21,7 @@ public class MainActivityPresenter implements MainActivityContract.Presenter{
     @Override
     public void onShowList() {
         Intent i = new Intent(ctx, SecondActivity.class);
-//        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         ctx.startActivity(i);
     }
