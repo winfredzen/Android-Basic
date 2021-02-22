@@ -49,6 +49,10 @@ android {
 + `ViewDataBinding` - Base class for generated data binding classes. If possible, the generated binding should be instantiated using one of its generated static bind or inflate methods. If the specific binding is unknown, `bind(View)` or `inflate(LayoutInflater, int, ViewGroup, boolean)` should be used.
 + `DataBindingUtil` - Utility class to create `ViewDataBinding` from layouts
 
+自动生成类的位置：
+
+![003](https://github.com/winfredzen/Android-Basic/blob/master/%E6%9E%B6%E6%9E%84/images/003.png)
+
 
 
 4.绑定数据
