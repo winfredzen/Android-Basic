@@ -19,7 +19,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentTop="true"
             android:layout_marginRight="6dp"
-            android:src="@drawable/ic_listentry"
+            android:src="@{obj.url}"
             android:contentDescription="TODO"/>
 
         <TextView

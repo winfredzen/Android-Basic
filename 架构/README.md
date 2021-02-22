@@ -187,6 +187,11 @@ You can register for this property on `ImageView` with the following method. Thi
 
 + 演示了DataBinding的基本使用
 + RecyclerView中DataBinding的使用
++ 自定义绑定适配器
+
+
+
+
 
 
 

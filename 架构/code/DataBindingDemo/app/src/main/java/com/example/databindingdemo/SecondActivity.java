@@ -1,10 +1,14 @@
 package com.example.databindingdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +31,8 @@ public class SecondActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        List<TemperatureData> items = Arrays.asList(new TemperatureData("Hamburg", "5"), new TemperatureData("Berlin", "6"));
+        List<TemperatureData> items = Arrays.asList(new TemperatureData("Hamburg", "5", "https://picsum.photos/40/80/"),
+                new TemperatureData("Berlin", "6", "https://picsum.photos/40/40/"));
 
 //        adapter = new MyAdapter(items);
 
@@ -35,5 +40,10 @@ public class SecondActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
+    }
+
+    @BindingAdapter("android:src")
+    public static void setImageUrl(ImageView view, String url) {
+        Glide.with(view.getContext()).load(url).placeholder(R.drawable.ic_listentry).into(view);
     }
 }

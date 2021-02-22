@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         MainActivityPresenter presenter = new MainActivityPresenter(this, getApplicationContext());
-        TemperatureData temperatureData = new TemperatureData("Hamburg", "10");
+        TemperatureData temperatureData = new TemperatureData("Hamburg", "10", "http://lorempixel.com/40/40/");
         binding.setTemp(temperatureData);
         binding.setPresenter(presenter);
     }
