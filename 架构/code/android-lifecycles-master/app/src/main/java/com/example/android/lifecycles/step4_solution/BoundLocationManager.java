@@ -45,6 +45,7 @@ public class BoundLocationManager {
             lifecycleOwner.getLifecycle().addObserver(this);
         }
 
+        //注意注解
         @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
         void addLocationListener() {
             // Note: Use the Fused Location Provider from Google Play Services instead.
@@ -63,7 +64,7 @@ public class BoundLocationManager {
             }
         }
 
-
+        //注意注解
         @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
         void removeLocationListener() {
             if (mLocationManager == null) {

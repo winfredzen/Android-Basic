@@ -77,7 +77,9 @@ public class ChronometerViewModel extends ViewModel {
 
 
 
+## 其它
 
++ [Android ViewModel，再学不会你砍我](https://juejin.cn/post/6844903919064186888)
 
 
 

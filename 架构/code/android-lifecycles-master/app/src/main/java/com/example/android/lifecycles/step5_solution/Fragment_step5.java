@@ -59,7 +59,7 @@ public class Fragment_step5 extends Fragment {
 
     private void subscribeSeekBar() {
 
-        // Update the ViewModel when the SeekBar is changed.
+        // Update the ViewModel when the SeekBar is changed. 监听修改，更新ViewModel
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
