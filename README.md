@@ -1,5 +1,13 @@
 # Android笔记
 
+需要学习的技术
+
++ 组件化原理
++ apt
++ poet
++ jetpack-navigation
+
+
 
 ## 配置编译版本
 
