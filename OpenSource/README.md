@@ -440,6 +440,58 @@ Log.d(TAG, "onClick: after @" + SystemClock.uptimeMillis());
 
 
 
+## Sticky Events
+
+有时候，需要先发布，再订阅事件
+
+![008](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/008.png)
+
+例如，一个Activity打开另一个Activity，在打开另一个Activity之前发送消息，然后再被打开的Activity中获取消息
+
+```java
+//启动另一个Activity
+Intent intent = new Intent(this, StickyActivity.class);
+//先发布
+EventBus.getDefault().postSticky(new StickyMessageEvent("stikcy message"));
+startActivity(intent);
+```
+
+获取消息：
+
+```java
+    @Subscribe(sticky = true)
+    public void onStickyMessageEvent(StickyMessageEvent event) {
+        setTitle(event.message);
+    }
+```
+
+> 注意`@Subscribe(sticky = true)`
+
+
+
+## 配置
+
+在构建apk之前，需要定义混淆规则，目的是保证订阅回调函数在构建apk的过程中，不会被误删
+
+参考：
+
++ [r8-proguard](https://github.com/greenrobot/EventBus#r8-proguard)
+
+在`proguard-rules.pro`中，添加如下的规则：
+
+```java
+-keepattributes *Annotation*
+-keepclassmembers class * {
+    @org.greenrobot.eventbus.Subscribe <methods>;
+}
+-keep enum org.greenrobot.eventbus.ThreadMode { *; }
+ 
+# And if you use AsyncExecutor:
+-keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
+    <init>(java.lang.Throwable);
+}
+```
+
 
 
 

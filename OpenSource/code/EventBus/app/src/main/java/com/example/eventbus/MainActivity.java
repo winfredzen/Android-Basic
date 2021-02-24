@@ -9,6 +9,7 @@ import com.example.eventbus.event.FailureEvent;
 import com.example.eventbus.event.MainEvent;
 import com.example.eventbus.event.MainOrderEvent;
 import com.example.eventbus.event.PostingEvent;
+import com.example.eventbus.event.StickyMessageEvent;
 import com.example.eventbus.event.SuccesssEvent;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -174,6 +175,15 @@ public class MainActivity extends AppCompatActivity  {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+            //启动另一个Activity
+            Intent intent = new Intent(this, StickyActivity.class);
+
+            //先发布
+            EventBus.getDefault().postSticky(new StickyMessageEvent("stikcy message"));
+
+            startActivity(intent);
+
             return true;
         }
 
