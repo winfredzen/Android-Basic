@@ -77,6 +77,108 @@ fragment.show(getSupportFragmentManager(), "publiser");
 
 
 
+**2.使用本地广播**
+
+![002](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/002.png)
+
+注册广播：
+
+```java
+    public static final String HANDLE_EVENT_ACTION = "handle_event_action";
+
+    public static final String STATUS_KEY = "status";
+
+    final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            //获取action
+            final String action = intent.getAction();
+            if (HANDLE_EVENT_ACTION.equals(action)) {
+                final boolean status = intent.getBooleanExtra(STATUS_KEY, false);
+                if (status) {
+                    setImageSrc(R.drawable.ic_happy);
+                } else {
+                    setImageSrc(R.drawable.ic_sad);
+                }
+            }
+        }
+    };
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //注册广播
+
+        final IntentFilter filter = new IntentFilter(HANDLE_EVENT_ACTION);
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, filter);
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        //取消注册广播
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mReceiver);
+    }
+```
+
+发送广播：
+
+```java
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0: {
+                        //succ
+                        //发送广播
+                        final Intent intent = new Intent();
+                        intent.setAction(MainActivity.HANDLE_EVENT_ACTION);
+                        intent.putExtra(MainActivity.STATUS_KEY, true);
+                        LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);
+                    }
+                        break;
+                    case 1: {
+                        //fail
+                        final Intent intent = new Intent();
+                        intent.setAction(MainActivity.HANDLE_EVENT_ACTION);
+                        intent.putExtra(MainActivity.STATUS_KEY, false);
+                        LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);
+                    }
+                        break;
+                    default:
+                        break;
+                }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

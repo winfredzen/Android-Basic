@@ -1,13 +1,16 @@
 package com.example.eventbus;
 
-import android.media.Image;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.view.View;
 
@@ -16,6 +19,45 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity  {
+
+    public static final String HANDLE_EVENT_ACTION = "handle_event_action";
+
+    public static final String STATUS_KEY = "status";
+
+    final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            //获取action
+            final String action = intent.getAction();
+            if (HANDLE_EVENT_ACTION.equals(action)) {
+                final boolean status = intent.getBooleanExtra(STATUS_KEY, false);
+                if (status) {
+                    setImageSrc(R.drawable.ic_happy);
+                } else {
+                    setImageSrc(R.drawable.ic_sad);
+                }
+            }
+        }
+    };
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //注册广播
+
+        final IntentFilter filter = new IntentFilter(HANDLE_EVENT_ACTION);
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, filter);
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        //取消注册广播
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mReceiver);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
