@@ -3,15 +3,20 @@ package com.example.eventbus;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 
+import com.example.eventbus.event.FailureEvent;
+import com.example.eventbus.event.MainEvent;
+import com.example.eventbus.event.MainOrderEvent;
+import com.example.eventbus.event.PostingEvent;
+import com.example.eventbus.event.SuccesssEvent;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 
 import android.view.Menu;
@@ -28,6 +33,8 @@ public class MainActivity extends AppCompatActivity  {
     public static final String HANDLE_EVENT_ACTION = "handle_event_action";
 
     public static final String STATUS_KEY = "status";
+
+    private static final String TAG = "MainActivity";
 
     final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
@@ -72,15 +79,28 @@ public class MainActivity extends AppCompatActivity  {
 
     @Subscribe(threadMode = ThreadMode.POSTING)
     public void onPostingEvent(PostingEvent event) {
-        final String threadInfo = event.threadInfo;
+        final String threadInfo = Thread.currentThread().toString();
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                setPublisherThreadInfo(threadInfo);
-                setSubscriberThreadInfo(Thread.currentThread().toString());
+                setPublisherThreadInfo(event.threadInfo);
+                setSubscriberThreadInfo(threadInfo);
             }
         });
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMainEvent(MainEvent event) {
+
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
+    public void onMainOrderEvent(MainOrderEvent event) {
+        Log.d(TAG, "onMainOrderedEvent: enter @" + SystemClock.uptimeMillis()); //开机时间
+        setPublisherThreadInfo(event.threadInfo);
+        setSubscriberThreadInfo(Thread.currentThread().toString());
+        Log.d(TAG, "onMainOrderedEvent: exit @" + SystemClock.uptimeMillis()); //开机时间
     }
 
     private void setPublisherThreadInfo(String threadInfo) {

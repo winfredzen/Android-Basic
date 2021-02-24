@@ -1,4 +1,4 @@
-package com.example.eventbus;
+package com.example.eventbus.event;
 
 public class PostingEvent {
 

@@ -87,6 +87,12 @@ fragment.show(getSupportFragmentManager(), "publiser");
 
 ![002](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/002.png)
 
+> 如果是在AndroidX中使用，注意`LocalBroadcastManager`已废弃，要使用的话，要导入
+>
+> ```groovy
+> implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+> ```
+
 注册广播：
 
 ```java
@@ -370,31 +376,67 @@ public class FailureEvent {
 ```java
     @Subscribe(threadMode = ThreadMode.POSTING)
     public void onPostingEvent(PostingEvent event) {
-        final String threadInfo = event.threadInfo;
+        final String threadInfo = Thread.currentThread().toString();
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                setPublisherThreadInfo(threadInfo);
-                setSubscriberThreadInfo(Thread.currentThread().toString());
+                setPublisherThreadInfo(event.threadInfo);
+                setSubscriberThreadInfo(threadInfo);
             }
         });
 
     }
 ```
 
-效果如下：
-
-![007](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/007.png)
 
 
+#### `MAIN_ORDERED`
 
+`MAIN_ORDERED`与`MAIN`的区别
 
+先使用`MAIN`
 
+```java
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMainOrderEvent(MainOrderEvent event) {
+        Log.d(TAG, "onMainOrderedEvent: enter @" + SystemClock.uptimeMillis()); //开机时间
+        setPublisherThreadInfo(event.threadInfo);
+        setSubscriberThreadInfo(Thread.currentThread().toString());
+        Log.d(TAG, "onMainOrderedEvent: exit @" + SystemClock.uptimeMillis()); //开机时间
+    }  
+```
 
+```java
+Log.d(TAG, "onClick: before @" + SystemClock.uptimeMillis());
+EventBus.getDefault().post(new MainOrderEvent(Thread.currentThread().toString()));
+try {
+    TimeUnit.SECONDS.sleep(1); //休眠1s
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+Log.d(TAG, "onClick: after @" + SystemClock.uptimeMillis());
+```
 
+此时控制的输出顺序为：
 
+```tex
+2021-02-24 15:31:24.782 22892-22892/com.example.eventbus D/PublisherDialogFragment: onClick: before @279388204
+2021-02-24 15:31:24.783 22892-22892/com.example.eventbus D/MainActivity: onMainOrderedEvent: enter @279388205
+2021-02-24 15:31:24.784 22892-22892/com.example.eventbus D/MainActivity: onMainOrderedEvent: exit @279388206
+2021-02-24 15:31:25.786 22892-22892/com.example.eventbus D/PublisherDialogFragment: onClick: after @279389208
+```
 
+> 可见，事件的发布方被事件的订阅方阻塞了
 
+如果`threadMode`为`MAIN_ORDERED`，输出为：
+
+```tex
+2021-02-24 15:35:04.195 23019-23019/com.example.eventbus D/PublisherDialogFragment: onClick: before @279607617
+2021-02-24 15:35:05.196 23019-23019/com.example.eventbus D/PublisherDialogFragment: onClick: after @279608618
+
+2021-02-24 15:35:05.219 23019-23019/com.example.eventbus D/MainActivity: onMainOrderedEvent: enter @279608641
+2021-02-24 15:35:05.220 23019-23019/com.example.eventbus D/MainActivity: onMainOrderedEvent: exit @279608642
+```
 
 
 
