@@ -11,6 +11,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import org.greenrobot.eventbus.EventBus;
+
 public class PublisherDialogFragment extends DialogFragment {
 
     private static final String TAG = "PublisherDialogFragment";
@@ -38,19 +40,12 @@ public class PublisherDialogFragment extends DialogFragment {
                 switch (which) {
                     case 0: {
                         //succ
-                        //发送广播
-                        final Intent intent = new Intent();
-                        intent.setAction(MainActivity.HANDLE_EVENT_ACTION);
-                        intent.putExtra(MainActivity.STATUS_KEY, true);
-                        LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);
+                        EventBus.getDefault().post(new SuccesssEvent());
                     }
                         break;
                     case 1: {
                         //fail
-                        final Intent intent = new Intent();
-                        intent.setAction(MainActivity.HANDLE_EVENT_ACTION);
-                        intent.putExtra(MainActivity.STATUS_KEY, false);
-                        LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);
+                        EventBus.getDefault().post(new FailureEvent());
                     }
                         break;
                     default:

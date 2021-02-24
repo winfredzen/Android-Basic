@@ -18,6 +18,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 public class MainActivity extends AppCompatActivity  {
 
     public static final String HANDLE_EVENT_ACTION = "handle_event_action";
@@ -43,20 +46,26 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onStart() {
         super.onStart();
-        //注册广播
-
-        final IntentFilter filter = new IntentFilter(HANDLE_EVENT_ACTION);
-
-        LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, filter);
-
+        //注册
+        EventBus.getDefault().register(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        //取消注册
+        EventBus.getDefault().unregister(this);
+    }
 
-        //取消注册广播
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(mReceiver);
+    //事件
+    @Subscribe
+    public void onSuccessEvent(SuccesssEvent event) {
+        setImageSrc(R.drawable.ic_happy);
+    }
+
+    @Subscribe
+    public void onFailureEvent(FailureEvent event) {
+        setImageSrc(R.drawable.ic_sad);
     }
 
     @Override

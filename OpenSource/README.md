@@ -153,7 +153,15 @@ fragment.show(getSupportFragmentManager(), "publiser");
 
 
 
+## 基本
 
+![003](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/003.png)
+
+![004](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/004.png)
+
+主要是事件、订阅、发布
+
+![005](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/005.png)
 
 
 
