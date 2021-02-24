@@ -17,9 +17,11 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -67,6 +69,36 @@ public class MainActivity extends AppCompatActivity  {
     public void onFailureEvent(FailureEvent event) {
         setImageSrc(R.drawable.ic_sad);
     }
+
+    @Subscribe(threadMode = ThreadMode.POSTING)
+    public void onPostingEvent(PostingEvent event) {
+        final String threadInfo = event.threadInfo;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                setPublisherThreadInfo(threadInfo);
+                setSubscriberThreadInfo(Thread.currentThread().toString());
+            }
+        });
+
+    }
+
+    private void setPublisherThreadInfo(String threadInfo) {
+        setTextView(R.id.publisherThreadTextView, threadInfo);
+    }
+
+    private void setSubscriberThreadInfo(String threadInfo) {
+        setTextView(R.id.subscriberThreadTextView, threadInfo);
+    }
+
+    //应该在主线程中运行
+    private void setTextView(int resId, String text) {
+        final TextView textView = (TextView) findViewById(resId);
+        textView.setText(text);
+        textView.setAlpha(0.5f);
+        textView.animate().alpha(1).start(); //动画
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

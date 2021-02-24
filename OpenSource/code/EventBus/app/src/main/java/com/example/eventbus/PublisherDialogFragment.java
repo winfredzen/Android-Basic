@@ -33,7 +33,7 @@ public class PublisherDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Publisher");
-        final String[] items = {"Success", "Failure"}; //设置对话框要显示的一个list，一般用于显示几个命令时
+        final String[] items = {"Success", "Failure", "Posting"}; //设置对话框要显示的一个list，一般用于显示几个命令时
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -48,6 +48,18 @@ public class PublisherDialogFragment extends DialogFragment {
                         EventBus.getDefault().post(new FailureEvent());
                     }
                         break;
+                    case 2: {
+                        //启动一个线程发送事件
+                        new Thread("posting-002") {
+                            @Override
+                            public void run() {
+                                super.run();
+                                EventBus.getDefault().post(new PostingEvent(Thread.currentThread().toString()));
+                            }
+                        }.start();
+
+                    }
+                    break;
                     default:
                         break;
                 }
