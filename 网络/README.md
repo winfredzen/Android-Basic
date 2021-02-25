@@ -246,13 +246,46 @@ private OkHttpUtils() {
 
 即`Content-Type: application/x-www-form-urlencoded`
 
+如下：
 
+```java
+    public void doPost(String url, HashMap<String, String> params, INetCallBack callBack) {
+        FormBody.Builder formBodyBuilder = new FormBody.Builder();
+
+        if (params != null) {
+            for (String param : params.keySet()) {
+                formBodyBuilder.add(param, params.get(param));
+            }
+        }
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBodyBuilder.build())
+                .build();
+
+
+        executeRequest(callBack, request);
+    }
+```
+
+![008](https://github.com/winfredzen/Android-Basic/blob/master/%E7%BD%91%E7%BB%9C/images/008.png)
 
 #### 文件上传Form
 
+即 `Content-Type: multipart/form-data; boundary=xxx`这种形式
 
+```java
+        MultipartBody.Builder multiPartBodyBuilder = new MultipartBody.Builder();
+        multiPartBodyBuilder.setType(MultipartBody.FORM);
 
+        if (params != null) {
+            for (String param : params.keySet()) {
+                multiPartBodyBuilder.addFormDataPart(param, params.get(param));
+            }
+        }
+```
 
+![009](https://github.com/winfredzen/Android-Basic/blob/master/%E7%BD%91%E7%BB%9C/images/009.png)
 
 
 

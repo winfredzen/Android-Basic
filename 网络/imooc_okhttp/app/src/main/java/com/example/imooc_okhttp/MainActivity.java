@@ -13,10 +13,13 @@ import android.widget.Toast;
 import com.example.imooc_okhttp.net.INetCallBack;
 import com.example.imooc_okhttp.utils.OkHttpUtils;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button mBtnGet;
     private Button mBtnPost;
+    private Button mBtnPostMultiPart;
     private TextView mTvContent;
 
     @Override
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private void initViews() {
         mBtnGet = (Button) findViewById(R.id.btn_get);
         mBtnPost = (Button) findViewById(R.id.btn_post);
+        mBtnPostMultiPart = (Button) findViewById(R.id.btn_post_multipart);
         mTvContent = (TextView) findViewById(R.id.tv_content);
     }
 
@@ -93,5 +97,39 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mBtnPostMultiPart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                HashMap<String, String> params = new HashMap<>();
+                params.put("author", "wz");
+
+                OkHttpUtils.getInstance().doPostMultiPart("http://www.imooc.com/api/okhttp/postmethod", params, new INetCallBack() {
+                    @Override
+                    public void onSuccess(String response) {
+                        mTvContent.setText(response);
+                    }
+
+                    @Override
+                    public void onFailed(Throwable ex) {
+                        Toast.makeText(MainActivity.this, "网络发生错误", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+        });
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+

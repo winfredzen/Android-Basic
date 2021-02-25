@@ -19,6 +19,12 @@
         android:layout_height="wrap_content"
         android:text="okhttp post request"/>
 
+    <Button
+        android:id="@+id/btn_post_multipart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="okhttp post multipart request"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"

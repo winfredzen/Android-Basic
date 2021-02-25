@@ -16,6 +16,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -85,6 +86,26 @@ public class OkHttpUtils {
 
         executeRequest(callBack, request);
     }
+
+    public void doPostMultiPart(String url, HashMap<String, String> params, INetCallBack callBack) {
+        MultipartBody.Builder multiPartBodyBuilder = new MultipartBody.Builder();
+        multiPartBodyBuilder.setType(MultipartBody.FORM);
+
+        if (params != null) {
+            for (String param : params.keySet()) {
+                multiPartBodyBuilder.addFormDataPart(param, params.get(param));
+            }
+        }
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(multiPartBodyBuilder.build())
+                .build();
+
+
+        executeRequest(callBack, request);
+    }
+
 
     private void executeRequest(INetCallBack callBack, Request request) {
         Call call = mOkHttpClient.newCall(request);
