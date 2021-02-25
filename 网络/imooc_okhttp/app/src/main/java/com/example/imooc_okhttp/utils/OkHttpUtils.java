@@ -1,13 +1,23 @@
 package com.example.imooc_okhttp.utils;
 
+import android.os.Handler;
+import android.os.Looper;
+
+import com.example.imooc_okhttp.net.INetCallBack;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 
 import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 public class OkHttpUtils {
+
+    private Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     private OkHttpUtils() {
 
@@ -24,22 +34,48 @@ public class OkHttpUtils {
      * @param url
      * @return
      */
-    public String doGet(String url) {
-        try {
-            OkHttpClient client = new OkHttpClient();
+    public void doGet(String url, INetCallBack callBack) {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
 
-            Request request = new Request.Builder()
-                    .url(url)
-                    .build();
+        Call call = client.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                mUiHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callBack.onFailed(e);
+                    }
+                });
 
-            Call call = client.newCall(request);
-            Response response  = call.execute();
-            return response.body().string();
+            }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                String respStr = null;
+                try {
+                    respStr = response.body().string();
+                } catch (IOException e) {
+                    mUiHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callBack.onFailed(e);
+                        }
+                    });
+                }
+                String finalRespStr = respStr;
+                mUiHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callBack.onSuccess(finalRespStr);
+                    }
+                });
+
+            }
+        });
     }
 
 }

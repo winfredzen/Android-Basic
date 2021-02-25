@@ -8,15 +8,15 @@ import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.imooc_okhttp.net.INetCallBack;
 import com.example.imooc_okhttp.utils.OkHttpUtils;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button mBtnGet;
     private TextView mTvContent;
-
-    private Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,19 +39,33 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //发情网络请求
 
-                new Thread() {
-                    @Override
-                    public void run() {
-                        String content = OkHttpUtils.getInstance().doGet("http://www.imooc.com/api/okhttp/getmethod");
+//                new Thread() {
+//                    @Override
+//                    public void run() {
+//                        String content = OkHttpUtils.getInstance().doGet("http://www.imooc.com/api/okhttp/getmethod");
+//
+//                        mUiHandler.post(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                mTvContent.setText(content);
+//                            }
+//                        });
+//                    }
+//                }.start();
 
-                        mUiHandler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                mTvContent.setText(content);
-                            }
-                        });
+
+                OkHttpUtils.getInstance().doGet("http://www.imooc.com/api/okhttp/getmethod", new INetCallBack() {
+                    @Override
+                    public void onSuccess(String response) {
+                        mTvContent.setText(response);
                     }
-                }.start();
+
+                    @Override
+                    public void onFailed(Throwable ex) {
+                        Toast.makeText(MainActivity.this, "网络发生错误", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
 
             }
         });

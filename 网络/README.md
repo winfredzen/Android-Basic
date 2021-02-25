@@ -105,9 +105,96 @@ new Thread() {
 
 **2.异步请求**
 
+如下封装异步的Get请求
 
+```java
+//回调接口
+public interface INetCallBack {
+    void onSuccess(String response);
+    void onFailed(Throwable ex);
+}
 
+//网络工具类
+public class OkHttpUtils {
 
+    private Handler mUiHandler = new Handler(Looper.getMainLooper());
+
+    private OkHttpUtils() {
+
+    }
+
+    public static OkHttpUtils sInstance = new OkHttpUtils();
+
+    public static OkHttpUtils getInstance() {
+        return sInstance;
+    }
+
+    /**
+     * http://www.imooc.com/api/okhttp/getmethod
+     * @param url
+     * @return
+     */
+    public void doGet(String url, INetCallBack callBack) {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Call call = client.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                mUiHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callBack.onFailed(e);
+                    }
+                });
+
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                String respStr = null;
+                try {
+                    respStr = response.body().string();
+                } catch (IOException e) {
+                    mUiHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callBack.onFailed(e);
+                        }
+                    });
+                }
+                String finalRespStr = respStr;
+                mUiHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callBack.onSuccess(finalRespStr);
+                    }
+                });
+
+            }
+        });
+    }
+
+}
+```
+
+实际调用的方式：
+
+```java
+OkHttpUtils.getInstance().doGet("http://www.imooc.com/api/okhttp/getmethod", new INetCallBack() {
+    @Override
+    public void onSuccess(String response) {
+        mTvContent.setText(response);
+    }
+    @Override
+    public void onFailed(Throwable ex) {
+        Toast.makeText(MainActivity.this, "网络发生错误", Toast.LENGTH_SHORT).show();
+    }
+});
+```
 
 
 
