@@ -311,6 +311,94 @@ private OkHttpUtils() {
 
 
 
+### 自定义Header
+
+如下的示例：
+
+```java
+    public void doGetWithHeader(String url, HashMap<String, String> headers, INetCallBack callBack) {
+        Request.Builder requestBuilder= new Request.Builder();
+        if (headers != null) {
+            for (String key : headers.keySet()) {
+                requestBuilder.addHeader(key, headers.get(key));
+            }
+        }
+        Request request = requestBuilder
+                .url(url)
+                .build();
+
+        executeRequest(callBack, request);
+    }
+```
+
+![011](https://github.com/winfredzen/Android-Basic/blob/master/%E7%BD%91%E7%BB%9C/images/011.png)
+
+
+
+**自定义Interceptor添加Header**
+
+如下的`AuthInterceptor`：
+
+```java
+public class AuthInterceptor implements Interceptor {
+
+    @NotNull
+    @Override
+    public Response intercept(@NotNull Chain chain) throws IOException {
+        Request originReqeust  = chain.request();
+        Request newRequest = originReqeust.newBuilder()
+                .addHeader("author", "wz")
+                .build();
+
+        return chain.proceed(newRequest);
+    }
+
+}
+```
+
+为`OkHttpClient`添加拦截器，因为要输出，所有注意拦截器的顺序：
+
+```java
+mOkHttpClient = new OkHttpClient.Builder()
+        .addInterceptor(new AuthInterceptor())
+        .addInterceptor(logging)
+        .build();
+```
+
+查看logging：
+
+![012](https://github.com/winfredzen/Android-Basic/blob/master/%E7%BD%91%E7%BB%9C/images/012.png)
+
+
+
+## Retrofit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

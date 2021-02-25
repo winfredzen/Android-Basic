@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import com.example.imooc_okhttp.interceptor.AuthInterceptor;
 import com.example.imooc_okhttp.net.INetCallBack;
 
 import org.jetbrains.annotations.NotNull;
@@ -40,6 +41,7 @@ public class OkHttpUtils {
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         mOkHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(new AuthInterceptor())
                 .addInterceptor(logging)
                 .build();
     }
@@ -113,6 +115,20 @@ public class OkHttpUtils {
         Request request = new Request.Builder()
                 .url(url)
                 .post(requestBody)
+                .build();
+
+        executeRequest(callBack, request);
+    }
+
+    public void doGetWithHeader(String url, HashMap<String, String> headers, INetCallBack callBack) {
+        Request.Builder requestBuilder= new Request.Builder();
+        if (headers != null) {
+            for (String key : headers.keySet()) {
+                requestBuilder.addHeader(key, headers.get(key));
+            }
+        }
+        Request request = requestBuilder
+                .url(url)
                 .build();
 
         executeRequest(callBack, request);

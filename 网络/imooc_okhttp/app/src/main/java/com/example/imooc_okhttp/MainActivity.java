@@ -62,7 +62,23 @@ public class MainActivity extends AppCompatActivity {
 //                }.start();
 
 
-                OkHttpUtils.getInstance().doGet("http://www.imooc.com/api/okhttp/getmethod", new INetCallBack() {
+
+//                OkHttpUtils.getInstance().doGet("http://www.imooc.com/api/okhttp/getmethod", new INetCallBack() {
+//                    @Override
+//                    public void onSuccess(String response) {
+//                        mTvContent.setText(response);
+//                    }
+//
+//                    @Override
+//                    public void onFailed(Throwable ex) {
+//                        Toast.makeText(MainActivity.this, "网络发生错误", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("wz_key", "wz_value");
+
+                OkHttpUtils.getInstance().doGetWithHeader("http://www.imooc.com/api/okhttp/getmethod", headers, new INetCallBack() {
                     @Override
                     public void onSuccess(String response) {
                         mTvContent.setText(response);
@@ -73,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "网络发生错误", Toast.LENGTH_SHORT).show();
                     }
                 });
+
 
 
             }
