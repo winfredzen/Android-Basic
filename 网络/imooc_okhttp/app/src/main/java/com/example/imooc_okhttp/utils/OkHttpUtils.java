@@ -106,6 +106,17 @@ public class OkHttpUtils {
         executeRequest(callBack, request);
     }
 
+    public void doPostJson(String url, String jsonStr, INetCallBack callBack) {
+        MediaType jsonMediaType = MediaType.get("application/json");
+        RequestBody requestBody = RequestBody.create(jsonStr, jsonMediaType);
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build();
+
+        executeRequest(callBack, request);
+    }
 
     private void executeRequest(INetCallBack callBack, Request request) {
         Call call = mOkHttpClient.newCall(request);

@@ -289,9 +289,25 @@ private OkHttpUtils() {
 
 
 
+#### json形式
 
+即`Content-Type: application/json; charset=utf-8`
 
+```java
+    public void doPostJson(String url, String jsonStr, INetCallBack callBack) {
+        MediaType jsonMediaType = MediaType.get("application/json");
+        RequestBody requestBody = RequestBody.create(jsonStr, jsonMediaType);
 
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build();
+
+        executeRequest(callBack, request);
+    }
+```
+
+![010](https://github.com/winfredzen/Android-Basic/blob/master/%E7%BD%91%E7%BB%9C/images/010.png)
 
 
 

@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnGet;
     private Button mBtnPost;
     private Button mBtnPostMultiPart;
+    private Button mBtnJson;
     private TextView mTvContent;
 
     @Override
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnGet = (Button) findViewById(R.id.btn_get);
         mBtnPost = (Button) findViewById(R.id.btn_post);
         mBtnPostMultiPart = (Button) findViewById(R.id.btn_post_multipart);
+        mBtnJson = (Button) findViewById(R.id.btn_post_json);
         mTvContent = (TextView) findViewById(R.id.tv_content);
     }
 
@@ -105,6 +107,27 @@ public class MainActivity extends AppCompatActivity {
                 params.put("author", "wz");
 
                 OkHttpUtils.getInstance().doPostMultiPart("http://www.imooc.com/api/okhttp/postmethod", params, new INetCallBack() {
+                    @Override
+                    public void onSuccess(String response) {
+                        mTvContent.setText(response);
+                    }
+
+                    @Override
+                    public void onFailed(Throwable ex) {
+                        Toast.makeText(MainActivity.this, "网络发生错误", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+        });
+
+        mBtnJson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String jsonStr = "{\"name\" : \"wz\"}";
+
+                OkHttpUtils.getInstance().doPostJson("http://www.imooc.com/api/okhttp/postmethod", jsonStr, new INetCallBack() {
                     @Override
                     public void onSuccess(String response) {
                         mTvContent.setText(response);
