@@ -16,6 +16,7 @@ import com.example.imooc_okhttp.utils.OkHttpUtils;
 public class MainActivity extends AppCompatActivity {
 
     private Button mBtnGet;
+    private Button mBtnPost;
     private TextView mTvContent;
 
     @Override
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         mBtnGet = (Button) findViewById(R.id.btn_get);
+        mBtnPost = (Button) findViewById(R.id.btn_post);
         mTvContent = (TextView) findViewById(R.id.tv_content);
     }
 
@@ -69,5 +71,27 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+        mBtnPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                OkHttpUtils.getInstance().doPost("http://www.imooc.com/api/okhttp/postmethod", null, new INetCallBack(){
+
+                    @Override
+                    public void onSuccess(String response) {
+                        mTvContent.setText(response);
+                    }
+
+                    @Override
+                    public void onFailed(Throwable ex) {
+                        Toast.makeText(MainActivity.this, "网络发生错误", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+        });
+
     }
 }

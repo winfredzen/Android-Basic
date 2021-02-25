@@ -198,13 +198,57 @@ OkHttpUtils.getInstance().doGet("http://www.imooc.com/api/okhttp/getmethod", new
 
 
 
+### Post请求
+
+通常需要对`OkHttpClient`实例进行某些设置，如：
+
++ `connectTimeout()`设置超时时间
++ `addInterceptor()`添加拦截器
 
 
 
+#### Logging Interceptor
+
+参考：
+
++ [Logging Interceptor](https://github.com/square/okhttp/blob/master/okhttp-logging-interceptor/README.md)
+
+引入Logging Interceptor：
+
+```java
+implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+```
+
+参数文档，如下设置logging：
+
+```java
+private OkHttpUtils() {
+    HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+        @Override
+        public void log(String message) {
+            Log.d("WZ", message);
+        }
+    });
+    logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+    mOkHttpClient = new OkHttpClient.Builder()
+            .addInterceptor(logging)
+            .build();
+}
+```
+
+此时，网络请求的输出如下：
+
+![007](https://github.com/winfredzen/Android-Basic/blob/master/%E7%BD%91%E7%BB%9C/images/007.png)
 
 
 
+#### 普通Form形式
 
+即`Content-Type: application/x-www-form-urlencoded`
+
+
+
+#### 文件上传Form
 
 
 

@@ -2,25 +2,45 @@ package com.example.imooc_okhttp.utils;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.example.imooc_okhttp.net.INetCallBack;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
+import okio.BufferedSink;
 
 public class OkHttpUtils {
 
     private Handler mUiHandler = new Handler(Looper.getMainLooper());
 
-    private OkHttpUtils() {
+    private OkHttpClient mOkHttpClient;
 
+    private OkHttpUtils() {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+            @Override
+            public void log(String message) {
+                Log.d("WZ", message);
+            }
+        });
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        mOkHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(logging)
+                .build();
     }
 
     public static OkHttpUtils sInstance = new OkHttpUtils();
@@ -35,12 +55,39 @@ public class OkHttpUtils {
      * @return
      */
     public void doGet(String url, INetCallBack callBack) {
-        OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url)
                 .build();
 
-        Call call = client.newCall(request);
+        executeRequest(callBack, request);
+    }
+
+    /**
+     * http://www.imooc.com/api/okhttp/postmethod
+     * @param url
+     * @param params
+     * @param callBack
+     */
+    public void doPost(String url, HashMap<String, String> params, INetCallBack callBack) {
+        FormBody.Builder formBodyBuilder = new FormBody.Builder();
+
+        if (params != null) {
+            for (String param : params.keySet()) {
+                formBodyBuilder.add(param, params.get(param));
+            }
+        }
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBodyBuilder.build())
+                .build();
+
+
+        executeRequest(callBack, request);
+    }
+
+    private void executeRequest(INetCallBack callBack, Request request) {
+        Call call = mOkHttpClient.newCall(request);
         call.enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
@@ -79,3 +126,25 @@ public class OkHttpUtils {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
