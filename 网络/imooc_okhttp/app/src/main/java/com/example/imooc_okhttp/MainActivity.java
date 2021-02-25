@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String jsonStr = "{\"name\" : \"wz\"}";
 
-                OkHttpUtils.getInstance().doPostJson("http://www.imooc.com/api/okhttp/postmethod", jsonStr, new INetCallBack() {
+                OkHttpUtils.getInstance().doPostJson("http://www.imooc.com/api/okhttp/postjson", jsonStr, new INetCallBack() {
                     @Override
                     public void onSuccess(String response) {
                         mTvContent.setText(response);

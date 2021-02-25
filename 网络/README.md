@@ -373,43 +373,218 @@ mOkHttpClient = new OkHttpClient.Builder()
 
 ## Retrofit
 
+[retrofit](https://github.com/square/retrofit)是对okhttp的封装，官方文档地址：
+
++ [Retrofit](https://square.github.io/retrofit/)
+
+引入Retrofit后，不需要再单独引入okhttp，否则可能会造成冲突
+
+如何查看Retrofit依赖的okhttp的版本呢？
+
+> 在External Libaries中找到Retrofit的jar包，右键->reveal in finder后，找到`.pom`文件，可查看依赖的okhttp的版本
+>
+> ![013](https://github.com/winfredzen/Android-Basic/blob/master/%E7%BD%91%E7%BB%9C/images/013.png)
+
+如果要使用`logging-interceptor`，需要使用Retrofit依赖okhttp的那个版本：
+
+> ```groovy
+> implementation("com.squareup.okhttp3:logging-interceptor:3.14.9")
+> ```
 
 
 
+**Retrofit的使用流程**
+
++ 创建接口，接口中创建方法
+
++ 方法及参数上添加注解
+
+  ```java
+  public interface GitHubService {
+    @GET("users/{user}/repos")
+    Call<List<Repo>> listRepos(@Path("user") String user);
+  }
+  ```
+
++ 通过Retrofit对象得到接口代理对象
+
+  ```java
+  Retrofit retrofit = new Retrofit.Builder()
+      .baseUrl("https://api.github.com/")
+      .build();
+  
+  GitHubService service = retrofit.create(GitHubService.class);
+  ```
+
+  > Retrofit类生成了`GitHubService`接口的实现
+
++ 通过代理对象执行
+
+  ```java
+  Call<List<Repo>> repos = service.listRepos("octocat");
+  ```
+
+  
 
 
 
+### Get请求
+
+在注解中指定url的相对路径
+
+```java
+@GET("users/list")
+```
+
+也可以在url中指定query的参数
+
+```java
+@GET("users/list?sort=desc")
+```
+
+也可以替换快来更新url，替换块由`{}`包裹，再使用`@Path`注解
+
+```java
+@GET("group/{id}/users")
+Call<List<User>> groupList(@Path("id") int groupId);
+```
+
+添加Query参数：
+
+```java
+@GET("group/{id}/users")
+Call<List<User>> groupList(@Path("id") int groupId, @Query("sort") String sort);
+```
+
+对于复杂的参数，可使用`Map`
+
+```java
+@GET("group/{id}/users")
+Call<List<User>> groupList(@Path("id") int groupId, @QueryMap Map<String, String> options);
+```
 
 
 
+### Post请求
+
+**Form-encoded**
+
+使用`@FormUrlEncoded`和`@Field()`注解
+
+```java
+@FormUrlEncoded
+@POST("user/edit")
+Call<User> updateUser(@Field("first_name") String first, @Field("last_name") String last);
+```
+
+**Multipart**
+
+使用`@Multipart`和`@Part()` 
+
+```java
+@Multipart
+@PUT("user/photo")
+Call<User> updateUser(@Part("photo") RequestBody photo, @Part("description") RequestBody description);
+```
+
+**JSON**
+
+```java
+@POST("postjson")
+Call<Result> postJson(@Body RequestBody jsonBody);
+```
 
 
 
+### header
+
+可以在方法上使用`@Headers`注解
+
+```java
+@Headers("Cache-Control: max-age=640000")
+@GET("widget/list")
+Call<List<Widget>> widgetList();
+```
+
+也可以使用`@Header`注解来动态的更新header
+
+```java
+@GET("user")
+Call<User> getUser(@Header("Authorization") String authorization)
+```
+
+与query参数类似，也可以使用`@HeaderMap`
+
+```java
+@GET("user")
+Call<User> getUser(@HeaderMap Map<String, String> headers)
+```
 
 
 
+如果要为每个request添加header，可使用[OkHttp interceptor](https://github.com/square/okhttp/wiki/Interceptors).
 
 
 
+### CONVERTERS
+
+默认情况下，Retrofit只能将HTTP body反序列化为OkHttp的`ResponseBody`类型，并且只能接受`@Body`的`RequestBody`类型
+
+可以添加转换器以支持其他类型
+
+```java
+Retrofit retrofit = new Retrofit.Builder()
+    .baseUrl("https://api.github.com/")
+    .addConverterFactory(GsonConverterFactory.create())
+    .build();
+
+GitHubService service = retrofit.create(GitHubService.class);
+```
 
 
 
+### 例子
 
+对Retrofit的简单的封装：
 
+```java
+public class RetrofitImpl {
 
+    private static RetrofitImpl sInstance = new RetrofitImpl();
 
+    public RetrofitImpl getInstance() {
+        return sInstance;
+    }
 
+    private Retrofit mRetrofit;
 
+    public static Retrofit getRetrofit() {
+        return sInstance.mRetrofit;
+    }
 
+    private RetrofitImpl() {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+            @Override
+            public void log(String message) {
+                Log.d("WZ", message);
+            }
+        });
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(logging)
+                .build();
 
+        mRetrofit = new Retrofit.Builder()
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("http://www.imooc.com/api/okhttp/")
+                .build();
 
+    }
 
-
-
-
-
-
+}
+```
 
 
 
