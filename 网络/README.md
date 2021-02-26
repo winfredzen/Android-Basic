@@ -442,7 +442,7 @@ mOkHttpClient = new OkHttpClient.Builder()
 @GET("users/list?sort=desc")
 ```
 
-也可以替换快来更新url，替换块由`{}`包裹，再使用`@Path`注解
+也可以替换块来更新url，替换块由`{}`包裹，再使用`@Path`注解
 
 ```java
 @GET("group/{id}/users")
