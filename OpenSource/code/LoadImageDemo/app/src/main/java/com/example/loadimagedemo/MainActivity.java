@@ -11,6 +11,9 @@ import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -47,7 +50,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onLoadImageClick(View view) {
-        loadUrlImage("https://img4.mukewang.com/6013c1a9092857c002720144.png");
+//        loadUrlImage("http://img4.mukewang.com/6013c1a9092857c002720144.png");
+//        loadUrlImage("http://res.lgdsunday.club/big_img.jpg");
+
+//        glideloadImage("http://res.lgdsunday.club/big_img.jpg");
+        glideAppLoadUrlImage("http://res.lgdsunday.club/big_img.jpg");
+    }
+
+
+    private void glideloadImage(String img) {
+
+        RequestOptions options = new RequestOptions()
+                .placeholder(R.mipmap.loading)
+                .error(R.mipmap.loader_error)
+                .circleCrop();
+
+        Glide.with(this)
+                .load(img)
+                .apply(options)
+                .into(mIv);
     }
 
     /**
@@ -94,6 +115,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }.start();
+    }
+
+    private void glideAppLoadUrlImage(String url) {
+        GlideApp.with(this)
+                .load(url)
+                .injectOptions()
+                .into(mIv);
     }
 
 }
