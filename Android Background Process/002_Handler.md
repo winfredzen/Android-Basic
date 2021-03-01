@@ -122,21 +122,72 @@ new Thread() {
 
 
 
+## Handler其它方法
+
+1.`boolean post(@NonNull Runnable r)`
+
+> Causes the Runnable r to be added to the message queue. The runnable will be run on the thread to which this handler is attached.
+
+如下所示，使用post方法来在修改UI显示：
+
+```java
+private Handler handler = new Handler();
+......
+new Thread(){
+    @Override
+    public void run() {
+        super.run();
+        Log.d(TAG, "Outter Thread is : " + Thread.currentThread().getName());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                btn.setImageResource(R.mipmap.stop);
+                Log.d(TAG, "Inner Run Thread is : " + Thread.currentThread().getName());
+            }
+        });
+    }
+}.start();
+```
+
+输出结果为：
+
+> 2021-03-01 13:41:10.927 1868-1898/com.example.handlerdemo D/TimerActivity2: Outter Thread is : Thread-3
+> 2021-03-01 13:41:10.930 1868-1868/com.example.handlerdemo D/TimerActivity2: Inner Run Thread is : main
+
+即`post`方法中的`Runnable`可以运行在主线程中
 
 
 
+2.`boolean postDelayed(@NonNull Runnable r, long delayMillis)`
+
+> Causes the Runnable r to be added to the message queue, to be run after the specified amount of time elapses. The runnable will be run on the thread to which this handler is attached. The time-base is `SystemClock.uptimeMillis`. Time spent in deep sleep will add an additional delay to execution.
+
+可延迟执行
 
 
 
+3.`boolean postAtTime(@NonNull Runnable r, long uptimeMillis)`
+
+> Causes the Runnable r to be added to the message queue, to be run at a specific time given by uptimeMillis. The time-base is `SystemClock.uptimeMillis`. Time spent in deep sleep will add an additional delay to execution. The runnable will be run on the thread to which this handler is attached.
+
+有可以实现延迟执行的效果：
+
+```java
+handler.postAtTime(new Runnable() {
+    @Override
+    public void run() {
+        btn.setImageResource(R.mipmap.stop);
+    }
+}, SystemClock.uptimeMillis() + 3000);
+```
 
 
 
+4.`void removeCallbacks(@NonNull Runnable r)`
 
+> Remove any pending posts of Runnable r that are in the message queue.
 
-
-
-
-
+移除Runnable
 
 
 

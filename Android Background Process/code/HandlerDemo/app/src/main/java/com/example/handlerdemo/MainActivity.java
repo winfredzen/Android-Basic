@@ -118,7 +118,14 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.btn4: {
 
-                Intent intent = new Intent(MainActivity.this, TimerActivity.class);
+                Intent intent = new Intent(MainActivity.this, TimerActivity2.class);
+                startActivity(intent);
+
+                break;
+            }
+            case R.id.btn5: {
+
+                Intent intent = new Intent(MainActivity.this, NetDemoActivity.class);
                 startActivity(intent);
 
                 break;
