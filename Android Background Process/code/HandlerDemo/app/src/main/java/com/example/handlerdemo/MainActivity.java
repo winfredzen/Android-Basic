@@ -31,12 +31,31 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    Handler handler2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mTextView = findViewById(R.id.txt);
+
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                Looper.prepare();
+                handler2 = new Handler() {
+                    @Override
+                    public void handleMessage(@NonNull Message msg) {
+                        super.handleMessage(msg);
+                        Log.e(TAG, "whate is " + msg.what);
+                    }
+                };
+                Looper.loop();
+
+            }
+        }.start();
     }
 
     /**
@@ -64,10 +83,38 @@ public class MainActivity extends AppCompatActivity {
 //                        message.obj = msg;
 //                        handler.sendMessage(message);
 
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                mTextView.setText(msg);
+//                            }
+//                        });
+
+
                     }
                 }.start();
             }
                 break;
+
+            case R.id.btn2: {
+                new Thread() {
+                    @Override
+                    public void run() {
+                        super.run();
+
+
+                    }
+                }.start();
+            }
+                break;
+
+            case R.id.btn3: {
+
+                handler2.sendEmptyMessage(1000);
+
+                break;
+            }
+
             default:
                 break;
         }

@@ -47,7 +47,78 @@
 
 
 
+## Message
 
+Message是在线程之间传递的消息，它可以在内部携带少量的信息，用于在不同线程之间交换数据。常用属性
+
++ what - 用于区分handler发送消息的不同线程来学院
++ arg1 - 如果子线程想要向主线程传递整型数据，则可以用使用这些参数
++ obj - 任意对象
+
+
+
+## MessageQueue
+
+`MessageQueue`就是消息队列的意思，它主要用于存放所有通过Handler发送过来的消息。这部分消息一直存放于消息队列当中，等待被处理。每个线程中只会有一个`MessageQueue`对象
+
+
+
+## Looper
+
+Looper是每个线程中的MessageQueue的管家，调用Looper的loop()方法后，就会进入到一个无限循环当中，然后每当MessageQueue中存在一条消息，Looper就会将这条消息取出，并将它传递到Handler的`handleMessage()`方法中。每个线程只有一个`Looper`对象
+
+
+
+**主线程向子线程传递消息**
+
+如下创建一个`Handler`，在主线程发送消息`handler2.sendEmptyMessage(1000)`
+
+然后在子线程中创建Handler，处理消息：
+
+```java
+new Thread() {
+    @Override
+    public void run() {
+        super.run();
+        handler2 = new Handler() {
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                super.handleMessage(msg);
+                Log.e(TAG, "whate is " + msg.what);
+            }
+        };
+    }
+}.start();
+```
+
+运行时会有如下的异常：
+
+> java.lang.RuntimeException: Can't create handler inside thread that has not called Looper.prepare()
+
+![003](https://github.com/winfredzen/Android-Basic/blob/master/Android%20Background%20Process/images/003.png)
+
+> 系统会自动为主线程开启消息循环，子线程却不会
+
+子线程需主动开启消息循环
+
+```java
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                Looper.prepare();
+                handler2 = new Handler() {
+                    @Override
+                    public void handleMessage(@NonNull Message msg) {
+                        super.handleMessage(msg);
+                        Log.e(TAG, "whate is " + msg.what);
+                    }
+                };
+                Looper.loop();
+
+            }
+        }.start();
+```
 
 
 
