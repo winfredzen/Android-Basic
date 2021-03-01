@@ -3,6 +3,7 @@ package com.example.handlerdemo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -111,6 +112,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn3: {
 
                 handler2.sendEmptyMessage(1000);
+
+                break;
+            }
+
+            case R.id.btn4: {
+
+                Intent intent = new Intent(MainActivity.this, TimerActivity.class);
+                startActivity(intent);
 
                 break;
             }
