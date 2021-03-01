@@ -12,10 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HandlerDemo">
-        <activity android:name=".NetDemoActivity"></activity>
+        <activity android:name=".MemoryLeakActivity"
+            android:label="老王内存泄漏">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".NetDemoActivity" />
         <activity android:name=".TimerActivity" />
         <activity android:name=".TimerActivity2" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:label="老王Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

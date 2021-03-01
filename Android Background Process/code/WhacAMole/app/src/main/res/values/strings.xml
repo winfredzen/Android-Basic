@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WhacAMole</string>
+    <string name="btn_start_string">点击开始</string>
+    <string name="countStr">打到了%1$d，共%2$d只</string>
+</resources>

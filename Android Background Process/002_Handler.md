@@ -191,9 +191,88 @@ handler.postAtTime(new Runnable() {
 
 
 
+## 内存泄露的问题
+
+参考：
+
++ [【技术译文】安卓Handler当做内部类，导致内存泄露的问题](https://www.jianshu.com/p/1b39416f1508)
+
+主要是在延迟发送消息的时候，按返回键，Activity要被销毁时，循环引用导致的
+
+如何解决呢？
+
+1.在`onDestroy()`方法中，移除message和runnable
+
+```java
+
+/**
+ * 内存泄漏
+ */
+public class MemoryLeakActivity extends AppCompatActivity {
+
+    private Button button;
+    private TextView textView;
+
+    private Handler handler = new Handler(Looper.getMainLooper()) {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+
+            textView.setText("收到消息");
+
+        }
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_memory_leak);
+
+        button = findViewById(R.id.button);
+        textView  = findViewById(R.id.textView);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                handler.sendEmptyMessageDelayed(1, 5000);
+
+            }
+        });
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        handler.removeCallbacksAndMessages(null);
+    }
+}
+```
 
 
 
+2.弱引用
+
+```java
+    private static class MyHandler extends Handler {
+
+        private WeakReference<MemoryLeakActivity> weakReference;
+
+        public MyHandler(MemoryLeakActivity activity) {
+            weakReference = new WeakReference<>(activity);
+        }
+
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+
+            MemoryLeakActivity activity = weakReference.get();
+            activity.textView.setText("xxxx");
+        }
+    }
+```
 
 
 
