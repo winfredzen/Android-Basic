@@ -110,35 +110,88 @@ ListItemBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.list_
 + 可观察对象
 
   > ```java
-  >  private static class User extends BaseObservable {
-  >      private String firstName;
-  >      private String lastName;
+  > private static class User extends BaseObservable {
+  >   private String firstName;
+  >   private String lastName;
   > 
-  >      @Bindable
-  >      public String getFirstName() {
-  >          return this.firstName;
-  >      }
+  >   @Bindable
+  >   public String getFirstName() {
+  >       return this.firstName;
+  >   }
   > 
-  >      @Bindable
-  >      public String getLastName() {
-  >          return this.lastName;
-  >      }
+  >   @Bindable
+  >   public String getLastName() {
+  >       return this.lastName;
+  >   }
   > 
-  >      public void setFirstName(String firstName) {
-  >          this.firstName = firstName;
-  >          notifyPropertyChanged(BR.firstName);
-  >      }
+  >   public void setFirstName(String firstName) {
+  >       this.firstName = firstName;
+  >       notifyPropertyChanged(BR.firstName);
+  >   }
   > 
-  >      public void setLastName(String lastName) {
-  >          this.lastName = lastName;
-  >          notifyPropertyChanged(BR.lastName);
-  >      }
-  >  }
+  >   public void setLastName(String lastName) {
+  >       this.lastName = lastName;
+  >       notifyPropertyChanged(BR.lastName);
+  >   }
+  > }
   > ```
   >
   > > 具体操作过程是向 `getter` 分配 [`Bindable`](https://developer.android.com/reference/android/databinding/Bindable?hl=zh-cn) 注释，然后在 `setter` 中调用 [`notifyPropertyChanged()`](https://developer.android.com/reference/android/databinding/BaseObservable?hl=zh-cn#notifypropertychanged) 方法
   > >
   > > 数据绑定在模块包中生成一个名为 `BR` 的类，该类包含用于数据绑定的资源的 ID。在编译期间，[`Bindable`](https://developer.android.com/reference/android/databinding/Bindable?hl=zh-cn) 注释会在 `BR` 类文件中生成一个条目。如果数据类的基类无法更改，[`Observable`](https://developer.android.com/reference/android/databinding/Observable?hl=zh-cn) 接口可以使用 [`PropertyChangeRegistry`](https://developer.android.com/reference/android/databinding/PropertyChangeRegistry?hl=zh-cn) 对象实现，以便有效地注册和通知监听器。
+  > >
+  > > > 在某些地方，看到有直接`implements Observable`接口的，参考：
+  > > >
+  > > > + [4.1. Observable 对象](https://yifei8.gitbooks.io/databinding/content/chapter4.html)
+  > > > + [Android中的MVVM DataBinding指南（二）](https://www.jianshu.com/p/cfd258ddc43d)
+  > > >
+  > > > ```java
+  > > > public class BaseObservable implements Observable {
+  > > >     private transient PropertyChangeRegistry mCallbacks;
+  > > > 
+  > > >     public BaseObservable() {
+  > > >     }
+  > > > 
+  > > >     @Override
+  > > >     public synchronized void addOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
+  > > >         if (mCallbacks == null) {
+  > > >             mCallbacks = new PropertyChangeRegistry();
+  > > >         }
+  > > >         mCallbacks.add(callback);
+  > > >     }
+  > > > 
+  > > >     @Override
+  > > >     public synchronized void removeOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
+  > > >         if (mCallbacks != null) {
+  > > >             mCallbacks.remove(callback);
+  > > >         }
+  > > >     }
+  > > > 
+  > > >     /**
+  > > >      * Notifies listeners that all properties of this instance have changed.
+  > > >      */
+  > > >     public synchronized void notifyChange() {
+  > > >         if (mCallbacks != null) {
+  > > >             mCallbacks.notifyCallbacks(this, 0, null);
+  > > >         }
+  > > >     }
+  > > > 
+  > > >     /**
+  > > >      * Notifies listeners that a specific property has changed. The getter for the property
+  > > >      * that changes should be marked with {@link Bindable} to generate a field in
+  > > >      * <code>BR</code> to be used as <code>fieldId</code>.
+  > > >      *
+  > > >      * @param fieldId The generated BR id for the Bindable field.
+  > > >      */
+  > > >     public void notifyPropertyChanged(int fieldId) {
+  > > >         if (mCallbacks != null) {
+  > > >             mCallbacks.notifyCallbacks(this, fieldId, null);
+  > > >         }
+  > > >     }
+  > > > }
+  > > > ```
+  > > >
+  > > > 
 
 
 
