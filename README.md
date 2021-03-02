@@ -6,8 +6,7 @@
 + apt
 + poet
 + jetpack-navigation
-
-
++ rxjava
 
 ## 配置编译版本
 
