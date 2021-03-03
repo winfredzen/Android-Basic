@@ -7,6 +7,7 @@
 + poet
 + jetpack-navigation
 + rxjava
++ adb
 
 ## 配置编译版本
 
