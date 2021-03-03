@@ -10,7 +10,7 @@
 
 Macos下Android SDK的路径一般是`/Users/xxxx/Library/Android/sdk`，其中的adb位于`platform-tools`目录下，如：
 
-![001](https://github.com/winfredzen/Android-Basic/tree/master/adb/images/001.png)
+![001](https://github.com/winfredzen/Android-Basic/blob/master/adb/images/001.png)
 
 参考上面的教程，不过要注意下，现在用的bash是哪个版本
 
@@ -19,7 +19,7 @@ Macos下Android SDK的路径一般是`/Users/xxxx/Library/Android/sdk`，其中�
 
 配置path
 
-![002](https://github.com/winfredzen/Android-Basic/tree/master/adb/images/002.png)
+![002](https://github.com/winfredzen/Android-Basic/blob/master/adb/images/002.png)
 
 reload bash profile
 
