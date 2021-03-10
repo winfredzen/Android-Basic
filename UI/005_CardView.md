@@ -34,13 +34,141 @@
 
 
 
+## 例子
+
+如下的例子：
+
+```xml
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:foreground="?attr/selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/id_img"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/img01"
+                />
+
+            <TextView
+                android:id="@+id/id_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                tools:text="xxxxxxxxxxx"
+                />
+
+            <TextView
+                android:id="@+id/id_content_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                tools:text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
+```
 
 
 
+使用ListView实现的列表：
+
+```java
+public class MessageAdapter extends BaseAdapter {
+
+    private Context mContext;
+    private LayoutInflater mInflater;
+    private List<Message> mDatas;
+
+    public MessageAdapter(Context context, List<Message> datas) {
+        mContext = context;
+        mInflater = LayoutInflater.from(context);
+        mDatas = datas;
+    }
+
+    @Override
+    public int getCount() {
+        return mDatas.size();
+    }
+
+    @Override
+    public Message getItem(int position) {
+        return mDatas.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        ViewHolder viewHolder = null;
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.item_message, parent, false);
+            viewHolder = new ViewHolder();
+            viewHolder.mIvImg = convertView.findViewById(R.id.id_img);
+            viewHolder.mTvTitle = convertView.findViewById(R.id.id_title_tv);
+            viewHolder.mTvContent = convertView.findViewById(R.id.id_content_tv);
+            //保存viewholder
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
+
+        Message message = mDatas.get(position);
+        viewHolder.mIvImg.setImageResource(message.getImgResId());
+        viewHolder.mTvTitle.setText(message.getTitle());
+        viewHolder.mTvContent.setText(message.getContent());
+
+        return convertView;
+    }
+
+    public static class ViewHolder {
+        ImageView mIvImg;
+        TextView mTvTitle;
+        TextView mTvContent;
+
+
+    }
+}
+
+```
 
 
 
+效果为：
 
+![007](https://github.com/winfredzen/Android-Basic/blob/master/UI/images/007.png)
 
 
 
