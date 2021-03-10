@@ -508,7 +508,9 @@ public class EditNameDialog extends DialogFragment {
 
 
 
+## 其它教程
 
++ [Android开发 DialogFragment对话框详解](https://www.cnblogs.com/guanxinjing/p/12044196.html)
 
 
 
