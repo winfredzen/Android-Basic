@@ -196,6 +196,18 @@ public class MyLinLayout extends ViewGroup {
 
 
 
+2.container自己什么时候被布局？
+
+> container也有父控件，它的布局是在父控件中由它的父控件完成的，就这样一层一层的向上由各自的父控件完成对自己的布局，直到所有控件的顶层节点。在所有控件的顶部有一个`ViewRoot`，它才是所有控件的祖先节点
+>
+> 在它的布局中，会调用一个`layout()`函数
+>
+> ![047](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/047.png)
+>
+> 在`setFrame(l, t, r, b)`函数中设置的是自己的位置，设置结束以后才会调用`onLayout(changed, l, t, r, b)`函数来设置内部所有子控件的位置
+
+
+
 ## 添加边距
 
 
