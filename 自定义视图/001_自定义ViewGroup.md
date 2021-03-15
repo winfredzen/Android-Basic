@@ -210,17 +210,189 @@ public class MyLinLayout extends ViewGroup {
 
 ## 添加边距
 
+如果要自定义ViewGroup支持子控件的layout_margin参数，则自定义的ViewGroup类必须重写`generateLayoutParams()`函数，并且在该函数中返回一个`ViewGroup.MarginLayoutParams`派生类对象
 
 
 
+在`ViewGroup.java`中，有如下的代码：
+
+```java
+    /**
+     * Returns a new set of layout parameters based on the supplied attributes set.
+     *
+     * @param attrs the attributes to build the layout parameters from
+     *
+     * @return an instance of {@link android.view.ViewGroup.LayoutParams} or one
+     *         of its descendants
+     */
+    public LayoutParams generateLayoutParams(AttributeSet attrs) {
+        return new LayoutParams(getContext(), attrs);
+    }
+
+    /**
+     * Returns a safe set of layout parameters based on the supplied layout params.
+     * When a ViewGroup is passed a View whose layout params do not pass the test of
+     * {@link #checkLayoutParams(android.view.ViewGroup.LayoutParams)}, this method
+     * is invoked. This method should return a new set of layout params suitable for
+     * this ViewGroup, possibly by copying the appropriate attributes from the
+     * specified set of layout params.
+     *
+     * @param p The layout parameters to convert into a suitable set of layout parameters
+     *          for this ViewGroup.
+     *
+     * @return an instance of {@link android.view.ViewGroup.LayoutParams} or one
+     *         of its descendants
+     */
+    protected LayoutParams generateLayoutParams(ViewGroup.LayoutParams p) {
+        return p;
+    }
+
+    /**
+     * Returns a set of default layout parameters. These parameters are requested
+     * when the View passed to {@link #addView(View)} has no layout parameters
+     * already set. If null is returned, an exception is thrown from addView.
+     *
+     * @return a set of default layout parameters or null
+     */
+    protected LayoutParams generateDefaultLayoutParams() {
+        return new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+    }
+```
 
 
 
+添加margin后的代码`MyLinLayout`
+
+```java
+public class MyLinLayout extends ViewGroup {
+
+
+    public MyLinLayout(Context context) {
+        super(context);
+    }
+
+    public MyLinLayout(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        int measureWidth = MeasureSpec.getSize(widthMeasureSpec);
+        int measureHeight = MeasureSpec.getSize(heightMeasureSpec);
+        int measureWidthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int measureHeightMode = MeasureSpec.getMode(heightMeasureSpec);
+
+        int height = 0;
+        int width = 0;
+        int count = getChildCount();
+        for (int i = 0;i < count; i++) {
+            //测量子控件
+            View child = getChildAt(i);
+            measureChild(child, widthMeasureSpec, heightMeasureSpec);
+            //获取子控件的高度和宽度
+            //考虑margin
+            MarginLayoutParams lp = (MarginLayoutParams)child.getLayoutParams();
+            int childHeight = child.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
+            int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
+            //得到最大宽度，并累加高度
+            height += childHeight;
+            width = Math.max(childWidth, width);
+        }
+        setMeasuredDimension((measureWidthMode == MeasureSpec.EXACTLY) ? measureWidth : width,
+                (measureHeightMode == MeasureSpec.EXACTLY) ? measureHeight : height);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        int top = 0;
+        int count = getChildCount();
+        for (int i = 0; i < count; i++) {
+            View child = getChildAt(i);
+
+            //考虑margin
+            MarginLayoutParams lp = (MarginLayoutParams)child.getLayoutParams();
+            int childHeight = child.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
+            int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
+
+            child.layout(0, top, childWidth, top + childHeight);
+            top += childHeight;
+        }
+    }
+
+    @Override
+    public LayoutParams generateLayoutParams(AttributeSet attrs) {
+        return new MarginLayoutParams(getContext(), attrs);
+    }
+
+    @Override
+    protected LayoutParams generateLayoutParams(LayoutParams p) {
+        return new MarginLayoutParams(p);
+    }
+
+    @Override
+    protected LayoutParams generateDefaultLayoutParams() {
+        return new MarginLayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+    }
+}
+```
 
 
 
+关键的地方在于：
+
+```java
+//考虑margin
+MarginLayoutParams lp = (MarginLayoutParams)child.getLayoutParams();
+int childHeight = child.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
+int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
+```
+
+> 通过`child.getLayoutParams()`函数获取child对应的`LayoutParams`实例，将其强转成`MarginLayoutParams`，然后在计算childHeight时添加顶部间距和底部间距。
 
 
+
+同样在`onLayout()`布局时，任然将间距添加到控件里
+
+最终的效果如下：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.mylinlayout.MyLinLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ff00ff"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="第一个TextView"
+        android:layout_marginTop="10dp"
+        android:background="#ff0000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="第二个TextView"
+        android:layout_marginTop="20dp"
+        android:background="#00ff00"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="第三个TextView"
+        android:layout_marginTop="30dp"
+        android:background="#0000ff"/>
+
+
+</com.example.mylinlayout.MyLinLayout>
+```
+
+![048](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/048.png)
 
 
 
