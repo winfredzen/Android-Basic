@@ -396,7 +396,48 @@ int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
 
 
 
+**原理**
 
+为什么只有重写`generateLayoutParams()`函数才能获取到控件的margin值呢？获取后为什么要强转？
+
+> 首先，在container中初始化子控件时，会调用`LayoutParams generateLayoutParams(LayoutParams p)`函数来为子控件生成对应的布局属性，但默认只生成`layout_width`和`layout_height`所对应的布局参数，即在正常情况下调用`generateLayoutParams()`函数生成的`LayoutParams`实例是不能获取到margin值的：
+>
+> ```java
+>     /**
+>      * Returns a new set of layout parameters based on the supplied attributes set.
+>      *
+>      * @param attrs the attributes to build the layout parameters from
+>      *
+>      * @return an instance of {@link android.view.ViewGroup.LayoutParams} or one
+>      *         of its descendants
+>      */
+>     public LayoutParams generateLayoutParams(AttributeSet attrs) {
+>         return new LayoutParams(getContext(), attrs);
+>     }
+>     
+>         /**
+>      * Returns a set of default layout parameters. These parameters are requested
+>      * when the View passed to {@link #addView(View)} has no layout parameters
+>      * already set. If null is returned, an exception is thrown from addView.
+>      *
+>      * @return a set of default layout parameters or null
+>      */
+>     protected LayoutParams generateDefaultLayoutParams() {
+>         return new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+>     }
+>     
+> ```
+>
+> 所以，如果我们还需要与margin相关的参数，就只能重写`generateLayoutParams()`函数
+>
+> ```java
+>     @Override
+>     public LayoutParams generateLayoutParams(AttributeSet attrs) {
+>         return new MarginLayoutParams(getContext(), attrs);
+>     }
+> ```
+>
+> 
 
 
 
