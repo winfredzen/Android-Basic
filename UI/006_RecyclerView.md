@@ -233,49 +233,57 @@ interface OnItemClickListener {
 
 
 
+设置ItemAnimator
+
+```java
+mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+```
 
 
 
+添加和移除数据。在adapter中添加如下的方法：
 
+```java
+    // 添加一条数据
+    public void addData(int position) {
+        this.addDataPosition = position;
+        dataSource.add(position, "插入的数据");
+        notifyItemInserted(position);
+    }
 
+    // 删除一条数据
+    public void removeData(int postion) {
+        this.addDataPosition= -1;
+        dataSource.remove(postion);
+        notifyItemRemoved(postion);
+    }
+```
 
+最后的效果如下：
 
+![011](https://github.com/winfredzen/Android-Basic/blob/master/UI/images/011.gif)
 
+还需要注意的是，被插入或者删除后面的item，点击事件中的position没有改变，需要刷新
 
+修改成如下的形式：
 
+```java
+    // 添加一条数据
+    public void addData(int position) {
+        this.addDataPosition = position;
+        dataSource.add(position, "插入的数据");
+        notifyItemInserted(position);
+        // 刷新itemview
+        notifyItemRangeChanged(position, dataSource.size() - position);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // 删除一条数据
+    public void removeData(int position) {
+        this.addDataPosition= -1;
+        dataSource.remove(position);
+        notifyItemRemoved(position);
+        // 刷新itemview
+        notifyItemRangeChanged(position, dataSource.size() - position);
+    }
+```
 
