@@ -178,6 +178,85 @@ mRecyclerView.setLayoutManager(staggeredGridLayoutManager);
 
 
 
+## 点击事件
+
+首先定义接口：
+
+```java
+/**
+ * itemview点击事件回到接口
+ */
+interface OnItemClickListener {
+    void onItemClick(int postion);
+}
+```
+
+然后在adapter的`onBindViewHolder`方法中，给对应的view，添加点击事件，如下：
+
+```java
+    // 通过viewholder来绑定数据
+    @Override
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.imageView.setImageResource(getIcon(position));
+        holder.textView.setText(dataSource.get(position));
+
+        if (recyclerView.getLayoutManager().getClass() == StaggeredGridLayoutManager.class) {
+            // 为瀑布流布局，使用随机高度
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getRandomHeight());
+            holder.textView.setLayoutParams(params);
+        } else {
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            holder.textView.setLayoutParams(params);
+        }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //调用接口的回调方法
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(position);
+                }
+            }
+        });
+    }
+```
+
+
+
+## ItemAnimator
+
+作用是RecylerView中的item增加或者删除的时候，会提供一个过渡的动画
+
++ notifyItemInserted
++ notifyItemRemoved
++ notifyItemRangeChanged
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
