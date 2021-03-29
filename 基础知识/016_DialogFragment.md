@@ -1,4 +1,4 @@
-# jDialogFragment
+# DialogFragment
 
 [DialogFragment](https://developer.android.com/reference/android/app/DialogFragment)介绍如下：
 
