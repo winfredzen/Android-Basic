@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <com.example.flowlayout.FlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="Welcomexxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="IT工程师"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="我真是可以的"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="你觉得呢"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="不要只知道挣钱"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="努力ing"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:background="@drawable/flag_03"
+            android:text="I thick i can"
+            android:textColor="@android:color/white" />
+
+
+    </com.example.flowlayout.FlowLayout>
+
+</LinearLayout>
+
