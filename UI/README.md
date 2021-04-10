@@ -62,3 +62,53 @@
 > }
 > ```
 
+
+
+## View
+
+一些文章：
+
+**requestLayout和invalidate区别**
+
++ [Android View 深度分析requestLayout、invalidate与postInvalidate](https://blog.csdn.net/a553181867/article/details/51583060)
+
++ [Usage of forceLayout(), requestLayout() and invalidate()](https://stackoverflow.com/questions/13856180/usage-of-forcelayout-requestlayout-and-invalidate)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
