@@ -42,5 +42,18 @@
 
 
 
+## 其它
+
++ [Android OrmLite数据库框架详解](https://www.jianshu.com/p/fd8594342334)
++ [Android ORMLite 框架的入门用法](https://blog.csdn.net/lmj623565791/article/details/39121377)
+
+
+
+
+
+
+
+
+
 
 
