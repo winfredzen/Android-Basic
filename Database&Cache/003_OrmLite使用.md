@@ -36,7 +36,9 @@
 
 最后的效果：
 
+![001](https://github.com/winfredzen/Android-Basic/blob/master/Database%26Cache/images/001.png)
 
+![002](https://github.com/winfredzen/Android-Basic/blob/master/Database%26Cache/images/002.png)
 
 
 
