@@ -67,6 +67,102 @@ onNext : Three
 onComplete :
 ```
 
+`observable.subscribe(observer);`表示被观察值被观察值订阅了
+
+
+
+## 异步
+
+`Scheduler`，英文名调度器，它是`RxJava`用来控制线程。当我们没有设置的时候，`RxJava`遵循哪个线程产生就在哪个线程消费的原则，也就是说线程不会产生变化，始终在同一个。
+
+`observeOn` - 是事件回调的线程，`observeOn(AndroidSchedulers.mainThread())`中`AndroidSchedulers.mainThread()`表示的是主线程
+
+`subscribeOn`-是事件执行的线程，`subscribeOn(Schedulers.io())`中，`Schedulers.io()`是子线程，也可以使用`Schedulers.newThread()`， 只不过`io`线程可以重用空闲的线程，因此多数情况下 `io()` 比 `newThread()` 更有效率
+
+```java
+ Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+                emitter.onNext("连载1");
+                emitter.onNext("连载2");
+                emitter.onNext("连载3");
+                emitter.onComplete();
+            }
+        })
+                .observeOn(AndroidSchedulers.mainThread())//回调在主线程
+                .subscribeOn(Schedulers.io())//执行在io线程
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        Log.e(TAG,"onSubscribe");
+                    }
+
+                    @Override
+                    public void onNext(String value) {
+                        Log.e(TAG,"onNext:"+value);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e(TAG,"onError="+e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.e(TAG,"onComplete()");
+                    }
+                })
+```
+
+
+
+## 进阶
+
+参考：
+
++ [给 Android 开发者的 RxJava 详解](https://gank.io/post/560e15be2dca930e00da1083)
+
+
+
+除了 `Observer` 接口之外，RxJava 还内置了一个实现了 `Observer` 的抽象类：`Subscriber`。 `Subscriber` 对 `Observer` 接口进行了一些扩展，但他们的基本使用方式是完全一样的：
+
+```java
+Subscriber<String> subscriber = new Subscriber<String>() {
+    @Override
+    public void onNext(String s) {
+        Log.d(tag, "Item: " + s);
+    }
+
+    @Override
+    public void onCompleted() {
+        Log.d(tag, "Completed!");
+    }
+
+    @Override
+    public void onError(Throwable e) {
+        Log.d(tag, "Error!");
+    }
+};
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
