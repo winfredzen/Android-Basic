@@ -43,9 +43,21 @@ editor.commit();
 
 
 
+获取数据：
+
+```java
+SharedPreferences preferences = getSharedPreferences("myshare", MODE_PRIVATE);
+String account = preferences.getString("account", "");
+String pwd = preferences.getString("pwd", "");
+```
 
 
 
+清空信息：
+
+```java
+editor.clear();
+```
 
 
 
