@@ -26,6 +26,15 @@
 
 
 
+**定时器**
+
++ [Android倒计时之 CountDownTimer](https://www.jianshu.com/p/3c10432a4726)
++ [Android 定时任务的多种实现方式](https://blog.csdn.net/u014492609/article/details/51475254)
+
+
+
+
+
 ## 配置编译版本
 
 + [为方法数超过 64K 的应用启用多 dex 文件](https://developer.android.com/studio/build/multidex)
