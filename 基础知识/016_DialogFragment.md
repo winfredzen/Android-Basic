@@ -479,6 +479,32 @@ public void onResume() {
 
 
 
+**设置大小的其它方式**
+
++ [Android的对话框DialogFragment指定弹窗口大小，设置圆角](https://www.cnblogs.com/yongfengnice/p/10362827.html)
+
+> ```xml
+> <FrameLayout　　//2.必须布局文件最外层包裹一层，这样才能显示指定的对话框大小，比如这里的 380dp x 205dp
+>   xmlns:android="http://schemas.android.com/apk/res/android"
+>   xmlns:app="http://schemas.android.com/apk/res-auto"
+>   android:layout_width="wrap_content"
+>   android:layout_height="wrap_content"
+>   android:layout_gravity="center">
+>   <android.support.constraint.ConstraintLayout
+>     xmlns:android="http://schemas.android.com/apk/res/android"
+>     xmlns:app="http://schemas.android.com/apk/res-auto"
+>     android:layout_width="380dp"
+>     android:layout_height="205dp"
+>     android:paddingBottom="21dp"
+>     android:paddingLeft="16dp"
+>     android:paddingRight="16dp"　　//最好设置一些padding，有时候可能因为没有padding，圆角被子控件覆盖而无效
+>     android:background="@drawable/bg_promo_input_dialog">
+>   </android.support.constraint.ConstraintLayout>
+> </FrameLayout>
+> ```
+
+
+
 **键盘出现时的size调整**
 
 当dialog中带有输入框时，屏幕的空间有限。
