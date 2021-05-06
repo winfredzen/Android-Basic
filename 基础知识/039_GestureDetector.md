@@ -165,11 +165,38 @@
 
 
 
+一个例子，用来识别是向右滑动还是向左滑动
+
+```java
+    private class SimpleGestureListener extends  GestureDetector.SimpleOnGestureListener {
+
+        final int FLING_MIN_DISTANCE = 100;
+        final int FLING_MIN_VELOCITY = 200;
+
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return true;
+        }
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
+                Log.i("MyGesture", "Fling left");
+            } else if (e2.getX() - e1.getX() > FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
+                Log.i("MyGesture", "Fling right");
+            }
+            return true;
+        }
+    }
+```
 
 
 
+## 其它的一些运用
 
+1.[Android 视频添加手势滑动调节亮度和音量以及更新进度](https://blog.csdn.net/qq_37492806/article/details/103904222)
 
+2.[Android视频播放器的手势控制实现](https://www.jianshu.com/p/3f165b3a9d4f)
 
 
 
