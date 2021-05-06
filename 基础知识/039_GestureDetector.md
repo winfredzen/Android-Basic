@@ -149,3 +149,35 @@
 >
 > 
 
+
+
+**关系图**
+
+![064](https://github.com/winfredzen/Android-Basic/blob/master/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/images/064.png)
+
+其它介绍文章：
+
+1.[用户手势检测-GestureDetector使用详解](https://blog.csdn.net/harvic880925/article/details/39520901)
+
+2.[Android手势检测——GestureDetector全面分析](https://www.jianshu.com/p/95b3fdc46b0f)
+
+3.[Android 手势识别应用：手把手教你学会 GestureDetector（含实例讲解）](https://cloud.tencent.com/developer/article/1641523)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
