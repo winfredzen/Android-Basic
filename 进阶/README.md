@@ -180,17 +180,24 @@ public class MyLayout extends LinearLayout {
 **事件传递的步骤**
 
 > Android中touch事件的传递，绝对是先传递到`ViewGroup`，再传递到`View`的。记得在[Android事件分发机制完全解析，带你从源码的角度彻底理解(上)](http://blog.csdn.net/sinyu890807/article/details/9097463) 中我有说明过，只要你触摸了任何控件，就一定会调用该控件的`dispatchTouchEvent`方法。这个说法没错，只不过还不完整而已。实际情况是，当你点击了某个控件，首先会去调用该控件所在布局的`dispatchTouchEvent`方法，然后在布局的`dispatchTouchEvent`方法中找到被点击的相应控件，再去调用该控件的`dispatchTouchEvent`方法。如果我们点击了`MyLayout`中的按钮，会先去调用`MyLayout`的`dispatchTouchEvent`方法，可是你会发现`MyLayout`中并没有这个方法。那就再到它的父类`LinearLayout`中找一找，发现也没有这个方法。那只好继续再找`LinearLayout`的父类`ViewGroup`，你终于在ViewGroup中看到了这个方法，按钮的`dispatchTouchEvent`方法就是在这里调用的。修改后的示意图如下所示：
-> 
+>
+> ![001](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/001.png)
 
 
 
 
 
+**ViewGroup事件分发过程的流程图**
+
+![002](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/002.png)
 
 
 
-
-
+> 1. Android事件分发是先传递到`ViewGroup`，再由`ViewGroup`传递到`View`的。
+>
+> 2. 在`ViewGroup`中可以通过`onInterceptTouchEvent`方法对事件传递进行拦截，`onInterceptTouchEvent`方法返回`true`代表不允许事件继续向子`View`传递，返回`false`代表不对事件进行拦截，默认返回`false`。
+>
+> 3. 子`View`中如果将传递的事件消费掉，`ViewGroup`中将无法接收到任何事件。
 
 
 
