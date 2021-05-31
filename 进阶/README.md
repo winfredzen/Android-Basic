@@ -64,4 +64,42 @@ button.setOnTouchListener(new View.OnTouchListener() {
 > + `mOnTouchListener` - 在`setOnTouchListener`方法里赋值的，相当于注册了touch事件
 > + `(mViewFlags & ENABLED_MASK) == ENABLED` - 控件是否是`enable`，按钮默认是`enable`
 > + `mOnTouchListener.onTouch(this, event)`  - 即`onTouch`方法里返回`true`
+>
+> > `onTouch`能够得到执行需要两个前提条件，第一`mOnTouchListener`的值不能为空，第二当前点击的控件必须是`enable`的
+
+
+
+> 结合上面Button的例子，和`dispatchTouchEvent`源码，可以发现
+>
+> `onTouch`事件里返回了`false`，就一定会进入到`onTouchEvent`方法中
+>
+> 如果在`onTouch`方法中通过返回`true`将事件消费掉（并且满足其他2个条件），`onTouchEvent`将不会再执行。
+>
+> 1. `onTouch`方法返回false，则`dispatchTouchEvent`调用`onTouchEvent`方法，在`onTouchEvent`方法中调用了`onClick`方法（`performClick()`方法里回调被点击控件的onClick方法）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
