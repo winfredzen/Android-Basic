@@ -6,5 +6,6 @@ SlideMenu侧滑菜单，参考：
 
 
 
+效果如下：
 
-
+![006](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/006.gif)
