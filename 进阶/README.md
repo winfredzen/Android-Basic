@@ -79,6 +79,117 @@ button.setOnTouchListener(new View.OnTouchListener() {
 
 
 
+## ViewGroup事件分发
+
+这部分内容来自[Android事件分发机制完全解析，带你从源码的角度彻底理解(下)](https://blog.csdn.net/guolin_blog/article/details/8744400)
+
+`ViewGroup`同样继承自`View`
+
+如下的例子，自定义一个`MyLayout`，继承自`LinearLayout`
+
+```java
+public class MyLayout extends LinearLayout {
+
+    public MyLayout(Context context) {
+        super(context);
+    }
+
+    public MyLayout(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+    }
+}
+```
+
+在`MyLayout`布局中添加2个按钮，并创建如下的事件：
+
+```java
+myLayout.setOnTouchListener(new View.OnTouchListener() {
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        Log.d("TAG", "myLayout on touch");
+        return false;
+    }
+});
+button1.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Log.d("TAG", "You clicked button1");
+    }
+});
+button2.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Log.d("TAG", "You clicked button2");
+    }
+});
+```
+
+点击button1，输出：
+
+```java
+2021-05-31 11:34:07.715 16721-16721/com.example.eventdemo D/TAG: You clicked button1
+```
+
+点击button2，输出：
+
+```java
+2021-05-31 11:34:09.517 16721-16721/com.example.eventdemo D/TAG: You clicked button2
+```
+
+点击空白区域：
+
+```java
+2021-05-31 11:34:11.583 16721-16721/com.example.eventdemo D/TAG: myLayout on touch
+```
+
+
+
+> 可见，点击按钮时，`myLayout`的`onTouch`方法并不会执行，可以理解为按钮的`onClick`方法将事件消费掉了
+
+
+
+`ViewGroup`中有一个`onInterceptTouchEvent`方法，可以拦截事件。如果将`onInterceptTouchEvent`方法返回`true`
+
+```java
+public class MyLayout extends LinearLayout {
+ 
+	public MyLayout(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
+	
+	@Override
+	public boolean onInterceptTouchEvent(MotionEvent ev) {
+		return true;
+	}
+	
+}
+```
+
+然后分别`Button1`、`Button2`和空白区域
+
+```java
+2021-05-31 11:41:19.440 17787-17787/com.example.eventdemo D/TAG: myLayout on touch
+2021-05-31 11:41:20.958 17787-17787/com.example.eventdemo D/TAG: myLayout on touch
+2021-05-31 11:41:21.995 17787-17787/com.example.eventdemo D/TAG: myLayout on touch
+```
+
+> 可发现，都是调用`myLayout`的onTouch方法
+
+
+
+**事件传递的步骤**
+
+> Android中touch事件的传递，绝对是先传递到`ViewGroup`，再传递到`View`的。记得在[Android事件分发机制完全解析，带你从源码的角度彻底理解(上)](http://blog.csdn.net/sinyu890807/article/details/9097463) 中我有说明过，只要你触摸了任何控件，就一定会调用该控件的`dispatchTouchEvent`方法。这个说法没错，只不过还不完整而已。实际情况是，当你点击了某个控件，首先会去调用该控件所在布局的`dispatchTouchEvent`方法，然后在布局的`dispatchTouchEvent`方法中找到被点击的相应控件，再去调用该控件的`dispatchTouchEvent`方法。如果我们点击了`MyLayout`中的按钮，会先去调用`MyLayout`的`dispatchTouchEvent`方法，可是你会发现`MyLayout`中并没有这个方法。那就再到它的父类`LinearLayout`中找一找，发现也没有这个方法。那只好继续再找`LinearLayout`的父类`ViewGroup`，你终于在ViewGroup中看到了这个方法，按钮的`dispatchTouchEvent`方法就是在这里调用的。修改后的示意图如下所示：
+> 
+
+
+
+
+
+
+
+
+
 
 
 
