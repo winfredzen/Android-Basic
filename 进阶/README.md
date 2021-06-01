@@ -55,11 +55,11 @@ button.setOnTouchListener(new View.OnTouchListener() {
 >
 > ```java
 > public boolean dispatchTouchEvent(MotionEvent event) {
->     if (mOnTouchListener != null && (mViewFlags & ENABLED_MASK) == ENABLED &&
->             mOnTouchListener.onTouch(this, event)) {
->         return true;
->     }
->     return onTouchEvent(event);
+>  if (mOnTouchListener != null && (mViewFlags & ENABLED_MASK) == ENABLED &&
+>          mOnTouchListener.onTouch(this, event)) {
+>      return true;
+>  }
+>  return onTouchEvent(event);
 > }
 > ```
 >
@@ -68,6 +68,8 @@ button.setOnTouchListener(new View.OnTouchListener() {
 > + `mOnTouchListener.onTouch(this, event)`  - 即`onTouch`方法里返回`true`
 >
 > > `onTouch`能够得到执行需要两个前提条件，第一`mOnTouchListener`的值不能为空，第二当前点击的控件必须是`enable`的
+>
+> 首先在`dispatchTouchEvent`中最先执行的就是`onTouch`方法，因此`onTouch`肯定是要优先于`onClick`执行的，也是印证了刚刚的打印结果。而如果在`onTouch`方法里返回了`true`，就会让`dispatchTouchEvent`方法直接返回`true`，不会再继续往下执行。而打印结果也证实了如果`onTouch`返回true，`onClick`就不会再执行了
 
 
 
@@ -78,6 +80,21 @@ button.setOnTouchListener(new View.OnTouchListener() {
 > 如果在`onTouch`方法中通过返回`true`将事件消费掉（并且满足其他2个条件），`onTouchEvent`将不会再执行。
 >
 > 1. `onTouch`方法返回false，则`dispatchTouchEvent`调用`onTouchEvent`方法，在`onTouchEvent`方法中调用了`onClick`方法（`performClick()`方法里回调被点击控件的onClick方法）
+
+
+
+**1. onTouch和onTouchEvent有什么区别，又该如何使用？**
+
+> 从源码中可以看出，这两个方法都是在`View`的`dispatchTouchEvent`中调用的，`onTouch`优先于`onTouchEvent`执行。如果在`onTouch`方法中通过返回`true`将事件消费掉，`onTouchEvent`将不会再执行。
+>
+>  
+>
+> 另外需要注意的是，`onTouch`能够得到执行需要两个前提条件，第一`mOnTouchListener`的值不能为空，第二当前点击的控件必须是`enable`的。因此如果你有一个控件是非`enable`的，那么给它注册`onTouch`事件将永远得不到执行。对于这一类控件，如果我们想要监听它的`touch`事件，就必须通过在该控件中重写`onTouchEvent`方法来实现。
+>
+
+
+
+
 
 
 
