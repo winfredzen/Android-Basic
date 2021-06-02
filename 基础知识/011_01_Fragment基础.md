@@ -1,5 +1,17 @@
 # Fragment基础
 
+Fragment有关的基础教程，可参考郭霖的相关博客：
+
++ [Android Fragment完全解析，关于碎片你所需知道的一切](https://guolin.blog.csdn.net/article/details/8881711)
++ [Android手机平板两不误，使用Fragment实现兼容手机和平板的程序](https://blog.csdn.net/guolin_blog/article/details/8744943)
++ [Android Fragment应用实战，使用碎片向ActivityGroup说再见](https://blog.csdn.net/guolin_blog/article/details/13171191)
+
+
+
+
+
+----
+
 [fragment](https://developer.android.com/reference/android/app/Fragment):
 
 > A Fragment is a piece of an application's user interface or behavior that can be placed in an `Activity`. Interaction with fragments is done through `FragmentManager`, which can be obtained via `Activity#getFragmentManager()` and `Fragment#getFragmentManager()`
