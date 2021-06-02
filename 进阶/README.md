@@ -100,7 +100,7 @@ button.setOnTouchListener(new View.OnTouchListener() {
 
 ## ViewGroup事件分发
 
-这部分内容来自[Android事件分发机制完全解析，带你从源码的角度彻底理解(下)](https://blog.csdn.net/guolin_blog/article/details/8744400)
+这部分内容来自[Android事件分发机制完全解析，带你从源码的角度彻底理解(下)](https://blog.csdn.net/guolin_blog/article/details/9153747)
 
 `ViewGroup`同样继承自`View`
 
