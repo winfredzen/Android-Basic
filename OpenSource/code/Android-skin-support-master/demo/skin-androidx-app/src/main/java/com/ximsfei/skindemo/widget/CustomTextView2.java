@@ -33,6 +33,7 @@ public class CustomTextView2 extends TextView implements SkinCompatSupportable {
         mTextHelper.loadFromAttributes(attrs, defStyleAttr);
     }
 
+    // 为什么重写这两个方法
     @Override
     public void setBackgroundResource(@DrawableRes int resId) {
         super.setBackgroundResource(resId);

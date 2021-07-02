@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 /**
  * Created by ximsfei on 2017/1/10.
  * 自定义View的实现
+ * 自定义View换肤
  */
 
 public class SkinCompatTextView extends AppCompatTextView implements SkinCompatSupportable {

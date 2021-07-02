@@ -22,6 +22,7 @@ import skin.support.widget.SkinCompatSupportable;
 
 /**
  * Created by ximsfei on 2017/1/9.
+ * 基础控件
  */
 
 @Skinable
@@ -44,10 +45,10 @@ public class MainActivity extends BaseActivity implements SkinCompatSupportable 
 
     private void configFragments() {
         List<Fragment> list = new ArrayList<>();
-        list.add(new FirstFragment());
-        list.add(new SFragment());
-        list.add(new TFragment());
-        list.add(new LastFragment());
+        list.add(new FirstFragment());//系统组件
+        list.add(new SFragment());//自定义view
+        list.add(new TFragment());//LIST
+        list.add(new LastFragment());//第三方库控件
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setAdapter(new TabFragmentPagerAdapter(getSupportFragmentManager(), list));
