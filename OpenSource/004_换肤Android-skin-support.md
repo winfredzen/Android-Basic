@@ -117,7 +117,9 @@ a.设置清除按钮图标
         }
 ```
 
-![014](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/014.png)
+
+
+![018](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/018.png)
 
 ![017](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/017.png)
 
