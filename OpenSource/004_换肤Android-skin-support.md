@@ -52,9 +52,10 @@
     <!--  Tab频道未选中文字颜色  -->
     <color name="channel_text_normal">#FFDEDEDE</color>
 
-    <color name="mine_text_color_white">#FF2D3543</color>
     <!--  Tab频道选中文字颜色  -->
     <color name="channel_text_selected_white">#FF2D3442</color>
+    <!--  Tab频道未选中文字颜色  -->
+    <color name="channel_text_normal_white">#B32D3542</color>
 ```
 
 然后就可以代码中设置了
@@ -92,13 +93,69 @@
 
 
 
+![014](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/014.png)
+
+![015](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/015.png)
 
 
 
+2.`EditText`相关设置
+
+a.设置清除按钮图标
+
+文档中说是支持`drawableRight`，但由于我是自定义view，在自定义view中自定义设置了`drawableRight`，所以导致了设置无效
+
+所以在自定义view中需要单独的进行默写设置
+
+```java
+        //清除按钮图标
+        Drawable clearDrawable = SkinCompatResources.getDrawable(getContext(), R.drawable.ic_edit_clear);
+        if (clearDrawable != null) {
+            mClearDrawable = clearDrawable;
+            mClearDrawable.setBounds(0, 0, 40, 40);
+            setCompoundDrawables(getCompoundDrawables()[0], getCompoundDrawables()[1], mClearDrawable, getCompoundDrawables()[3]);
+        }
+```
+
+![014](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/014.png)
+
+![017](https://github.com/winfredzen/Android-Basic/blob/master/OpenSource/images/017.png)
+
+在我的自定义view中，换肤对`textColor`和`textColorHint`貌似无效，所以还会改用`textAppearance`
+
+在xml中设置`android:textAppearance="@style/SearchEditTextTextAppearance"`
+
+```java
+    <!--  搜索框TextAppearance  -->
+    <style name="SearchEditTextTextAppearance">
+        <item name="android:textColor">@color/search_text_color</item>
+        <item name="android:textColorHint">@color/search_hint_text_color</item>
+    </style>
+```
+
+b.光标cursor
+
+对`EditText`来说，还有一个光标Cursor的问题，一般而言是通过设置`textCursorDrawable`也是有效的
+
+但在我当前测试的车机上却没有生效，后来也通过来代码设置，但是`setTextCursorDrawable(cursorDrawable);`该方法，只是在`Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q`才有效果，遗憾的是当前车机的版本比较低，所以在低版本上通过其它的方法来设置，尝试了多种方法，也没有效果，最后也不了了之
+
+最后是通过将`android:textCursorDrawable="@null"`，测试光标的颜色会与`textColor`的颜色保持一致
 
 
 
+3.自定义view
 
+按文档要求自定义view，需实现`SkinCompatSupportable`接口，重写`applySkin()`方法
+
+然后可通过`SkinCompatResources`类中的系列方法来获取drawable和color
+
+如：
+
+```java
+SkinCompatResources.getDrawable(getContext(), R.drawable.ic_edit_clear);
+
+SkinCompatResources.getColor(getContext(), R.color.search_text_color)
+```
 
 
 
