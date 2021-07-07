@@ -148,6 +148,30 @@ Activity已处于停止状态(在内存中，但不可见，不会活动在前�
 
 
 
+------
+
+`AActivity`中打开`BActivity`（全屏的），调用过程
+
+```java
+2021-07-07 15:29:38.104 31581-31581/com.example.rxdemo D/AActivity: onPause
+2021-07-07 15:29:38.160 31581-31581/com.example.rxdemo D/BActivity: onCreate
+2021-07-07 15:29:38.163 31581-31581/com.example.rxdemo D/BActivity: onStart
+2021-07-07 15:29:38.164 31581-31581/com.example.rxdemo D/BActivity: onResume
+2021-07-07 15:29:38.522 31581-31581/com.example.rxdemo D/AActivity: onStop
+```
+
+`BActivity`按返回键，回到`AActivity`，调用过程
+
+```java
+2021-07-07 15:32:19.265 32370-32370/com.example.rxdemo D/BActivity: onPause
+2021-07-07 15:32:19.282 32370-32370/com.example.rxdemo D/AActivity: onStart
+2021-07-07 15:32:19.283 32370-32370/com.example.rxdemo D/AActivity: onResume
+2021-07-07 15:32:19.545 32370-32370/com.example.rxdemo D/BActivity: onStop
+2021-07-07 15:32:19.546 32370-32370/com.example.rxdemo D/BActivity: onDestroy
+```
+
+
+
 -----
 
 **创建过滤filter**

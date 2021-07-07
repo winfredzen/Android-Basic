@@ -2,6 +2,7 @@ package com.example.rxdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,7 +25,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class AActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity_TAG";
     private Disposable mDisposable;
 
@@ -36,7 +37,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.button01).setOnClickListener(this);
         findViewById(R.id.button02).setOnClickListener(this);
         findViewById(R.id.button03).setOnClickListener(this);
+        findViewById(R.id.button04).setOnClickListener(this);
 
+        Log.d("AActivity", "onCreate");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("AActivity", "onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("AActivity", "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("AActivity", "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("AActivity", "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("AActivity", "onDestroy");
     }
 
     @Override
@@ -50,6 +83,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button03:
                 onFlowableClick();
+                break;
+            case R.id.button04:
+                startActivity(new Intent(AActivity.this, BActivity.class));
                 break;
             default:
                 break;
