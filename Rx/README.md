@@ -2,6 +2,8 @@
 
 主要原理来自[ReactiveX](http://reactivex.io/)，中文翻译可参考[ReactiveX文档中文翻译 - mcxiaoke](https://mcxiaoke.gitbooks.io/rxdocs/content/Intro.html)
 
+> Rx是一个函数库，让开发者可以利用可观察序列和LINQ风格查询操作符来编写异步和基于事件的程序，使用Rx，开发者可以用Observables表示异步数据流，用LINQ操作符查询异步数据流， 用Schedulers参数化异步数据流的并发处理，Rx可以这样定义：Rx = Observables + LINQ + Schedulers。
+
 **Observable**
 
 > In ReactiveX an observer subscribes to an Observable. Then that observer reacts to whatever item or sequence of items the Observable emits. This pattern facilitates concurrent operations because it does not need to block while waiting for the Observable to emit objects, but instead it creates a sentry in the form of an observer that stands ready to react appropriately at whatever future time the Observable does so.
@@ -19,55 +21,64 @@
 `Observable`表示被观察者，`Observer`表示观察值，一个简单的例子：
 
 ```java
-    public static void main(String[] args) {
+        //被观察者
         Observable observable = Observable.create(new ObservableOnSubscribe<String>() {
-
             @Override
-            public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Throwable {
-                emitter.onNext("One");
-                emitter.onNext("Two");
-                emitter.onNext("Three");
+            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+                emitter.onNext("连载1");
+                emitter.onNext("连载2");
+                emitter.onNext("连载3");
                 emitter.onComplete();
             }
         });
 
+        //观察者
         Observer<String> observer = new Observer<String>() {
             @Override
-            public void onSubscribe(@NonNull Disposable d) {
-                System.out.println("onSubscribe : " + d);
+            public void onSubscribe(Disposable d) {
+                mDisposable = d;
+                Log.d(TAG, "onSubscribe");
             }
 
             @Override
-            public void onNext(@NonNull String s) {
-                System.out.println("onNext : " + s);
+            public void onNext(String value) {
+                if ("2".equals(value)){
+                    mDisposable.dispose();
+                    return;
+                }
+                Log.d(TAG, "onNext:"+value);
             }
 
             @Override
-            public void onError(@NonNull Throwable e) {
-                System.out.println("onError : " + e);
+            public void onError(Throwable e) {
+                Log.d(TAG, "onError:"+e.getMessage());
             }
 
             @Override
             public void onComplete() {
-                System.out.println("onComplete : ");
+                Log.d(TAG, "onComplete:");
             }
         };
 
+        //建立订阅关系
         observable.subscribe(observer);
-    }
 ```
 
 输出结果为：
 
 ```java
-onSubscribe : CreateEmitter{null}
-onNext : One
-onNext : Two
-onNext : Three
-onComplete :
+2021-07-07 09:34:00.210 20135-20135/com.example.rxdemo D/MainActivity_TAG: onSubscribe
+2021-07-07 09:34:00.210 20135-20135/com.example.rxdemo D/MainActivity_TAG: onNext:连载1
+2021-07-07 09:34:00.210 20135-20135/com.example.rxdemo D/MainActivity_TAG: onNext:连载2
+2021-07-07 09:34:00.210 20135-20135/com.example.rxdemo D/MainActivity_TAG: onNext:连载3
+2021-07-07 09:34:00.210 20135-20135/com.example.rxdemo D/MainActivity_TAG: onComplete:
 ```
 
 `observable.subscribe(observer);`表示被观察值被观察值订阅了
+
+> `onNext`方法可以无限调用，Observer（观察者）所有的都能接收到，`onError`和`onComplete`是互斥的，Observer（观察者）只能接收到一个，`OnComplete`可以重复调用，但是Observer（观察者）只会接收一次，而`onError`不可以重复调用，第二次调用就会报异常
+
+> `onSubscribe（Disposable d）`里面的`Disposable`对象要说一下，Disposable英文意思是可随意使用的，这里就相当于读者和连载小说的订阅关系，如果读者不想再订阅该小说了，可以调用 `mDisposable.dispose()`取消订阅，此时连载小说更新的时候就不会再推送给读者了。
 
 
 
@@ -80,38 +91,61 @@ onComplete :
 `subscribeOn`-是事件执行的线程，`subscribeOn(Schedulers.io())`中，`Schedulers.io()`是子线程，也可以使用`Schedulers.newThread()`， 只不过`io`线程可以重用空闲的线程，因此多数情况下 `io()` 比 `newThread()` 更有效率
 
 ```java
- Observable.create(new ObservableOnSubscribe<String>() {
+        Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+            public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Throwable {
+                Log.e(TAG, "subscribe 线程：" + Thread.currentThread().getName());
                 emitter.onNext("连载1");
                 emitter.onNext("连载2");
                 emitter.onNext("连载3");
                 emitter.onComplete();
+                Log.e(TAG, "subscribe 线程：" + Thread.currentThread().getName());
             }
-        })
-                .observeOn(AndroidSchedulers.mainThread())//回调在主线程
-                .subscribeOn(Schedulers.io())//执行在io线程
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        Log.e(TAG,"onSubscribe");
-                    }
+        }).observeOn(AndroidSchedulers.mainThread())
+        .subscribeOn(Schedulers.io())
+        .subscribe(new Observer<String>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+                Log.e(TAG,"onSubscribe");
+            }
 
-                    @Override
-                    public void onNext(String value) {
-                        Log.e(TAG,"onNext:"+value);
-                    }
+            @Override
+            public void onNext(@NonNull String s) {
+                Log.e(TAG,"onNext:"+s);
+                Log.e(TAG, "onNext 线程：" + Thread.currentThread().getName());
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e(TAG,"onError="+e.getMessage());
-                    }
+            @Override
+            public void onError(@NonNull Throwable e) {
+                Log.e(TAG,"onError="+e.getMessage());
+            }
 
-                    @Override
-                    public void onComplete() {
-                        Log.e(TAG,"onComplete()");
-                    }
-                })
+            @Override
+            public void onComplete() {
+                Log.e(TAG,"onComplete()");
+            }
+        });
+```
+
+测试的控制台输出结果：
+
+```java
+2021-07-07 10:36:02.209 9852-9852/com.example.rxdemo E/MainActivity_TAG: onSubscribe
+2021-07-07 10:36:02.217 9852-9917/com.example.rxdemo E/MainActivity_TAG: subscribe 线程：RxCachedThreadScheduler-1
+2021-07-07 10:36:02.218 9852-9852/com.example.rxdemo E/MainActivity_TAG: onNext:连载1
+2021-07-07 10:36:02.218 9852-9852/com.example.rxdemo E/MainActivity_TAG: onNext 线程：main
+2021-07-07 10:36:02.218 9852-9852/com.example.rxdemo E/MainActivity_TAG: onNext:连载2
+2021-07-07 10:36:02.218 9852-9852/com.example.rxdemo E/MainActivity_TAG: onNext 线程：main
+2021-07-07 10:36:02.218 9852-9852/com.example.rxdemo E/MainActivity_TAG: onNext:连载3
+2021-07-07 10:36:02.218 9852-9852/com.example.rxdemo E/MainActivity_TAG: onNext 线程：main
+2021-07-07 10:36:02.218 9852-9852/com.example.rxdemo E/MainActivity_TAG: onComplete()
+2021-07-07 10:36:02.219 9852-9917/com.example.rxdemo E/MainActivity_TAG: subscribe 线程：RxCachedThreadScheduler-1
+```
+
+需要注意的是`AndroidSchedulers.mainThread()`需要导入：
+
+```groovy
+implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 ```
 
 
