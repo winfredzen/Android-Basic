@@ -145,7 +145,9 @@ public final class BuildConfig {
 
 
 
+在beta下添加`resValue "string", "my_name", "Anupam Beta"`，会在`resources | strings.xml`下自动创建
 
+![009](https://github.com/winfredzen/Android-Basic/blob/master/Gradle/images/009.png)
 
 
 
