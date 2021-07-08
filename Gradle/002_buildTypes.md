@@ -89,7 +89,59 @@ android {
 
 
 
+## BuildConfig
 
+可参考：
+
++ [BuildConfig与build.gradle的关系](https://www.jianshu.com/p/3d9b23afe514)
++ [Gradle之BuildConfig自定义常量](https://www.jianshu.com/p/274c9d95cf76)
+
+
+
+> The `BuildConfig.java` class is auto-generated when different buildFlavors are created.
+
+`buildType`生成在`app\build\generated\source\buildConfig\debug(release)\`包名下
+
+如下的配置：
+
+```groovy
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            buildConfigField "String", "TYPE", '"I AM A DEBUG NINJA"'
+        }
+        beta {
+            signingConfig signingConfigs.release
+            applicationIdSuffix ".beta"
+            versionNameSuffix "-beta"
+            buildConfigField "String", "TYPE", '"I AM A BETA NINJA"'
+        }
+    }
+```
+
+build后生成的`BuildConfig.java`
+
+![008](https://github.com/winfredzen/Android-Basic/blob/master/Gradle/images/008.png)
+
+如beta对一个的`BuildConfig.java`，内容如下：
+
+```java
+public final class BuildConfig {
+  public static final boolean DEBUG = false;
+  public static final String APPLICATION_ID = "com.example.broadcastdemo.beta";
+  public static final String BUILD_TYPE = "beta";
+  public static final int VERSION_CODE = 1;
+  public static final String VERSION_NAME = "1.0-beta";
+  // Field from build type: beta
+  public static final String TYPE = "I AM A BETA NINJA";
+}
+```
 
 
 
