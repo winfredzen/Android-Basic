@@ -18,6 +18,7 @@
 
 + [Android Studio Build Variants 切换 release模式，不能运行](https://blog.csdn.net/lijia1201900857/article/details/89397403)
 + [android 使用signingConfigs进行打包](https://blog.csdn.net/bzlj2912009596/article/details/78188570)
++ [signingConfigs——安卓 gradle](https://juejin.cn/post/6844904008054734862)
 
 ```groovy
 android {
@@ -151,7 +152,9 @@ public final class BuildConfig {
 
 
 
+## 其它
 
++ [Android 自定义构建类型 BuildType](https://juejin.cn/post/6844903538200412168)
 
 
 
