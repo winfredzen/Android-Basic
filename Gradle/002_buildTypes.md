@@ -12,5 +12,5 @@
 
 为什么要使用`signingConfigs`？我自己尝试了，在`build variants`下，选择release，准备直接在真机上运行，发现并不能这样做
 
-![005](https://github.com/winfredzen/Android-Basic/blob/master/Gradle/images/005.jpg)
+![005](https://github.com/winfredzen/Android-Basic/blob/master/Gradle/images/005.png)
 
