@@ -9,6 +9,34 @@
   + ValueAnimation
   + ObjectAnimation
 
+
+
+**视图动画vs属性动画区别**
+
++ 引入时间不同
+  + View Animation 在API Level 1时引入
+  + 而Property Animation在API Level 11时引入
++ 包名不同
+  + View Animation在android.view.animation
+  + Property Animation在android.animation包中
++ 动画类的命名不同
+  + View Animation中动画的命名都是XXXXAnimation
+  + Property Animation中动画的命令都是XXXXAnimator
+
+
+
+**为什么还要引入属性动画？**
+
+> 视图动画对控件只可以渐入渐出、旋转、缩放、移动，对改变背景颜色动画则无法实现
+
+
+
+**补间动画的单击区域问题**
+
+> 补间动画虽然能够对控件做动画，但是并没有改变控件内部的属性值
+
+
+
 ## 视图动画
 
 视图动画标签
