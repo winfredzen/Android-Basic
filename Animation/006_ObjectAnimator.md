@@ -80,6 +80,12 @@ public static ObjectAnimator ofObject(Object target, String propertyName,
 
 
 
+**`ObjectAnimator`动画原理：**
+
+`ofFloat(tv, "alpha", 1, 0, 1)` -> 插值器（返回当前的数值进度，如0.2）-> `Evaluator`（根据数值进度计算当前值）-> 调用`set`函数（根据属性拼装set函数并反射调用，并将当前值作为参数传入）
+
+
+
 
 
 
