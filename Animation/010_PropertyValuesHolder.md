@@ -47,6 +47,111 @@ animator.start();
 
 
 
+## Keyframe
+
+关键帧表示的是某个物体在哪个时间点应该在哪个位置上
+
+```java
+public static Keyframe ofFloat(float fraction, float value) 
+```
+
++ fraction - 表示当前的显示进度，即在插值器中`getInterpolation()`函数的返回值
++ value - 表示动画当前所在的数值位置
+
+```java
+public static PropertyValuesHolder ofKeyframe(String propertyName, Keyframe... values)
+```
+
++ propertyName - 动画所要操作的属性名
++ values - Keyframe的列表
+
+
+
+如下的电话响铃效果：
+
+```java
+                /**
+                 * 左右震动效果
+                 */
+                Keyframe frame0 = Keyframe.ofFloat(0f, 0);
+                Keyframe frame1 = Keyframe.ofFloat(0.1f, -20f);
+                Keyframe frame2 = Keyframe.ofFloat(0.2f, 20f);
+                Keyframe frame3 = Keyframe.ofFloat(0.3f, -20f);
+                Keyframe frame4 = Keyframe.ofFloat(0.4f, 20f);
+                Keyframe frame5 = Keyframe.ofFloat(0.5f, -20f);
+                Keyframe frame6 = Keyframe.ofFloat(0.6f, 20f);
+                Keyframe frame7 = Keyframe.ofFloat(0.7f, -20f);
+                Keyframe frame8 = Keyframe.ofFloat(0.8f, 20f);
+                Keyframe frame9 = Keyframe.ofFloat(0.9f, -20f);
+                Keyframe frame10 = Keyframe.ofFloat(1, 0);
+                PropertyValuesHolder frameHolder1 = PropertyValuesHolder.ofKeyframe("rotation", frame0, frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10);
+
+
+                /**
+                 * scaleX放大1.1倍
+                 */
+                Keyframe scaleXframe0 = Keyframe.ofFloat(0f, 1);
+                Keyframe scaleXframe1 = Keyframe.ofFloat(0.1f, 1.1f);
+                Keyframe scaleXframe9 = Keyframe.ofFloat(0.9f, 1.1f);
+                Keyframe scaleXframe10 = Keyframe.ofFloat(1, 1);
+                PropertyValuesHolder frameHolder2 = PropertyValuesHolder.ofKeyframe("ScaleX", scaleXframe0, scaleXframe1, scaleXframe9, scaleXframe10);
+
+
+                /**
+                 * scaleY放大1.1倍
+                 */
+                Keyframe scaleYframe0 = Keyframe.ofFloat(0f, 1);
+                Keyframe scaleYframe1 = Keyframe.ofFloat(0.1f, 1.1f);
+                Keyframe scaleYframe9 = Keyframe.ofFloat(0.9f, 1.1f);
+                Keyframe scaleYframe10 = Keyframe.ofFloat(1, 1);
+                PropertyValuesHolder frameHolder3 = PropertyValuesHolder.ofKeyframe("ScaleY", scaleYframe0, scaleYframe1, scaleYframe9, scaleYframe10);
+
+                /**
+                 * 构建动画
+                 */
+                Animator animator = ObjectAnimator.ofPropertyValuesHolder(mImageView, frameHolder1, frameHolder2, frameHolder3);
+                animator.setDuration(1000);
+                animator.start();
+```
+
+![039](https://github.com/winfredzen/Android-Basic/blob/master/Animation/images/039.gif)
+
+
+
+从中可以看到，借助`Keyframe`， 不需要使用`AnimationSet`，也可以实现多个动画同时播放。这也是`ObjectAnimator`中唯一一个能实现多动画同时播放的方法
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
