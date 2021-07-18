@@ -175,6 +175,48 @@ public void scrollBy(int x, int y) {
 
 
 
+> ```java
+>     /**
+>      * Set the scrolled position of your view. This will cause a call to
+>      * {@link #onScrollChanged(int, int, int, int)} and the view will be
+>      * invalidated.
+>      * @param x the x position to scroll to
+>      * @param y the y position to scroll to
+>      */
+>     public void scrollTo(int x, int y) {
+>         if (mScrollX != x || mScrollY != y) {
+>             int oldX = mScrollX;
+>             int oldY = mScrollY;
+>             mScrollX = x;
+>             mScrollY = y;
+>             invalidateParentCaches();
+>             onScrollChanged(mScrollX, mScrollY, oldX, oldY);
+>             if (!awakenScrollBars()) {
+>                 postInvalidateOnAnimation();
+>             }
+>         }
+>     }
+> 
+>     /**
+>      * Move the scrolled position of your view. This will cause a call to
+>      * {@link #onScrollChanged(int, int, int, int)} and the view will be
+>      * invalidated.
+>      * @param x the amount of pixels to scroll by horizontally
+>      * @param y the amount of pixels to scroll by vertically
+>      */
+>     public void scrollBy(int x, int y) {
+>         scrollTo(mScrollX + x, mScrollY + y);
+>     }
+> ```
+>
+> 从上面的源码可以看出，scrollBy实际上也是调用了scrollTo方法，它实现了基于当前位置的相对滑动，而scrollTo则实现了基于所传递参数的绝对滑动，这个不难理解。利用scrollTo和scrollBy来实现View的滑动，这不是一件困难的事，但是我们要明白滑动过程中View内部的两个属性mScrollX和mScrollY的改变规则，这两个属性可以通过getScrollX和getScrollY方法分别得到。这里先简要概况一下：在滑动过程中，mScrollX的值总是等于View左边缘和View内容左边缘在水平方向的距离，而mScrollY的值总是等于View上边缘和View内容上边缘在竖直方向的距离。View边缘是指View的位置，由四个顶点组成，而View内容边缘是指View中的内容的边缘，scrollTo和scrollBy只能改变View内容的位置而不能改变View在布局中的位置。mScrollX和mScrollY的单位为像素，并且当View左边缘在View内容左边缘的右边时，mScrollX为正值，反之为负值；当View上边缘在View内容上边缘的下边时，mScrollY为正值，反之为负值。换句话说，如果从左向右滑动，那么mScrollX为负值，反之为正值；如果从上往下滑动，那么mScrollY为负值，反之为正值。
+>
+> 为了更好地理解这个问题，下面举个例子，如图3-3所示。在图中假设水平和竖直方向的滑动距离都为100像素，针对图中各种滑动情况，都给出了对应的mScrollX和mScrollY的值。根据上面的分析，可以知道，使用scrollTo和scrollBy来实现View的滑动，只能将View的内容进行移动，并不能将View本身进行移动，也就是说，不管怎么滑动，也不可能将当前View滑动到附近View所在的区域，这个需要仔细体会一下。
+>
+> ![051](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/051.png)
+
+
+
 ### Scroller
 
 如下使用`Scroller`，实现滑动，沿着X轴滑动400像素
@@ -244,46 +286,6 @@ findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
 > 在 `startScroll()`方法中并没有调用类似开启滑动的方法，而是保存了传进来的各种参数：startX和startY表示滑动开始的起点，dx和dy表示滑动的距离，duration则表示滑动持续的时间。所以 `startScroll()`方法只是用来做前期准备的，并不能使 View 进行滑动。关键是我们在`startScroll()`方法后调用了 `invalidate()`方法，这个方法会导致View的重绘，而View的重绘会调用View的`draw()`方法，`draw()`方法又会调用View的`computeScroll()`方法。
 
 
-
-> ```java
->     /**
->      * Set the scrolled position of your view. This will cause a call to
->      * {@link #onScrollChanged(int, int, int, int)} and the view will be
->      * invalidated.
->      * @param x the x position to scroll to
->      * @param y the y position to scroll to
->      */
->     public void scrollTo(int x, int y) {
->         if (mScrollX != x || mScrollY != y) {
->             int oldX = mScrollX;
->             int oldY = mScrollY;
->             mScrollX = x;
->             mScrollY = y;
->             invalidateParentCaches();
->             onScrollChanged(mScrollX, mScrollY, oldX, oldY);
->             if (!awakenScrollBars()) {
->                 postInvalidateOnAnimation();
->             }
->         }
->     }
-> 
->     /**
->      * Move the scrolled position of your view. This will cause a call to
->      * {@link #onScrollChanged(int, int, int, int)} and the view will be
->      * invalidated.
->      * @param x the amount of pixels to scroll by horizontally
->      * @param y the amount of pixels to scroll by vertically
->      */
->     public void scrollBy(int x, int y) {
->         scrollTo(mScrollX + x, mScrollY + y);
->     }
-> ```
->
-> 从上面的源码可以看出，scrollBy实际上也是调用了scrollTo方法，它实现了基于当前位置的相对滑动，而scrollTo则实现了基于所传递参数的绝对滑动，这个不难理解。利用scrollTo和scrollBy来实现View的滑动，这不是一件困难的事，但是我们要明白滑动过程中View内部的两个属性mScrollX和mScrollY的改变规则，这两个属性可以通过getScrollX和getScrollY方法分别得到。这里先简要概况一下：在滑动过程中，mScrollX的值总是等于View左边缘和View内容左边缘在水平方向的距离，而mScrollY的值总是等于View上边缘和View内容上边缘在竖直方向的距离。View边缘是指View的位置，由四个顶点组成，而View内容边缘是指View中的内容的边缘，scrollTo和scrollBy只能改变View内容的位置而不能改变View在布局中的位置。mScrollX和mScrollY的单位为像素，并且当View左边缘在View内容左边缘的右边时，mScrollX为正值，反之为负值；当View上边缘在View内容上边缘的下边时，mScrollY为正值，反之为负值。换句话说，如果从左向右滑动，那么mScrollX为负值，反之为正值；如果从上往下滑动，那么mScrollY为负值，反之为正值。
->
-> 为了更好地理解这个问题，下面举个例子，如图3-3所示。在图中假设水平和竖直方向的滑动距离都为100像素，针对图中各种滑动情况，都给出了对应的mScrollX和mScrollY的值。根据上面的分析，可以知道，使用scrollTo和scrollBy来实现View的滑动，只能将View的内容进行移动，并不能将View本身进行移动，也就是说，不管怎么滑动，也不可能将当前View滑动到附近View所在的区域，这个需要仔细体会一下。
->
-> ![051](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/051.png)
 
 
 
