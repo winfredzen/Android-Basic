@@ -102,11 +102,33 @@ mPaint.setShader(new BitmapShader(mBitmap, Shader.TileMode.MIRROR, Shader.TileMo
 
 
 
+**绘图位置与图像显示**
 
+在上面的例子中，`drawRect()`函数是把控件的整个大小区域都覆盖了，绘制的效果如下：
 
+```java
+canvas.drawRect(0, 0, getWidth(), getHeight(), mPaint);
+```
 
+![058](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/058.png)
 
+如果只绘制控件1/3的区域，如下：
 
+```java
+float left = getWidth() / 3;
+float top = getHeight() / 3;
+float right = getWidth() * 2 / 3;
+float bottom = getHeight() * 2 / 3;
+canvas.drawRect(left, top, right, bottom, mPaint);
+```
+
+效果如下：
+
+![063](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/063.png)
+
+> 整个区域的绘制好似从上面完整图片抠出来的一小部分
+>
+> 这说明：无论利用绘图函数绘制多大的图像、在哪里绘制，都与shader无关。**因为Shader总是从控件的左上角开始的，而我们绘制的只是显示出来的部分而已，没有绘制的部分虽然已经生成，但是不会显示出来**
 
 
 
