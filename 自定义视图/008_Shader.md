@@ -2,7 +2,14 @@
 
 Shader在三维软件中被称为着色器，是用来给空白图形上色的。
 
-Shader类只是一个基类，其子类有：[BitmapShader](https://developer.android.google.cn/reference/kotlin/android/graphics/BitmapShader), [ComposeShader](https://developer.android.google.cn/reference/kotlin/android/graphics/ComposeShader), [LinearGradient](https://developer.android.google.cn/reference/kotlin/android/graphics/LinearGradient), [RadialGradient](https://developer.android.google.cn/reference/kotlin/android/graphics/RadialGradient), [SweepGradient](https://developer.android.google.cn/reference/kotlin/android/graphics/SweepGradient)
+Shader类只是一个基类，其中只有2个函数：
+
+```java
+public boolean getLocalMatrix (Matrix localM)
+public void setLocalMatrix (Matrix localM)  
+```
+
+其子类有：[BitmapShader](https://developer.android.google.cn/reference/kotlin/android/graphics/BitmapShader), [ComposeShader](https://developer.android.google.cn/reference/kotlin/android/graphics/ComposeShader), [LinearGradient](https://developer.android.google.cn/reference/kotlin/android/graphics/LinearGradient), [RadialGradient](https://developer.android.google.cn/reference/kotlin/android/graphics/RadialGradient), [SweepGradient](https://developer.android.google.cn/reference/kotlin/android/graphics/SweepGradient)
 
 Paint中有一个函数专门用于设置Shader
 
@@ -197,7 +204,41 @@ public class TelescopeView extends View {
 
 
 
+**2.生成不规则头像**
 
+![065](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/065.png)
+
+```java
+public class AvatarView extends View {
+    private Paint mPaint;
+    private Bitmap mBitmap;
+    private BitmapShader mBitmapShader;
+
+    public AvatarView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.avatar_small);
+        mPaint = new Paint();
+        mBitmapShader = new BitmapShader(mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        //使用Matrix进行缩放
+        Matrix matrix = new Matrix();
+        float scale = getWidth() / mBitmap.getHeight();
+        matrix.setScale(scale, scale);
+        mBitmapShader.setLocalMatrix(matrix);
+        mPaint.setShader(mBitmapShader);
+
+        float half = getWidth() / 2;
+        canvas.drawCircle(half, half, getWidth() / 2, mPaint);
+    }
+}
+
+```
 
 
 
