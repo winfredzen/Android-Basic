@@ -41,9 +41,31 @@ public class LinearGradientView extends View {
 
 
 
+**多颜色渐变**
 
+```java
+LinearGradient(float x0, float y0, float x1, float y1, int[] colors, float[] positions, Shader.TileMode tile)
+```
 
++ colors - 用于指定渐变的颜色值数组
++ positions - 与渐变颜色相对应，取值范围为0~1，表示每种颜色在整条渐变线中的百分比位置
 
+如下的例子：
+
+```java
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        int[] colors = {0xffff0000,0xff00ff00,0xff0000ff,0xffffff00,0xff00ffff};
+        float[]  pos = {0f,0.2f,0.4f,0.6f,1.0f};
+        LinearGradient linearGradient = new LinearGradient(0, getHeight() / 2, getWidth(), getHeight() / 2, colors, pos, Shader.TileMode.CLAMP);
+        mPaint.setShader(linearGradient);
+        canvas.drawRect(0, 0, getWidth(), getHeight(), mPaint);
+    }
+```
+
+![067](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/067.png)
 
 
 
