@@ -132,6 +132,105 @@ canvas.drawRect(left, top, right, bottom, mPaint);
 
 
 
+## 例子
+
+**1.望远镜效果**
+
+效果如下：
+
+![064](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/064.gif)
+
+```java
+public class TelescopeView extends View {
+    private Paint mPaint;
+    private Bitmap mBitmap, mBitmapBG;
+    private int mDx = -1, mDy = -1;
+
+    public TelescopeView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+
+        mPaint = new Paint();
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.scenery);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mDx = (int) event.getX();
+                mDy = (int) event.getY();
+                postInvalidate();
+                return true;
+            case MotionEvent.ACTION_MOVE:
+                mDx = (int) event.getX();
+                mDy = (int) event.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                mDx = -1;
+                mDy = -1;
+                break;
+        }
+        postInvalidate();
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        if (mBitmapBG == null) {
+            mBitmapBG = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvasBg = new Canvas(mBitmapBG);
+            canvasBg.drawBitmap(mBitmap, null, new Rect(0, 0, getWidth(), getHeight()), mPaint);
+        }
+
+        if (mDx != -1 && mDy != -1) {
+            mPaint.setShader(new BitmapShader(mBitmapBG, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT));
+            canvas.drawCircle(mDx, mDy, 150, mPaint);
+        }
+    }
+}
+```
+
+> 这里，需要将图片缩放到控件大小，以完全覆盖控件。先新建一张空白的位图，这张位图的大小和控件的大小一样，然后对背景图进行拉伸，画到这张空白的位图上。之所以在`onDraw()`函数中创建`mBitmapBG`，而不是在初始化中创建，是因为在初始化时，`getWidth()`和`getHeight()`函数是获取不到值的
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
