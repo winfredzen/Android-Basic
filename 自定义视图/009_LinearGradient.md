@@ -116,9 +116,67 @@ canvas.drawText("Hello LinearGradient Hello LinearGradient", 0, 200, mPaint);
 
 
 
+## 例子
+
+**1.闪光文字效果**
+
+```java
+public class ShimmerTextView extends TextView {
+    private int mDx;
+    private LinearGradient mLinearGradient;
+    private Paint mPaint;
+
+    public ShimmerTextView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        // 继续TextView，通过getPaint()获取paint
+        mPaint = getPaint();
+        // 测量文字的长度
+        int length = (int) mPaint.measureText(getText().toString());
+
+        createAnim(length);
+        createLinearGradient(length);
+    }
+
+    private void createAnim(int length) {
+        ValueAnimator animator = ValueAnimator.ofInt(0, 2 * length);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                //保存动画中间值
+                mDx = (int) animation.getAnimatedValue();
+                postInvalidate();
+            }
+        });
+        animator.setRepeatMode(ValueAnimator.RESTART);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setDuration(2000);
+        animator.start();
+    }
+
+    private void createLinearGradient(int length) {
+        //渐变从(-length, 0)到(0, 0)，采用三色渐变，从文字颜色到绿色，再到文字颜色
+        int[] colors = {getCurrentTextColor(), 0xff00ff00, getCurrentTextColor()};
+        float[] pos = {0, 0.5f, 1};
+        mLinearGradient = new LinearGradient(-length, 0, 0, 0, colors, pos, Shader.TileMode.CLAMP);
+    }
 
 
+    @Override
+    protected void onDraw(Canvas canvas) {
+        //TextView会在onDraw()函数中重绘文字，需要在绘制文字之前设置shader
+        Matrix matrix = new Matrix();
+        //根据mDx变量移动Shader
+        matrix.setTranslate(mDx, 0);
+        mLinearGradient.setLocalMatrix(matrix);
+        mPaint.setShader(mLinearGradient);
 
+        super.onDraw(canvas);
+    }
+
+}
+```
+
+![073](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/073.gif)
 
 
 
