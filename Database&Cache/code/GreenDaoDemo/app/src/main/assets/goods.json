@@ -1,0 +1,100 @@
+[
+  {
+    "goodsId": 2,
+    "type": "0",
+    "icon": "huolongguo",
+    "name": "火龙果",
+    "info": "火龙果（学名：Hylocereus undatus 'Foo-Lon'）是仙人掌科、量天尺属量天尺的栽培品种，攀援肉质灌木，具气根。"
+  },
+  {
+    "goodsId": 1,
+    "type": "0",
+    "icon": "chengzi",
+    "name": "橙子",
+    "info": "橙子（学名：Citrus sinensis 英语：orange），是芸香科柑橘属植物橙树的果实，亦称为黄果、柑子、金环、柳丁。橙子是一种柑果，有很高的食用，药用价值。"
+  },
+  {
+    "goodsId": 7,
+    "type": "0",
+    "icon": "yingtao",
+    "name": "樱桃",
+    "info": "樱桃（学名：Cerasus pseudocerasus），是某些李属类植物的统称，包括樱桃亚属、酸樱桃亚属、桂樱亚属等。"
+  },
+  {
+    "goodsId": 0,
+    "type": "0",
+    "icon": "caomei",
+    "name": "草莓",
+    "info": "草莓（学名：Fragaria × ananassa Duch.），多年生草本植物。高10-40厘米，茎低于叶或近相等，密被开展黄色柔毛。"
+  },
+  {
+    "goodsId": 5,
+    "type": "0",
+    "icon": "xiangjiao",
+    "name": "香蕉",
+    "info": "香蕉（学名：Musa nana Lour.）芭蕉科芭蕉属植物，又指其果实，热带地区广泛种植。"
+  },
+  {
+    "goodsId": 3,
+    "type": "0",
+    "icon": "pingguo",
+    "name": "苹果",
+    "info": "苹果（学名：Malus pumila）是水果的一种，是蔷薇科苹果亚科苹果属植物，其树为落叶乔木。"
+  },
+  {
+    "goodsId": 4,
+    "type": "0",
+    "icon": "shiliu",
+    "name": "石榴",
+    "info": "石榴（拉丁名：Punica granatum L.）落叶乔木或灌木；单叶，通常对生或簇生，无托叶。"
+  },
+  {
+    "goodsId": 12,
+    "type": "1",
+    "icon": "qiaokeli",
+    "name": "巧克力",
+    "info": "巧克力（chocolate），原产中南美洲，其鼻祖是“xocolatl”，意为“苦水”。其主要原料可可豆产于赤道南北纬18度以内的狭长地带。"
+  },
+  {
+    "goodsId": 6,
+    "type": "0",
+    "icon": "xigua",
+    "name": "西瓜",
+    "info": "西瓜（学名：Citrullus lanatus (Thunb.) Matsum. et Nakai）一年生蔓生藤本；茎、枝粗壮，具明显的棱。"
+  },
+  {
+    "goodsId": 13,
+    "type": "1",
+    "icon": "tiantianquan",
+    "name": "甜甜圈",
+    "info": "甜甜圈，又称多拿滋、唐纳滋，它是一种用面粉、白砂糖、奶油和鸡蛋混合之后再经过油炸的甜食。"
+  },
+  {
+    "goodsId": 8,
+    "type": "1",
+    "icon": "baomihua",
+    "name": "爆米花",
+    "info": "爆米花（Popcorn）是用玉米、酥油、糖一起放进爆米花的机器里做成的一种膨化食品，味道比较甜。"
+  },
+  {
+    "goodsId": 10,
+    "type": "1",
+    "icon": "jianguo",
+    "name": "坚果",
+    "info": "坚果，是闭果的一个分类，果皮坚硬，内含1粒或者多粒种子。"
+  },
+  {
+    "goodsId": 9,
+    "type": "1",
+    "icon": "binggan",
+    "name": "饼干",
+    "info": "饼干 [1]  的词源是“烤过两次的面包”，是从法语的bis（再来一次）和cuit（烤）中由来的。"
+  },
+  {
+    "goodsId": 11,
+    "type": "1",
+    "icon": "mianhuatang",
+    "name": "棉花糖",
+    "info": "这是一种柔软粘糯，有胶体性和微和弹性，含水分10%～20%，含还原糖20%～30%的软性糖果。"
+  }
+]

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_size"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:text="进货"
+            android:layout_marginRight="@dimen/margin_size"
+            style="@style/top_item"
+            android:onClick="onAddGoodsClick"/>
+
+        <TextView
+            android:text="全部"
+            android:layout_marginRight="@dimen/margin_size"
+            style="@style/top_item"
+            android:onClick="onQueryAllClick"/>
+
+        <TextView
+            android:text="水果"
+            android:layout_marginRight="@dimen/margin_size"
+            style="@style/top_item"
+            android:onClick="onQueryFruitsClick"/>
+
+        <TextView
+            android:text="零食"
+            style="@style/top_item"
+            android:onClick="onQuerySnacksClick"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
