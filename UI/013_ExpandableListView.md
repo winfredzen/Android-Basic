@@ -54,7 +54,7 @@
 
 
 
-可见上面的效果并不理想，所以一般要自己定义，将`android:groupIndicator="@null"`，设置为`@null`
+可见上面的效果并不理想，所以一般要自己自定义布局，将`android:groupIndicator="@null"`，设置为`@null`
 
 
 
