@@ -62,6 +62,7 @@ public class ChapterBiz {
                 }
             }
         };
+        asyncTask.execute(userCache);
     }
 
     // 从网络加载数据

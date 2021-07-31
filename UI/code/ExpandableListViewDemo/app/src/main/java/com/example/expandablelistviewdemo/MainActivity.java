@@ -12,6 +12,7 @@ import android.widget.ExpandableListView;
 import com.example.expandablelistviewdemo.adatper.ChapterAdapter;
 import com.example.expandablelistviewdemo.bean.Chapter;
 import com.example.expandablelistviewdemo.bean.ChapterLab;
+import com.example.expandablelistviewdemo.biz.ChapterBiz;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private ExpandableListView mExpandableListView;
     private BaseExpandableListAdapter mAdapter;
     private List<Chapter> mDatas = new ArrayList<>();
+    private ChapterBiz mChapterBiz = new ChapterBiz();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +31,31 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
         initEvents();
+        loadDatas();
     }
 
     private void initView() {
         mExpandableListView = findViewById(R.id.expandable_list_view);
-        mDatas.clear();;
-        mDatas.addAll(ChapterLab.generateDatas());
+//        mDatas.clear();;
+//        mDatas.addAll(ChapterLab.generateDatas());
         mAdapter = new ChapterAdapter(this, mDatas);
         mExpandableListView.setAdapter(mAdapter);
+    }
+
+    private void loadDatas() {
+        mChapterBiz.loadDatas(this, new ChapterBiz.Callback() {
+            @Override
+            public void onSuccess(List<Chapter> chapterList) {
+                mDatas.clear();;
+                mDatas.addAll(chapterList);
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailed(Exception exception) {
+
+            }
+        }, false);
     }
 
     private void initEvents() {
