@@ -1,6 +1,14 @@
 # Android笔记
 
-需要学习的技术
+**Android开发与iOS开发的一些异同**
+
+1.Android开发调试要重视Log，
+
+
+
+
+
+**需要学习的技术**
 
 + 组件化原理
 + apt
@@ -35,16 +43,4 @@
 + [Android倒计时之 CountDownTimer](https://www.jianshu.com/p/3c10432a4726)
 + [Android 定时任务的多种实现方式](https://blog.csdn.net/u014492609/article/details/51475254)
 
-
-
-
-
-## 配置编译版本
-
-+ [为方法数超过 64K 的应用启用多 dex 文件](https://developer.android.com/studio/build/multidex)
-
-
-## 遇到的问题
-
-+ [Android中base64加密后的字符串带有“\n”导致出错的问题解决](https://blog.csdn.net/marstonyjiang/article/details/51659345)
 
