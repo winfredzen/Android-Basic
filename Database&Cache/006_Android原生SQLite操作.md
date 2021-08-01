@@ -236,9 +236,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+## 一些总结
 
+1.数据库数据库名称database name，数据版本database version，一般写成静态
 
+2.对要创建的表名Table Name，列名也可以写成静态，如
 
+![014](https://github.com/winfredzen/Android-Basic/blob/master/Database%26Cache/images/014.png)
+
+也可以直接定义一个类，表示数据表字段，如：
+
+![015](https://github.com/winfredzen/Android-Basic/blob/master/Database%26Cache/images/015.png)
 
 
 
