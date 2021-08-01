@@ -2,7 +2,7 @@
 
 **Android开发与iOS开发的一些异同**
 
-1.Android开发调试要重视Log，
+1.Android开发调试要重视Log，有异常首先要看Log
 
 
 

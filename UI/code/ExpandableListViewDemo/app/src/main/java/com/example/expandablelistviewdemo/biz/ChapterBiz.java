@@ -8,6 +8,7 @@ import android.util.Log;
 import com.example.expandablelistviewdemo.MainActivity;
 import com.example.expandablelistviewdemo.bean.Chapter;
 import com.example.expandablelistviewdemo.bean.ChapterItem;
+import com.example.expandablelistviewdemo.dao.ChapterDAO;
 import com.example.expandablelistviewdemo.utils.HttpUtils;
 
 import org.json.JSONArray;
@@ -22,6 +23,9 @@ import java.util.List;
  * create by wangzhen 2021/7/30
  */
 public class ChapterBiz {
+    ChapterDAO mChapterDAO = new ChapterDAO();
+
+
     public void loadDatas(Context context, Callback callback, boolean userCache) {
         AsyncTask<Boolean, Void, List<Chapter>> asyncTask = new AsyncTask<Boolean, Void, List<Chapter>>() {
             private Exception ex;
@@ -33,11 +37,20 @@ public class ChapterBiz {
                 try {
                     if (isUseCache) {
                         // 从缓存加载
+                        List<Chapter> chapterListFromDb = mChapterDAO.loadFromDb(context);
+
+                        Log.d(MainActivity.TAG, "chapterListFromDb chapterListFromDb = " + chapterListFromDb);
+
+                        chapterList.addAll(chapterListFromDb);
+
                     }
                     if (chapterList.isEmpty()) {
                         //从网络加载
                         List<Chapter> chapterListFromNet = loadFromNet(context);
                         //缓存
+                        if (chapterListFromNet != null && chapterListFromNet.size() > 0) {
+                            mChapterDAO.insert2Db(context, chapterListFromNet);
+                        }
 
                         chapterList.addAll(chapterListFromNet);
                     }

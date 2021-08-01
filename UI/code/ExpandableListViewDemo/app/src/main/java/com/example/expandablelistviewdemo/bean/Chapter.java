@@ -10,6 +10,12 @@ import java.util.List;
 public class Chapter {
     private int id;
     private String name;
+
+    //数据库定义相关
+    public static final String TABLE_NAME = "tb_chapter";
+    public static final String COL_ID = "_id";
+    public static final String COL_NAME = "name";
+
     private List<ChapterItem> children = new ArrayList<>();
 
     public Chapter() {

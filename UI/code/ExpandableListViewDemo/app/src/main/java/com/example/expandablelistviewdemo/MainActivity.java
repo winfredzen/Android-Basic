@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
         initEvents();
-        loadDatas();
+        loadDatas(true);
     }
 
     private void initView() {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         mExpandableListView.setAdapter(mAdapter);
     }
 
-    private void loadDatas() {
+    private void loadDatas(boolean useCache) {
         mChapterBiz.loadDatas(this, new ChapterBiz.Callback() {
             @Override
             public void onSuccess(List<Chapter> chapterList) {
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFailed(Exception exception) {
 
             }
-        }, false);
+        }, useCache);
     }
 
     private void initEvents() {

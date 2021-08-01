@@ -9,6 +9,12 @@ public class ChapterItem {
     private String name;
     private int pid;
 
+    //数据库定义相关
+    public static final String TABLE_NAME = "tb_chapter_item";
+    public static final String COL_ID = "_id";
+    public static final String COL_NAME = "name";
+    public static final String COL_PID = "pid";
+
     public ChapterItem() {
     }
 

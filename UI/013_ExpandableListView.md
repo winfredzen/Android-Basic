@@ -56,9 +56,50 @@
 
 可见上面的效果并不理想，所以一般要自己自定义布局，将`android:groupIndicator="@null"`，设置为`@null`
 
+然后在`Adapter`中设置`GroupView` 、`ChildView`，如：
+
+```java
+    @Override
+    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+        ParentViewHolder parentViewHolder = null;
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.item_parent_chapter, parent, false);
+            parentViewHolder = new ParentViewHolder();
+            parentViewHolder.mTvName = convertView.findViewById(R.id.tv_name);
+            parentViewHolder.mIvIndicator = convertView.findViewById(R.id.indicator_iv);
+            convertView.setTag(parentViewHolder); // 保存
+        } else {
+            parentViewHolder = (ParentViewHolder) convertView.getTag();
+        }
+        Chapter chapter = mDatas.get(groupPosition);
+        parentViewHolder.mTvName.setText(chapter.getName());
+        //是否展开
+        parentViewHolder.mIvIndicator.setSelected(isExpanded);
+        return convertView;
+    }
+
+    @Override
+    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+        ChildViewHolder childViewHolder = null;
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.item_child_chapter, parent, false);
+            childViewHolder = new ChildViewHolder();
+            childViewHolder.mTvName = convertView.findViewById(R.id.tv_name);
+            convertView.setTag(childViewHolder); // 保存
+        } else {
+            childViewHolder = (ChildViewHolder) convertView.getTag();
+        }
+        ChapterItem chapterItem = mDatas.get(groupPosition).getChildren().get(childPosition);
+        childViewHolder.mTvName.setText(chapterItem.getName());
+        return convertView;
+    }
+```
 
 
 
+最终的效果如下：
+
+![020](https://github.com/winfredzen/Android-Basic/blob/master/UI/images/020.png)
 
 
 
