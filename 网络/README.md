@@ -152,9 +152,87 @@
 
 
 
+## JSONObject
+
+常用方法：
+
++ `public JSONObject getJSONObject(@NonNull String name)` - 获取`JSONObject`对象
++ ` public String toString()` - 把`JSONObject`对象转换为json格式的字符串
 
 
 
+其它方法：
+
++ `public int getInt(@NonNull String name)`
++ `public String getString(@NonNull String name)`
+
++ `public JSONArray getJSONArray(@NonNull String name)` - 解析json数组
+
+如：
+
+```java
+JSONArray dataArr = jsonObject.getJSONArray("data");
+for (int i = 0;  i < dataArr.length(); i++) {
+    JSONObject obj = dataArr.getJSONObject(i);
+}
+```
+
+
+
+
+
+## GSON
+
+常用方法
+
++ toJson - 将bean对象转换为json字符串
++ fromJson - 将json字符串转为bean对象
+
+例子参考官方文档：
+
++ [Gson User Guide](https://github.com/google/gson/blob/master/UserGuide.md)
+
+
+
+```java
+// Serialization
+Gson gson = new Gson();
+gson.toJson(1);            // ==> 1
+gson.toJson("abcd");       // ==> "abcd"
+gson.toJson(new Long(10)); // ==> 10
+int[] values = { 1 };
+gson.toJson(values);       // ==> [1]
+
+// Deserialization
+int one = gson.fromJson("1", int.class);
+Integer one = gson.fromJson("1", Integer.class);
+Long one = gson.fromJson("1", Long.class);
+Boolean false = gson.fromJson("false", Boolean.class);
+String str = gson.fromJson("\"abc\"", String.class);
+String[] anotherStr = gson.fromJson("[\"abc\"]", String[].class);
+
+
+
+class BagOfPrimitives {
+  private int value1 = 1;
+  private String value2 = "abc";
+  private transient int value3 = 3;
+  BagOfPrimitives() {
+    // no-args constructor
+  }
+}
+
+// Serialization
+BagOfPrimitives obj = new BagOfPrimitives();
+Gson gson = new Gson();
+String json = gson.toJson(obj);  
+
+// ==> json is {"value1":1,"value2":"abc"}
+```
+
+
+
+**@SerializedName注解**
 
 
 
