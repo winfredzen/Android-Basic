@@ -94,6 +94,44 @@ Application是维护应用全局状态的基类。Android系统会在启动应�
 
 
 
+**回调函数**
+
+1.`onConfigurationChanged`
+
+> Called by the system when the device configuration changes while your component is running. Note that, unlike activities, other components are never restarted when a configuration changes: they must always deal with the results of the change, such as by re-retrieving resources.
+>
+> At the time that this function has been called, your Resources object will have been updated to return resource values matching the new configuration.
+
+
+
+2.`onLowMemory`
+
+> This is called when the overall system is running low on memory, and actively running processes should trim their memory usage. While the exact point at which this will be called is not defined, generally it will happen when all background process have been killed. That is, before reaching the point of killing processes hosting service and foreground UI that we would like to avoid killing.
+>
+> You should implement this method to release any caches or other unnecessary resources you may be holding on to. The system will perform a garbage collection for you after returning from this method.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
