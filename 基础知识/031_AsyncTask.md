@@ -1,5 +1,9 @@
 # AsyncTask
 
+`AsyncTask`异步任务类，比Handler更轻量级，更适合简单的异步操作。内部封装了Handler，在使用AsyncTask类进行刷新控件的刷新操作时，不用再额外创建声明Handler，可以直接使用`AsyncTask`内部封装好的几个方法
+
+
+
 使用后台线程最简便的方式是使用`AsyncTask`工具类，`AsyncTask`是一个抽象类，例如如下的例子：
 
 ```java
@@ -73,6 +77,7 @@ private class FetchItemsTask extends AsyncTask<Void, Void, List<GalleryItem>>
 + `doInBackground(Params... params)` - 在子线程中运行，应该在这里去处理所有耗时任务
 + `onPostExecute(Result result)` - 当后台任务执行完毕并通过`return`语句进行返回时，这个方法就很快被调用
 + `onProgressUpdate(Progress... values)` - 当在后台任务中调用了`publishProgress(Progress... values)`方法后，`onProgressUpdate(Progress... values)`方法就会很快被调用
++ `onCancelled() ` - 取消
 
 
 
@@ -81,6 +86,8 @@ private class FetchItemsTask extends AsyncTask<Void, Void, List<GalleryItem>>
 ```java
 new FetchItemsTask().execute();
 ```
+
+
 
 
 
