@@ -46,9 +46,19 @@ mWebView.setWebViewClient(new WebViewClient());
 
 
 
+加载资源目录下的网页，如下的目录结构
 
+![003](https://github.com/winfredzen/Android-Basic/blob/master/WebView/images/003.png)
 
+使用如下的方法加载网页
 
+```java
+mWebView.loadUrl("file:///android_asset/index.html");
+```
+
+效果如下：
+
+![004](https://github.com/winfredzen/Android-Basic/blob/master/WebView/images/004.png)
 
 
 
