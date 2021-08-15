@@ -62,9 +62,38 @@ mWebView.loadUrl("file:///android_asset/index.html");
 
 
 
+**2.`loadUrl(String url, Map<String, String> additionalHttpHeaders)`**
 
+可在请求头中添加字段
 
+如下的例子，启用了调试，并在请求头中添加了字段：
 
+```java
+        //启用调试
+        mWebView.setWebContentsDebuggingEnabled(true);
+
+        mWebView.loadUrl("http://192.168.2.104:8080");
+
+        mWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                Map<String, String> header = new HashMap<>();
+                header.put("android-webview-demo", "test");
+                mWebView.loadUrl("http://192.168.2.104:8080", header);
+                return super.shouldOverrideUrlLoading(view, request);
+            }
+        });
+```
+
+但遗憾的是，在我的oppo，Android 11上，又灭有测试成功，请求头中并没有我刚才添加的字段
+
+调试是在chrome中输入`chrome://inspect`，如果有连接设备调试，有网页，效果可能是这样的
+
+![005](https://github.com/winfredzen/Android-Basic/blob/master/WebView/images/005.png)
+
+点击inspect后，界面如下：
+
+![006](https://github.com/winfredzen/Android-Basic/blob/master/WebView/images/006.png)
 
 
 
