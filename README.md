@@ -21,6 +21,18 @@
 
 + ⌥+⌘+F - 抽取成员变量
 
++ ⌘+Y - 删除所在行
+
++ ⌘+X - 剪切当前行或者选中的代码
+
++ ⌘+shift+up/down - 将代码上下移动
+
++ ⌘+E - 打开最近的文件（相当于历史纪录）
+
+   
+
+  
+
 ## 博客与文章
 
 + [郭霖的专栏](https://guolin.blog.csdn.net/)
@@ -42,5 +54,4 @@
 
 + [Android倒计时之 CountDownTimer](https://www.jianshu.com/p/3c10432a4726)
 + [Android 定时任务的多种实现方式](https://blog.csdn.net/u014492609/article/details/51475254)
-
 
