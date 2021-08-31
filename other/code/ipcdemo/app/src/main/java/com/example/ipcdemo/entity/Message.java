@@ -10,6 +10,10 @@ public class Message implements Parcelable {
     private String content;
     private boolean isSendSuccess;
 
+    public Message() {
+
+    }
+
     protected Message(Parcel in) {
         content = in.readString();
         isSendSuccess = in.readByte() != 0;
