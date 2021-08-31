@@ -4,7 +4,7 @@ package com.example.ipcdemo;
 // Declare any non-default types here with import statements
 // 连接服务
 interface IConnectionService {
-    void connect();
+    oneway void connect();
 
     void disconnect();
 
