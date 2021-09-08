@@ -2,14 +2,17 @@ package com.example.ipcdemo;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.Messenger;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.ipcdemo.entity.Message;
@@ -31,11 +34,43 @@ public class RemoteService extends Service {
 //    private ArrayList<MessageReceiveListener> mMessageReceiveListenerArrayList = new ArrayList<>();
     private RemoteCallbackList<MessageReceiveListener> mMessageRemoteCallbackList = new RemoteCallbackList<>();
 
-    private Handler mHandler = new Handler(Looper.getMainLooper());
+    private Handler mHandler = new Handler(Looper.getMainLooper()) {
+
+        @Override
+        public void handleMessage(@NonNull android.os.Message msg) {
+            super.handleMessage(msg);
+
+            //获得客户端的messenger对象
+            Messenger clientMessenger = msg.replyTo;
+
+            //处理messenger传递过来的数据
+            Bundle bundle = msg.getData();
+            //设置classLoader，否则可能会出现序列化异常的问题
+            bundle.setClassLoader(Message.class.getClassLoader());
+            Message message = bundle.getParcelable("message");
+            Toast.makeText(RemoteService.this, message.getContent(), Toast.LENGTH_SHORT).show();
+
+            try {
+                //给客户端回消息
+                Message reply = new Message();
+                reply.setContent("message reply from remote");
+                android.os.Message data = new android.os.Message();
+                bundle = new Bundle();
+                bundle.putParcelable("reply", reply);
+                data.setData(bundle);
+                clientMessenger.send(data);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+
+    };
 
     private ScheduledThreadPoolExecutor mScheduledThreadPoolExecutor;
 
     private ScheduledFuture mScheduledFuture;
+
+    private Messenger mMessenger = new Messenger(mHandler);
 
     private IConnectionService connectionService = new IConnectionService.Stub() {
         @Override
@@ -120,12 +155,10 @@ public class RemoteService extends Service {
     private IMessageService messageService = new IMessageService.Stub() {
         @Override
         public void sendMessage(Message message) throws RemoteException {
-            mHandler.post(new Runnable() {
-                @Override
-                public void run() {
-                    Log.d(TAG, "sendMessage message = " + message.getContent());
-                }
-            });
+
+            Log.d(TAG, "sendMessage message = " + message.getContent());
+
+
             if (isConnected) {
                 message.setSendSuccess(true);
             } else {
@@ -164,6 +197,8 @@ public class RemoteService extends Service {
                 return connectionService.asBinder();
             } else if (IMessageService.class.getSimpleName().equals(serviceName)) {
                 return messageService.asBinder();
+            } else if (Messenger.class.getSimpleName().equals(serviceName)) {
+                return mMessenger.getBinder();
             } else {
                 return null;
             }

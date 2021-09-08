@@ -1,5 +1,6 @@
 package com.example.ipcdemo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ComponentName;
@@ -10,7 +11,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.Messenger;
 import android.os.RemoteException;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,11 +29,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mSendMessageBtn;
     private Button mRegisterBtn;
     private Button mUnRegisterBtn;
+    private Button mSendByMessenger;
 
 
     private IConnectionService connectionServiceProxy;
     private IMessageService messageServiceProxy;
     private IServiceManager serviceManagerProxy;
+    private Messenger messengerProxy;
+
+    private Handler mHandler = new Handler(Looper.getMainLooper()) {
+        @Override
+        public void handleMessage(@NonNull android.os.Message msg) {
+            super.handleMessage(msg);
+
+            Bundle bundle = msg.getData();
+            bundle.setClassLoader(Message.class.getClassLoader());
+            Message message = bundle.getParcelable("reply");
+
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    Toast.makeText(MainActivity.this, message.getContent(), Toast.LENGTH_SHORT).show();
+
+                }
+            }, 3000);
+
+        }
+    };
+
+    //客户端Messenger, 处理remote进程返回给我们数据
+    private Messenger clientMessenger = new Messenger(mHandler);
+
 
     //相当于remote对主进程的调用
     private MessageReceiveListener mMessageReceiveListener = new MessageReceiveListener.Stub() {
@@ -57,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSendMessageBtn = (Button) findViewById(R.id.btn_send_message);
         mRegisterBtn = (Button) findViewById(R.id.btn_register);
         mUnRegisterBtn = (Button) findViewById(R.id.btn_unregister);
+        mSendByMessenger = (Button) findViewById(R.id.btn_messenger);
 
         mConnectBtn.setOnClickListener(this);
         mDisconnectBtn.setOnClickListener(this);
@@ -64,17 +95,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSendMessageBtn.setOnClickListener(this);
         mRegisterBtn.setOnClickListener(this);
         mUnRegisterBtn.setOnClickListener(this);
+        mSendByMessenger.setOnClickListener(this);
 
         Intent intent = new Intent(this, RemoteService.class);
         bindService(intent, new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-
-                serviceManagerProxy = IServiceManager.Stub.asInterface(service);
-
                 try {
+                    serviceManagerProxy = IServiceManager.Stub.asInterface(service);
                     connectionServiceProxy = IConnectionService.Stub.asInterface(serviceManagerProxy.getService(IConnectionService.class.getSimpleName()));
                     messageServiceProxy = IMessageService.Stub.asInterface(serviceManagerProxy.getService(IMessageService.class.getSimpleName()));
+                    messengerProxy = new Messenger(serviceManagerProxy.getService(Messenger.class.getSimpleName()));
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 };
@@ -118,6 +149,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Message message = new Message();
                     message.setContent("send message from main");
                     messageServiceProxy.sendMessage(message);
+
+                    Log.d(TAG, "R.id.btn_send_message " + String.valueOf(message.isSendSuccess()));
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
@@ -136,6 +169,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 try {
                     messageServiceProxy.unRegisterMessageReceiveListener(mMessageReceiveListener);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+
+                break;
+
+            case R.id.btn_messenger:
+
+                try {
+                    Message message = new Message();
+                    message.setContent("send message from main by messenger");
+
+                    android.os.Message data = new android.os.Message();
+                    //提供给服务端reply
+                    data.replyTo = clientMessenger;
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("message", message);
+                    data.setData(bundle);
+                    messengerProxy.send(data);
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }

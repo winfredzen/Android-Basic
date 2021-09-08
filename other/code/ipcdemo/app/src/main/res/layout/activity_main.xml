@@ -51,4 +51,11 @@
         android:text="unregisterMessage"
         />
 
+    <Button
+        android:id="@+id/btn_messenger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sendByMessenger"
+        />
+
 </LinearLayout>

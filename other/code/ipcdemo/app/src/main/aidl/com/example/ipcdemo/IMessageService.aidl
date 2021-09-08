@@ -7,7 +7,7 @@ import com.example.ipcdemo.MessageReceiveListener;
 
 // 消息的服务
 interface IMessageService {
-    void sendMessage(in Message message);
+    void sendMessage(inout Message message);
 
     void registerMessageReceiveListener(MessageReceiveListener messageReceiveListener);
 

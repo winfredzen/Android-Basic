@@ -3,6 +3,8 @@ package com.example.ipcdemo.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.time.Year;
+
 /**
  * create by wangzhen 2021/8/31
  */
@@ -56,5 +58,10 @@ public class Message implements Parcelable {
 
     public void setSendSuccess(boolean sendSuccess) {
         isSendSuccess = sendSuccess;
+    }
+
+    public void readFromParcel(Parcel parcel) {
+        content = parcel.readString();
+        isSendSuccess = parcel.readByte() == 1 ? true : false;
     }
 }
