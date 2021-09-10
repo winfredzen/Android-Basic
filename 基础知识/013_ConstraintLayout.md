@@ -4,7 +4,7 @@
 
 + [ConstraintLayout](https://developer.android.com/reference/android/support/constraint/ConstraintLayout)
 + [Build a Responsive UI with ConstraintLayout](https://developer.android.com/training/constraint-layout)
-+ [约束布局ConstraintLayout看这一篇就够了](https://juejin.im/post/5bac92f2f265da0aba70c1bf)
++ [约束布局ConstraintLayout看这一篇就够了](https://www.jianshu.com/p/17ec9bd6ca8a)
 + [Android新特性介绍，ConstraintLayout完全解析](https://blog.csdn.net/guolin_blog/article/details/53122387)
 
 **约束编辑器** 
@@ -47,6 +47,45 @@ android:layout_marginLeft="100dp"
 >Constraint bias ranges from 0.0 (0%) to 1.0 (100%). Horizontal constraint bias grows from left to right, while vertical constraint bias grows from top to bottom. Constraint bias is useful for positioning a view dynamically for different screen sizes.
 
 也就是说当一个view在水平或者垂直，2个边都要约束的时候。不管是约束到parent还是其他的view，默认是0.5的constraint bias。也就是说view在2个edge的中间。
+
+
+
+如下：
+
+```xml
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:background="#00BCD4"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        />
+```
+
+![069](https://github.com/winfredzen/Android-Basic/raw/master/images/069.png)
+
+如果`app:layout_constraintHorizontal_bias="0"`
+
+![070](https://github.com/winfredzen/Android-Basic/raw/master/images/070.png)
+
+如果`app:layout_constraintHorizontal_bias="1"`
+
+![071](https://github.com/winfredzen/Android-Basic/raw/master/images/071.png)
+
+可参考的文档：
+
++ [【约束布局】ConstraintLayout 偏移 ( Bias ) 计算方式详解 ( 缝隙比例 | 计算公式 | 图解 | 测量图 + 公式 )](https://blog.csdn.net/shulianghan/article/details/97102389)
+
+
+
+
+
+
 
 **Align工具**
 
