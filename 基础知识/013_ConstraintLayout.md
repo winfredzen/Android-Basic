@@ -67,15 +67,15 @@ android:layout_marginLeft="100dp"
         />
 ```
 
-![069](https://github.com/winfredzen/Android-Basic/raw/master/images/069.png)
+![069](https://github.com/winfredzen/Android-Basic/blob/master/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/images/069.png)
 
 如果`app:layout_constraintHorizontal_bias="0"`
 
-![070](https://github.com/winfredzen/Android-Basic/raw/master/images/070.png)
+![070](https://github.com/winfredzen/Android-Basic/blob/master/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/images/070.png)
 
 如果`app:layout_constraintHorizontal_bias="1"`
 
-![071](https://github.com/winfredzen/Android-Basic/raw/master/images/071.png)
+![071](https://github.com/winfredzen/Android-Basic/blob/master/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/images/071.png)
 
 可参考的文档：
 
