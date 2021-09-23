@@ -416,25 +416,225 @@ webview将要加载新的url时进行回调，例如点击`a`标签打开新的�
 
 
 
+## WebView与js交互
+
+### Android端调用JS代码
+
+1.WebView通过`loadUrl("javascript:方法名(参数)")`调用
+
+如下的html：
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Test  001</h1>
+    <a href="#" onclick="showAlert()">Show Alert</a>
+    <a href="#" onclick="showConfirm()">Show Confirm</a>
+    <a href="#" onclick="showPrompt()">Show Prompt</a>
+
+
+    <script>
+        function showAlert() {
+            alert('只是alert对话框');
+        }
+
+        function showConfirm() {
+            var result = confirm('这是confirm对话框');
+            if (result) {
+                alert('点击了确定按钮');
+            } else {
+                alert('点击了取消按钮');
+            }
+        }
+
+        function showPrompt() {
+            var res = prompt('这是prompt对话框', '则是默认的提示内容');
+            alert(res);
+        }
+    </script>
+
+</body>
+</html>
+```
+
+如调用js中的`showAlert()`方法
+
+```java
+    public void onCallShowAlert(View view) {
+        mWebView.loadUrl("javascript:showAlert()");
+    }
+```
+
+效果如下：
+
+![010](https://github.com/winfredzen/Android-Basic/blob/master/WebView/images/010.png)
+
+
+
+**这种方式有个问题，无法获取js方法的返回值**
+
+如果调用的js方法是有返回值的(String类型)，则返回值会替换当前的网页，如下：
+
+```js
+        function sum(x, y) {
+            var result = x + y;
+            return x + '+' + y + ' = ' + result;
+        }
+```
+
+```java
+    public void onCallShowAlert(View view) {
+        //mWebView.loadUrl("javascript:showAlert()");
+        mWebView.loadUrl("javascript:sum(2, 3)");
+    }
+```
+
+![011](https://github.com/winfredzen/Android-Basic/blob/master/WebView/images/011.png)
+
+
+
+那怎么办呢？可以通过`WebChromeClient`的`onJsAlert`回调中的`message`，拿到返回值
+
+如：
+
+```java
+mWebView.loadUrl("javascript:alert(sum(2, 3))");
+```
+
+输出结果为：
+
+```java
+setWebChromeClient onJsAlert message = 2+3 = 5 ,result = android.webkit.JsPromptResult@d1baa9c
+```
+
+
+
+2.通过`evaluateJavascript`来调用
+
+如：
+
+```java
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            mWebView.evaluateJavascript("javascript:sum(2, 3)", new ValueCallback<String>() {
+                @Override
+                public void onReceiveValue(String value) {
+                    Log.d(TAG, "onReceiveValue value = " + value);
+                }
+            });
+        }
+```
+
+```java
+D/WebViewActivity: onReceiveValue value = "2+3 = 5"
+```
+
+
+
+### JS调用Android代码
+
+1.拦截JavaScript请求的回调方法
+
+通过`shouldOverrideUrlLoading`方法
+
+如下的一个链接
+
+```html
+<a href="android://print?msg=通过js调用android方法">通过js调用android方法</a>
+```
+
+通过`public boolean shouldOverrideUrlLoading(WebView view, String url)` 拦截，然后调用android的`print`方法
+
+```java
+@Override
+public boolean shouldOverrideUrlLoading(WebView view, String url) {
+    //检测url
+    Uri uri = Uri.parse(url);
+    if ("android".equals(uri.getScheme())) {
+        String functionName = uri.getAuthority();
+        if ("print".equals(functionName)) {
+            String msg = uri.getQueryParameter("msg");
+            print(msg);
+        }
+    }
+    return super.shouldOverrideUrlLoading(view, url);
+}
+```
+
+
+
+2.android代码的返回值如何传递给js？
+
+可以通过`mWebView.loadUrl`
+
+如在上面的print方法中，将返回值传递给js中的alert
+
+```java
+    private void print(String msg) {
+        Log.d(TAG, "print msg = " + msg);
+        String result = "需要返回的值";
+        mWebView.loadUrl("javascript:showAlert('" + result + "')");
+    }
+```
+
+![012](https://github.com/winfredzen/Android-Basic/blob/master/WebView/images/012.png)
 
 
 
 
 
+3.对象映射
 
+```java
+void addJavascriptInterface(Object obj, String interfaceName)
+```
 
+如下的例子：
 
+1.首先定义Object，`DemoJsObject`，方式使用`@JavascriptInterface`注解
 
+```java
+public class DemoJsObject {
+    @JavascriptInterface
+    public String print(String msg) {
+        Log.d("DemoJsObject", "msg = " + msg);
+        return "这是Android的返回值";
+    }
+}
+```
 
+2.调用`addJavascriptInterface`
 
+```java
+mWebView.addJavascriptInterface(new DemoJsObject(), "android");
+```
 
+3.在js中调用Android中的方法，传入参数，将返回值弹出
 
+```
+<a href="#" onclick="onAndroidFunction()">通过对象映射，调用android方法</a>
 
+        function onAndroidFunction() {
+            var result = android.print('onAndroidFunction');
+            alert(result);
+        }
+```
 
+调用后，在控制台输出了传入的参数
 
+```java
+2021-09-23 17:03:53.592 3220-3578/com.example.webviewdemo D/DemoJsObject: msg = onAndroidFunction
+```
 
+返回值alert弹出了
 
-
+![013](https://github.com/winfredzen/Android-Basic/blob/master/WebView/images/013.png)
 
 
 
