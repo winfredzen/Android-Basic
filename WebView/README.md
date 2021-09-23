@@ -381,7 +381,38 @@ webview将要加载新的url时进行回调，例如点击`a`标签打开新的�
 
 
 
+## WebChromeClient
 
+监听网页加载的进度、监听对话框的弹出，获取网页的标题、图标等
+
+1.`void onProgressChanged(WebView view, int newProgress)`
+
+获取网页加载进度
+
+2.`void onReceivedTitle(WebView view, String title)`
+
+获取网页的标题
+
+
+
+```java
+2021-09-23 14:48:34.796 19077-19077/com.example.webviewdemo D/WebViewActivity: WebChromeClient onProgressChanged newProgress = 23
+2021-09-23 14:48:34.799 19077-19077/com.example.webviewdemo D/WebViewActivity: WebChromeClient onReceivedTitle title = 百度一下
+```
+
+
+
+3.`boolean onJsAlert(WebView view, String url, String message, JsResult result)`
+
+在网页将要打开一个alert警告对话框的时候回调
+
+4.`onJsConfirm(WebView view, String url, String message, JsResult result)`
+
+在网页将要打开一个confirm对话框的时候回调
+
+5.`onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result)`
+
+在网页将要打开一个prompt对话框的时候回调
 
 
 
