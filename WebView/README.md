@@ -303,6 +303,112 @@ webSettings.setDisplayZoomControls(true);
 
 
 
+## WebViewClient
+
+`WebViewClient`处理网页加载时的各种回调通知
+
+1.`WebResourceResponse shouldInterceptRequest(WebView view, String url)`
+
+进行资源请求的时候回调，返回为空的时候，webview会自己去处理请求
+
+2.`void onPageStarted(WebView view, String url, Bitmap favicon)`
+
+网页已经开始开始加载时的回调
+
+3.`onLoadResource(WebView view, String url)`
+
+加载网页资源之前回调
+
+4.`void onPageFinished(WebView view, String url)`
+
+网页加载完成时回调
+
+
+
+如下的例子：
+
+```java
+        mWebView.setWebViewClient(new WebViewClient() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Nullable
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                Log.d(TAG, "shouldInterceptRequest url = " + request.getUrl().toString());
+                return super.shouldInterceptRequest(view, request);
+            }
+
+            @Nullable
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+                Log.d(TAG, "shouldInterceptRequest request url = " + url);
+                return super.shouldInterceptRequest(view, url);
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                Log.d(TAG, "onPageStarted url = " + url);
+                super.onPageStarted(view, url, favicon);
+            }
+
+            @Override
+            public void onLoadResource(WebView view, String url) {
+                Log.d(TAG, "onLoadResource url = " + url);
+                super.onLoadResource(view, url);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                Log.d(TAG, "onPageFinished url = " + url);
+                super.onPageFinished(view, url);
+            }
+        });
+
+```
+
+![009](https://github.com/winfredzen/Android-Basic/blob/master/WebView/images/009.png)
+
+
+
+5.`boolean shouldOverrideUrlLoading(WebView view, String url)`
+
+webview将要加载新的url时进行回调，例如点击`a`标签打开新的页面时
+
+
+
+6.`void onReceivedError(WebView view, int errorCode, String description, String failingUrl)`
+
+在网页发生错误的时候回调
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
