@@ -1,0 +1,14 @@
+ext {
+
+    //是否是发布模式
+    isRelease = false
+
+    username = "windzen"
+
+    // Map定义
+    app_android = [
+        compileSdkVersion : 30,
+        buildToolsVersion :  "30.0.2",
+        minSdkVersion : 16
+    ]
+}
