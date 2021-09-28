@@ -32,6 +32,8 @@ android {
 
 dependencies {
     implementation project(':common')
+    implementation project(':annotation')
+
     if (isRelease) {
         implementation project(':order')
         implementation project(':personal')

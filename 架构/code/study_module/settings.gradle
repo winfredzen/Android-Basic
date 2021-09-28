@@ -2,6 +2,8 @@ include ':personal'
 include ':order'
 include ':common'
 include ':app'
+include ':annotation'
 rootProject.name = "study_module"
 
 println "study_module(root project) > settings.gradle"
+
