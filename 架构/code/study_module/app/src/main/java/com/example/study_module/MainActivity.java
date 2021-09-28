@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.annotation.ARouter;
 import com.example.order.OrderMainActivity;
 import com.example.personal.PersonalMainActivity;
 
+@ARouter(path = "/app/MainActivity")
 public class MainActivity extends AppCompatActivity {
 
     @Override
