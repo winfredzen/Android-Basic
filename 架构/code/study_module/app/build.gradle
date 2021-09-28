@@ -33,6 +33,7 @@ android {
 dependencies {
     implementation project(':common')
     implementation project(':annotation')
+    annotationProcessor project(':annotation_processor')
 
     if (isRelease) {
         implementation project(':order')
