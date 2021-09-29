@@ -7,6 +7,7 @@ import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeSpec;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
@@ -16,6 +17,7 @@ import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
+import javax.annotation.processing.SupportedOptions;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
@@ -33,6 +35,7 @@ import javax.tools.Diagnostic;
 @AutoService(Processor.class) //编译期绑定
 @SupportedAnnotationTypes({"com.example.annotation.ARouter"}) //表示要处理哪个注解
 @SupportedSourceVersion(SourceVersion.RELEASE_8) //支持的版本
+@SupportedOptions({"myvalue"})
 public class ARouterProcessor extends AbstractProcessor {
 
     //需要的工具类
@@ -49,6 +52,11 @@ public class ARouterProcessor extends AbstractProcessor {
         typesTool = processingEnv.getTypeUtils();
         filer = processingEnv.getFiler();
         messager = processingEnv.getMessager();
+
+        //拿到options
+        Map<String, String> options = processingEnv.getOptions();
+        String myValue = options.get("myvalue");
+        messager.printMessage(Diagnostic.Kind.NOTE, "编译参数 myvalue = " + myValue);
     }
 
     @Override
