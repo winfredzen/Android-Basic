@@ -54,9 +54,9 @@ public class ARouterProcessor extends AbstractProcessor {
         messager = processingEnv.getMessager();
 
         //拿到options
-        Map<String, String> options = processingEnv.getOptions();
-        String myValue = options.get("myvalue");
-        messager.printMessage(Diagnostic.Kind.NOTE, "编译参数 myvalue = " + myValue);
+//        Map<String, String> options = processingEnv.getOptions();
+//        String myValue = options.get("myvalue");
+//        messager.printMessage(Diagnostic.Kind.NOTE, "编译参数 myvalue = " + myValue);
     }
 
     @Override
