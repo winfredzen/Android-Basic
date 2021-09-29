@@ -1,4 +1,4 @@
-# buildTypes
+# buildTypes & BuildConfig
 
 在Android Stuido右侧的build variants下有2个默认的选项debug、release
 
