@@ -2,7 +2,7 @@
 
 **R.java文件**
 
-可在目录~~`app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/`~~下，项目包名称中找到`R.java`文件。`R.java`文件在Android项目编译过程中自动生成
+可在目录~~app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/~~下，项目包名称中找到`R.java`文件。`R.java`文件在Android项目编译过程中自动生成
 
 最新的位置是在`app\build\intermediates\runtime_symbol_list\debug`
 
