@@ -75,6 +75,7 @@ public class ARouterProcessor extends AbstractProcessor {
         return false;
     }
 
+    //测试生成java代码
     private void generateHelloWorld() {
         //JavaPoet
         MethodSpec main = MethodSpec.methodBuilder("main")
