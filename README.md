@@ -10,9 +10,9 @@
 
 **需要学习的技术**
 
-+ 组件化原理
-+ apt
-+ poet
++ ~~组件化原理~~
++ ~~apt~~
++ ~~poet~~
 + jetpack-navigation
 + rxjava
 + adb
