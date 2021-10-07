@@ -7,10 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.annotation.ARouter;
+import com.example.annotation.Parameter;
 import com.example.common.NetManagerUtils;
 
 @ARouter(path = "/order/OrderMainActivity", group = "order")
 public class OrderMainActivity extends AppCompatActivity {
+
+    @Parameter
+    String name;
+
+    @Parameter
+    int age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

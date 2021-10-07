@@ -7,6 +7,8 @@ package com.example.annotation_processor.config;
  */
 public interface ProcessorConfig  {
     String ROUTER_PACKAGE_NAME = "com.example.annotation.ARouter"; //注解的包名
+
+
     String MODULE_NAME = "moduleName";
     String APT_PACKAGE_NAME = "packageNameForAPT";
     String ACTIVITY_PACKAGE_NAME = "android.app.Activity";
@@ -31,5 +33,18 @@ public interface ProcessorConfig  {
     String PATH_FILE_NAME = "ARouter$$Path$$";
 
     String GROUP_FILE_NAME = "ARouter$$Group$$";
+
+    String PARAMETER_PACKAGE = "com.example.annotation.Parameter";
+
+    String ROUTER_API_PARAMETER_NAME = ROUTER_API_PACKAGE_NAME + ".ParameterLoad";
+
+    String PARAMETER_METHOD_NAME = "getParameter";
+
+    String PARAMETER_TARGET_NAME = "targetParameter";
+
+    String STRING_PACKAGE_NAME = "java.lang.String";
+
+    // OrderMainActivity$$Parameter
+    String PARAMETER_FILE_NAME = "$$Parameter";
 
 }

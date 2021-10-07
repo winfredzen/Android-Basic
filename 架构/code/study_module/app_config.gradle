@@ -13,7 +13,7 @@ ext {
     ]
 
     // 定义一个包名，存放APT生产的Java文件
-    packageNameForAPT = "com.example.customrouter_apt"
+    packageNameForAPT = "customrouter_apt"
 
 //    // 定义依赖项目
 //    app_dependencies = [

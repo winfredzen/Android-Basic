@@ -25,6 +25,11 @@ allprojects {
         google()
         jcenter()
     }
+
+    //删除build目录
+    task cleanBuildDir(type: Delete) {
+        delete("${projectDir}/build")
+    }
 }
 
 task clean(type: Delete) {
