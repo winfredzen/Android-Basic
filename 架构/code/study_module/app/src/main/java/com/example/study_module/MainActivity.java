@@ -11,7 +11,7 @@ import com.example.annotation.ARouter;
 import com.example.order.OrderMainActivity;
 import com.example.personal.PersonalMainActivity;
 
-@ARouter(path = "/app/MainActivity")
+@ARouter(path = "/app/MainActivity", group = "app")
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 

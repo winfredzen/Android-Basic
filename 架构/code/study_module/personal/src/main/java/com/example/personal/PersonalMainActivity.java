@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.annotation.ARouter;
+
+@ARouter(path = "/personal/PersonalMainActivity", group = "personal")
 public class PersonalMainActivity extends AppCompatActivity {
 
     @Override

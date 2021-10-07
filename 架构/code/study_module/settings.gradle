@@ -8,3 +8,4 @@ rootProject.name = "study_module"
 println "study_module(root project) > settings.gradle"
 
 include ':annotation_processor'
+include ':router_api'

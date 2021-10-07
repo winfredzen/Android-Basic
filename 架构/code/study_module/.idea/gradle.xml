@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/order" />
             <option value="$PROJECT_DIR$/personal" />
+            <option value="$PROJECT_DIR$/router_api" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

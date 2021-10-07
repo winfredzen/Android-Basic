@@ -8,7 +8,7 @@ import com.example.annotation.ARouter;
 
 import java.lang.annotation.Retention;
 
-//@ARouter(path = "/app/LoginActivity")
+@ARouter(path = "/app/LoginActivity", group = "app")
 public class LoginActivity extends AppCompatActivity {
 
     @Override

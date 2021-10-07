@@ -27,6 +27,13 @@ android {
 //                arguments = [myvalue: 'hello javapoet']
 //            }
 //        }
+
+        //把包名传递进去
+        javaCompileOptions {
+            annotationProcessorOptions{
+                arguments = [moduleName: this.project.getName(), packageNameForAPT: packageNameForAPT]
+            }
+        }
     }
 
     buildTypes {

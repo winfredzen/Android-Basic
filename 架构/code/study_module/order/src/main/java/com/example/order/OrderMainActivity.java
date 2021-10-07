@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.annotation.ARouter;
 import com.example.common.NetManagerUtils;
 
+@ARouter(path = "/order/OrderMainActivity", group = "order")
 public class OrderMainActivity extends AppCompatActivity {
 
     @Override
