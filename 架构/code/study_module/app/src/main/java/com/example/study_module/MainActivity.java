@@ -10,6 +10,7 @@ import android.view.View;
 import com.example.annotation.ARouter;
 import com.example.order.OrderMainActivity;
 import com.example.personal.PersonalMainActivity;
+import com.example.router_api.RouterManager;
 
 @ARouter(path = "/app/MainActivity", group = "app")
 public class MainActivity extends AppCompatActivity {
@@ -29,7 +30,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void toOrderModule(View view) {
         //传统方式，组件间的相互调用
-        startActivity(new Intent(MainActivity.this, OrderMainActivity.class));
+        //startActivity(new Intent(MainActivity.this, OrderMainActivity.class));
+
+        //路由方式
+        RouterManager.getInstance()
+                .build("/order/OrderMainActivity")
+                .withString("name", "张三")
+                .withInt("age", 20)
+                .navigation(this);
     }
 
     public void toPersonalModule(View view) {
