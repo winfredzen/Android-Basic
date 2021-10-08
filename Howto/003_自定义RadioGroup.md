@@ -8,7 +8,7 @@
 
 如果不做的其它的设置，`RadioGroup`和`RadioButton`的显示可能如下：
 
-![006](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/006.png)
+![007](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/007.png)
 
 通过设置`RadioButton`中的`android:button`、`android:background`、`android:textColor`可以实现如下的效果：
 
@@ -26,7 +26,7 @@
     />
 ```
 
-![007](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/007.png)
+![008](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/008.png)
 
 
 
