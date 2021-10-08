@@ -110,6 +110,71 @@
 
 
 
+1.为什么`PresetRadioGroup`中要重写`public void addView(View child, int index, ViewGroup.LayoutParams params)`方法和`protected void onFinishInflate()` 方法
+
+我自己的理解是，在`LayoutInflater`填充布局的过程中，有调用到这些方法
+
+在`LayoutInflater`的
+
+```java
+    /**
+     * Recursive method used to descend down the xml hierarchy and instantiate
+     * views, instantiate their children, and then call onFinishInflate().
+     * <p>
+     * <strong>Note:</strong> Default visibility so the BridgeInflater can
+     * override it.
+     */
+    void rInflate(XmlPullParser parser, View parent, Context context,
+            AttributeSet attrs, boolean finishInflate) throws XmlPullParserException, IOException {
+
+        final int depth = parser.getDepth();
+        int type;
+        boolean pendingRequestFocus = false;
+
+        while (((type = parser.next()) != XmlPullParser.END_TAG ||
+                parser.getDepth() > depth) && type != XmlPullParser.END_DOCUMENT) {
+
+            if (type != XmlPullParser.START_TAG) {
+                continue;
+            }
+
+            final String name = parser.getName();
+
+            if (TAG_REQUEST_FOCUS.equals(name)) {
+                pendingRequestFocus = true;
+                consumeChildElements(parser);
+            } else if (TAG_TAG.equals(name)) {
+                parseViewTag(parser, parent, attrs);
+            } else if (TAG_INCLUDE.equals(name)) {
+                if (parser.getDepth() == 0) {
+                    throw new InflateException("<include /> cannot be the root element");
+                }
+                parseInclude(parser, context, parent, attrs);
+            } else if (TAG_MERGE.equals(name)) {
+                throw new InflateException("<merge /> must be the root element");
+            } else {
+                final View view = createViewFromTag(parent, name, context, attrs);
+                final ViewGroup viewGroup = (ViewGroup) parent;
+                final ViewGroup.LayoutParams params = viewGroup.generateLayoutParams(attrs);
+                rInflateChildren(parser, view, attrs, true);
+                viewGroup.addView(view, params); //这里
+            }
+        }
+
+        if (pendingRequestFocus) {
+            parent.restoreDefaultFocus();
+        }
+
+        if (finishInflate) {
+            parent.onFinishInflate(); //这里
+        }
+    }
+```
+
+
+
+
+
 
 
 
