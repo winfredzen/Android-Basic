@@ -16,6 +16,8 @@
 + jetpack-navigation
 + rxjava
 + adb
++ java虚拟机
++ java内存模型
 
 ## 一些快捷键
 
@@ -28,6 +30,8 @@
 + ⌘+shift+up/down - 将代码上下移动
 
 + ⌘+E - 打开最近的文件（相当于历史纪录）
+
++ ⌘+shift+U - 切换变量大小写
 
    
 
