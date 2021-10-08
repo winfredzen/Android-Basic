@@ -30,11 +30,65 @@
 
 
 
+### AppCompatRadioButton
 
+通过上面的使用方式，我们可以实现iOS Segment的效果，如下：
 
+![009](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/009.png)
 
+```xml
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
 
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rbLeft"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:textColor="@android:color/white"
+            android:text="Left"
+            android:layout_weight="1"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:background="@drawable/radio_button_left_selector"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"
+            />
 
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rbCenter"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:textColor="@android:color/holo_red_light"
+            android:text="Center"
+            android:layout_weight="1"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:background="@drawable/radio_button_center_selector"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"
+            />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rbRight"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:textColor="@android:color/holo_red_light"
+            android:text="Right"
+            android:layout_weight="1"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:background="@drawable/radio_button_right_selector"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"
+            />
+
+    </RadioGroup>
+```
+
+这里是通过点击事件`onRadioButtonClicked`，来处理`RadioButton`的文字颜色
 
 
 
