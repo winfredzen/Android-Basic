@@ -16,6 +16,8 @@
 + jetpack-navigation
 + rxjava
 + adb
++ java虚拟机
++ java内存模型
 
 ## 一些快捷键
 
