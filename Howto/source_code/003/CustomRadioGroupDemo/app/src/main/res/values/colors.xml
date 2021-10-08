@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="gray">#808080</color>
+    <color name="app_button_blue">@color/app_color_sky_blue</color>
+    <color name="app_color_sky_blue">#2395ED</color>
+    <color name="light_grey_semi_transparent">#80313435</color>
+
 </resources>

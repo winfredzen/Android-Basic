@@ -92,6 +92,56 @@
 
 
 
+## 自定义Radio Groups & Radio Buttons
+
+参考：
+
++ [Creating Custom Radio Groups & Radio Buttons in Android](https://crosp.net/blog/software-development/mobile/android/creating-custom-radio-groups-radio-buttons-android/)
+
+
+
+上文中自定义的`PresetRadioGroup`，与原来的`RadioGroup`有许多类似之处
+
+**所以很值得我们去看看`RadioGroup`的源码**
+
+最终实现的效果如下：
+
+![010](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/010.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

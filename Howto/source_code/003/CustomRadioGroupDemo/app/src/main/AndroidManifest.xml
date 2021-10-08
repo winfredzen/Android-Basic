@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CustomRadioGroupDemo">
         <activity
+            android:name=".Demo3"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Demo2"
             android:exported="true">
             <intent-filter>
