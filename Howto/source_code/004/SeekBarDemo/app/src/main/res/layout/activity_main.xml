@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatSeekBar
@@ -12,6 +13,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/seekbar01"
         android:thumb="@drawable/seekbar_thumb"
+        android:progressDrawable="@drawable/seekbar_progress_style"
+        android:progress="50"
+        />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekbar02"
+        android:thumb="@drawable/seekbar_thumb_drawable01"
         />
 
 </LinearLayout>

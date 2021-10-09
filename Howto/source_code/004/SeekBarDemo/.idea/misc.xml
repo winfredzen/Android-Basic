@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/seekbar_progress.xml" value="0.35" />
+        <entry key="app/src/main/res/drawable/seekbar_progress_style.xml" value="0.35" />
         <entry key="app/src/main/res/drawable/seekbar_thumb.xml" value="0.35" />
+        <entry key="app/src/main/res/drawable/seekbar_thumb_drawable01.xml" value="0.35" />
+        <entry key="app/src/main/res/drawable/seekbar_trak.xml" value="0.35" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2554347826086957" />
       </map>
     </option>
