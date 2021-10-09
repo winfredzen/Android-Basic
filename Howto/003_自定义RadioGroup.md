@@ -173,7 +173,15 @@
 
 
 
+另外一个例子，参考：
 
++ [Custom RadioGroup with different custom RadioButtons on Android](https://medium.com/@manuelmato/how-to-create-a-custom-radiogroup-that-recognizes-different-custom-radiobuttons-on-android-with-41d4c09b4c77)
+
+
+
+效果如下：
+
+![011](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/011.png)
 
 
 

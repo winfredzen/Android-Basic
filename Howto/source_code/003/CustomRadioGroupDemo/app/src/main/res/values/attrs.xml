@@ -11,4 +11,22 @@
     <declare-styleable name="PresetRadioGroup">
         <attr name="presetRadioCheckedId" format="reference"/>
     </declare-styleable>
+
+    <!-- Style custom radio button with one, two and three fields -->
+    <declare-styleable name="CustomRadioButtonOneField">
+        <attr name="title_rb_one_field" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomRadioButtonTwoFields">
+        <attr name="title_rb_two_fields" format="string"/>
+        <attr name="description_rb_two_fields" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomRadioButtonThreeFields">
+        <attr name="image_rb_three_fields" format="reference"/>
+        <attr name="title_rb_three_fields" format="string"/>
+        <attr name="description_rb_three_fields" format="string"/>
+    </declare-styleable>
+
+
 </resources>

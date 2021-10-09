@@ -6,4 +6,29 @@
     <string name="title_time_preset_120">120</string>
     <string name="title_time_preset_60">60</string>
     <string name="title_settings_set_duration">Set duration</string>
+
+    <!-- RadioButton values to show in the ui -->
+    <string name="formulary_first_question">First question</string>
+    <string name="formulary_first_question_first_answer_title">Title A</string>
+    <string name="formulary_first_question_second_answer_title">Title B</string>
+    <string name="formulary_first_question_second_answer_description">Description B</string>
+    <string name="formulary_first_question_third_answer_title">Title C</string>
+    <string name="formulary_first_question_third_answer_description">Description C</string>
+    <string name="formulary_first_question_fourth_answer_title">Title D</string>
+    <string name="formulary_first_question_fourth_answer_description">Description D</string>
+
+    <string name="formulary_second_question">Second question</string>
+    <string name="formulary_second_question_first_answer_title">Title A</string>
+    <string name="formulary_second_question_second_answer_title">Title B</string>
+
+    <!-- RadioButtons values to return the mapper -->
+    <string name="mapper_first_question_first_answer">First question - Button A</string>
+    <string name="mapper_first_question_second_answer">First question - Button B</string>
+    <string name="mapper_first_question_third_answer">First question - Button C</string>
+    <string name="mapper_first_question_fourth_answer">First question - Button D</string>
+
+    <string name="mapper_second_question_first_answer">Second question - Button A</string>
+    <string name="mapper_second_question_second_answer">Second question - Button B</string>
+
+    <string name="mapper_default_value">Is not possible to mapper this value</string>
 </resources>

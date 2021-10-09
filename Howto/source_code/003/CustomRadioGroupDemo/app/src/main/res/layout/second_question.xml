@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.customradiogroupdemo.radiobutton.CustomRadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/second_question"
+        style="@style/Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/formulary_second_question" />
+
+    <com.example.customradiogroupdemo.radiobutton.types.OneFieldCustomRadioButton
+        android:id="@+id/second_question_first_answer"
+        android:layout_width="136dp"
+        android:layout_height="97dp"
+        android:background="@drawable/background_custom_radio_buttons_unselected_state"
+        app:layout_constraintEnd_toStartOf="@id/second_question_second_answer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/second_question"
+        app:title_rb_one_field="@string/formulary_first_question_first_answer_title" />
+
+    <com.example.customradiogroupdemo.radiobutton.types.OneFieldCustomRadioButton
+        android:id="@+id/second_question_second_answer"
+        android:layout_width="136dp"
+        android:layout_height="97dp"
+        android:background="@drawable/background_custom_radio_buttons_unselected_state"
+        app:layout_constraintBottom_toBottomOf="@id/second_question_first_answer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/second_question_first_answer"
+        app:layout_constraintTop_toTopOf="@id/second_question_first_answer"
+        app:title_rb_one_field="@string/formulary_first_question_second_answer_title" />
+
+</com.example.customradiogroupdemo.radiobutton.CustomRadioGroup>

@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/background_custom_radio_buttons_selected_state.xml" value="0.3770833333333333" />
+        <entry key="app/src/main/res/drawable/background_custom_radio_buttons_unselected_state.xml" value="0.3770833333333333" />
         <entry key="app/src/main/res/drawable/background_selector_preset_button.xml" value="0.2037037037037037" />
         <entry key="app/src/main/res/drawable/background_shape_preset_button_pressed.xml" value="0.2037037037037037" />
         <entry key="app/src/main/res/drawable/background_shape_preset_time_button.xml" value="0.18333333333333332" />
+        <entry key="app/src/main/res/drawable/ic_close_black.xml" value="0.3770833333333333" />
         <entry key="app/src/main/res/drawable/radio_button_center_checked.xml" value="0.2037037037037037" />
         <entry key="app/src/main/res/drawable/radio_button_center_selector.xml" value="0.2037037037037037" />
         <entry key="app/src/main/res/drawable/radio_button_center_unchecked.xml" value="0.2037037037037037" />
@@ -23,8 +26,14 @@
         <entry key="app/src/main/res/layout/activity_demo1.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_demo2.xml" value="0.259963768115942" />
         <entry key="app/src/main/res/layout/activity_demo3.xml" value="0.22735507246376813" />
+        <entry key="app/src/main/res/layout/activity_demo4.xml" value="0.2246376811594203" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.259963768115942" />
+        <entry key="app/src/main/res/layout/custom_button_one_field.xml" value="0.2246376811594203" />
+        <entry key="app/src/main/res/layout/custom_button_three_fields.xml" value="0.2246376811594203" />
+        <entry key="app/src/main/res/layout/custom_button_two_fields.xml" value="0.2246376811594203" />
         <entry key="app/src/main/res/layout/custom_preset_button.xml" value="0.22735507246376813" />
+        <entry key="app/src/main/res/layout/first_question.xml" value="0.17553191489361702" />
+        <entry key="app/src/main/res/layout/second_question.xml" value="0.21739130434782608" />
       </map>
     </option>
   </component>
