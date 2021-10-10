@@ -443,6 +443,12 @@ int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
 
 
 
+## 其它文章
+
++ [Android View的绘制流程](https://www.jianshu.com/p/5a71014e7b1b)
+
+
+
 
 
 
