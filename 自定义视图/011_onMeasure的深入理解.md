@@ -12,13 +12,21 @@
 >
 > 如果重写该方法，子类需要确保measured width 和 height，至少是view的最小的width和height（通过`getSuggestedMinimumHeight()` 和 `getSuggestedMinimumWidth()`方法）
 
+> `MeasureSpec`的概念
+>
+> ![080](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/080.png)
+>
+> 
+
+
+
 `getDefaultSize`方法的实现
 
 ![080](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/080.png)
 
 
 
-`View`中的`void measure(int widthMeasureSpec, int heightMeasureSpec)`方法调用了`onMeasure(widthMeasureSpec, heightMeasureSpec);`方法
+`View`中的`void measure(int widthMeasureSpec, int heightMeasureSpec)`方法调用了`onMeasure(widthMeasureSpec, heightMeasureSpec)`方法
 
 
 
