@@ -10,7 +10,7 @@
 
 3.绘制 - `onDraw()`，根据布局的位置绘图
 
-
+> ![084](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/084.png)
 
 布局绘画涉及两个过程：测量过程和布局过程。测量过程通过`measure()`函数来实现，是View树自顶向下的遍历，每个View在循环过程中将尺寸细节往下传递，当测量过程完成之后，所有的View都存储了自己的尺寸。布局过程则通过`layout()`函数来实现，也是自顶向下的，在这个过程中，每个父View负责通过计算好的尺寸放置它的子View。
 
