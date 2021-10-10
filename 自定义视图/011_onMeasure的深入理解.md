@@ -14,9 +14,7 @@
 
 > `MeasureSpec`的概念
 >
-> ![080](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/080.png)
->
-> 
+> ![083](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/083.png)
 
 
 
