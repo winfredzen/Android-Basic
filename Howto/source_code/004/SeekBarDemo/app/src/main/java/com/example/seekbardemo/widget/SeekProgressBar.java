@@ -1,113 +1,22 @@
-# 自定义SeekBar
+package com.example.seekbardemo.widget;
 
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PathMeasure;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
 
+import androidx.annotation.Nullable;
 
-## 基本
-
-自定义`SeekBar`，可以自定义`SeekBar`的`thumb`，背景颜色等
-
-如下的设置：
-
-```xml
-    <androidx.appcompat.widget.AppCompatSeekBar
-        android:layout_marginTop="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/seekbar01"
-        android:thumb="@drawable/seekbar_thumb"
-        android:progressDrawable="@drawable/seekbar_progress_style"
-        android:progress="50"
-        />
-```
-
-`seekbar_thumb.xml`
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="#FF0000">
-    <item>
-        <shape android:shape="oval">
-            <solid android:color="#FF0000"/>
-            <size android:width="30dp" android:height="30dp"/>
-        </shape>
-    </item>
-</ripple>
-```
-
-`seekbar_progress_style.xml`
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:id="@android:id/background"
-        android:drawable="@drawable/seekbar_track">
-    </item>
-
-    <item android:id="@android:id/progress">
-        <clip android:drawable="@drawable/seekbar_progress"/>
-    </item>
-</layer-list>
-```
-
-`seekbar_track.xml`
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape>
-            <corners android:radius="5dp"/>
-            <gradient
-                android:angle="270"
-                android:centerColor="#0000FF"
-                android:endColor="#00FF00"
-                android:startColor="#FF0000"
-                android:type="linear"/>
-        </shape>
-    </item>
-</layer-list>
-```
-
-`seekbar_progress.xml`
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/progressshape">
-        <clip>
-            <shape android:shape="rectangle">
-                <size android:height="5dp"/>
-                <corners android:radius="5dp"/>
-                <solid android:color="#3db5ea"/>
-            </shape>
-        </clip>
-    </item>
-</layer-list>
-```
-
-最终的效果如下：
-
-![012](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/012.png)
-
-
-
-## 自定义
-
-在网上看了2个例子
-
-1.[Android自定义view实现SeekBar](https://www.jianshu.com/p/9fdb251c76f3)
-
-这个是直接继承`SeekBar`，感觉效果一般般
-
-
-
-2.[Android自定义View实现可拖拽的进度条](https://www.jianshu.com/p/4f4e30953739)
-
-这个继承自`View`，比较有借鉴的意义
-
-```java
+/**
+ * create by wangzhen 2021/10/11
+ */
 public class SeekProgressBar extends View {
     private Path mPathProgressBg;//进度条背景路径
     private Path mPathProgressFg;//进度条前景路径
@@ -311,25 +220,3 @@ public class SeekProgressBar extends View {
         canvas.drawPath(mPathProgressFg, mPaintProgress);
     }
 }
-```
-
-![013](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/013.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
