@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    <item android:state_checked="false"-->
+<!--        android:drawable="@drawable/notification_icon_off"/>-->
+
+<!--    <item android:state_checked="true"-->
+<!--        android:drawable="@drawable/notification_icon_on"/>-->
+
+    <item android:state_checked="false"
+        android:drawable="@drawable/custom_thumb_off"/>
+
+    <item android:state_checked="true"
+        android:drawable="@drawable/custom_thumb_on"/>
+</selector>
