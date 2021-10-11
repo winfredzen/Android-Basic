@@ -93,6 +93,55 @@
 
 
 
+在上面的例子中有使用到`<clip>`标签，有什么用呢？看如下的例子，一个渐变的seekbar
+
+```xml
+    <SeekBar
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="68px"
+        android:progressDrawable="@drawable/seekbar_progress_drawable"
+        android:thumb="@null"
+        android:splitTrack="false"
+        android:duplicateParentState="true"
+        />
+```
+
+`seekbar_progress_drawable.xml`内容如下：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--定义seekbar滑动条的底色-->
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="10px" />
+            <solid android:color="#33748CA3" />
+        </shape>
+    </item>
+
+    <!--定义seekbar滑动条进度颜色-->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="10px" />
+                <gradient
+                    android:endColor="#D7E4F1"
+                    android:startColor="#677d90" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>
+```
+
+如果没有`<clip>`标签，则显示效果如下(此时进度只有50%，但显示的还是100%):
+
+![027](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/027.png)
+
+
+
+
+
 ## 自定义
 
 在网上看了2个例子

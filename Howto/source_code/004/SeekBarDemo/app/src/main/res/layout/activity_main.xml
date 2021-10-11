@@ -8,13 +8,24 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatSeekBar
-        android:layout_marginTop="50dp"
+        android:id="@+id/seekbar01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/seekbar01"
-        android:thumb="@drawable/seekbar_thumb"
-        android:progressDrawable="@drawable/seekbar_progress_style"
+        android:layout_marginTop="50dp"
         android:progress="50"
+        android:progressDrawable="@drawable/seekbar_progress_style"
+        android:thumb="@drawable/seekbar_thumb"
+        android:splitTrack="false"
+        />
+
+    <SeekBar
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="68px"
+        android:progressDrawable="@drawable/seekbar_progress_drawable"
+        android:thumb="@null"
+        android:splitTrack="false"
+        android:duplicateParentState="true"
         />
 
     <com.example.seekbardemo.widget.CustomSeekBar
