@@ -62,6 +62,62 @@ setStrokeWidth(float width)
 
 
 
+**其它一些方法**
+
+```java
+reset()
+```
+
+> 重置画笔
+
+```java
+setARGB(int a, int r, int g, int b)
+```
+
+> 设置颜色
+
+```java
+setAlpha(int a)
+```
+
+> 设置画笔透明度
+
+```java
+setStrokeMiter(float miter)
+```
+
+> 设置画笔倾斜度。90度拿笔和30度拿笔，画出来的线条样式肯定是不一样的。该函数并没有太大的作用，基本看不出区别
+>
+> Set the paint's stroke miter(斜接) value. This is used to control the behavior of miter joins when the joins angle is sharp. This value must be >= 0.
+
+```java
+setPathEffect(PathEffect effect)
+```
+
+> 设置路径样式
+>
+> ![093](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/093.png)
+
+```java
+setStrokeCap(Cap cap)
+```
+
+> 设置线帽样式
+
+```java
+setStrokeJoin(Join join)
+```
+
+> 设置路径的转角样式
+
+```java
+setDither(boolean dither)
+```
+
+> 设置在绘制图像时的抗抖动效果。
+
+
+
 ## Canvas使用基础
 
 
