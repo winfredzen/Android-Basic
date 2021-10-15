@@ -134,6 +134,8 @@
 </layer-list>
 ```
 
+![026](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/026.png)
+
 如果没有`<clip>`标签，则显示效果如下(此时进度只有50%，但显示的还是100%):
 
 ![027](https://github.com/winfredzen/Android-Basic/blob/master/Howto/images/027.png)
