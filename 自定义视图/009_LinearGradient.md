@@ -12,7 +12,8 @@ LinearGradient(float x0, float y0, float x1, float y1, int color0, int color1, S
 
 + x0, y0 - 起始渐变点坐标
 + x1, y1 - 结束渐变点坐标
-+ color0 - 起始颜色 color1 - 终止颜色，颜色值必须使用`0xAARRGGBB`形式的十六进制数表示，其中表示透明度的`AA`一定不能少
++ color0 - 起始颜色 
++ color1 - 终止颜色，颜色值必须使用`0xAARRGGBB`形式的十六进制数表示，其中表示透明度的`AA`一定不能少
 
 如下的例子：
 
