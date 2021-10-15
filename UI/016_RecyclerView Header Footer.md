@@ -111,7 +111,7 @@ public class HFAdapter extends RecyclerView.Adapter<HFAdapter.MyViewHolder> {
 }
 ```
 
-![02](https://github.com/winfredzen/Android-Basic/blob/master/UI/images/022.png)
+![022](https://github.com/winfredzen/Android-Basic/blob/master/UI/images/022.png)
 
 
 
