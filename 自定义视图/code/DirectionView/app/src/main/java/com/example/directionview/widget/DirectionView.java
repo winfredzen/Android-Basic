@@ -82,22 +82,30 @@ public class DirectionView extends LinearLayout implements View.OnClickListener 
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        int x = (int) event.getX();
-        int y = (int) event.getY();
-
-        switch (event.getAction()) {
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                lastX = x;
-                lastY = y;
-                return true;
-//                break;
-            case MotionEvent.ACTION_MOVE:
-                int offsetX = (int) (x - lastX);
-                int offsetY = (int) (y - lastY);
-                //调用layout方法来重新放置它的位置
-                layout(getLeft() + offsetX, getTop() + offsetY, getRight() + offsetX, getBottom() + offsetY);
+                lastX = ev.getX();
+                lastY = ev.getY();
                 break;
+            case MotionEvent.ACTION_MOVE:
+                return true; //消费了消息
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_MOVE) {
+            //移动
+            int offX = (int) (event.getX() - lastX);
+            int offY = (int) (event.getY() - lastY);
+
+            LinearLayout.LayoutParams params = (LayoutParams) getLayoutParams();
+            params.leftMargin = params.leftMargin + offX;
+            params.topMargin += offY;
+            setLayoutParams(params);
+            return true;
         }
         return super.onTouchEvent(event);
     }
