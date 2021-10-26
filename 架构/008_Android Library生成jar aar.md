@@ -78,6 +78,20 @@ task makeJar(type: Copy) {
 
 
 
+**一些要注意的问题**
+
+1.可能会出现右侧的Gradle Tab下没有`Tasks`的情况，参考[Create an Android Library (AAR)](https://proandroiddev.com/create-an-android-library-aar-79d2338678ba)
+
+> **disable the following experimental setup in settings**.
+>
+> File -> Settings -> Preferences -> Experimental -> do not build Gradle task list during Gradle sync. And then do a project sync.
+>
+> File -> Sync Project with Gradle Files.
+
+它这里是使用`./gradlew build`来生成AAR，貌似能够同时生成debug、release两个AAR
+
+
+
 
 
 
