@@ -1,4 +1,4 @@
-# Android Library 生成Jar ARR
+# Android Library 生成Jar AAR
 
 
 
