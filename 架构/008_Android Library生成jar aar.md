@@ -66,7 +66,15 @@ task makeJar(type: Copy) {
 
 
 
+## 生成AAR
 
+在build的时候，在`build/outputs/aar`的目录下，就会生化AAR文件
+
+![043](https://github.com/winfredzen/Android-Basic/blob/master/%E6%9E%B6%E6%9E%84/images/043.png)
+
+如果要生成release版本的AAR文件，在Gradle的task中选择`assembleRelease`
+
+![044](https://github.com/winfredzen/Android-Basic/blob/master/%E6%9E%B6%E6%9E%84/images/044.png)
 
 
 
