@@ -217,6 +217,32 @@ public void scrollBy(int x, int y) {
 
 
 
+> scrollX、scrollY函数移动后View，它的坐标是否发生了变化？
+>
+> 通过如下的例子：
+>
+> ![150](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/150.gif)
+>
+> 控制台输出如下：
+>
+> ```java
+> 2021-10-26 15:01:43.979 29597-29597/com.scroller.harvic.scrollerdemo D/MainActivity: getX = 0.0, getScrollX = 50
+> 2021-10-26 15:01:45.200 29597-29597/com.scroller.harvic.scrollerdemo D/MainActivity: getX = 0.0, getScrollX = 100
+> 2021-10-26 15:01:45.740 29597-29597/com.scroller.harvic.scrollerdemo D/MainActivity: getX = 0.0, getScrollX = 150
+> 2021-10-26 15:01:46.220 29597-29597/com.scroller.harvic.scrollerdemo D/MainActivity: getX = 0.0, getScrollX = 200
+> 2021-10-26 15:01:46.648 29597-29597/com.scroller.harvic.scrollerdemo D/MainActivity: getX = 0.0, getScrollX = 250
+> 2021-10-26 15:01:46.861 29597-29597/com.scroller.harvic.scrollerdemo D/MainActivity: getX = 0.0, getScrollX = 300
+> 2021-10-26 15:01:47.081 29597-29597/com.scroller.harvic.scrollerdemo D/MainActivity: getX = 0.0, getScrollX = 350
+> 2021-10-26 15:01:47.368 29597-29597/com.scroller.harvic.scrollerdemo D/MainActivity: getX = 0.0, getScrollX = 400
+> 2021-10-26 15:01:47.931 29597-29597/com.scroller.harvic.scrollerdemo D/MainActivity: getX = 0.0, getScrollX = 0
+> ```
+>
+> **可见：通过`scrollTo()`和`scrollBy()`函数滚动，改变的只有`getScrollX`的值，原始坐标的`(x,y)`是不会改变的**
+
+
+
+
+
 ### Scroller
 
 如下使用`Scroller`，实现滑动，沿着X轴滑动400像素
