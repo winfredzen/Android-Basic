@@ -346,6 +346,25 @@ data class Triple<out A, out B, out C> : Serializable
 
 `when`取代了`switch`操作，`else`分支是必须的，除非编译器能够检测出所有的可能情况都已经覆盖了
 
+```kotlin
+when (x) {
+    1 -> print("x == 1")
+    2 -> print("x == 2")
+    else -> { // 注意这个块
+        print("x is neither 1 nor 2")
+    }
+}
+```
+
+如果很多分支需要用相同的方式处理，则可以把多个分支条件放在一起，用逗号分隔：
+
+```kotlin
+when (x) {
+    0, 1 -> print("x == 0 or x == 1")
+    else -> print("otherwise")
+}
+```
+
 可以检测一个值在（`in`）或者不在（`!in`）一个[区间](https://www.kotlincn.net/docs/reference/ranges.html)或者集合中
 
 ```kotlin
