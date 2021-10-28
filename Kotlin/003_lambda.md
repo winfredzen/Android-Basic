@@ -46,7 +46,31 @@ fun main(args: Array<String>) {
 
 
 
+如下的内容来自[Kotlin 的 Lambda 表达式，大多数人学得连皮毛都不算](https://rengwuxian.com/kotlin-lambda/)
 
+> 如果 Lambda 是函数的最后一个参数，你可以把 Lambda 写在括号的外面：
+>
+> ```kotlin
+> view.setOnClickListener() { v: View -&gt;
+>   switchToNextPage()
+> }
+> ```
+>
+> 而如果 Lambda 是函数唯一的参数，你还可以直接把括号去了：
+>
+> ```kotlin
+> view.setOnClickListener { v: View -&gt;
+>   switchToNextPage()
+> }
+> ```
+>
+> 另外，如果这个 Lambda 是单参数的，它的这个参数也省略掉不写：
+>
+> ```kotlin
+> view.setOnClickListener {
+>   switchToNextPage()
+> }
+> ```
 
 
 
