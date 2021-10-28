@@ -74,7 +74,25 @@ fun main(args: Array<String>) {
 
 
 
+[Kotlin——高级篇（一）：Lambda表达式详解](https://www.cnblogs.com/Jetictors/p/8647888.html)中的例子
 
+> ```java
+> // 这里举例一个Android中最常见的按钮点击事件的例子
+> mBtn.setOnClickListener(object : View.OnClickListener{
+>         override fun onClick(v: View?) {
+>             Toast.makeText(this,"onClick",Toast.LENGTH_SHORT).show()
+>         }
+>     })
+> ```
+>
+> 等价于
+>
+> ```java
+> // 调用
+> mBtn.setOnClickListener { Toast.makeText(this,"onClick",Toast.LENGTH_SHORT).show() }
+> ```
+>
+> 
 
 
 
