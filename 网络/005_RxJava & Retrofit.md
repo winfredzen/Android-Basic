@@ -74,6 +74,14 @@ public interface GitHubService {
 
 
 
+可参考的其它资料：
+
++ [从架构角度看Retrofit的作用、原理和启示](https://www.jianshu.com/p/f57b7cdb1c99)
+
+
+
+
+
 
 
 
