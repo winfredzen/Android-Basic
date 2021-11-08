@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/connect_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="连接 MQTT 服务器"
+        android:onClick="onClick"
+        />
+
+    <Button
+        android:id="@+id/subscribe_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="订阅Topic"
+        android:onClick="onClick"
+        />
+
+    <Button
+        android:id="@+id/unsubscribe_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="取消订阅Topic"
+        android:onClick="onClick"
+        />
+
+    <Button
+        android:id="@+id/publish_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发布消息"
+        android:onClick="onClick"
+        />
+
+    <Button
+        android:id="@+id/disconnect_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="断开 MQTT 连接"
+        android:onClick="onClick"
+        />
+
+</LinearLayout>
