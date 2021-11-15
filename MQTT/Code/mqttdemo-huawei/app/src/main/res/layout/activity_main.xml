@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/layout_mqtt_device_connect"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <LinearLayout
+            android:id="@+id/layout_mqtt_device_connect_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="设备ID" />
+
+                <EditText
+                    android:id="@+id/editText_mqtt_device_connect_deviceId"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="device_id"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="设备密钥" />
+
+                <EditText
+                    android:id="@+id/editText_mqtt_device_connect_password"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="device password"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkbox_mqtt_connet_ssl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="SSL不加密"
+                    android:checked="false" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="请下拉框选择Qos"/>
+
+                <Spinner
+                    android:id="@+id/spinner_mqtt_connect_qos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#ccffff"
+                    android:tooltipText="0"
+                    android:spinnerMode="dropdown" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button_mqtt_device_connect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_button"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="MQTT建链" />
+
+            <LinearLayout
+                android:id="@+id/layout_mqtt_gateway_data_report"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <LinearLayout
+                    android:id="@+id/layout_mqtt_gataway_data_report_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:text="service_id" />
+
+                        <EditText
+                            android:id="@+id/editText_mqtt_gateway_data_report_service_id"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="设备服务ID"
+                            android:text="Battery"
+                            android:inputType="text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_mqtt_gateway_data_report_property"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:text="属性" />
+
+                        <EditText
+                            android:id="@+id/editText_mqtt_gateway_data_report_property_key"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="level"
+                            android:inputType="text" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:text="值" />
+
+                        <EditText
+                            android:id="@+id/editText_mqtt_gateway_data_report_property_value"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="75"
+                            android:inputType="text" />
+                    </LinearLayout>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/button_mqtt_property_data_report"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/selector_button"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:text="属性上报" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_mqtt_log"
+                    android:clickable="true"
+                    android:textColor="@color/colorAccent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="操作日志（点击一下可清空）" />
+
+                <EditText
+                    android:id="@+id/editText_mqtt_log"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/edit_text"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:maxLines="12"
+                    android:minLines="8"
+                    android:scrollbars="vertical"
+                    android:textIsSelectable="true"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
