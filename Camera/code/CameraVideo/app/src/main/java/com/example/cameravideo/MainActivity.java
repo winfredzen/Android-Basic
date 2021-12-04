@@ -21,12 +21,14 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.SystemClock;
 import android.util.Log;
 import android.util.Size;
 import android.util.SparseIntArray;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
+import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -103,7 +105,10 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 startRecord();
-                mMediaRecorder.start();;
+                mMediaRecorder.start();
+                mChronometer.setBase(SystemClock.elapsedRealtime());
+                mChronometer.setVisibility(View.VISIBLE);
+                mChronometer.start();
             } else {
                 //开始预览
                 startPreview();
@@ -181,6 +186,11 @@ public class MainActivity extends AppCompatActivity {
     private Size mVideoSize;
     private MediaRecorder mMediaRecorder;
 
+    /**
+     * 计时器
+     */
+    private Chronometer mChronometer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -191,13 +201,17 @@ public class MainActivity extends AppCompatActivity {
 
         mMediaRecorder = new MediaRecorder();
 
+        mChronometer = (Chronometer) findViewById(R.id.chronometer);
         mTextureView = (TextureView) findViewById(R.id.textureView);
         mRecordImageButton = (ImageButton) findViewById(R.id.videoOnlineImageButton);
         mRecordImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //录像
+                //停止录像
                 if (mIsRecording) {
+                    mChronometer.stop();
+                    mChronometer.setVisibility(View.INVISIBLE);
+
                     mIsRecording = false;
                     mRecordImageButton.setImageResource(R.mipmap.btn_video_online);
 
@@ -416,8 +430,17 @@ public class MainActivity extends AppCompatActivity {
             return Collections.min(bigEnough, new CompareSizesByArea());
         } else {
             Log.e(TAG, "Couldn't find any suitable preview size");
+            //return choices[0]; //这里有问题，size太大，录制视频会崩溃
+            /**
+             * Also, we don't use sizes larger than 1080p, since MediaRecorder cannot
+             * handle such a high-resolution video.
+             */
+            for (Size option : choices) {
+                if (option.getWidth() <= 1080) {
+                    return option;
+                }
+            }
             return choices[0];
-            //return choices[choices.length - 1];
         }
     }
 
@@ -526,6 +549,9 @@ public class MainActivity extends AppCompatActivity {
                 //开始录像
                 startRecord();
                 mMediaRecorder.start();
+                mChronometer.setBase(SystemClock.elapsedRealtime());
+                mChronometer.setVisibility(View.VISIBLE);
+                mChronometer.start();
             } else {
                 if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                     Toast.makeText(getApplicationContext(), "app nedd to be able to save vidoes", Toast.LENGTH_SHORT).show();
@@ -543,6 +569,9 @@ public class MainActivity extends AppCompatActivity {
             //开始录像
             startRecord();
             mMediaRecorder.start();
+            mChronometer.setBase(SystemClock.elapsedRealtime());
+            mChronometer.setVisibility(View.VISIBLE);
+            mChronometer.start();
         }
     }
 

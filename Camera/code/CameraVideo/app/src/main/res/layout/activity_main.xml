@@ -27,6 +27,17 @@
         />
 
 
+    <Chronometer
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chronometer"
+        android:visibility="invisible"
+        android:textColor="#ff0000"
+        android:textSize="25dp"
+        android:layout_above="@+id/videoOnlineImageButton"
+        android:layout_alignStart="@+id/videoOnlineImageButton"
+        />
+
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

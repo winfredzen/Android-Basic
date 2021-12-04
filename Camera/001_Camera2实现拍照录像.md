@@ -8,3 +8,13 @@
 
 2.录制视频`MediaRecorder`，提示如下的错误：
 
+![001](https://github.com/winfredzen/Android-Basic/blob/master/Camera/images/001.png)
+
+在[android-Camera2Video](https://github.com/googlearchive/android-Camera2Video)中有如下的描述：
+
+![002](https://github.com/winfredzen/Android-Basic/blob/master/Camera/images/002.png)
+
+我理解是录制的视频的分辨率太高了，不能超过`1080p`
+
+所以要修改下
+
