@@ -1,0 +1,22 @@
+com/example/android/camera2basic/BuildConfig.java
+ com.example.android.camera2basic.BuildConfig
+com/example/android/camera2basic/CameraActivity.java
+ com.example.android.camera2basic.CameraActivity
+com/example/android/camera2basic/AutoFitTextureView.java
+ com.example.android.camera2basic.AutoFitTextureView
+com/example/android/camera2basic/Camera2BasicFragment.java
+ com.example.android.camera2basic.Camera2BasicFragment
+ com.example.android.camera2basic.Camera2BasicFragment$1
+ com.example.android.camera2basic.Camera2BasicFragment$2
+ com.example.android.camera2basic.Camera2BasicFragment$3
+ com.example.android.camera2basic.Camera2BasicFragment$4
+ com.example.android.camera2basic.Camera2BasicFragment$5
+ com.example.android.camera2basic.Camera2BasicFragment$6
+ com.example.android.camera2basic.Camera2BasicFragment$7
+ com.example.android.camera2basic.Camera2BasicFragment$CompareSizesByArea
+ com.example.android.camera2basic.Camera2BasicFragment$ConfirmationDialog
+ com.example.android.camera2basic.Camera2BasicFragment$ConfirmationDialog$1
+ com.example.android.camera2basic.Camera2BasicFragment$ConfirmationDialog$2
+ com.example.android.camera2basic.Camera2BasicFragment$ErrorDialog
+ com.example.android.camera2basic.Camera2BasicFragment$ErrorDialog$1
+ com.example.android.camera2basic.Camera2BasicFragment$ImageSaver

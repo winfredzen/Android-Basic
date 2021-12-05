@@ -1,0 +1,99 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:18:1-40:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:18:1-40:12
+MERGED from [com.android.support:support-v13:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b2b333588cce69e11903f59d26bf5976/support-v13-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/e28aabe9b8e4c956505339512e6e4b8b/support-v4-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/92eec05d0429064aed96b099ff8e93bb/cardview-v7-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/9e2346c45f79eb6f0789c81bd93c781e/appcompat-v7-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/48c3e2fa7f08b40e6b03a2d747ee6677/support-media-compat-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/66bb0148df19ab5952a057d3c1874b49/support-fragment-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/e31e06158c55b4d9f79a10cf66adc25c/support-core-utils-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/54bea271e75a6d9f012034801c3578f8/animated-vector-drawable-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/5c4759689aeb64dbb14feae339d519a6/support-core-ui-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/95c45c20c08a216f2057230138daa20a/support-vector-drawable-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/c3b3ee0abc8c32a5d9c5d444b84d60c7/support-compat-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/c1511f337d54ea9d7b575671260ea055/runtime-1.0.3/AndroidManifest.xml:17:1-24:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:18:1-40:12
+	package
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:19:5-47
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:18:11-69
+uses-permission#android.permission.CAMERA
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:21:5-65
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:21:22-62
+uses-feature#android.hardware.camera
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:23:5-60
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:23:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:24:5-70
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:24:19-67
+application
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:26:5-38:19
+	android:label
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:27:9-41
+	android:icon
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:28:9-45
+	android:allowBackup
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:26:18-44
+	android:theme
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:29:9-45
+activity#com.example.android.camera2basic.CameraActivity
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:31:9-37:20
+	android:label
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:32:19-51
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:31:19-49
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:33:13-36:29
+action#android.intent.action.MAIN
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:34:17-69
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:34:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:35:17-77
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:35:27-74
+uses-sdk
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml
+MERGED from [com.android.support:support-v13:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b2b333588cce69e11903f59d26bf5976/support-v13-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b2b333588cce69e11903f59d26bf5976/support-v13-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/e28aabe9b8e4c956505339512e6e4b8b/support-v4-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/e28aabe9b8e4c956505339512e6e4b8b/support-v4-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/92eec05d0429064aed96b099ff8e93bb/cardview-v7-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/92eec05d0429064aed96b099ff8e93bb/cardview-v7-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/9e2346c45f79eb6f0789c81bd93c781e/appcompat-v7-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/9e2346c45f79eb6f0789c81bd93c781e/appcompat-v7-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/48c3e2fa7f08b40e6b03a2d747ee6677/support-media-compat-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/48c3e2fa7f08b40e6b03a2d747ee6677/support-media-compat-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/66bb0148df19ab5952a057d3c1874b49/support-fragment-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/66bb0148df19ab5952a057d3c1874b49/support-fragment-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/e31e06158c55b4d9f79a10cf66adc25c/support-core-utils-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/e31e06158c55b4d9f79a10cf66adc25c/support-core-utils-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/54bea271e75a6d9f012034801c3578f8/animated-vector-drawable-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/54bea271e75a6d9f012034801c3578f8/animated-vector-drawable-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/5c4759689aeb64dbb14feae339d519a6/support-core-ui-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/5c4759689aeb64dbb14feae339d519a6/support-core-ui-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/95c45c20c08a216f2057230138daa20a/support-vector-drawable-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/95c45c20c08a216f2057230138daa20a/support-vector-drawable-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/c3b3ee0abc8c32a5d9c5d444b84d60c7/support-compat-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/c3b3ee0abc8c32a5d9c5d444b84d60c7/support-compat-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/c1511f337d54ea9d7b575671260ea055/runtime-1.0.3/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/c1511f337d54ea9d7b575671260ea055/runtime-1.0.3/AndroidManifest.xml:20:5-22:41
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml
