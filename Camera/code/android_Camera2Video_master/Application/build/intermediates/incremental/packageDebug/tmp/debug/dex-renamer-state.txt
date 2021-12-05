@@ -1,0 +1,7 @@
+#Sun Dec 05 17:53:04 CST 2021
+base.1=/Users/wangzhen/Downloads/android-Camera2Video-master/Application/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
+path.1=classes.dex
+base.0=/Users/wangzhen/Downloads/android-Camera2Video-master/Application/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+path.0=classes.dex

@@ -1,0 +1,19 @@
+com/example/android/camera2video/AutoFitTextureView.java
+ com.example.android.camera2video.AutoFitTextureView
+com/example/android/camera2video/BuildConfig.java
+ com.example.android.camera2video.BuildConfig
+com/example/android/camera2video/CameraActivity.java
+ com.example.android.camera2video.CameraActivity
+com/example/android/camera2video/Camera2VideoFragment.java
+ com.example.android.camera2video.Camera2VideoFragment
+ com.example.android.camera2video.Camera2VideoFragment$1
+ com.example.android.camera2video.Camera2VideoFragment$2
+ com.example.android.camera2video.Camera2VideoFragment$3
+ com.example.android.camera2video.Camera2VideoFragment$4
+ com.example.android.camera2video.Camera2VideoFragment$4$1
+ com.example.android.camera2video.Camera2VideoFragment$CompareSizesByArea
+ com.example.android.camera2video.Camera2VideoFragment$ConfirmationDialog
+ com.example.android.camera2video.Camera2VideoFragment$ConfirmationDialog$1
+ com.example.android.camera2video.Camera2VideoFragment$ConfirmationDialog$2
+ com.example.android.camera2video.Camera2VideoFragment$ErrorDialog
+ com.example.android.camera2video.Camera2VideoFragment$ErrorDialog$1

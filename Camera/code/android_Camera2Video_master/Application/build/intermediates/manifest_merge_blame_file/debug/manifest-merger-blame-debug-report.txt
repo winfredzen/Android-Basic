@@ -1,0 +1,71 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3 Copyright 2014 The Android Open Source Project
+4
+5 Licensed under the Apache License, Version 2.0 (the "License");
+6 you may not use this file except in compliance with the License.
+7 You may obtain a copy of the License at
+8
+9     http://www.apache.org/licenses/LICENSE-2.0
+10
+11 Unless required by applicable law or agreed to in writing, software
+12 distributed under the License is distributed on an "AS IS" BASIS,
+13 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14 See the License for the specific language governing permissions and
+15 limitations under the License.
+16-->
+17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+18    package="com.example.android.camera2video"
+19    android:versionCode="1"
+20    android:versionName="1.0" >
+21
+22    <uses-sdk
+23        android:minSdkVersion="21"
+23-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml
+24        android:targetSdkVersion="27" />
+24-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml
+25
+26    <!-- Min/target SDK versions (<uses-sdk>) managed by build.gradle -->
+27
+28    <uses-permission android:name="android.permission.CAMERA" />
+28-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:24:5-64
+28-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:24:22-62
+29    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+29-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:25:5-70
+29-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:25:22-68
+30    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+30-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:26:5-80
+30-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:26:22-78
+31
+32    <application
+32-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:28:5-41:19
+33        android:allowBackup="true"
+33-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:28:18-44
+34        android:debuggable="true"
+35        android:icon="@drawable/ic_launcher"
+35-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:30:9-45
+36        android:label="@string/app_name"
+36-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:29:9-41
+37        android:testOnly="true"
+38        android:theme="@style/MaterialTheme" >
+38-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:31:9-45
+39        <activity
+39-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:33:9-39:20
+40            android:name="com.example.android.camera2video.CameraActivity"
+40-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:33:19-49
+41            android:label="@string/app_name" >
+41-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:34:19-51
+42            <intent-filter>
+42-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:35:13-38:29
+43                <action android:name="android.intent.action.MAIN" />
+43-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:36:17-69
+43-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:36:25-66
+44
+45                <category android:name="android.intent.category.LAUNCHER" />
+45-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:37:17-77
+45-->/Users/wangzhen/Downloads/android-Camera2Video-master/Application/src/main/AndroidManifest.xml:37:27-74
+46            </intent-filter>
+47        </activity>
+48    </application>
+49
+50</manifest>
