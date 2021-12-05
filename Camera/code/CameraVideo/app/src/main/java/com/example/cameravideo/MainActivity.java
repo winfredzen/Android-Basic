@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
@@ -24,7 +23,6 @@ import android.media.ImageReader;
 import android.media.MediaRecorder;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.SystemClock;
@@ -215,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private CameraCaptureSession mCameraCaptureSession;
+    private CameraCaptureSession mPreviewCaptureSession;
     private CameraCaptureSession.CaptureCallback mPreviewCaptureCallback = new CameraCaptureSession.CaptureCallback() {
         private void process(CaptureResult captureResult) {
             switch (mCaptureState) {
@@ -227,6 +225,37 @@ public class MainActivity extends AppCompatActivity {
                     Integer afState = captureResult.get(CaptureResult.CONTROL_AF_STATE);
                     if (afState == CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED ||
                     afState == CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED ) {
+                        Toast.makeText(getApplicationContext(), "AF locked", Toast.LENGTH_SHORT).show();
+
+                        //拍照
+                        startStillCaptureRequest();
+                    }
+
+                    break;
+            }
+        }
+
+        @Override
+        public void onCaptureCompleted(@NonNull CameraCaptureSession session, @NonNull CaptureRequest request, @NonNull TotalCaptureResult result) {
+            super.onCaptureCompleted(session, request, result);
+
+            process(result);
+
+        }
+    };
+
+    private CameraCaptureSession mRecordCaptureSession;
+    private CameraCaptureSession.CaptureCallback mRecordCaptureCallback = new CameraCaptureSession.CaptureCallback() {
+        private void process(CaptureResult captureResult) {
+            switch (mCaptureState) {
+                case STATE_PREVIEW:
+                    // do nothing
+                    break;
+                case STATE_WAIT_LOCK:
+                    mCaptureState = STATE_PREVIEW;
+                    Integer afState = captureResult.get(CaptureResult.CONTROL_AF_STATE);
+                    if (afState == CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED ||
+                            afState == CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED ) {
                         Toast.makeText(getApplicationContext(), "AF locked", Toast.LENGTH_SHORT).show();
 
                         //拍照
@@ -568,12 +597,16 @@ public class MainActivity extends AppCompatActivity {
             mCaptureRequestBuilder.addTarget(previewSurface);
             mCaptureRequestBuilder.addTarget(recordSurface);
 
-            mCameraDevice.createCaptureSession(Arrays.asList(previewSurface, recordSurface), new CameraCaptureSession.StateCallback() {
+            /**
+             * 1.mImageReader.getSurface() 实现在录像时拍照
+             */
+            mCameraDevice.createCaptureSession(Arrays.asList(previewSurface, recordSurface, mImageReader.getSurface()), new CameraCaptureSession.StateCallback() {
                 @Override
                 public void onConfigured(@NonNull CameraCaptureSession session) {
                     Log.d(TAG, "onConfigured");
+                    mRecordCaptureSession = session;
                     try {
-                        session.setRepeatingRequest(mCaptureRequestBuilder.build(), null, null);
+                        mRecordCaptureSession.setRepeatingRequest(mCaptureRequestBuilder.build(), null, null);
                     } catch (CameraAccessException e) {
                         e.printStackTrace();
                     }
@@ -603,10 +636,10 @@ public class MainActivity extends AppCompatActivity {
             mCameraDevice.createCaptureSession(Arrays.asList(previewSurface, mImageReader.getSurface()), new CameraCaptureSession.StateCallback() {
                 @Override
                 public void onConfigured(@NonNull CameraCaptureSession session) {
-                    mCameraCaptureSession = session;
+                    mPreviewCaptureSession = session;
                     //set request
                     try {
-                        mCameraCaptureSession.setRepeatingRequest(mCaptureRequestBuilder.build(), null, mBackgroundHandler);
+                        mPreviewCaptureSession.setRepeatingRequest(mCaptureRequestBuilder.build(), null, mBackgroundHandler);
                     } catch (CameraAccessException e) {
                         e.printStackTrace();
                     }
@@ -624,10 +657,15 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 拍照
+     * 1.实现在录像是，有可以拍照的功能
      */
     private void startStillCaptureRequest() {
         try {
-            mCaptureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+            if (mIsRecording) {
+                mCaptureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_VIDEO_SNAPSHOT);
+            } else {
+                mCaptureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+            }
             mCaptureRequestBuilder.addTarget(mImageReader.getSurface());
             mCaptureRequestBuilder.set(CaptureRequest.JPEG_ORIENTATION, mTotalRotation);
 
@@ -645,7 +683,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
-            mCameraCaptureSession.capture(mCaptureRequestBuilder.build(), stillCaptureCallback, null);
+            if (mIsRecording) {
+                mRecordCaptureSession.capture(mCaptureRequestBuilder.build(), stillCaptureCallback, null);
+
+            } else {
+                mPreviewCaptureSession.capture(mCaptureRequestBuilder.build(), stillCaptureCallback, null);
+
+            }
 
         } catch (CameraAccessException e) {
             e.printStackTrace();
@@ -766,7 +810,11 @@ public class MainActivity extends AppCompatActivity {
         mCaptureState = STATE_WAIT_LOCK;
         mCaptureRequestBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER, CaptureRequest.CONTROL_AF_TRIGGER_START);
         try {
-            mCameraCaptureSession.capture(mCaptureRequestBuilder.build(), mPreviewCaptureCallback, mBackgroundHandler);
+            if (mIsRecording) {
+                mRecordCaptureSession.capture(mCaptureRequestBuilder.build(), mRecordCaptureCallback, mBackgroundHandler);
+            } else {
+                mPreviewCaptureSession.capture(mCaptureRequestBuilder.build(), mPreviewCaptureCallback, mBackgroundHandler);
+            }
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
