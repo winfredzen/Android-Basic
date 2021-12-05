@@ -1,22 +1,34 @@
 # Camera
 
-https://androidwave.com/video-recording-with-camera2-api-android/
-
-https://www.freecodecamp.org/news/android-camera2-api-take-photos-and-videos/
-
-https://www.nigeapptuts.com/
-
-https://deepinout.com/
+可以参考的教程
 
 
 
-Google
+1.[Video Recording with Camera2 API in Android](https://androidwave.com/video-recording-with-camera2-api-android/)
 
-https://github.com/googlearchive/android-Camera2Basic
+![004](https://github.com/winfredzen/Android-Basic/blob/master/Camera/images/004.png)
 
-https://github.com/android/camera-samples
+2.[https://www.freecodecamp.org/news/android-camera2-api-take-photos-and-videos/](https://www.freecodecamp.org/news/android-camera2-api-take-photos-and-videos/)
 
-https://developer.android.com/training/camera2
+引用其中的一张图
+
+![005](https://github.com/winfredzen/Android-Basic/blob/master/Camera/images/005.png)
+
+
+
+
+
+Google例子
+
+1.[Camera2Basic](https://github.com/googlearchive/android-Camera2Basic)
+
+![006](https://github.com/winfredzen/Android-Basic/blob/master/Camera/images/006.png)
+
+2.[ android-Camera2Video](https://github.com/googlearchive/android-Camera2Video)
+
+![007](https://github.com/winfredzen/Android-Basic/blob/master/Camera/images/007.png)
+
+
 
 
 
