@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
@@ -22,6 +23,7 @@ import android.media.CamcorderProfile;
 import android.media.Image;
 import android.media.ImageReader;
 import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -306,6 +308,12 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             } finally {
                 mImage.close();
+                //更新media store
+                Intent mediaStoreUpdateIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                mediaStoreUpdateIntent.setData(Uri.fromFile(new File(mImageFileName)));
+                sendBroadcast(mediaStoreUpdateIntent);
+
+
                 if(fileOutputStream != null) {
                     try {
                         fileOutputStream.close();
@@ -352,6 +360,12 @@ public class MainActivity extends AppCompatActivity {
                     startPreview();
                     mMediaRecorder.stop();
                     mMediaRecorder.reset();
+
+                    //更新media store
+                    Intent mediaStoreUpdateIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                    mediaStoreUpdateIntent.setData(Uri.fromFile(new File(mVideoFileName)));
+                    sendBroadcast(mediaStoreUpdateIntent);
+
 
                 } else {
                     mIsRecording = true;
