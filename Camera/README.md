@@ -30,5 +30,7 @@ Google例子
 
 
 
+##  一些教程
 
+1.[Android Activity&Camera旋转方向分析详解](https://techyself.com/android-activity-%E5%B1%8F%E5%B9%95%E6%97%8B%E8%BD%AC/)
 
