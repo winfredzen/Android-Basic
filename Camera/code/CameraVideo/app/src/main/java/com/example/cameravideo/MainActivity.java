@@ -18,6 +18,7 @@ import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.CaptureResult;
 import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.media.CamcorderProfile;
 import android.media.Image;
 import android.media.ImageReader;
 import android.media.MediaRecorder;
@@ -316,6 +317,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 延时录像
+     */
+    private boolean mIsTimelapse = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -334,11 +340,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //停止录像
-                if (mIsRecording) {
+                if (mIsRecording || mIsTimelapse) {
                     mChronometer.stop();
                     mChronometer.setVisibility(View.INVISIBLE);
 
                     mIsRecording = false;
+                    mIsTimelapse = false;
                     mRecordImageButton.setImageResource(R.mipmap.btn_video_online);
 
                     //预览
@@ -347,6 +354,8 @@ public class MainActivity extends AppCompatActivity {
                     mMediaRecorder.reset();
 
                 } else {
+                    mIsRecording = true;
+                    mRecordImageButton.setImageResource(R.mipmap.btn_video_busy);
                     checkWriteStoragePermission();
                 }
             }
@@ -357,6 +366,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 lockFocus();
+            }
+        });
+
+        //长按实现延时录像
+        mRecordImageButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                mIsTimelapse =true;
+                mRecordImageButton.setImageResource(R.mipmap.btn_timelapse);
+                checkWriteStoragePermission();
+                return true;
             }
         });
     }
@@ -590,7 +610,11 @@ public class MainActivity extends AppCompatActivity {
      */
     private void startRecord() {
         try {
-            setupMediaRecorder();
+            if(mIsRecording) { //正常录像
+                setupMediaRecorder();
+            } else if(mIsTimelapse) {//延时记录
+                setupTimeLapse();
+            }
             SurfaceTexture surfaceTexture = mTextureView.getSurfaceTexture();
             surfaceTexture.setDefaultBufferSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
             Surface previewSurface = new Surface(surfaceTexture);
@@ -748,8 +772,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkWriteStoragePermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                mIsRecording = true;
-                mRecordImageButton.setImageResource(R.mipmap.btn_video_busy);
+
                 try {
                     createVideoFileName();
                 } catch (IOException e) {
@@ -768,8 +791,7 @@ public class MainActivity extends AppCompatActivity {
                 requestPermissions(new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION_RESULT);
             }
         } else {
-            mIsRecording = true;
-            mRecordImageButton.setImageResource(R.mipmap.btn_video_busy);
+
             try {
                 createVideoFileName();
             } catch (IOException e) {
@@ -807,6 +829,19 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "on Error");
             }
         });
+    }
+
+    /**
+     * 延时记录，设置的MediaRecorder
+     * @throws IOException
+     */
+    private void setupTimeLapse() throws IOException {
+        mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
+        mMediaRecorder.setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_TIME_LAPSE_HIGH));
+        mMediaRecorder.setOutputFile(mVideoFileName);
+        mMediaRecorder.setCaptureRate(2);
+        mMediaRecorder.setOrientationHint(mTotalRotation);
+        mMediaRecorder.prepare();
     }
 
     /**
