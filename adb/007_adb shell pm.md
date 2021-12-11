@@ -40,3 +40,15 @@ dumpsys package | grep -Eo "^[[:space:]]+[0-9a-f]+[[:space:]]+com.symbol.wfc.voi
 adb shell dumpsys package | grep -Eo "^[[:space:]]+[0-9a-f]+[[:space:]]+com.android.car.settings/[^[:space:]]+" | grep -oE "[^[:space:]]+$"
 ```
 
+![011](https://github.com/winfredzen/Android-Basic/blob/master/adb/images/011.png)
+
+
+
+
+
+
+
+
+
+
+
