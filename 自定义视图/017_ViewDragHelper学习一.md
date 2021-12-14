@@ -230,6 +230,87 @@ public static ViewDragHelper create(@NonNull ViewGroup forParent, float sensitiv
 
 
 
+### 2.在onTouchEvent函数中返回false
+
+如下：
+
+```java
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        mDragger.processTouchEvent(event);
+        return false;
+    }
+```
+
+如果`onTouchEvent`中返回false，则任何子item都将不能滑动了
+
+同样如果`onTouchEvent`中返回true，但是给其中的item2，添加一个点击的事件，如下：
+
+```java
+        findViewById(R.id.tv2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "TV2", Toast.LENGTH_SHORT).show();
+            }
+        });
+```
+
+会发现，item2将不能再滑动，而item1和item3任然可以滑动
+
+![155](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/155.gif)
+
+> 所以，一旦在ViewGroup的onTouchEvent函数中接收不到消息，ViewDragHelper的消息监听就会失败，它的各种回调函数就不会再执行了
+
+
+
+### 在onInterceptTouchEvent函数中处理监听事件
+
+ViewDragHelper中传递消息的代码如下：
+
+```java
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return mDragger.shouldInterceptTouchEvent(ev);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        mDragger.processTouchEvent(event);
+        return true;
+    }
+```
+
+在上面的例子中，可以发现，如果顶层的控件消费了消息后，ViewDragHelper就不起作用了。如果想要避免这种情况该怎么办呢？
+
+> 如果在顶层的控件消费了消息后，仍想要ViewDragHelper类起作用，就需要添加额外的条件
+>
+> 必须在ViewDragHelper的回调函数中继承getViewHorizontalDragRange和getViewVerticalDragRange
+
+
+
+1.`public int getViewHorizontalDragRange(@NonNull View child)`
+
+该函数主要用于指定子View的横向移动范围，默认值为0，主要作用是手指在子View上横向滑动时，开启`mDragger.shouldInterceptTouchEvent(ev)`的状态捕捉功能，返回大于0的值开启
+
++ View child - 需要指定横向移动范围的子View对象
++ return int - 横向移动范围
+
+
+
+2.`public int getViewVerticalDragRange(@NonNull View child)`
+
+与上面类似，主要作用是手指在子View上纵向滑动时，开启`mDragger.shouldInterceptTouchEvent(ev)`的状态捕捉功能，返回大于0的值开启
+
+
+
+在上面的例子的基础上，让item2开启`mDragger.shouldInterceptTouchEvent`消息监听
+
+![156](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/156.gif)
+
+
+
+
+
 
 
 
