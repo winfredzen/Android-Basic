@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_main);
 
         mGLSurfaceView = new GLSurfaceView(this);
-        mGLSurfaceView.setEGLContextClientVersion(3);
+        mGLSurfaceView.setEGLContextClientVersion(2);
         mGLSurfaceView.setRenderer(new FirstOpenGLProjectRender());
         setContentView(mGLSurfaceView);
     }
