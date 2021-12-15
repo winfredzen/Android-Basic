@@ -8,6 +8,38 @@
 
 
 
+## OpenGL ES 3.0图形管线
+
+![003](https://github.com/winfredzen/Android-Basic/blob/master/OpenGL/images/003.png)
+
+其中带阴影的方框表示可编程阶段
+
+可参考：
+
++ [你好，三角形](https://learnopengl-cn.github.io/01%20Getting%20started/04%20Hello%20Triangle/)
+
+![004](https://github.com/winfredzen/Android-Basic/blob/master/OpenGL/images/004.png)
+
+
+
+
+
+## Opengl坐标系统
+
+参考：
+
++ [坐标系统](https://learnopengl-cn.github.io/01%20Getting%20started/08%20Coordinate%20Systems/)
+
+> 为了将坐标从一个坐标系变换到另一个坐标系，我们需要用到几个变换矩阵，最重要的几个分别是模型(Model)、观察(View)、投影(Projection)三个矩阵。我们的顶点坐标起始于局部空间(Local Space)，在这里它称为局部坐标(Local Coordinate)，它在之后会变为世界坐标(World Coordinate)，观察坐标(View Coordinate)，裁剪坐标(Clip Coordinate)，并最后以屏幕坐标(Screen Coordinate)的形式结束。下面的这张图展示了整个流程以及各个变换过程做了什么：
+>
+> ![002](https://github.com/winfredzen/Android-Basic/blob/master/OpenGL/images/002.png)
+
+
+
+
+
+
+
 ## Android OpenGL ES
 
 Android官方的OpenGL ES文档：
@@ -84,9 +116,13 @@ public class FirstOpenGLProjectRender implements GLSurfaceView.Renderer {
 
 此时运行之后，就可以在屏幕上显示一个红色背景，如下：
 
+![001](https://github.com/winfredzen/Android-Basic/blob/master/OpenGL/images/001.png)
 
+**一些说明**
 
+1.`glClear`函数来清空屏幕的颜色缓冲，它接受一个缓冲位(Buffer Bit)来指定要清空的缓冲，可能的缓冲位有`GL_COLOR_BUFFER_BIT`，`GL_DEPTH_BUFFER_BIT`和`GL_STENCIL_BUFFER_BIT`
 
+2.`glClearColor`来设置清空屏幕所用的颜色。当调用`glClear`函数，清除颜色缓冲之后，整个颜色缓冲都会被填充为`glClearColor`里所设置的颜色
 
 
 
