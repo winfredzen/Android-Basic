@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         mGLSurfaceView = (GLSurfaceView) findViewById(R.id.glSurfaceView);
         mGLSurfaceView.setEGLContextClientVersion(3);
-        mGLSurfaceView.setRenderer(new TriangleRender02());
+        mGLSurfaceView.setRenderer(new TriangleRender());
 
     }
 }
