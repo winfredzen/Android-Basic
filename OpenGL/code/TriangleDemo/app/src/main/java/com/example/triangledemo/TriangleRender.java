@@ -40,7 +40,9 @@ public class TriangleRender implements GLSurfaceView.Renderer {
 
     private FloatBuffer floatBuffer;
 
+    //顶点缓冲对象：Vertex Buffer Object，VBO
     int[] vbo = new int[1];
+    //顶点数组对象：Vertex Array Object，VAO
     int[] vao = new int[1];
 
     public TriangleRender() {
@@ -49,8 +51,6 @@ public class TriangleRender implements GLSurfaceView.Renderer {
                 .asFloatBuffer();
         floatBuffer.put(vertices);
         floatBuffer.position(0);
-
-
 
     }
 
@@ -94,10 +94,11 @@ public class TriangleRender implements GLSurfaceView.Renderer {
 
         GLES30.glGenBuffers(1, vbo, 0);
         GLES30.glBindBuffer(GLES30.GL_ARRAY_BUFFER, vbo[0]);
+        //把之前定义的顶点数据复制到缓冲的内存中
         GLES30.glBufferData(GLES30.GL_ARRAY_BUFFER, vertices.length * 4, floatBuffer, GLES30.GL_STATIC_DRAW);//把数据存储到GPU中
 
         //将顶点位置数据送入渲染管线
-        GLES30.glVertexAttribPointer(0, 3, GLES30.GL_FLOAT, false, 3 * 4, 0);
+        GLES30.glVertexAttribPointer(0, 3, GLES30.GL_FLOAT, false, 0, 0);
         //启用顶点位置属性
         GLES30.glEnableVertexAttribArray(0);
 
