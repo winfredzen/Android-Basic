@@ -33,7 +33,7 @@ implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3"
 
 
 
-使用异步任务来获取网络数据
+**使用异步任务来获取网络数据**
 
 ```java
 data class Todo (val userId: Int, val id: Int, val title: String, val completed: Boolean)
@@ -78,11 +78,26 @@ val submitButton = findViewById<Button>(R.id.submitButton).also {
 
 **使用协程的方式**
 
+```java
+@GET("/todos/{id}")
+suspend fun retrieveTodoById(@Path("id") id: Int): Todo
+```
 
+这里的请求接口，使用了`suspend`关键字，然后返回结果，直接是数据类`Todo`
 
-
-
-
+```kotlin
+val submitButton = findViewById<Button>(R.id.submitButton).also {
+    it.setOnClickListener {
+        Log.d("TAG", "OnClickListener")
+        GlobalScope.launch(Dispatchers.Main) {
+            val todo = withContext(Dispatchers.IO) {//切换到子线程
+                userServiceApi.retrieveTodoById(1)
+            }
+            nameTextView.text = todo.title
+        }
+    }
+}
+```
 
 
 
