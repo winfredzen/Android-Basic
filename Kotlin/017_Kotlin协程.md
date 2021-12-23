@@ -11,8 +11,6 @@
 + 处理耗时任务
 + 保证主线程安全
 
-
-
 通过网络请求示例来说明，使用之前配置`retrofit`等
 
 ```groovy
@@ -28,10 +26,6 @@ implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3"
 注意这里的`retrofit`版本，原来我使用的是2.0.X的版本，导致下面的例子出错了，网上有说
 
 > Retrofit 2.6之后的版本本身支持了使用Kotlin的协程。使用起来更加简洁。
-
-
-
-
 
 **使用异步任务来获取网络数据**
 
@@ -113,8 +107,6 @@ val submitButton = findViewById<Button>(R.id.submitButton).also {
 
 > 方法说明：`Launches a new coroutine without blocking the current thread and returns a reference to the coroutine as a [Job]`
 
-
-
 > `withContext`方法声明
 > 
 > Calls the specified suspending block with a given coroutine context, suspends until it completes, and returns the result.
@@ -126,15 +118,11 @@ val submitButton = findViewById<Button>(R.id.submitButton).also {
 > ): T
 > ```
 
-
-
 **协程是什么？**
 
 + 协程让异步逻辑同步化，杜绝回调地狱
 
 + 协程最核心的点就是，函数或一段程序能够被挂起，稍后再在挂起的时候恢复
-
-
 
 重构上面的例子：
 
@@ -171,8 +159,6 @@ val submitButton = findViewById<Button>(R.id.submitButton).also {
     }
 ```
 
-
-
 ## 挂起函数
 
 使用`suspend`关键字修饰的函数叫做挂起函数
@@ -206,8 +192,6 @@ val submitButton = findViewById<Button>(R.id.submitButton).also {
 
 > 阻塞时，按下的按钮，一直处于被按下的状态
 
-
-
 > `delay`方法的声明
 > 
 > Delays coroutine for a given time without blocking a thread and resumes it after a specified time.
@@ -216,8 +200,6 @@ val submitButton = findViewById<Button>(R.id.submitButton).also {
 > public suspend fun delay(timeMillis: Long)
 > ```
 
-
-
 ## 协程的两部分
 
 Kotlin的协程实现分为2个层次
@@ -225,8 +207,6 @@ Kotlin的协程实现分为2个层次
 + 基础设施层：标准库的协程API，主要对协程提供了概念和语义上最基本的支持
 
 + 业务框架层：协程的上层框架支持
-
-
 
 ```kotlin
 //协程的挂起点通过continuation保存起来
@@ -253,8 +233,6 @@ import kotlin.coroutines.*
 > ```kotlin
 > public inline fun <R> suspend(noinline block: suspend () -> R): suspend () -> R = block
 > ```
-
-
 
 > `createCoroutine`方法
 > 
@@ -289,63 +267,9 @@ public interface Continuation<in T> {
 }
 ```
 
-
-
 ## 调度器
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![018](https://github.com/winfredzen/Android-Basic/blob/master/Kotlin/images/018.png)
 
 
 
