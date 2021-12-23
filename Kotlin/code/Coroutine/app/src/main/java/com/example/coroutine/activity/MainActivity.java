@@ -1,8 +1,10 @@
-package com.example.coroutine;
+package com.example.coroutine.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.coroutine.R;
 
 public class MainActivity extends AppCompatActivity {
 
