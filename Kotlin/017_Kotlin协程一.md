@@ -273,6 +273,172 @@ public interface Continuation<in T> {
 
 
 
+## CoroutineScope
+
+协程作用域(`CoroutineScope`)是协程运行的作用范围，它会跟踪所有协程，还可以取消由它所启动的所有协程
+
++ GlobalScope - 生命周期是process级别的，即使Activity或者Fragment已近被销毁，协程任然执行
+
++ MainScope - 在Activity中使用，可以在`onDestroy()`中取消协程
+
++ viewModelScope - 只能在ViewModel中使用，绑定ViewModel的生命周期
+
++ lifeCycleScope - 只能在Activity、Fragment中使用，会绑定Activity、Fragment的生命周期
+
+
+
+添加相关的依赖，可参考[KTX 扩展程序列表](https://developer.android.com/kotlin/ktx/extensions-list?hl=zh-cn#androidxlifecycle)
+
+```groovy
+    implementation "androidx.activity:activity-ktx:1.4.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+```
+
+`CoroutineScope`是一个接口
+
+```kotlin
+public interface CoroutineScope {
+    /**
+     * The context of this scope.
+     * Context is encapsulated by the scope and used for implementation of coroutine builders that are extensions on the scope.
+     * Accessing this property in general code is not recommended for any purposes except accessing the [Job] instance for advanced usages.
+     *
+     * By convention, should contain an instance of a [job][Job] to enforce structured concurrency.
+     */
+    public val coroutineContext: CoroutineContext
+}
+```
+
+
+
+### MainScope
+
+```kotlin
+/**
+ * Creates the main [CoroutineScope] for UI components.
+ *
+ * Example of use:
+ * ```
+ * class MyAndroidActivity {
+ *     private val scope = MainScope()
+ *
+ *     override fun onDestroy() {
+ *         super.onDestroy()
+ *         scope.cancel()
+ *     }
+ * }
+ * ```
+ *
+ * The resulting scope has [SupervisorJob] and [Dispatchers.Main] context elements.
+ * If you want to append additional elements to the main scope, use [CoroutineScope.plus] operator:
+ * `val scope = MainScope() + CoroutineName("MyActivity")`.
+ */
+@Suppress("FunctionName")
+public fun MainScope(): CoroutineScope = ContextScope(SupervisorJob() + Dispatchers.Main)
+```
+
+如下的网路请求
+
+```kotlin
+private val mainScope = MainScope()
+
+
+val submitButton = find
+ViewById<Button>(R.id.submitButton).also {
+    it.setOnClickListener {
+        mainScope.launch {
+            val todo = userServiceApi.retrieveTodoById(1)
+            nameTextView.text = todo.title
+        }
+    }
+}
+
+override fun onDestroy() {
+    super.onDestroy()
+    mainScope.cancel()
+}
+
+```
+
+mainScope取消的时候，如下模拟一个耗时的任务，按返回键取消它
+
+```kotlin
+        val submitButton = findViewById<Button>(R.id.submitButton).also {
+            it.setOnClickListener {
+                mainScope.launch {
+//                    val todo = userServiceApi.retrieveTodoById(1)
+//                    nameTextView.text = todo.title
+                    try {
+                        delay(10000)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+        }
+```
+
+抛出如下的异常`kotlinx.coroutines.JobCancellationException: Job was cancelled; job=SupervisorJobImpl{Cancelling}@663af6a`
+
+
+
+还有这样的写法，效果是一样的
+
+```kotlin
+class MainActivity06 : AppCompatActivity(), CoroutineScope by MainScope() {
+    private lateinit var nameTextView: TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        nameTextView = findViewById<TextView>(R.id.textView)
+        nameTextView.text = "Jack"
+
+        val submitButton = findViewById<Button>(R.id.submitButton).also {
+            it.setOnClickListener {
+                launch {
+                    val todo = userServiceApi.retrieveTodoById(1)
+                    nameTextView.text = todo.title
+                }
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        cancel()
+    }
+
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
