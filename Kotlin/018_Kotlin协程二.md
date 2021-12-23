@@ -4,9 +4,7 @@
 
 为什么使用ViewModel？
 
-ViewModel会保存界面上的状态
-
-在前面的例子上，如果在获取网络数据后，旋转屏幕后，会发现界面显示就不一样了
+ViewModel会保存界面上的状态在前面的例子上，如果在获取网络数据后，旋转屏幕后，会发现界面显示就不一样了
 
 ![019](https://github.com/winfredzen/Android-Basic/blob/master/Kotlin/images/019.png)
 
