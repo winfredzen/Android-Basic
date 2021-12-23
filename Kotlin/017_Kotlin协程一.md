@@ -271,8 +271,6 @@ public interface Continuation<in T> {
 
 ![018](https://github.com/winfredzen/Android-Basic/blob/master/Kotlin/images/018.png)
 
-
-
 ## CoroutineScope
 
 协程作用域(`CoroutineScope`)是协程运行的作用范围，它会跟踪所有协程，还可以取消由它所启动的所有协程
@@ -284,8 +282,6 @@ public interface Continuation<in T> {
 + viewModelScope - 只能在ViewModel中使用，绑定ViewModel的生命周期
 
 + lifeCycleScope - 只能在Activity、Fragment中使用，会绑定Activity、Fragment的生命周期
-
-
 
 添加相关的依赖，可参考[KTX 扩展程序列表](https://developer.android.com/kotlin/ktx/extensions-list?hl=zh-cn#androidxlifecycle)
 
@@ -312,8 +308,6 @@ public interface CoroutineScope {
     public val coroutineContext: CoroutineContext
 }
 ```
-
-
 
 ### MainScope
 
@@ -361,7 +355,6 @@ override fun onDestroy() {
     super.onDestroy()
     mainScope.cancel()
 }
-
 ```
 
 mainScope取消的时候，如下模拟一个耗时的任务，按返回键取消它
@@ -383,8 +376,6 @@ mainScope取消的时候，如下模拟一个耗时的任务，按返回键取�
 ```
 
 抛出如下的异常`kotlinx.coroutines.JobCancellationException: Job was cancelled; job=SupervisorJobImpl{Cancelling}@663af6a`
-
-
 
 还有这样的写法，效果是一样的
 
@@ -419,25 +410,25 @@ class MainActivity06 : AppCompatActivity(), CoroutineScope by MainScope() {
 
 
 
+## 协程+Retrofit+ViewModel+LiveData+DataBinding
 
+为什么使用ViewModel？
 
+ViewModel会保存界面上的状态
 
+在前面的例子上，如果在获取网络数据后，旋转屏幕后，会发现界面显示就不一样了
 
+![019]()
 
+![020](https://github.com/winfredzen/Android-Basic/blob/master/Kotlin/images/020.png)
 
+先启动dataBinding的支持
 
-
-
-
-
-
-
-
-
-
-
-
-
+```groovy
+    dataBinding {
+        enabled = true
+    }
+```
 
 
 
