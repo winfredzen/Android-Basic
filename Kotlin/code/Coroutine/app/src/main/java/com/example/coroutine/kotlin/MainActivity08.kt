@@ -15,6 +15,7 @@ import com.example.coroutine.databinding.ActivityMain07Binding
 import com.example.coroutine.databinding.ActivityMain07BindingImpl
 import com.example.coroutine.viewmodel.MainViewModel
 import kotlinx.coroutines.*
+import kotlin.system.measureTimeMillis
 
 class MainActivity08 : AppCompatActivity() {
 
@@ -25,40 +26,44 @@ class MainActivity08 : AppCompatActivity() {
 
         binding.submitButton.also {
             it.setOnClickListener {
-//                runBlocking {
-//                    delay(1000L)
-//                    println("Hello inner!")
-//                    println("thread = " + "${Thread.currentThread().name}")
-//                }
-//                println("Hello out!")
-
-//                main()
-                main02()
-                println("after main()")
+                main()
             }
         }
 
 
     }
 
-    fun main() = runBlocking { // this: CoroutineScope
-        launch { // launch a new coroutine and continue
-            delay(1000L) // non-blocking delay for 1 second (default time unit is ms)
-            println("World inner!") // print after delay
+    fun main() = runBlocking<Unit> {
+        val time = measureTimeMillis {
+            val one = async { doSomethingUsefulOne() }
+            val two = async { doSomethingUsefulTwo() }
+            println("The answer is ${one.await() + two.await()}")
         }
-        println("Hello out!") // main coroutine continues while a previous one is delayed
+        println("Completed in $time ms")
     }
 
-    fun main02() = runBlocking {
-        doWorld()
+    suspend fun doSomethingUsefulOne(): Int {
+        delay(1000L) // pretend we are doing something useful here
+        return 13
     }
 
-    suspend fun doWorld() = coroutineScope {  // this: CoroutineScope
+    suspend fun doSomethingUsefulTwo(): Int {
+        delay(1000L) // pretend we are doing something useful here, too
+        return 29
+    }
+
+    // Concurrently executes both sections
+    suspend fun doWorld() = coroutineScope { // this: CoroutineScope
+        launch {
+            delay(2000L)
+            println("World 2")
+        }
         launch {
             delay(1000L)
-            println("World!")
+            println("World 1")
         }
         println("Hello")
     }
+
 
 }
