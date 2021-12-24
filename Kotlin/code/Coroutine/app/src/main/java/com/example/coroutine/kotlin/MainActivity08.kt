@@ -15,7 +15,10 @@ import com.example.coroutine.databinding.ActivityMain07Binding
 import com.example.coroutine.databinding.ActivityMain07BindingImpl
 import com.example.coroutine.viewmodel.MainViewModel
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlin.system.measureTimeMillis
+import kotlinx.coroutines.flow.collect
 
 class MainActivity08 : AppCompatActivity() {
 
@@ -33,36 +36,23 @@ class MainActivity08 : AppCompatActivity() {
 
     }
 
+    fun simple(): Flow<Int> = flow { // flow builder
+        for (i in 1..3) {
+            delay(100) // pretend we are doing something useful here
+            emit(i) // emit next value
+        }
+    }
+
     fun main() = runBlocking<Unit> {
-        val time = measureTimeMillis {
-            val one = async { doSomethingUsefulOne() }
-            val two = async { doSomethingUsefulTwo() }
-            println("The answer is ${one.await() + two.await()}")
-        }
-        println("Completed in $time ms")
-    }
-
-    suspend fun doSomethingUsefulOne(): Int {
-        delay(1000L) // pretend we are doing something useful here
-        return 13
-    }
-
-    suspend fun doSomethingUsefulTwo(): Int {
-        delay(1000L) // pretend we are doing something useful here, too
-        return 29
-    }
-
-    // Concurrently executes both sections
-    suspend fun doWorld() = coroutineScope { // this: CoroutineScope
+        // Launch a concurrent coroutine to check if the main thread is blocked
         launch {
-            delay(2000L)
-            println("World 2")
+            for (k in 1..3) {
+                println("I'm not blocked $k")
+                delay(100)
+            }
         }
-        launch {
-            delay(1000L)
-            println("World 1")
-        }
-        println("Hello")
+        // Collect the flow
+        simple().collect { value -> println(value) }
     }
 
 
