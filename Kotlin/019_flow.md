@@ -93,22 +93,10 @@ public fun <T> flow(@BuilderInference block: suspend FlowCollector<T>.() -> Unit
 
 2.`flow{...}`构建快中的代码可以挂起
 
-3.函数`simpleFlow()`不再标有`suspend`修饰符
-
-4.流使用`emit`函数发射值
+3.函数`simpleFlow()`不再标有`suspend`修饰符4.流使用`emit`函数发射值
 
 5.流使用`collect`函数收集值
 
-![]()
-
-
-
-
-
-
-
-
-
-
+![](https://github.com/winfredzen/Android-Basic/blob/master/Kotlin/images/022.png)
 
 
