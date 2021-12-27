@@ -71,8 +71,6 @@ ViewModel会保存界面上的状态在前面的例子上，如果在获取网�
 
 注意viewModel与TextView的text进行了绑定`android:text="@{viewModel.todoLiveData.title}"`
 
-
-
 ## Repository
 
 ```kotlin
@@ -84,8 +82,6 @@ class TodoRepository {
 ```
 
 调用网路请求
-
-
 
 ## ViewModel
 
@@ -134,7 +130,7 @@ class MainActivity07 : AppCompatActivity() {
 
 `viewModels()`可能会报错，参考:
 
-+  [how to get viewModel by viewModels? (fragment-ktx)](https://stackoverflow.com/questions/56748334/how-to-get-viewmodel-by-viewmodels-fragment-ktx)
++ [how to get viewModel by viewModels? (fragment-ktx)](https://stackoverflow.com/questions/56748334/how-to-get-viewmodel-by-viewmodels-fragment-ktx)
 
 可能需要添加：
 
@@ -143,37 +139,3 @@ class MainActivity07 : AppCompatActivity() {
         jvmTarget = "1.8"
     }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
