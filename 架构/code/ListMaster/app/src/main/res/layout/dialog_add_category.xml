@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <data>
+
+    <variable
+      name="listCategoryViewModel"
+      type="com.example.listmaster.listcategory.ListCategoryViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/category_name_input_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="8dp"
+      android:layout_marginEnd="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="parent"
+      app:layout_constraintStart_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+      <AutoCompleteTextView
+        android:id="@+id/category_name_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/category_name"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:text="@={listCategoryViewModel.listCategory.categoryName}" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+      name="listItemViewModel"
+      type="com.example.listmaster.listitem.ListItemViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+      android:id="@+id/list_item_priority"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="16dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:gravity="center"
+      android:text="@{listItemViewModel.priority}"
+      android:textAlignment="center"
+      android:textColor="@color/listItemsTextColor"
+      android:textSize="20sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/list_item_description"
+      app:layout_constraintHorizontal_chainStyle="spread"
+      app:layout_constraintHorizontal_weight=".15"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+      android:id="@+id/list_item_description"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="8dp"
+      android:layout_marginEnd="16dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
+      android:gravity="center"
+      android:text="@{listItemViewModel.listItem.itemDescription}"
+      android:textColor="@color/listItemsTextColor"
+      android:textSize="20sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_weight=".85"
+      app:layout_constraintStart_toEndOf="@id/list_item_priority"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+      android:id="@+id/category_separator"
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:layout_marginEnd="15dp"
+      android:layout_marginStart="15dp"
+      android:background="@color/listItemsTextColor"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

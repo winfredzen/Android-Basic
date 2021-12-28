@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">List Master</string>
+    <string name="category_name">Category Name</string>
+    <string name="item_description">Item Description</string>
+    <string name="item_priority">Item Priority</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_activity_list_items">ListItemsActivity</string>
+</resources>

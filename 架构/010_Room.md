@@ -47,11 +47,66 @@
 
 总结下Room的基本使用
 
+1.实体类（模型类），使用`@Entity(tableName = "list_categories")`注解
+
+```kotlin
+@Entity(tableName = "list_categories")
+data class ListCategory(
+    @ColumnInfo(name = "category_name") var categoryName: String,
+    @ColumnInfo(name = "id") @PrimaryKey(autoGenerate = true) var id: Long = 0)
+```
+
+2.DAO类，表示访问数据库的方法
+
+```kotlin
+@Dao
+interface ListCategoryDao {
+
+    @Query("SELECT * FROM list_categories")
+    fun getAll(): List<ListCategory>
+
+    @Insert
+    fun insertAll(vararg listCategories: ListCategory)
+
+}
+```
+
+3.数据库，一般为抽象类
+
+```kotlin
+@Database(entities = [ListCategory::class], version = 1, exportSchema = false)
+abstract class AppDatabase : RoomDatabase() {
+
+    abstract fun listCategoryDao(): ListCategoryDao
+
+}
+```
+
+获取已创建的数据库实例，例如在`Application`中获取数据库实例
+
+```kotlin
+class ListMasterApplication : Application() {
+
+  companion object {
+    var database: AppDatabase? = null
+  }
+
+  override fun onCreate() {
+    super.onCreate()
+
+    ListMasterApplication.database = Room.databaseBuilder(this,
+      AppDatabase::class.java,
+      "list-master-db").build()
+
+  }
+
+```
 
 
 
+数据查询，需要放在子线程，如下的例子：
 
-
+![048](https://github.com/winfredzen/Android-Basic/blob/master/%E6%9E%B6%E6%9E%84/images/048.png)
 
 
 
