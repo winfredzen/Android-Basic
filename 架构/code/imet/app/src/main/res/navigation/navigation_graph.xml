@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/navigation_graph"
+  app:startDestination="@id/peoplesListFragment">
+
+  <fragment
+    android:id="@+id/peoplesListFragment"
+    android:name="com.raywenderlich.android.imet.ui.list.PeoplesListFragment"
+    android:label="iMet"
+    tools:layout="@layout/fragment_peoples_list">
+    <action
+      android:id="@+id/action_peoplesListFragment_to_addPeopleFragment"
+      app:destination="@id/addPeopleFragment" />
+    <action
+      android:id="@+id/action_peoplesListFragment_to_peopleDetailsFragment"
+      app:destination="@id/peopleDetailsFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/addPeopleFragment"
+    android:name="com.raywenderlich.android.imet.ui.add.AddPeopleFragment"
+    android:label="Add People"
+    tools:layout="@layout/fragment_add_people" />
+  <fragment
+    android:id="@+id/peopleDetailsFragment"
+    android:name="com.raywenderlich.android.imet.ui.details.PeopleDetailsFragment"
+    android:label="People Details"
+    tools:layout="@layout/fragment_people_details" />
+</navigation>

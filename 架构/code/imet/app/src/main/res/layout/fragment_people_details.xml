@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:padding="@dimen/default_padding"
+  tools:context=".ui.details.PeopleDetailsFragment">
+
+  <ImageView
+    android:id="@+id/imageViewIcon"
+    android:layout_width="@android:dimen/thumbnail_width"
+    android:layout_height="@android:dimen/thumbnail_width"
+    android:layout_gravity="center_horizontal"
+    app:srcCompat="@drawable/ic_profile_image" />
+
+  <TextView
+    android:id="@+id/textViewName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+    tools:text="@string/hint_name" />
+
+  <TextView
+    android:id="@+id/textViewMet"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginBottom="@dimen/default_margin"
+    android:drawableStart="@drawable/ic_met_at"
+    android:gravity="center"
+    tools:text="@string/hint_met_at" />
+
+  <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/cardview_light_background"
+    app:cardCornerRadius="@dimen/cardview_default_radius"
+    app:cardElevation="@dimen/cardview_default_elevation">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:padding="@dimen/default_padding">
+
+      <TextView
+        android:id="@+id/buttonContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:drawableStart="@drawable/ic_contact"
+        android:drawablePadding="@dimen/default_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:text="@string/hint_contact" />
+
+      <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:drawableStart="@drawable/ic_gmail"
+        android:drawablePadding="@dimen/default_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:text="@string/hint_email" />
+
+      <TextView
+        android:id="@+id/textViewFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:drawableStart="@drawable/ic_facebook"
+        android:drawablePadding="@dimen/default_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:text="@string/hint_facebook" />
+
+      <TextView
+        android:id="@+id/textViewTwitter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_twitter"
+        android:drawablePadding="@dimen/default_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:text="@string/hint_twitter" />
+    </LinearLayout>
+  </android.support.v7.widget.CardView>
+
+</LinearLayout>
