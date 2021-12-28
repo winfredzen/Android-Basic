@@ -1,0 +1,258 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:2:1-38:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta8] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/824b706dc024da2cdb9fe14e1633f1a9/constraintlayout-2.0.0-beta8/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ea64708b51c60f50f2c5d5242b8ac379/navigation-ui-ktx-2.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/fd8764871a64d091a8f8901b6f56ae0e/navigation-ui-2.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d8e8c198008713507fd9cc5651f7ddd3/material-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/bd292988b5a49f6b93bfd837cdf8a29e/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/80edb96efd867d606bf37d7c2206e4cf/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b56b010096afc9588fa741124371acc1/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d000318a94d212ecbf03c5f45caabdab/navigation-fragment-ktx-2.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/e27694023a97c07676d9cf7a33836887/navigation-runtime-ktx-2.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.2.4] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b4be81f1d406033819c9f4f6ab9bf285/jetified-fragment-ktx-1.2.4/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity-ktx:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/af627b056cea98bbe0b091212329cedc/jetified-activity-ktx-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d770facf16770d98324e2a4e9e44a93f/jetified-lifecycle-viewmodel-ktx-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b7e3291137daf10439b1c43dc59c8ad3/jetified-lifecycle-runtime-ktx-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/fddbf33c8c9cb84b0bb5ca44fb08b0ad/jetified-glide-4.8.0/AndroidManifest.xml:2:1-12:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/810754761d244cba0d22ed34c1ea651e/navigation-common-ktx-2.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a950e230beedb503c7ea1be909df83dc/jetified-core-ktx-1.1.0/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/9c1781ea85e425b1928e113a5bdcedc6/jetified-lifecycle-livedata-core-ktx-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/56301c3dbd924d0dbecd80a28fd19443/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/5887865085bce550b39c9fb5a903c3a8/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/98f80efe41c1ef79db92e3e3dc1a8d40/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b3a86e25bdaa79ef694ac47ddb57bf3d/jetified-gifdecoder-4.8.0/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/688e9ce28e0245d8693c4002467bc16f/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/38d5015bfad28bea60d8fc4db4b5b012/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-fragment:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2670d85717585d0f6b1ec6aeedd2ed8a/navigation-fragment-2.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.2.4] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/261d9024fc2da8b9044b16a8e0ed7774/fragment-1.2.4/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a69faa750fdbed80806b507c993b47e3/navigation-runtime-2.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/1a04aa6de99f3415443f612e52108823/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d2a78e4d7168e62e11448eb824f2df38/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ebf861e2e0ae7971c9dbaecc88a639c5/jetified-activity-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/3a7461f239300c2dcfd376aafe1f0988/jetified-lifecycle-viewmodel-savedstate-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2a60faca4b5b9059553ad117658b5cf5/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2d9391138084ff75e39d5adae5bf5f14/drawerlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b0d99baf49f706448260066a8f34c0d3/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/dc046863365aee9771243cd527207f26/coordinatorlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/996d8f212ca620d3d626e9277bb4c496/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/8ed0491f9491bb799804c3ed87888949/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a779839ac3fb68906d5e691365956877/transition-1.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/942ec44f453a0e20332b607d3115c174/navigation-common-2.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/4c1916643d9b9da30240cbf1825d0a3b/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/8c69a40e3c747d432778179dc067f614/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ff86a3d9666377cb5d1dbba9757fbff1/core-1.3.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/7c0351605a2b08632df83070bf751c91/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ce7b4b3831fd25ab7c5bb197a1799223/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/7c0f5a510bc8954755b2b43e60ecea2f/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a89af97f6a65c342642a4ee7cdf28b51/lifecycle-runtime-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/59341686594b54dd65702d5cb6e00ab5/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/38835154994fff1912429b0f16ec6936/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/afd7225ee179cb14843c29007102ae09/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d6ffec2e90c7164a4c5b68aec4e3c497/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/5c4673d94f1f5ab69f0b1382eecae7c9/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/3986e9a69874208f37b7ac23f3254f48/print-1.0.0/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:2:1-38:12
+	package
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:4:5-49
+		INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:2:1-38:12
+		INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:2:1-38:12
+		INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:6:5-32:19
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta8] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/824b706dc024da2cdb9fe14e1633f1a9/constraintlayout-2.0.0-beta8/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta8] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/824b706dc024da2cdb9fe14e1633f1a9/constraintlayout-2.0.0-beta8/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.material:material:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d8e8c198008713507fd9cc5651f7ddd3/material-1.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d8e8c198008713507fd9cc5651f7ddd3/material-1.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/fddbf33c8c9cb84b0bb5ca44fb08b0ad/jetified-glide-4.8.0/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/fddbf33c8c9cb84b0bb5ca44fb08b0ad/jetified-glide-4.8.0/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b3a86e25bdaa79ef694ac47ddb57bf3d/jetified-gifdecoder-4.8.0/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b3a86e25bdaa79ef694ac47ddb57bf3d/jetified-gifdecoder-4.8.0/AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ff86a3d9666377cb5d1dbba9757fbff1/core-1.3.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ff86a3d9666377cb5d1dbba9757fbff1/core-1.3.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/7c0351605a2b08632df83070bf751c91/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/7c0351605a2b08632df83070bf751c91/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ff86a3d9666377cb5d1dbba9757fbff1/core-1.3.0/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:12:9-35
+	android:label
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:10:9-41
+	tools:ignore
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:16:9-64
+	android:roundIcon
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:11:9-54
+	android:icon
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:9:9-43
+	android:allowBackup
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:8:9-36
+	android:theme
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:13:9-40
+	android:networkSecurityConfig
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:15:9-69
+	android:usesCleartextTraffic
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:14:9-44
+	android:name
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:7:9-41
+activity#com.raywenderlich.android.movieapp.ui.MainActivity
+ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:20:9-28:20
+	android:theme
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:22:13-47
+	android:name
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:21:13-44
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:23:13-27:29
+action#android.intent.action.MAIN
+ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:24:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:26:17-77
+	android:name
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:26:27-74
+activity#com.raywenderlich.android.movieapp.ui.about.AboutDialogActivity
+ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:29:9-31:76
+	android:theme
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:31:13-73
+	android:name
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:30:13-57
+uses-permission#android.permission.INTERNET
+ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:34:5-67
+	android:name
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:34:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:36:5-79
+	android:name
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml:36:22-76
+uses-sdk
+INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta8] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/824b706dc024da2cdb9fe14e1633f1a9/constraintlayout-2.0.0-beta8/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta8] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/824b706dc024da2cdb9fe14e1633f1a9/constraintlayout-2.0.0-beta8/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ea64708b51c60f50f2c5d5242b8ac379/navigation-ui-ktx-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ea64708b51c60f50f2c5d5242b8ac379/navigation-ui-ktx-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/fd8764871a64d091a8f8901b6f56ae0e/navigation-ui-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/fd8764871a64d091a8f8901b6f56ae0e/navigation-ui-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d8e8c198008713507fd9cc5651f7ddd3/material-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d8e8c198008713507fd9cc5651f7ddd3/material-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/bd292988b5a49f6b93bfd837cdf8a29e/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/bd292988b5a49f6b93bfd837cdf8a29e/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/80edb96efd867d606bf37d7c2206e4cf/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/80edb96efd867d606bf37d7c2206e4cf/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b56b010096afc9588fa741124371acc1/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b56b010096afc9588fa741124371acc1/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d000318a94d212ecbf03c5f45caabdab/navigation-fragment-ktx-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d000318a94d212ecbf03c5f45caabdab/navigation-fragment-ktx-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/e27694023a97c07676d9cf7a33836887/navigation-runtime-ktx-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/e27694023a97c07676d9cf7a33836887/navigation-runtime-ktx-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.2.4] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b4be81f1d406033819c9f4f6ab9bf285/jetified-fragment-ktx-1.2.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.2.4] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b4be81f1d406033819c9f4f6ab9bf285/jetified-fragment-ktx-1.2.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/af627b056cea98bbe0b091212329cedc/jetified-activity-ktx-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/af627b056cea98bbe0b091212329cedc/jetified-activity-ktx-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d770facf16770d98324e2a4e9e44a93f/jetified-lifecycle-viewmodel-ktx-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d770facf16770d98324e2a4e9e44a93f/jetified-lifecycle-viewmodel-ktx-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b7e3291137daf10439b1c43dc59c8ad3/jetified-lifecycle-runtime-ktx-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b7e3291137daf10439b1c43dc59c8ad3/jetified-lifecycle-runtime-ktx-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/fddbf33c8c9cb84b0bb5ca44fb08b0ad/jetified-glide-4.8.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/fddbf33c8c9cb84b0bb5ca44fb08b0ad/jetified-glide-4.8.0/AndroidManifest.xml:6:5-8:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/810754761d244cba0d22ed34c1ea651e/navigation-common-ktx-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/810754761d244cba0d22ed34c1ea651e/navigation-common-ktx-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a950e230beedb503c7ea1be909df83dc/jetified-core-ktx-1.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a950e230beedb503c7ea1be909df83dc/jetified-core-ktx-1.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/9c1781ea85e425b1928e113a5bdcedc6/jetified-lifecycle-livedata-core-ktx-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/9c1781ea85e425b1928e113a5bdcedc6/jetified-lifecycle-livedata-core-ktx-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/56301c3dbd924d0dbecd80a28fd19443/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/56301c3dbd924d0dbecd80a28fd19443/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/5887865085bce550b39c9fb5a903c3a8/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/5887865085bce550b39c9fb5a903c3a8/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/98f80efe41c1ef79db92e3e3dc1a8d40/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/98f80efe41c1ef79db92e3e3dc1a8d40/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b3a86e25bdaa79ef694ac47ddb57bf3d/jetified-gifdecoder-4.8.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b3a86e25bdaa79ef694ac47ddb57bf3d/jetified-gifdecoder-4.8.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/688e9ce28e0245d8693c4002467bc16f/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/688e9ce28e0245d8693c4002467bc16f/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/38d5015bfad28bea60d8fc4db4b5b012/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/38d5015bfad28bea60d8fc4db4b5b012/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2670d85717585d0f6b1ec6aeedd2ed8a/navigation-fragment-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2670d85717585d0f6b1ec6aeedd2ed8a/navigation-fragment-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.4] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/261d9024fc2da8b9044b16a8e0ed7774/fragment-1.2.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.4] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/261d9024fc2da8b9044b16a8e0ed7774/fragment-1.2.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a69faa750fdbed80806b507c993b47e3/navigation-runtime-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a69faa750fdbed80806b507c993b47e3/navigation-runtime-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/1a04aa6de99f3415443f612e52108823/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/1a04aa6de99f3415443f612e52108823/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d2a78e4d7168e62e11448eb824f2df38/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d2a78e4d7168e62e11448eb824f2df38/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ebf861e2e0ae7971c9dbaecc88a639c5/jetified-activity-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ebf861e2e0ae7971c9dbaecc88a639c5/jetified-activity-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/3a7461f239300c2dcfd376aafe1f0988/jetified-lifecycle-viewmodel-savedstate-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/3a7461f239300c2dcfd376aafe1f0988/jetified-lifecycle-viewmodel-savedstate-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2a60faca4b5b9059553ad117658b5cf5/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2a60faca4b5b9059553ad117658b5cf5/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2d9391138084ff75e39d5adae5bf5f14/drawerlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2d9391138084ff75e39d5adae5bf5f14/drawerlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b0d99baf49f706448260066a8f34c0d3/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b0d99baf49f706448260066a8f34c0d3/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/dc046863365aee9771243cd527207f26/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/dc046863365aee9771243cd527207f26/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/996d8f212ca620d3d626e9277bb4c496/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/996d8f212ca620d3d626e9277bb4c496/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/8ed0491f9491bb799804c3ed87888949/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/8ed0491f9491bb799804c3ed87888949/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a779839ac3fb68906d5e691365956877/transition-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a779839ac3fb68906d5e691365956877/transition-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/942ec44f453a0e20332b607d3115c174/navigation-common-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/942ec44f453a0e20332b607d3115c174/navigation-common-2.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/4c1916643d9b9da30240cbf1825d0a3b/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/4c1916643d9b9da30240cbf1825d0a3b/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/8c69a40e3c747d432778179dc067f614/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/8c69a40e3c747d432778179dc067f614/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ff86a3d9666377cb5d1dbba9757fbff1/core-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ff86a3d9666377cb5d1dbba9757fbff1/core-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/7c0351605a2b08632df83070bf751c91/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/7c0351605a2b08632df83070bf751c91/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ce7b4b3831fd25ab7c5bb197a1799223/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/ce7b4b3831fd25ab7c5bb197a1799223/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/7c0f5a510bc8954755b2b43e60ecea2f/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/7c0f5a510bc8954755b2b43e60ecea2f/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a89af97f6a65c342642a4ee7cdf28b51/lifecycle-runtime-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a89af97f6a65c342642a4ee7cdf28b51/lifecycle-runtime-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/59341686594b54dd65702d5cb6e00ab5/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/59341686594b54dd65702d5cb6e00ab5/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/38835154994fff1912429b0f16ec6936/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/38835154994fff1912429b0f16ec6936/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/afd7225ee179cb14843c29007102ae09/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/afd7225ee179cb14843c29007102ae09/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d6ffec2e90c7164a4c5b68aec4e3c497/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d6ffec2e90c7164a4c5b68aec4e3c497/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/5c4673d94f1f5ab69f0b1382eecae7c9/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/5c4673d94f1f5ab69f0b1382eecae7c9/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/3986e9a69874208f37b7ac23f3254f48/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/3986e9a69874208f37b7ac23f3254f48/print-1.0.0/AndroidManifest.xml:20:5-44
+INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Downloads/MovieApp/starter/app/src/main/AndroidManifest.xml
