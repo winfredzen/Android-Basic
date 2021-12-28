@@ -110,19 +110,11 @@ class ListMasterApplication : Application() {
 
 
 
+上面内容来自：
 
++ [Data Persistence With Room](https://www.raywenderlich.com/69-data-persistence-with-room)
 
-
-
-
-
-
-
-
-
-
-
-
+代码位置：[ListMaster](https://github.com/winfredzen/Android-Basic/tree/master/%E6%9E%B6%E6%9E%84/code/ListMaster)
 
 
 
