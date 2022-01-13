@@ -221,6 +221,151 @@ public class TwitterView extends View {
 
 
 
+## 源图像模式
+
+1.Mode.SRC
+
+在处理源图像所在区域的相交问题时，全部以源图像显示
+
+![169](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/169.png)
+
+
+
+2.Mode.SRC_IN
+
+上面尝试过，效果如下：
+
+![163](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/163.png)
+
+
+
+> SRC_IN模式是在相交时利用目标图像的透明度来改变源图像的透明度和饱和度的
+> 
+> 当目标图像的透明度为0时，源图像就完全不显示了
+
+
+
+利用该特性，可实现许多的效果，如圆角效果和图片倒影效果
+
+参考：
+
++ [Android图形处理--PorterDuff.Mode那些事儿](https://blog.csdn.net/HardWorkingAnt/article/details/78045232)
+
+
+
+a.实现圆角效果
+
+```java
+public class SRCINView extends View {
+    private Paint mPaint;
+
+    public SRCINView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        mPaint = new Paint();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        setLayerType(LAYER_TYPE_SOFTWARE, null); //关闭硬件加速
+
+        Bitmap src = BitmapFactory.decodeResource(getResources(), R.drawable.dog);
+
+        int width = getWidth() / 2;
+        int height = width * src.getHeight() / src.getWidth();
+
+        int radius = Math.min(width,height) / 2;
+        canvas.drawCircle(width / 2, height / 2, radius, mPaint);
+
+        //设置Xfermode
+        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+
+        //源图，图太大了，缩小绘制
+        canvas.drawBitmap(src, null, new Rect(0, 0, width, height), mPaint);
+
+        //还原Xfermode
+        mPaint.setXfermode(null);
+    }
+}
+```
+
+![170](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/170.png)
+
+
+
+b.实现倒影效果
+
+```java
+public class InvertedImageView_SRCIN extends View {
+    private Paint mBitPaint;
+    private Bitmap BmpDST, BmpSRC, BmpRevert;
+
+    public InvertedImageView_SRCIN(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        mBitPaint = new Paint();
+        BmpDST = BitmapFactory.decodeResource(getResources(), R.drawable.dog_invert_shade, null);
+        BmpSRC = BitmapFactory.decodeResource(getResources(), R.drawable.dog, null);
+
+        Matrix matrix = new Matrix();
+        matrix.setScale(1F, -1F);
+        // 生成倒影图
+        BmpRevert = Bitmap.createBitmap(BmpSRC, 0, 0, BmpSRC.getWidth(), BmpSRC.getHeight(), matrix, true);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        int width = getWidth() * 2 / 3;
+        int height = width * BmpDST.getHeight() / BmpDST.getWidth();
+
+        //先画出小狗图片
+        canvas.drawBitmap(BmpSRC, null, new RectF(0, 0, width, height), mBitPaint);
+
+        //再画出倒影
+        canvas.save();
+        canvas.translate(0, height);
+
+        canvas.drawBitmap(BmpDST, null, new RectF(0, 0, width, height), mBitPaint);
+        mBitPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(BmpRevert, null, new RectF(0, 0, width, height), mBitPaint);
+
+        mBitPaint.setXfermode(null);
+
+        canvas.restore();
+    }
+}
+```
+
+![171](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/171.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
