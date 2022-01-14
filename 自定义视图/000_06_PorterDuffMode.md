@@ -70,7 +70,7 @@ paint.setXfermode(null); // 用完及时清除 Xfermode
 
 > 在Xfermode设置前画出的图像叫做目标图像，即给谁应用Xfermode；
 > 
-> 在Xfermode设置后画出的图像叫做源图像，即那什么应用Xfermode
+> 在Xfermode设置后画出的图像叫做源图像，即拿什么应用Xfermode
 
 
 
@@ -344,11 +344,90 @@ public class InvertedImageView_SRCIN extends View {
 
 
 
+3.Mode.SRC_OUT
+
+![172](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/172.png)
+
+当目标图像完全不透明时，计算结果将是透明的
+
+a.橡皮擦效果
+
+> 这里需要将手势轨迹对应的小狗图像隐藏，所以小狗图像时源图像，用于显示；而将手势轨迹所在的图像作为目标图像，用于控制哪部分小狗图像显示。
 
 
 
+```java
+public class EraserView_SRCOUT extends View {
+    private Paint mBitPaint;
+    private Bitmap BmpDST, BmpSRC, BmpText;
+    private Path mPath;
+    private float mPreX, mPreY;
+
+    public EraserView_SRCOUT(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        mBitPaint = new Paint();
+        mBitPaint.setColor(Color.RED);
+        mBitPaint.setStyle(Paint.Style.STROKE);
+        mBitPaint.setStrokeWidth(45);
+
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 2;
+
+        BmpText = BitmapFactory.decodeResource(getResources(), R.drawable.guaguaka_text, null);
+        BmpSRC = BitmapFactory.decodeResource(getResources(), R.drawable.dog, options);
+        BmpDST = Bitmap.createBitmap(BmpSRC.getWidth(), BmpSRC.getHeight(), Bitmap.Config.ARGB_8888);
+        mPath = new Path();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawBitmap(BmpText, null, new RectF(0, 0, BmpDST.getWidth(), BmpDST.getHeight()), mBitPaint);
+
+        int layerId = canvas.saveLayer(0, 0, getWidth(), getHeight(), null, Canvas.ALL_SAVE_FLAG);
+
+        //先把手指轨迹画到目标Bitmap上
+        Canvas c = new Canvas(BmpDST);
+        c.drawPath(mPath, mBitPaint);
+
+        //然后把目标图像画到画布上
+        canvas.drawBitmap(BmpDST, 0, 0, mBitPaint);
+
+        //计算源图像区域
+        mBitPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
+        canvas.drawBitmap(BmpSRC, 0, 0, mBitPaint);
+
+        mBitPaint.setXfermode(null);
+        canvas.restoreToCount(layerId);
+    }
 
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mPath.moveTo(event.getX(), event.getY());
+                mPreX = event.getX();
+                mPreY = event.getY();
+                return true;
+            case MotionEvent.ACTION_MOVE:
+                float endX = (mPreX + event.getX()) / 2;
+                float endY = (mPreY + event.getY()) / 2;
+                mPath.quadTo(mPreX, mPreY, endX, endY);
+                mPreX = event.getX();
+                mPreY = event.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+        postInvalidate();
+        return super.onTouchEvent(event);
+    }
+}
+```
+
+![173](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/173.png)
 
 
 
