@@ -1,5 +1,70 @@
 # Canvas
 
+## 绘制顺序
+
+参考：
+
++ [HenCoder Android 开发进阶：自定义 View 1-5 绘制顺序](https://rengwuxian.com/ui-1-5/)
+
+
+
+![](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/179.png)
+
+
+
+`dispatchDraw(Canvas canvas)`函数用于绘制子视图
+
+
+
+## 获取Canvas对象的方法
+
+1.重写`onDraw()`、`dispatchDraw()`函数
+
+2.使用Bitmap创建
+
+```java
+public Canvas(@NonNull Bitmap bitmap)
+```
+
+如果使用Bitmap构造了一个Canvas，那么在这个Canvas上绘制的图像也会保存在这个Bitmap上，而不会画在View上
+
+如下的例子：
+
+```java
+public class BitmapCanvasView extends View {
+    private Bitmap mBitmap;
+    private Paint mPaint;
+    private Canvas mBitmapCanvas;
+
+    public BitmapCanvasView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+
+        mPaint = new Paint();
+        mPaint.setColor(Color.BLACK);
+        mBitmap = Bitmap.createBitmap(500, 500, Bitmap.Config.ARGB_8888);
+        mBitmapCanvas = new Canvas(mBitmap);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        mPaint.setTextSize(50);
+        mBitmapCanvas.drawText("This is Text", 0, 100, mPaint);
+
+        //canvas.drawBitmap(mBitmap, 0, 0, mPaint);
+    }
+}
+```
+
+运行代码后，页面是空白的。原因是，我们是将文字绘制在了mBitmapCanvas上，而没有将图片画在画布上。
+
+取消最后一行的注释，效果如下：
+
+![180](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/180.png)
+
+
+
 
 
 ## 画布保存与恢复
@@ -11,8 +76,6 @@
 
 + `save()` - 先保存当前画布的状态，然后将其放入特定的栈中
 + `restore()` - 会把栈中顶层的画布状态取出来，并按照这个状态恢复画布，然后在这个画布上作画
-
-
 
 如下的例子：
 
@@ -82,58 +145,3 @@ canvas.drawColor(Color.YELLOW);
 ```
 
 ![149](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/149.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
