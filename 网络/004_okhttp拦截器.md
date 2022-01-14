@@ -5,8 +5,6 @@
 + [Interceptors](https://square.github.io/okhttp/interceptors/)
 + [OkHttp 同步异步操作](https://www.shuzhiduo.com/A/kPzOgxWQzx/)
 
-
-
 官方的说明图
 
 ![003](https://github.com/winfredzen/Android-Basic/blob/master/网络/images/003.png)
@@ -15,8 +13,6 @@
 
 + 应用拦截器
 + 网络拦截器
-
-
 
 ## Application Interceptors
 
@@ -63,13 +59,9 @@ OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new LogginInterc
 
 ![004](https://github.com/winfredzen/Android-Basic/blob/master/网络/images/004.png)
 
-
-
 ## Network Interceptors
 
 网络拦截器使用`addNetworkInterceptor()`方法
-
-
 
 ## 应用拦截器和网络拦截器的比较
 
@@ -86,17 +78,27 @@ OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new LogginInterc
 > \- 可以观察整个网络上传输的数据 
 > \- 获得携带请求的Connection
 
+## 
+
+## 多个拦截器的试验
+
+如下，添加2个拦截器
+
+```java
+OkHttpClient client = new OkHttpClient.Builder()
+        .addInterceptor(new LogginInterceptor())
+        .addInterceptor(new TestInterceptor())
+        .build(); //测试拦截器
+```
+
+log输出顺序如下：
+
+![029](https://github.com/winfredzen/Android-Basic/blob/master/网络/images/029.png)
+
+
+
 
 
 ## 应用
 
 + [OkHttp 拦截器的一些骚操作](https://juejin.im/post/5afc1706518825426f30f6ec)
-
-
-
-
-
-
-
-
-
