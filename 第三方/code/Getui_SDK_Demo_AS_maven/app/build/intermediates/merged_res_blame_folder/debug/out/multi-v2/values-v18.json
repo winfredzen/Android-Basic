@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v18/values-v18.xml",
+            "map": [
+                {
+                    "source": "/Users/wangzhen/.gradle/caches/transforms-3/b62c9ca58a73001cd43f35c2a2388629/transformed/appcompat-v7-28.0.0/res/values-v18/values-v18.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        }
+    ]
+}

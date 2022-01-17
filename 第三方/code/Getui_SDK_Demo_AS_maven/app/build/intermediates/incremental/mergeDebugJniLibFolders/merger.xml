@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/jniLibs"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/debug/jniLibs"/></dataSet></merger>

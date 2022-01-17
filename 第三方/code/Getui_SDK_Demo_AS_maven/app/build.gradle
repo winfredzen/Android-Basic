@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    defaultConfig {
+        applicationId "com.wz.app.push"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 2
+        versionName "1.1.0"
+
+        manifestPlaceholders = [
+                GETUI_APPID    : rootProject.ext.GETUI_APP_ID,
+        ]
+
+        buildConfigField("String", "SERVER_URL", "\"${rootProject.ext.SERVER_URL}\"")
+
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //请勿在线上版本配置MASTERSECRET的值，避免泄漏
+            buildConfigField("String", "MASTERSECRET", "\"\"")
+            buildConfigField("String", "APPKEY", "\"${rootProject.ext.GETUI_APP_KEY}\"")
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+//            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "APPKEY", "\"${rootProject.ext.GETUI_APP_KEY}\"")
+            //请勿在线上版本配置MASTERSECRET的值，避免泄漏
+            buildConfigField("String", "MASTERSECRET", "\"${rootProject.ext.MASTERSECRET}\"")
+
+        }
+    }
+
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation 'com.getui:gtsdk:3.2.7.0'
+    implementation 'com.getui:gtc:3.1.7.0'
+
+    //以下所有依赖库仅demo使用
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    //兼容5.0以下
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.5'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
+
+}
