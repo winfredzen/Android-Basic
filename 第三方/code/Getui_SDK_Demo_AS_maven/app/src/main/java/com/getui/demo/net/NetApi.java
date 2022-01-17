@@ -21,10 +21,14 @@ import retrofit2.http.Path;
 public interface NetApi {
 
     @POST("v1/{appid}/push_single")
-    Observable<NotificationResp> sendNotification(@Header("authtoken") String authtoken, @Path("appid") String appId, @Body LinkNotificationRequest notificationRequest);
+    Observable<NotificationResp> sendNotification(@Header("authtoken") String authtoken,
+                                                  @Path("appid") String appId,
+                                                  @Body LinkNotificationRequest notificationRequest);
 
     @POST("v1/{appid}/push_single")
-    Observable<NotificationResp> sendTransmission(@Header("authtoken") String authtoken, @Path("appid") String appId, @Body TransmissionRequest transmissionRequest);
+    Observable<NotificationResp> sendTransmission(@Header("authtoken") String authtoken,
+                                                  @Path("appid") String appId,
+                                                  @Body TransmissionRequest transmissionRequest);
 
 
     @POST("v1/{appid}/auth_sign")

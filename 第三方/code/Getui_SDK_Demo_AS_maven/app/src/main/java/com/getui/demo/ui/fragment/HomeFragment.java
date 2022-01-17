@@ -89,10 +89,10 @@ public class HomeFragment extends Fragment implements CompoundButton.OnCheckedCh
         cbSdkServer.setChecked(sp.getBoolean("isServiceOn", true));
         cbSdkServer.setOnCheckedChangeListener(this);
         tvCidState = view.findViewById(R.id.tv_cid_state);
-        //通知栏
+        //通知测试
         Button btnNotification = view.findViewById(R.id.btn_notification);
         btnNotification.setOnClickListener(this);
-        //透传
+        //透传测试
         Button btnTransmission = view.findViewById(R.id.btn_transmission);
         btnTransmission.setOnClickListener(this);
         Button btnCopyCid = view.findViewById(R.id.btn_copy_cid);

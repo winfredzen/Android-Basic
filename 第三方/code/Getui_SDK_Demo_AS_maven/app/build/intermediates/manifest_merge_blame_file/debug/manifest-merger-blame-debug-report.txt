@@ -6,35 +6,35 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
-8-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml
+8-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml
+9-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml
 10    <!-- iBeancon 功能所需权限 -->
 11    <uses-permission android:name="android.permission.BLUETOOTH" />
-11-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:6:5-68
-11-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:6:22-65
+11-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:6:5-68
+11-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:6:22-65
 12    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-12-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:7:5-74
-12-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:7:22-71
+12-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:7:5-74
+12-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:7:22-71
 13    <!-- 个推电子围栏功能所需权限 -->
 14    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-14-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:9:5-85
-14-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:9:22-82
+14-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:9:5-85
+14-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:9:22-82
 15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-15-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:10:5-79
-15-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:10:22-76
+15-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:10:5-79
+15-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:10:22-76
 16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-16-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:11:5-81
-16-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:11:22-78
+16-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:11:5-81
+16-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:11:22-78
 17
 18    <!-- 适配android 11及以上，强烈建议加上 -->
 19    <queries>
-19-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:51:5-55:15
+19-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:51:5-55:15
 20        <intent>
-20-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:52:9-54:18
+20-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:52:9-54:18
 21            <action android:name="com.getui.sdk.action" />
-21-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:53:13-59
-21-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:53:21-56
+21-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:53:13-59
+21-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:53:21-56
 22        </intent>
 23    </queries>
 24    <!-- 个推SDK权限配置开始 -->
@@ -68,76 +68,76 @@
 35-->[com.getui:gtsdk:3.2.7.0] /Users/wangzhen/.gradle/caches/transforms-3/1b9cdbcaa365db9ad9c27e31bb4e13a1/transformed/gtsdk-3.2.7.0/AndroidManifest.xml:24:9-44
 36
 37    <application
-37-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:13:5-48:19
+37-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:13:5-48:19
 38        android:name="com.getui.demo.DemoApplication"
-38-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:14:9-40
+38-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:14:9-40
 39        android:allowBackup="true"
-39-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:15:9-35
+39-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:15:9-35
 40        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
 40-->[com.android.support:support-compat:28.0.0] /Users/wangzhen/.gradle/caches/transforms-3/2b00c63ee3d578a5063ef838674f63c5/transformed/support-compat-28.0.0/AndroidManifest.xml:22:18-91
 41        android:debuggable="true"
 42        android:icon="@mipmap/ic_launcher"
-42-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:16:9-43
+42-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:16:9-43
 43        android:label="@string/app_name"
-43-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:17:9-41
+43-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:17:9-41
 44        android:supportsRtl="true"
 44-->[com.getui:gtsdk:3.2.7.0] /Users/wangzhen/.gradle/caches/transforms-3/1b9cdbcaa365db9ad9c27e31bb4e13a1/transformed/gtsdk-3.2.7.0/AndroidManifest.xml:29:9-35
 45        android:testOnly="true"
 46        android:theme="@style/NoActionBar"
-46-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:18:9-43
+46-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:18:9-43
 47        android:usesCleartextTraffic="true" >
-47-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:19:9-44
+47-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:19:9-44
 48
 49        <!-- 第三方应用配置 -->
 50        <activity
-50-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:22:9-31:20
+50-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:22:9-31:20
 51            android:name="com.getui.demo.ui.activity.GetuiSdkDemoActivity"
-51-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:23:13-61
+51-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:23:13-61
 52            android:label="@string/app_name"
-52-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:24:13-45
+52-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:24:13-45
 53            android:launchMode="singleTop"
-53-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:25:13-43
+53-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:25:13-43
 54            android:screenOrientation="portrait" >
-54-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:26:13-49
+54-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:26:13-49
 55            <intent-filter>
-55-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:27:13-30:29
+55-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:27:13-30:29
 56                <action android:name="android.intent.action.MAIN" />
-56-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:28:17-69
-56-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:28:25-66
+56-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:28:17-69
+56-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:28:25-66
 57
 58                <category android:name="android.intent.category.LAUNCHER" />
-58-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:29:17-77
-58-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:29:27-74
+58-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:29:17-77
+58-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:29:27-74
 59            </intent-filter>
 60        </activity>
 61        <activity
-61-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:32:9-34:52
+61-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:32:9-34:52
 62            android:name="com.getui.demo.ui.activity.AdvancedFunctionDetailsActivity"
-62-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:33:13-72
+62-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:33:13-72
 63            android:screenOrientation="portrait" />
-63-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:34:13-49
+63-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:34:13-49
 64
 65        <meta-data
 66            android:name="GETUI_APPID"
-66-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:37:13-39
+66-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:37:13-39
 67            android:value="XXisj1q0Pa8iETYC9htUj7" />
-67-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:38:13-43
+67-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:38:13-43
 68
 69        <!-- 用户自定义服务继承自GTIntentService,作为SDK与APP桥梁服务,用来接收各种消息和命令回复 -->
 70        <service android:name="com.getui.demo.DemoIntentService" />
-70-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:41:9-68
-70-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:41:18-65
+70-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:41:9-68
+70-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:41:18-65
 71        <!-- 用户自定义服务名 -->
 72        <service
-72-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:43:9-47:46
+72-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:43:9-47:46
 73            android:name="com.getui.demo.DemoPushService"
-73-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:44:13-58
+73-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:44:13-58
 74            android:exported="true"
-74-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:45:13-36
+74-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:45:13-36
 75            android:label="PushService"
-75-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:46:13-40
+75-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:46:13-40
 76            android:process=":pushservice" />
-76-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:47:13-43
+76-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:47:13-43
 77        <!-- 配置SDK核心服务 -->
 78        <service
 78-->[com.getui:gtsdk:3.2.7.0] /Users/wangzhen/.gradle/caches/transforms-3/1b9cdbcaa365db9ad9c27e31bb4e13a1/transformed/gtsdk-3.2.7.0/AndroidManifest.xml:36:9-40:46
@@ -194,8 +194,8 @@
 105            <intent-filter>
 105-->[com.getui:gtsdk:3.2.7.0] /Users/wangzhen/.gradle/caches/transforms-3/1b9cdbcaa365db9ad9c27e31bb4e13a1/transformed/gtsdk-3.2.7.0/AndroidManifest.xml:63:13-65:29
 106                <action android:name="com.getui.sdk.action" />
-106-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:53:13-59
-106-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:53:21-56
+106-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:53:13-59
+106-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:53:21-56
 107            </intent-filter>
 108        </activity>
 109
@@ -210,8 +210,8 @@
 114            <intent-filter>
 114-->[com.getui:gtsdk:3.2.7.0] /Users/wangzhen/.gradle/caches/transforms-3/1b9cdbcaa365db9ad9c27e31bb4e13a1/transformed/gtsdk-3.2.7.0/AndroidManifest.xml:63:13-65:29
 115                <action android:name="com.getui.sdk.action" />
-115-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:53:13-59
-115-->/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:53:21-56
+115-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:53:13-59
+115-->/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/AndroidManifest.xml:53:21-56
 116            </intent-filter>
 117        </service>
 118

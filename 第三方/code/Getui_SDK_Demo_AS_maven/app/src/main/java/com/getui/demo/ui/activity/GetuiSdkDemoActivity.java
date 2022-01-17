@@ -89,6 +89,9 @@ public class GetuiSdkDemoActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
+    /**
+     * 跳转到通知设置页面
+     */
     private void goSetting() {
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_go_setting, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -229,11 +232,11 @@ public class GetuiSdkDemoActivity extends AppCompatActivity implements View.OnCl
 
     private void init() {
         DemoApplication.demoActivity = new WeakReference<GetuiSdkDemoActivity>(this);
-        tabHome = findViewById(R.id.home_frame);
+        tabHome = findViewById(R.id.home_frame);//通知栏/透传测试
         tabHome.setOnClickListener(this);
-        tabAdvancedFunction = findViewById(R.id.advanced_function_frame);
+        tabAdvancedFunction = findViewById(R.id.advanced_function_frame);//高级功能
         tabAdvancedFunction.setOnClickListener(this);
-        tabAppInfo = findViewById(R.id.app_info_frame);
+        tabAppInfo = findViewById(R.id.app_info_frame);//应用信息
         tabAppInfo.setOnClickListener(this);
         tvTitle = findViewById(R.id.tv_title_bar);
         ivLogo = findViewById(R.id.iv_logo);

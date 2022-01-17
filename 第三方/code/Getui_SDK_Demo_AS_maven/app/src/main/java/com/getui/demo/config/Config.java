@@ -25,7 +25,11 @@ public class Config {
         parseManifests(context);
     }
 
-
+    /**
+     * 解析Manifests文件，获取到个推的 appid
+     *
+     * @param context
+     */
     private static void parseManifests(Context context) {
         packageName = context.getPackageName();
         try {

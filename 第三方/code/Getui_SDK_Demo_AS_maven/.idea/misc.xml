@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/dialog_go_setting.xml" value="0.2871376811594203" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/layout/getui_main.xml" value="0.2916666666666667" />
+        <entry key="app/src/main/res/layout/tab_layout.xml" value="0.2871376811594203" />
       </map>
     </option>
   </component>

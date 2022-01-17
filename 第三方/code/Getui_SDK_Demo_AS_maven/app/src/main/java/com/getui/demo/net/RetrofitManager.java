@@ -32,6 +32,7 @@ public class RetrofitManager {
     private static NetApi netApi;
 
     static {
+        //Logging拦截器
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient httpClient = new OkHttpClient.Builder()

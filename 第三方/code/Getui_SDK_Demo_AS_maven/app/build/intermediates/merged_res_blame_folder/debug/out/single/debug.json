@@ -1,426 +1,426 @@
 [
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_unbind_alias.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/unbind_alias.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_mz_push_notification_small_icon.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/mz_push_notification_small_icon.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_getui_main.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/getui_main.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_uncheck.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_uncheck.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_checked.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_checked.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_delete.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/ic_delete.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_close.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_close.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_chevron_left.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_chevron_left.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_delete.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_delete.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_logo_web.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/logo_web.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_ring_black.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_ring_black.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_selector_bg_gray.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/selector_bg_gray.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_push_small.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/push_small.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_checked.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_checked.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_bind_alias.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/bind_alias.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_message_normal.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/message_normal.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_item_tag.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/item_tag.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_item_tag.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/item_tag.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_switch_on.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/switch_on.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_template_set_tag.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/template_set_tag.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_push_small.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/push_small.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_add.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_add.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_template_silent_config.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/template_silent_config.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_ring_black.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_ring_black.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_message_selector.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/message_selector.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_selector_bg_blue_ring.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/selector_bg_blue_ring.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_checked.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_checked.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_tag.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_tag.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_close.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_close.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_selector_bg_item.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/selector_bg_item.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_app_info_selected.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/app_info_selected.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_chevron_right.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_chevron_right.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_selector_bg_blue.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/selector_bg_blue.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_app_info_selected.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/app_info_selected.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_close.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_close.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_bind_alias.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/bind_alias.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_bind_alias.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/bind_alias.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_uncheck.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_uncheck.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_checked.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_checked.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_chevron_right.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_chevron_right.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_dialog_go_setting.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/dialog_go_setting.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_switch_selector.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/switch_selector.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_push_small.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/push_small.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_bind_alias.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/bind_alias.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_chevron_left.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_chevron_left.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_title_bar.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/title_bar.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_add.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_add.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_template_alias.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/template_alias.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_advanced_function_selector.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/advanced_function_selector.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_getui_notification.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/getui_notification.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_date.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_date.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_advanced_function_selected.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/advanced_function_selected.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_tag.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/ic_tag.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_close.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_close.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_delete.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_delete.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_message_selected.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/message_selected.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_checked.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_checked.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_chevron_left.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_chevron_left.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_close.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/ic_close.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_date.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_date.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_date.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_date.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_add.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_add.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_blue.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_blue.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_switch_off.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/switch_off.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_tab_layout.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/tab_layout.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_template_set_tag.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/template_set_tag.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_add.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_add.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_tag.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_tag.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_add.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_add.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-ldpi_push.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-ldpi/push.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_add.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/ic_add.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_unbind_alias.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/unbind_alias.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_logo_web.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/logo_web.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_delete.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_delete.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_unbind_alias.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/unbind_alias.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_push.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/push.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_unbind_alias.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/unbind_alias.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_template_alias.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/template_alias.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-ldpi_push.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-ldpi/push.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_bind_alias.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/bind_alias.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_gray.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_gray.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_tag.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_tag.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_push_small.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/push_small.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_selector_bg_blue.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/selector_bg_blue.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_dialog_set_tag.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/dialog_set_tag.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_advanced_function_normal.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/advanced_function_normal.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_getui_main.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/getui_main.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_close.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_close.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_advanced_function_selector.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/advanced_function_selector.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_chevron_right.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_chevron_right.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_selector_bg_blue_ring.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/selector_bg_blue_ring.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_unbind_alias.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/unbind_alias.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_uncheck.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_uncheck.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_date.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_date.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_chevron_left.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_chevron_left.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_fragment_advanced_function.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/fragment_advanced_function.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_push.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/push.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_switch_off.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/switch_off.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_dialog_set_tag.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/dialog_set_tag.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_selector_bg_gray.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/selector_bg_gray.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_push_small.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/push_small.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_chevron_right.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_chevron_right.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_checked.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_checked.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_ring_blue.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_ring_blue.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_mz_push_notification_small_icon.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/mz_push_notification_small_icon.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_delete.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_delete.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_white.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_white.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_add.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_add.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_app_info_normal.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/app_info_normal.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_checkbox_selector.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/checkbox_selector.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_push.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/push.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_switch_selector.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/switch_selector.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_blue.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_blue.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_uncheck.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_uncheck.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_checked.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_checked.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_advanced_function_selected.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/advanced_function_selected.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_tag.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/ic_tag.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_tag.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_tag.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_tag.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_tag.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_chevron_left.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_chevron_left.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_delete.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_delete.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_add.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/ic_add.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_unbind_alias.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/unbind_alias.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_close.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_close.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_dialog_go_setting.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/dialog_go_setting.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_message_selector.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/message_selector.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_fragment_advanced_function.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/fragment_advanced_function.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_switch_on.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/switch_on.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_fragment_home.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/fragment_home.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_app_info_selector.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/app_info_selector.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_push.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/push.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_push_small.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/push_small.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_checked.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_checked.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_date.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_date.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_bind_alias.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/bind_alias.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_title_bar_with_arrow.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/title_bar_with_arrow.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_fragment_home.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/fragment_home.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_ring_dark_blue.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_ring_dark_blue.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_gray.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_gray.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_chevron_right.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_chevron_right.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_chevron_left.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_chevron_left.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_add.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_add.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_uncheck.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_uncheck.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-ldpi_push_small.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-ldpi/push_small.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_bind_alias.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/bind_alias.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_date.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_date.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_push_small.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/push_small.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_date.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_date.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_close.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_close.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_add.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_add.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_ring_blue.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_ring_blue.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_date.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_date.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_ring_dark_blue.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_ring_dark_blue.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_bind_alias.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/bind_alias.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_app_info_normal.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/app_info_normal.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_advanced_function_normal.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/advanced_function_normal.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_unbind_alias.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/unbind_alias.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_chevron_right.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/ic_chevron_right.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_chevron_right.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/ic_chevron_right.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_unbind_alias.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/unbind_alias.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_tag.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_tag.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_delete.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_delete.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_chevron_left.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_chevron_left.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_holo_blue.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_holo_blue.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_message_selected.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/message_selected.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_tag.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_tag.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-ldpi_push_small.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-ldpi/push_small.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_fragment_app_info.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/fragment_app_info.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_white.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_white.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_tag.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_tag.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_bind_alias.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/bind_alias.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_message_normal.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/message_normal.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_delete.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/ic_delete.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_date.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/ic_date.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_bind_alias.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/bind_alias.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_selector_bg_item.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/selector_bg_item.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_delete.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_delete.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_uncheck.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_uncheck.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_title_bar_with_arrow.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/title_bar_with_arrow.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_chevron_right.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/ic_chevron_right.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_title_bar.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/title_bar.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_uncheck.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_uncheck.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_push.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/push.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_unbind_alias.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/unbind_alias.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_unbind_alias.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/unbind_alias.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_app_info_selector.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/app_info_selector.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_chevron_right.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_chevron_right.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_close.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/ic_close.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_fragment_app_info.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/fragment_app_info.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_checkbox_selector.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/checkbox_selector.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_uncheck.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_uncheck.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxhdpi_push_small.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxhdpi/push_small.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_date.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xxxhdpi/ic_date.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_chevron_left.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/ic_chevron_left.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable_bg_round_holo_blue.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable/bg_round_holo_blue.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_close.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_close.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_getui_notification.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/getui_notification.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_push.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/push.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-xhdpi_push.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-xhdpi/push.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_chevron_right.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/ic_chevron_right.png"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_template_silent_config.xml.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/template_silent_config.xml"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/layout_tab_layout.xml.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/layout/tab_layout.xml"
     },
     {
-        "merged": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-hdpi_push.png.flat",
-        "source": "/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-hdpi/push.png"
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_delete.png.flat",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/src/main/res/drawable-mdpi/ic_delete.png"
     }
 ]

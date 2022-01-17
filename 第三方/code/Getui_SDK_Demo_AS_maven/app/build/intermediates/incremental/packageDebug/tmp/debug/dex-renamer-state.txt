@@ -1,4 +1,4 @@
-#Mon Jan 17 14:45:07 CST 2022
-base.0=/Users/wangzhen/Downloads/GETUI_ANDROID_SDK_3.2.7.0/Demo Project/Getui_SDK_Demo_AS_maven/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+#Mon Jan 17 17:06:52 CST 2022
+base.0=/Users/wangzhen/Documents/GitHub/Android-Basic/第三方/code/Getui_SDK_Demo_AS_maven/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
