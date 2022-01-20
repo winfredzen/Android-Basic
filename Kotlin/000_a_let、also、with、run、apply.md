@@ -121,7 +121,81 @@ println(firstAndLast)
 
 ## run
 
+> **The context object** is available as a receiver (`this`). **The return value** is the lambda result.
+>
+> 上下文对象是`this`，返回值是 lambda 结果
 
+`run` does the same as `with` but invokes as `let` - as an extension function of the context object.
+
+> run 的作用与 with 相同，但调用为 let - 作为上下文对象的扩展函数。
+
+当你的 lambda 同时包含对象初始化和返回值的计算时，`run` 很有用。
+
+```kotlin
+val service = MultiportService("https://example.kotlinlang.org", 80)
+
+val result = service.run {
+    port = 8080
+    query(prepareRequest() + " to port $port")
+}
+
+// the same code written with let() function:
+val letResult = service.let {
+    it.port = 8080
+    it.query(it.prepareRequest() + " to port ${it.port}")
+}
+```
+
+除了在接收器对象上调用 `run` 之外，您还可以将其用作非扩展函数。 非扩展运行允许您在需要表达式的情况下执行由多个语句组成的块
+
+```kotlin
+val hexNumberRegex = run {
+    val digits = "0-9"
+    val hexDigits = "A-Fa-f"
+    val sign = "+-"
+
+    Regex("[$sign]?[$digits$hexDigits]+")
+}
+
+for (match in hexNumberRegex.findAll("+123 -FFFF !%*& 88 XYZ")) {
+    println(match.value)
+}
+```
+
+
+
+## apply﻿
+
+> **The context object** is available as a receiver (`this`). **The return value** is the object itself.
+>
+> 上下文对象是`this`，返回值是自身
+
+`apply` 的常见情况是对象配置
+
+```kotlin
+val adam = Person("Adam").apply {
+    age = 32
+    city = "London"        
+}
+println(adam)
+```
+
+
+
+## also﻿
+
+> **The context object** is available as an argument (`it`). **The return value** is the object itself.
+
+> When you see `also` in the code, you can read it as “ *and also do the following with the object.*”
+>
+> also可以理解为- object也做如下的操作
+
+```kotlin
+val numbers = mutableListOf("one", "two", "three")
+numbers
+    .also { println("The list elements before adding new one: $it") }
+    .add("four")
+```
 
 
 
