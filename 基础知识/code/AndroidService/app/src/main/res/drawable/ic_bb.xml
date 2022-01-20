@@ -1,0 +1,73 @@
+<!--
+  ~ Copyright (c) 2021 Razeware LLC
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in
+  ~ all copies or substantial portions of the Software.
+  ~
+  ~ Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
+  ~ distribute, sublicense, create a derivative work, and/or sell copies of the
+  ~ Software in any work that is designed, intended, or marketed for pedagogical or
+  ~ instructional purposes related to programming, coding, application development,
+  ~ or information technology.  Permission for such use, copying, modification,
+  ~ merger, publication, distribution, sublicensing, creation of derivative works,
+  ~ or sale is expressly withheld.
+  ~
+  ~ This project and source code may use libraries or frameworks that are
+  ~ released under various Open-Source licenses. Use of those libraries and
+  ~ frameworks are governed by their own individual licenses.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  ~ THE SOFTWARE.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="125dp"
+    android:viewportWidth="100"
+    android:viewportHeight="125">
+  <path
+      android:pathData="M87.35,59.47h-1.79c-0.55,0 -1,0.45 -1,1c0,0.55 0.45,1 1,1h1.79c0.56,0 1,-0.45 1,-1C88.35,59.92 87.91,59.47 87.35,59.47z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M84.16,81.6h-6.04c-0.55,0 -1,0.45 -1,1s0.45,1 1,1h6.04c0.55,0 1,-0.45 1,-1S84.71,81.6 84.16,81.6z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M67.36,25.97h1.8c0.55,0 1,-0.44 1,-1c0,-0.55 -0.45,-1 -1,-1h-1.8c-0.55,0 -1,0.45 -1,1C66.36,25.53 66.81,25.97 67.36,25.97z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M58.08,50.58m-2.08,0a2.08,2.08 0,1 1,4.16 0a2.08,2.08 0,1 1,-4.16 0"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M53.1,14.96h2.01c0.55,0 1,-0.45 1,-1c0,-0.55 -0.45,-1 -1,-1H53.1c-0.55,0 -1,0.45 -1,1C52.1,14.51 52.55,14.96 53.1,14.96z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M47.54,25.19m-2.08,0a2.08,2.08 0,1 1,4.16 0a2.08,2.08 0,1 1,-4.16 0"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M37.65,68.15m-2.08,0a2.08,2.08 0,1 1,4.16 0a2.08,2.08 0,1 1,-4.16 0"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M68.45,84.91l-39.17,0.13c-0.55,0 -1,0.45 -1,1c0.01,0.55 0.45,1 1,1h0.01l39.17,-0.13c0.55,0 1,-0.45 1,-1.01C69.45,85.35 69.05,84.92 68.45,84.91z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M34.353,28.103m-7.325,0a7.325,7.325 0,1 1,14.65 0a7.325,7.325 0,1 1,-14.65 0"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M73.02,81.6H61.24c8.34,-3.44 14.54,-11 16.08,-20.13h4.81c0.55,0 1,-0.45 1,-1c0,-0.55 -0.45,-1 -1,-1h-4.56c0.06,-0.64 0.09,-1.29 0.11,-1.95h2.8c0.55,0 1,-0.45 1,-1c0,-0.55 -0.45,-1 -1,-1h-2.83c-0.76,-13.14 -11.11,-23.75 -24.14,-24.91l0.56,-1.18h3.32c0.55,0 1,-0.45 1,-1c0,-0.56 -0.45,-1 -1,-1h-2.37l0.69,-1.46h8.25c0.55,0 1,-0.44 1,-1c0,-0.55 -0.45,-1 -1,-1h-8.29c-2.12,-4.02 -5.41,-7.14 -9.35,-9.01h3.3c0.55,0 1,-0.45 1,-1c0,-0.55 -0.45,-1 -1,-1H37.71c-0.01,0 -0.02,0.01 -0.03,0.01c-0.09,0 -0.17,-0.01 -0.26,-0.01c-11.37,0 -20.63,9.26 -20.63,20.63c0,4.31 1.31,8.43 3.79,11.92l0.31,0.45l6.26,-0.27c-1.67,3.53 -2.55,7.43 -2.55,11.36c0,11.07 6.81,20.57 16.45,24.55H22.77c-0.55,0 -1,0.45 -1,1s0.45,1 1,1h50.25c0.55,0 1,-0.45 1,-1S73.57,81.6 73.02,81.6zM75.64,55.52h-1.88c-0.55,0 -1,0.45 -1,1c0,0.55 0.45,1 1,1h1.91c-0.05,2.85 -0.58,5.58 -1.53,8.12c-1.05,-1.34 -2.32,-2.47 -3.75,-3.38l1.86,-10.46c1,0.58 2.06,1.14 3.18,1.67C75.53,54.14 75.59,54.83 75.64,55.52zM70.42,50.66l-1.88,10.58c-3.78,-1.76 -8.3,-2.14 -12.61,-0.78c-2.16,0.67 -4.12,1.73 -5.82,3.08l-4.94,-5.65c3.34,-3.08 5.45,-7.48 5.45,-12.37c0,-2.44 -0.54,-4.82 -1.53,-6.99l8.96,-1.33C60.07,40.98 63.84,46.32 70.42,50.66zM38.91,45.52c0,2.83 -2.31,5.13 -5.13,5.13c-1.34,0 -2.61,-0.51 -3.57,-1.44c-0.65,-0.63 -1.13,-1.43 -1.37,-2.29l-0.06,0.01c0.26,-0.56 0.53,-1.12 0.82,-1.66c0.01,-0.01 0.01,-0.02 0.01,-0.03l6.9,-4.06C37.99,42.11 38.91,43.74 38.91,45.52zM56.19,33.02c0.17,0.5 0.46,1.3 0.92,2.3l-9.01,1.33c-0.34,-0.55 -0.73,-1.09 -1.14,-1.6l4.32,-2.54C52.96,32.52 54.6,32.69 56.19,33.02zM21.91,43.91c-2.04,-3.06 -3.12,-6.61 -3.12,-10.32c0,-10.27 8.36,-18.63 18.63,-18.63c7.03,0 13.32,3.83 16.54,10.04l-1.15,2.43h-2.14c-0.55,0 -1,0.44 -1,1c0,0.55 0.45,1 1,1h1.19l-0.28,0.58l-23.2,13.63L21.91,43.91zM26.9,60.89c2.15,0.96 4.5,1.47 6.88,1.47c3.67,0 7.07,-1.19 9.84,-3.2l5.01,5.73c-1.01,1.03 -1.91,2.18 -2.63,3.44c-2.16,3.77 -2.66,8.03 -1.41,12.02c0.04,0.13 0.09,0.26 0.14,0.39C35.5,78.24 28.41,70.48 26.9,60.89zM57.56,78.8c-1.18,-0.36 -2.04,-1.09 -2.43,-2.06c-0.39,-0.98 -0.26,-2.1 0.35,-3.17c0.66,-1.15 1.79,-2.08 3.17,-2.63c0.85,-0.34 1.71,-0.5 2.52,-0.5c1.85,0 3.45,0.84 4.03,2.3c0.39,0.97 0.26,2.09 -0.36,3.17c-0.66,1.14 -1.78,2.07 -3.17,2.63C60.29,79.09 58.83,79.18 57.56,78.8z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M18.14,81.6h-5.49c-0.56,0 -1,0.45 -1,1s0.44,1 1,1h5.49c0.55,0 1,-0.45 1,-1S18.69,81.6 18.14,81.6z"
+      android:fillColor="#000000"/>
+</vector>

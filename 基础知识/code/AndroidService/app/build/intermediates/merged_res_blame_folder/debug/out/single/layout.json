@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/layout_icon.xml",
+        "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/res/layout/layout_icon.xml"
+    }
+]

@@ -1,0 +1,201 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:2:1-54:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:2:1-54:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:2:1-54:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:2:1-54:12
+MERGED from [androidx.databinding:viewbinding:4.2.1] /Users/wangzhen/.gradle/caches/transforms-3/ab34139598af956858738bedd21c0ff2/transformed/jetified-viewbinding-4.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/025c9ddbe6f48e8607775bd38cb11069/transformed/jetified-lifecycle-viewmodel-ktx-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/5f7c3bbbe3cd7d2d5d7ad83d80bdde5e/transformed/jetified-lifecycle-runtime-ktx-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/d8f5161e9d1976511687fb3eecd15314/transformed/jetified-lifecycle-livedata-ktx-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/bf863d0a7a437ef8c116b8ff4fef83dc/transformed/jetified-lifecycle-livedata-core-ktx-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/wangzhen/.gradle/caches/transforms-3/a0e8556158560aea74a6c95b7a6c46f9/transformed/constraintlayout-2.0.4/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] /Users/wangzhen/.gradle/caches/transforms-3/84846170248e048dfd70c776b14b60fc/transformed/appcompat-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/0b864c74215ed1babcfa80b03684ef6f/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/ecfcd879e5bac2f15a4497487e263f82/transformed/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /Users/wangzhen/.gradle/caches/transforms-3/8b19fd390b91edf92ead8b846b3a0512/transformed/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/26418fea5283bfafec6987b6221a2ddb/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/feba6eea05c81573d1ad3cddb2201aac/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/432a051ebd7ad37c5b4027b3fc6d4c21/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/cc066a9204f4833f27562ea540a11832/transformed/jetified-activity-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/b0c2106943e28e8be77c2157a7ded65d/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/ffefd27590083754a462934413852d8b/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/8c6c1640be6c1cb8e0afa4cc1b53d14c/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.3.1] /Users/wangzhen/.gradle/caches/transforms-3/2c41ef318630daebc2ddb8f2123429a6/transformed/core-1.3.1/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/46a2b2bb41c85049a367b13ddfe2d65e/transformed/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/39f7842d2decf90eaf0427a37f5e51a3/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/632fc955290db325c8ed79a0e03c3ceb/transformed/lifecycle-livedata-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/b8dcd8b9c92cceac64ba41d69182fe8e/transformed/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/09122e927fcab68704299fdf448da657/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/d327034cae02a91dc5154b9e65a10376/transformed/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/wangzhen/.gradle/caches/transforms-3/cb5beb076f722e667cca7908f25f6c26/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/5f340bdba4c1c17bbe33a13c842f3ec2/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:2:1-54:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:2:1-54:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:2:1-54:12
+	package
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:4:3-43
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:2:1-54:12
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:3:3-49
+	android:versionCode
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:2:1-54:12
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:8:3-79
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:8:20-76
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:9:3-75
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:9:20-72
+application
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:12:3-52:17
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/wangzhen/.gradle/caches/transforms-3/a0e8556158560aea74a6c95b7a6c46f9/transformed/constraintlayout-2.0.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/wangzhen/.gradle/caches/transforms-3/a0e8556158560aea74a6c95b7a6c46f9/transformed/constraintlayout-2.0.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.3.1] /Users/wangzhen/.gradle/caches/transforms-3/2c41ef318630daebc2ddb8f2123429a6/transformed/core-1.3.1/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] /Users/wangzhen/.gradle/caches/transforms-3/2c41ef318630daebc2ddb8f2123429a6/transformed/core-1.3.1/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/d327034cae02a91dc5154b9e65a10376/transformed/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/d327034cae02a91dc5154b9e65a10376/transformed/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.1] /Users/wangzhen/.gradle/caches/transforms-3/2c41ef318630daebc2ddb8f2123429a6/transformed/core-1.3.1/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:17:5-31
+	android:label
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:15:5-37
+	tools:ignore
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:19:5-44
+	android:roundIcon
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:16:5-50
+	android:icon
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:14:5-39
+	android:allowBackup
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:13:5-32
+	android:theme
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:18:5-36
+activity#com.raywenderlich.android.memo.ui.MainActivity
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:22:5-30:16
+	android:launchMode
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:24:7-38
+	android:theme
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:25:7-41
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:23:7-38
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:26:7-29:23
+action#android.intent.action.MAIN
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:27:9-61
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:27:17-58
+category#android.intent.category.LAUNCHER
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:28:9-69
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:28:19-66
+receiver#com.raywenderlich.android.memo.ui.MainActivity$TimerReceiver
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:32:5-40:16
+	android:enabled
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:34:7-29
+	android:exported
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:35:7-30
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:33:7-52
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.INPUT_METHOD_CHANGED
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:36:7-39:23
+action#android.intent.action.BOOT_COMPLETED
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:37:9-71
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:37:17-68
+action#android.intent.action.INPUT_METHOD_CHANGED
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:38:9-77
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:38:17-74
+service#com.raywenderlich.android.memo.services.TimerService
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:43:5-46:36
+	android:enabled
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:45:9-31
+	android:exported
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:46:9-33
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:44:9-46
+service#com.raywenderlich.android.memo.services.MusicService
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:48:5-51:36
+	android:enabled
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:50:9-31
+	android:exported
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:51:9-33
+	android:name
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml:49:9-46
+uses-sdk
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:4.2.1] /Users/wangzhen/.gradle/caches/transforms-3/ab34139598af956858738bedd21c0ff2/transformed/jetified-viewbinding-4.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.databinding:viewbinding:4.2.1] /Users/wangzhen/.gradle/caches/transforms-3/ab34139598af956858738bedd21c0ff2/transformed/jetified-viewbinding-4.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/025c9ddbe6f48e8607775bd38cb11069/transformed/jetified-lifecycle-viewmodel-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/025c9ddbe6f48e8607775bd38cb11069/transformed/jetified-lifecycle-viewmodel-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/5f7c3bbbe3cd7d2d5d7ad83d80bdde5e/transformed/jetified-lifecycle-runtime-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/5f7c3bbbe3cd7d2d5d7ad83d80bdde5e/transformed/jetified-lifecycle-runtime-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/d8f5161e9d1976511687fb3eecd15314/transformed/jetified-lifecycle-livedata-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/d8f5161e9d1976511687fb3eecd15314/transformed/jetified-lifecycle-livedata-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/bf863d0a7a437ef8c116b8ff4fef83dc/transformed/jetified-lifecycle-livedata-core-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/bf863d0a7a437ef8c116b8ff4fef83dc/transformed/jetified-lifecycle-livedata-core-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/wangzhen/.gradle/caches/transforms-3/a0e8556158560aea74a6c95b7a6c46f9/transformed/constraintlayout-2.0.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/wangzhen/.gradle/caches/transforms-3/a0e8556158560aea74a6c95b7a6c46f9/transformed/constraintlayout-2.0.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] /Users/wangzhen/.gradle/caches/transforms-3/84846170248e048dfd70c776b14b60fc/transformed/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] /Users/wangzhen/.gradle/caches/transforms-3/84846170248e048dfd70c776b14b60fc/transformed/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/0b864c74215ed1babcfa80b03684ef6f/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/0b864c74215ed1babcfa80b03684ef6f/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/ecfcd879e5bac2f15a4497487e263f82/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/ecfcd879e5bac2f15a4497487e263f82/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /Users/wangzhen/.gradle/caches/transforms-3/8b19fd390b91edf92ead8b846b3a0512/transformed/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /Users/wangzhen/.gradle/caches/transforms-3/8b19fd390b91edf92ead8b846b3a0512/transformed/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/26418fea5283bfafec6987b6221a2ddb/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/26418fea5283bfafec6987b6221a2ddb/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/feba6eea05c81573d1ad3cddb2201aac/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/feba6eea05c81573d1ad3cddb2201aac/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/432a051ebd7ad37c5b4027b3fc6d4c21/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/432a051ebd7ad37c5b4027b3fc6d4c21/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/cc066a9204f4833f27562ea540a11832/transformed/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/cc066a9204f4833f27562ea540a11832/transformed/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/b0c2106943e28e8be77c2157a7ded65d/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/b0c2106943e28e8be77c2157a7ded65d/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/ffefd27590083754a462934413852d8b/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/ffefd27590083754a462934413852d8b/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/8c6c1640be6c1cb8e0afa4cc1b53d14c/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/8c6c1640be6c1cb8e0afa4cc1b53d14c/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.3.1] /Users/wangzhen/.gradle/caches/transforms-3/2c41ef318630daebc2ddb8f2123429a6/transformed/core-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] /Users/wangzhen/.gradle/caches/transforms-3/2c41ef318630daebc2ddb8f2123429a6/transformed/core-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/46a2b2bb41c85049a367b13ddfe2d65e/transformed/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/46a2b2bb41c85049a367b13ddfe2d65e/transformed/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/39f7842d2decf90eaf0427a37f5e51a3/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/39f7842d2decf90eaf0427a37f5e51a3/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/632fc955290db325c8ed79a0e03c3ceb/transformed/lifecycle-livedata-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/632fc955290db325c8ed79a0e03c3ceb/transformed/lifecycle-livedata-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/b8dcd8b9c92cceac64ba41d69182fe8e/transformed/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /Users/wangzhen/.gradle/caches/transforms-3/b8dcd8b9c92cceac64ba41d69182fe8e/transformed/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/09122e927fcab68704299fdf448da657/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/09122e927fcab68704299fdf448da657/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/d327034cae02a91dc5154b9e65a10376/transformed/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/wangzhen/.gradle/caches/transforms-3/d327034cae02a91dc5154b9e65a10376/transformed/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/wangzhen/.gradle/caches/transforms-3/cb5beb076f722e667cca7908f25f6c26/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/wangzhen/.gradle/caches/transforms-3/cb5beb076f722e667cca7908f25f6c26/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/5f340bdba4c1c17bbe33a13c842f3ec2/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/5f340bdba4c1c17bbe33a13c842f3ec2/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/基础知识/code/AndroidService/app/src/main/AndroidManifest.xml

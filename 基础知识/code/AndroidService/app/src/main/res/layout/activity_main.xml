@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".ui.MainActivity">
+
+    <Button
+        android:id="@+id/btnPlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/largeMargin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginEnd="@dimen/largeMargin"
+        android:background="@color/colorAccent"
+        android:padding="@dimen/padding"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/play_p_level" />
+
+    <Button
+        android:id="@+id/btnQuit"
+        android:layout_width="@dimen/optionsDim"
+        android:layout_height="@dimen/optionsDim"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        android:background="@drawable/ic_quit"
+        android:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnSongName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/padding"
+        android:text="@string/song_name"
+        android:textAlignment="center"
+        android:textColor="@color/violet"
+        android:textSize="@dimen/smallTextSize"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin"
+        android:columnWidth="100dp"
+        android:gravity="center"
+        android:horizontalSpacing="@dimen/smallPadding"
+        android:numColumns="auto_fit"
+        android:padding="@dimen/padding"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="@dimen/padding"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/musicOptions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        android:background="@android:color/transparent"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/smallTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="00:01" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/musicOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin"
+        app:layout_constraintBottom_toTopOf="@+id/btnSongName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnPlayMusic"
+            android:layout_width="@dimen/optionsDim"
+            android:layout_height="@dimen/optionsDim"
+            android:background="@drawable/background_btn_play"
+            android:contentDescription="@string/cd_play_icon"
+            android:enabled="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnPauseMusic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnPauseMusic"
+            android:layout_width="@dimen/optionsDim"
+            android:layout_height="@dimen/optionsDim"
+            android:layout_marginStart="@dimen/margin"
+            android:background="@drawable/background_btn_pause"
+            android:contentDescription="@string/cd_pause_icon"
+            android:enabled="false"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnStopMusic"
+            app:layout_constraintStart_toEndOf="@id/btnPlayMusic"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnStopMusic"
+            android:layout_width="@dimen/optionsDim"
+            android:layout_height="@dimen/optionsDim"
+            android:layout_marginStart="@dimen/margin"
+            android:background="@drawable/background_btn_stop"
+            android:contentDescription="@string/cd_stop_icon"
+            android:enabled="false"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnShuffleMusic"
+            app:layout_constraintStart_toEndOf="@id/btnPauseMusic"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnShuffleMusic"
+            android:layout_width="@dimen/optionsDim"
+            android:layout_height="@dimen/optionsDim"
+            android:layout_marginStart="@dimen/margin"
+            android:background="@drawable/background_btn_shuffle"
+            android:contentDescription="@string/cd_stop_icon"
+            android:enabled="false"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnStopMusic"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

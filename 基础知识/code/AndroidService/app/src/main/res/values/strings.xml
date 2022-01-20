@@ -1,0 +1,27 @@
+<resources>
+  <string name="app_name">Memo</string>
+  <string name="play_p_level">Play %1$s level</string>
+  <string name="quit">Quit</string>
+  <string name="ok">OK</string>
+  <string name="well_done_your_time_is_p">Well done! Your time is: %1$s s</string>
+  <string name="click_ok_to_reset_progress">Click OK to reset progress.</string>
+  <string name="you_have_finished_all_levels">You\'ve finished all levels!</string>
+  <string name="click_ok_for_proceeding_to_the_next_level">Click OK for proceeding to the next level.</string>
+  <string name="time_is_running">Time\'s running! %1$s</string>
+  <string name="get_back">Hey you! Get back! :]</string>
+  <string name="error_in_generating_cards">Error in generating cards</string>
+  <string name="service_is_not_bound">Service isn\'t bound</string>
+  <string name="song_name">Get song name</string>
+  <string name="music_started">Music started</string>
+  <string name="music_stopped">Music stopped</string>
+  <string name="music_paused">Music paused</string>
+  <string name="songs_shuffled">Songs shuffled</string>
+
+  <!--  Content description-->
+  <string name="cd_memo_icon">Memo Icon</string>
+  <string name="cd_play_icon">Play music icon</string>
+  <string name="cd_stop_icon">Stop music icon</string>
+  <string name="cd_pause_icon">Pause music icon</string>
+  <string name="error_occured_in_starting_song">Error occurred in starting song</string>
+  <string name="unknown">Unknown</string>
+</resources>

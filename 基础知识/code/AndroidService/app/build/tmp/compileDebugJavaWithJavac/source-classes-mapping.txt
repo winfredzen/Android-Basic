@@ -1,0 +1,6 @@
+com/raywenderlich/android/memo/BuildConfig.java
+ com.raywenderlich.android.memo.BuildConfig
+com/raywenderlich/android/memo/databinding/ActivityMainBinding.java
+ com.raywenderlich.android.memo.databinding.ActivityMainBinding
+com/raywenderlich/android/memo/databinding/LayoutIconBinding.java
+ com.raywenderlich.android.memo.databinding.LayoutIconBinding
