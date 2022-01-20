@@ -93,7 +93,7 @@ class NotificationHelper(private val context: Context) {
     // TODO: Define updateNotification()
     // 更新通知
     fun updateNotification(notificationText: String? = null) {
-        // 1
+        // 更新通知的内容文本
         notificationText?.let { notificationBuilder.setContentText(it) }
         // 通知更新
         notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build())

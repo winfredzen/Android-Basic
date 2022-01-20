@@ -139,13 +139,11 @@ class TimerService : Service(), CoroutineScope {
     }
 
     private fun stopService() {
-        // TODO: Call stopping service
         //停止服务
         //  tells the system that it should remove this service from foreground state
         stopForeground(true)
         // Since a service can start itself, it must handle stopping itself, as well
         stopSelf()
-
     }
 
     private fun startCoroutineTimer() {
