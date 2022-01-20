@@ -46,91 +46,89 @@ import java.util.*
 // TODO: Inherit Service()
 class MusicService : Service() {
 
-  private var musicState = MusicState.STOP
-  private var musicMediaPlayer: MediaPlayer? = null
+    private var musicState = MusicState.STOP
+    private var musicMediaPlayer: MediaPlayer? = null
 
-  private val songs: List<Int> = listOf(
-      R.raw.driving_ambition,
-      R.raw.beautiful_dream
-  )
-  private var randomSongs = mutableListOf<Int>()
+    private val songs: List<Int> = listOf(
+        R.raw.driving_ambition,
+        R.raw.beautiful_dream
+    )
+    private var randomSongs = mutableListOf<Int>()
 
-  // TODO: Define MusicBinder() variable
-
-  // TODO: Add onBind()
-
-  fun runAction(state: MusicState) {
-    musicState = state
-    when (state) {
-      MusicState.PLAY -> startMusic()
-      MusicState.PAUSE -> pauseMusic()
-      MusicState.STOP -> stopMusic()
-      MusicState.SHUFFLE_SONGS -> shuffleSongs()
-    }
-  }
-
-  // TODO: Add getNameOfSong()
-  fun getNameOfSong(): String =
-    resources.getResourceEntryName(randomSongs.first())
-      .replaceFirstChar {
-        if (it.isLowerCase()) it.titlecase(Locale.ENGLISH)
-        else it.toString()
-      }.replace("_", " ")
-
-
-  private fun initializeMediaPlayer() {
-    if (randomSongs.isEmpty()) {
-      randomizeSongs()
-    }
-    // TODO: Initialize Media Player
-    musicMediaPlayer = MediaPlayer.create(this, randomSongs.first()).apply {
-      isLooping = true
+    //控制音乐的播放、暂停、停止、切歌
+    fun runAction(state: MusicState) {
+        musicState = state
+        when (state) {
+            MusicState.PLAY -> startMusic()
+            MusicState.PAUSE -> pauseMusic()
+            MusicState.STOP -> stopMusic()
+            MusicState.SHUFFLE_SONGS -> shuffleSongs()
+        }
     }
 
-  }
+    // TODO: Add getNameOfSong()
+    fun getNameOfSong(): String =
+        resources.getResourceEntryName(randomSongs.first())
+            .replaceFirstChar {
+                if (it.isLowerCase()) it.titlecase(Locale.ENGLISH)
+                else it.toString()
+            }.replace("_", " ")
 
-  private fun startMusic() {
-    initializeMediaPlayer()
-    musicMediaPlayer?.start()
-  }
 
-  private fun pauseMusic() {
-    musicMediaPlayer?.pause()
-  }
 
-  private fun stopMusic() {
-    musicMediaPlayer?.run {
-      stop()
-      release()
+    private fun initializeMediaPlayer() {
+        if (randomSongs.isEmpty()) {
+            randomizeSongs()
+        }
+        //无限循环播放音乐
+        musicMediaPlayer = MediaPlayer.create(this, randomSongs.first()).apply {
+            isLooping = true
+        }
+
     }
-  }
 
-  private fun shuffleSongs() {
-    musicMediaPlayer?.run {
-      stop()
-      release()
+    private fun startMusic() {
+        initializeMediaPlayer()
+        musicMediaPlayer?.start()
     }
-    randomizeSongs()
-    startMusic()
-  }
 
-  private fun randomizeSongs() {
-    randomSongs.clear()
-    randomSongs.addAll(songs.shuffled())
-  }
+    private fun pauseMusic() {
+        musicMediaPlayer?.pause()
+    }
 
-  // TODO: create binder - MusicBinder
+    private fun stopMusic() {
+        musicMediaPlayer?.run {
+            stop()
+            release()
+        }
+    }
 
-  override fun onBind(intent: Intent?): IBinder = binder
+    private fun shuffleSongs() {
+        musicMediaPlayer?.run {
+            stop()
+            release()
+        }
+        randomizeSongs()
+        startMusic()
+    }
 
-  private val binder by lazy { MusicBinder() }
+    private fun randomizeSongs() {
+        randomSongs.clear()
+        randomSongs.addAll(songs.shuffled())
+    }
 
-  inner class MusicBinder : Binder() {
+    override fun onBind(intent: Intent?): IBinder = binder
 
-    fun getService(): MusicService = this@MusicService
+    private val binder by lazy { MusicBinder() }
 
+    /**
+     * 通过扩展Binder，其它的component可以使用Binder 或者 Service的公开方法
+     */
+    inner class MusicBinder : Binder() {
+        //获取Service对象
+        fun getService(): MusicService = this@MusicService
 
-  }
+    }
 
 
 }
