@@ -292,7 +292,7 @@ public class CustomLinearLayout extends LinearLayout {
 
 2.`canvas.drawBitmap(mBitmap,0,0,mPaint);`将图像转为黑白图像，绘制在Canvas画布上
 
-![183](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/183.png)
+![184](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/184.png)
 
 
 
