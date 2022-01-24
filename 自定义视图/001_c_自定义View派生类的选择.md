@@ -239,6 +239,67 @@ public class CustomViewGroup extends ViewGroup {
 
 
 
+### 继承自ViewGroup的子类
+
+上面的例子，如果直接继承自`LinearLayout`，就不需要重写上面的方法了
+
+如下，实现黑白图像效果：
+
+```java
+public class CustomLinearLayout extends LinearLayout {
+    private ColorMatrix colorMatrix = new ColorMatrix(new float[]{
+            0.213f, 0.715f, 0.072f, 0, 0,
+            0.213f, 0.715f, 0.072f, 0, 0,
+            0.213f, 0.715f, 0.072f, 0, 0,
+            0,       0,    0, 1, 0,
+    });
+    private Bitmap mBitmap;
+    private Canvas mCanvas;
+    private Paint mPaint;
+
+    public CustomLinearLayout(Context context) {
+        super(context);
+    }
+
+    public CustomLinearLayout(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public CustomLinearLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        if (mBitmap == null){
+            mBitmap = Bitmap.createBitmap(getWidth(),getHeight(), Config.ARGB_8888);
+            mCanvas = new Canvas(mBitmap);
+            mPaint = new Paint();
+            mPaint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+        }
+        canvas.save();
+
+        super.dispatchDraw(mCanvas);
+
+        canvas.drawBitmap(mBitmap,0,0,mPaint);
+        canvas.restore();
+    }
+}
+
+```
+
+1.利用`super.dispatchDraw(mCanvas);`将子控件画在已创建好的空白`mBitmap`上
+
+2.`canvas.drawBitmap(mBitmap,0,0,mPaint);`将图像转为黑白图像，绘制在Canvas画布上
+
+![183](https://github.com/winfredzen/Android-Basic/blob/master/自定义视图/images/183.png)
+
+
+
+> 继承自View类时，我们只能实现一个空间的效果。而继承自ViewGroup类时，可以将它包裹的子控件变为统一的效果，具有更强的适配性
+
+
+
 
 
 
