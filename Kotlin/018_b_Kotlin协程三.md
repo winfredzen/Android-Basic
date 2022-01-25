@@ -74,6 +74,155 @@ val job = scope.launch(Dispatchers.IO) {
 
 
 
+**Job**
+
+`Job`是协程的句柄。使用 `launch` 或 `async` 创建的每个协程都会返回一个 `Job` 实例，该实例是相应协程的唯一标识并管理其生命周期。还可以将 `Job` 传递给 `CoroutineScope` 以进一步管理其生命周期
+
+`Job`有如下的状态，New, Active, Completing, Completed, Cancelling 和 Cancelled
+
+![026](https://github.com/winfredzen/Android-Basic/blob/master/Kotlin/images/026.png)
+
+
+
+## Cancellation in coroutines
+
+内容来自：[Cancellation in coroutines](https://medium.com/androiddevelopers/cancellation-in-coroutines-aa6b90163629)
+
+可以取消启动协程的整个作用域，因为这将取消所有创建的子协程：
+
+```kotlin
+// assume we have a scope defined for this layer of the app
+val job1 = scope.launch { … }
+val job2 = scope.launch { … }
+scope.cancel()
+```
+
+也可以取消单个协程，取消单个协程，并不会影响其他的兄弟协程
+
+```kotlin
+// assume we have a scope defined for this layer of the app
+val job1 = scope.launch { … }
+val job2 = scope.launch { … }
+// First coroutine will be cancelled and the other one won’t be affected
+job1.cancel()
+```
+
+cancel的定义如下
+
+```kotlin
+public fun cancel(cause: CancellationException? = null)
+```
+
+> Once you cancel a scope, you won’t be able to launch new coroutines in the cancelled scope
+>
+> 取消scope后，将无法在取消的scope内启动新的协程
+
+如果你使用了androidx KTX库，在绝大数情况下，你不创建自己的scope，你就不必负责取消他们
+
+> If you’re working in the scope of a `ViewModel`, using `viewModelScope` or, if you want to launch coroutines tied to a lifecycle scope, you would use the `lifecycleScope`. Both `viewModelScope` and `lifecycleScope` are `CoroutineScope` objects that get cancelled at the right time. For example, [when the ViewModel is cleared](https://medium.com/androiddevelopers/easy-coroutines-in-android-viewmodelscope-25bffb605471), it cancels the coroutines launched in its scope.
+>
+> 如果使用了`viewModelScope`和`lifecycleScope`，在合适的时间，它们会自动取消
+
+**为什么协程work不停止？**
+
+如果仅仅是调用cancel，并不意味着协程work会停止
+
+如下的例子：
+
+```kotlin
+runBlocking<Unit> {
+    val startTime = System.currentTimeMillis()
+    val job = launch (Dispatchers.Default) {
+        println("current thread = " + Thread.currentThread().name)
+        var nextPrintTime = startTime
+        var i = 0
+        while (i < 5) {
+            // print a message twice a second
+            if (System.currentTimeMillis() >= nextPrintTime) {
+                println("Hello ${i++}")
+                nextPrintTime += 500L
+            }
+        }
+    }
+    delay(1000L)
+    println("Cancel!")
+    job.cancel()
+    println("Done!")
+}
+```
+
+打印输出如下：
+
+```kotlin
+2022-01-25 14:23:31.522 17909-17971/com.example.kotlincoroutinedemo I/System.out: Hello 0
+2022-01-25 14:23:31.994 17909-17971/com.example.kotlincoroutinedemo I/System.out: Hello 1
+2022-01-25 14:23:32.494 17909-17971/com.example.kotlincoroutinedemo I/System.out: Hello 2
+2022-01-25 14:23:32.526 17909-17909/com.example.kotlincoroutinedemo I/System.out: Cancel!
+2022-01-25 14:23:32.528 17909-17909/com.example.kotlincoroutinedemo I/System.out: Done!
+2022-01-25 14:23:32.994 17909-17971/com.example.kotlincoroutinedemo I/System.out: Hello 3
+2022-01-25 14:23:33.494 17909-17971/com.example.kotlincoroutinedemo I/System.out: Hello 4
+```
+
+会发现取消后，还在继续输出
+
+> 可见取消后，协程work并没有停止。我们须有周期性的检查协程是否是active
+
+`kotlinx.coroutines` 中的所有挂起函数都是可取消的：`withContext`、`delay` 等
+
+有两种方式，解决上面的问题
+
+1.通过`job.isActive`或者`ensureActive()`
+
+2.使用`yield()`
+
+**检查job的活动状态**
+
+```kotlin
+// Since we're in the launch block, we have access to job.isActive
+while (i < 5 && isActive)
+```
+
+`ensureActive()`方法的实现是：
+
+```kotlin
+fun Job.ensureActive(): Unit {
+    if (!isActive) {
+         throw getCancellationException()
+    }
+}
+```
+
+使用方式如下：
+
+```kotlin
+while (i < 5) {
+    ensureActive()
+    …
+}
+```
+
+
+
+**Job.join vs Deferred.await 取消**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

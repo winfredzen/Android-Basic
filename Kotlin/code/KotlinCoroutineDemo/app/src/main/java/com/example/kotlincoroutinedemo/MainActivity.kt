@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var btn: Button
@@ -22,16 +20,38 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun start() {
-        runBlocking {
-            Log.d("runBlocking", "启动一个协程")
+//        runBlocking {
+//            Log.d("runBlocking", "启动一个协程")
+//        }
+//
+//        GlobalScope.launch {
+//            Log.d("launch", "启动一个协程")
+//        }
+//
+//        GlobalScope.launch {
+//            Log.d("async", "启动一个协程")
+//        }
+
+
+        runBlocking<Unit> {
+            val startTime = System.currentTimeMillis()
+            val job = launch (Dispatchers.Default) {
+                println("current thread = " + Thread.currentThread().name)
+                var nextPrintTime = startTime
+                var i = 0
+                while (i < 5) {
+                    // print a message twice a second
+                    if (System.currentTimeMillis() >= nextPrintTime) {
+                        println("Hello ${i++}")
+                        nextPrintTime += 500L
+                    }
+                }
+            }
+            delay(1000L)
+            println("Cancel!")
+            job.cancel()
+            println("Done!")
         }
 
-        GlobalScope.launch {
-            Log.d("launch", "启动一个协程")
-        }
-
-        GlobalScope.launch {
-            Log.d("async", "启动一个协程")
-        }
     }
 }
