@@ -205,9 +205,38 @@ while (i < 5) {
 
 **Job.join vs Deferred.await 取消**
 
+有两种方式从协程中等待结果：`launch`返回的job可以调用`join`，`async`返回的`Deferred`（a type of `Job`）可使用`await`
+
+`Job.join`会挂起协程直至work完成，结合`job.cancel`使用时有两种情况
+
++ 先调用`job.cancel`再调用`job.join`，协程会挂起直至完成
++ 在调用`job.join`再调用`job.cancel`没有影响，此时job已经完成了
 
 
 
+如果对协程的结果感兴趣，可使用`Deferred`，当协程完成时，结果通过`Deferred.await`返回，`Deferred`也是一种`Job`，也可以被取消
+
+在已cancelled的deferred上调用`await`，会抛出`JobCancellationException`
+
+```kotlin
+val deferred = async { … }
+deferred.cancel()
+val result = deferred.await() // throws JobCancellationException!
+```
+
+
+
+## Exceptions in coroutines
+
+内容来自:[Exceptions in coroutines](https://medium.com/androiddevelopers/exceptions-in-coroutines-ce8da1ec060c)
+
+当协程因异常而失败时，它将将该异常传播到其父级！ 然后，父级将 1) 取消其余子级，2) 取消自身 3) 将异常传播到其父级
+
+异常将到达层次结构的root，并且 `CoroutineScope` 启动的所有协程也将被取消
+
+![027](https://github.com/winfredzen/Android-Basic/blob/master/Kotlin/images/027.gif)
+
+> 协程中异常会通过协程的层级传播
 
 
 
