@@ -284,6 +284,82 @@ scope.launch {
 }
 ```
 
+**Async**
+
+当`async`作为root协程(coroutines that are a direct child of a `CoroutineScope` instance or `supervisorScope`)，异常并不会自动抛出，而是在调用 `.await()` 时抛出
+
+为处理异常，可以把`.await()`包裹在`try/catch`中：
+
+```kotlin
+supervisorScope {
+    val deferred = async {
+        codeThatCanThrowExceptions()
+    }
+    try {
+        deferred.await()
+    } catch(e: Exception) {
+        // Handle exception thrown in async
+    }
+}
+```
+
+注意，使用的是`supervisorScope`来调用`async`和`await`。`SupervisorJob` 让协程处理异常； 与 `Job` 不同，它将自动在层次结构中向上传播，因此不会调用 catch 块:
+
+```kotlin
+coroutineScope {
+    try {
+        val deferred = async {
+            codeThatCanThrowExceptions()
+        }
+        deferred.await()
+    } catch(e: Exception) {
+        // Exception thrown in async WILL NOT be caught here 
+        // but propagated up to the scope
+    }
+}
+```
+
+此外，由其他协程创建的协程中发生的异常将始终被传播，而与协程构建器无关。 例如： 
+
+```kotlin
+val scope = CoroutineScope(Job())
+scope.launch {
+    async {
+        // If async throws, launch throws without calling .await()
+    }
+}
+```
+
+
+
+### CoroutineExceptionHandler
+
+`CoroutineExceptionHandler`是`CoroutineContext`的一个可选的元素，用于处理未捕获的异常
+
+```kotlin
+val handler = CoroutineExceptionHandler {
+    context, exception -> println("Caught $exception")
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
