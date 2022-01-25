@@ -238,21 +238,51 @@ val result = deferred.await() // throws JobCancellationException!
 
 > 协程中异常会通过协程的层级传播
 
+想象一下，假设一个UI相关`CoroutineScope`来处理用户交互，如果一个子协程抛出了一个异常，则UI scope就会被取消，整个UI组件都变的不响应，由于取消的协程不能再启动更多的协程
+
+这种情况肯定不是我们想要的。所以，使用`SupervisorJob`
+
+使用 `SupervisorJob`，一个child的失败不会影响其他child。 `SupervisorJob` 不会取消自己或其他子项。 此外，`SupervisorJob` 也不会传播异常，而是让子协程处理它
+
+通过`val uiScope = CoroutineScope(SupervisorJob())`方式创建协程，以在协程失败时不传播取消
+
+![028](https://github.com/winfredzen/Android-Basic/blob/master/Kotlin/images/028.png)
+
+> *A SupervisorJob won’t cancel itself or the rest of its children*
+>
+> SupervisorJob不会取消自己或其他子项
 
 
 
+如果异常没出处理，而且`CoroutineContext`没有一个`CoroutineExceptionHandler`，它将到达默认线程的 `ExceptionHandler`。 在JVM中，异常会被记录到控制台； 在 Android 中，无论发生在哪个 Dispatcher 上，它都会使您的应用程序崩溃
+
+这种行为有适用于scope构造器`coroutineScope`和`supervisorScope`，会创建一个sub-scope（with a Job or a SupervisorJob accordingly as a parent）。可以使用该sub-scope对协程进行逻辑分组（例如，如果您想要进行并行计算，或者您希望它们相互影响或不受影响）
+
+***Warning\***: A `SupervisorJob` **only** works as described when it’s part of a scope: either created using `supervisorScope` or `CoroutineScope(SupervisorJob())`.
+
+> 使用`supervisorScope`或者使用 `CoroutineScope(SupervisorJob())`创建`SupervisorJob`
 
 
 
+### 处理异常
 
+协程使用Kotlin语法来处理异常：`try/catch`，或者内置的帮助方法[runCatching](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run-catching.html)
 
+我们之前说过，未捕获的异常总是会被抛出。 但是，不同的协程构建器以不同的方式处理异常。
 
+**Launch**
 
+对launch来说，异常发生时就会被抛出来，所以可使用`try/catch`来捕获，如下的例子：
 
-
-
-
-
+```kotlin
+scope.launch {
+    try {
+        codeThatCanThrowExceptions()
+    } catch(e: Exception) {
+        // Handle exception
+    }
+}
+```
 
 
 
