@@ -36,13 +36,41 @@ val job = scope.launch {
 
 ![023](https://github.com/winfredzen/Android-Basic/blob/master/Kotlin/images/023.png)
 
+**父类CoroutineContext的解释**
 
+> However, the resulting parent `CoroutineContext` of a coroutine can be different from the `CoroutineContext` of the parent since it’s calculated based on this formula:
+>
+> > **Parent context** *= Defaults + inherited* `CoroutineContext` *+ arguments*
 
++ 有些元素有默认的值 - `CoroutineDispatcher`默认值为`Dispatchers.Default`，`CoroutineName`的默认值为`coroutine`
++ 继承的`CoroutineContext`是创建`CoroutineScope` or 协程的`CoroutineContext`
++ 在协程构建器中传递的参数将优先于继承上下文中的那些元素
 
+**注意**：可以使用`+`运算符来组合`CoroutineContext`。由于`CoroutineContext`是一组元素，因此将创建一个新的 `CoroutineContext`，其中加号右侧的元素覆盖左侧的元素。如，`(Dispatchers.Main, “name”) + (Dispatchers.IO) = (Dispatchers.IO, “name”)`
 
+![024](https://github.com/winfredzen/Android-Basic/blob/master/Kotlin/images/024.png)
 
+> *CoroutineName*s是灰色的，表示它是默认值
 
+所以，新的协程上下文是：
 
+> **New coroutine context** *= parent* `CoroutineContext` *+* `Job()`
+
+下面的形式：
+
+```kotlin
+val job = scope.launch(Dispatchers.IO) {
+    // new coroutine
+}
+```
+
+其父`CoroutineContext`和实际的`CoroutineContext`是什么呢？
+
+![025](https://github.com/winfredzen/Android-Basic/blob/master/Kotlin/images/025.png)
+
+> *The Job in the CoroutineContext and in the parent context will never be the same instance as a new coroutine always get a new instance of a Job*
+>
+> `CoroutineContext`和其父context的`Job`绝不会是同一个实例。原因是，一个新的协程总是会有一个新的`Job`实例
 
 
 
