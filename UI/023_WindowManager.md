@@ -40,6 +40,18 @@
 
 
 
+源码地址[demo_android_windowmanage](https://github.com/elye/demo_android_windowmanager)
+
+效果如下：
+
+![051](https://github.com/winfredzen/Android-Basic/blob/master/UI/images/051.png)
+
+![052](https://github.com/winfredzen/Android-Basic/blob/master/UI/images/052.png)
+
+
+
+
+
 
 
 
