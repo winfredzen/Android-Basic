@@ -148,6 +148,59 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data)
 
 
 
+可参考其它的文章：
+
++ [一篇文章搞懂 Activity 启动模式](https://juejin.cn/post/6844903781486821389)
+
+
+
+## FLAG_ACTIVITY_NEW_TASK
+
+参考：
+
++ [了解任务和返回堆栈](https://developer.android.com/guide/components/activities/tasks-and-back-stack?hl=zh-cn)
+
+> `FLAG_ACTIVITY_NEW_TASK`
+>
+> 在新任务中启动 Activity。如果您现在启动的 Activity 已经有任务在运行，则系统会将该任务转到前台并恢复其最后的状态，而 Activity 将在 `onNewIntent()` 中收到新的 intent。
+>
+> 这与上一节中介绍的 `"singleTask"` [`launchMode`](https://developer.android.com/guide/topics/manifest/activity-element?hl=zh-cn#lmode) 值产生的行为相同。
+
+>亲和性可在两种情况下发挥作用：
+>
+>- 当启动 Activity 的 intent 包含`FLAG_ACTIVITY_NEW_TASK`标记时。
+>
+>  默认情况下，新 Activity 会启动到调用 `startActivity()` 的 Activity 的任务中。它会被推送到调用方 Activity 所在的返回堆栈中。但是，如果传递给 `startActivity()` 的 intent 包含 `FLAG_ACTIVITY_NEW_TASK` 标记，则系统会寻找其他任务来容纳新 Activity。通常会是一个新任务，但也可能不是。如果已存在与新 Activity 具有相同亲和性的现有任务，则会将 Activity 启动到该任务中。如果不存在，则会启动一个新任务。
+>
+>  如果此标记导致 Activity 启动一个新任务，而用户按下主屏幕按钮离开该任务，则必须为用户提供某种方式来返回到该任务。有些实体（例如通知管理器）总是在外部任务中启动 Activity，而不在它们自己的任务中启动，因此它们总是将 `FLAG_ACTIVITY_NEW_TASK` 添加到传递给 `startActivity()` 的 intent 中。
+
+
+
+另外可参考：
+
++ [Android Intent.FLAG_ACTIVITY_NEW_TASK的个人理解](https://blog.csdn.net/u010389391/article/details/78558475)
+
+> 设置此状态，首先会查找是否存在和被启动的Activity具有相同的亲和性的任务栈（即taskAffinity，注意同一个应用程序中的activity的亲和性一样），如果有，则直接把这个栈整体移动到前台，并保持栈中的状态不变，即栈中的activity顺序不变，如果没有，则新建一个栈来存放被启动的activity
+
+> 1.在Activity上下文之外启动Activity需要给Intent设置`FLAG_ACTIVITY_NEW_TASK`标志，不然会报异常。
+> 2.加了该标志，如果在同一个应用中进行Activity跳转，不会创建新的Task，只有在不同的应用中跳转才会创建新的Task
+
+
+
+## moveTaskToBack
+
+> `moveTaskToBack()`方法：在activity中调用 `moveTaskToBack (boolean nonRoot)`方法即可将activity 退到后台，注意不是`finish()`退出
+>
+> 参数说明：
+>
+> 参数为`false`——代表只有当前activity是task根，指应用启动的第一个activity时，才有效;
+>
+> 参数为`true`——则忽略这个限制，任何activity都可以有效。
+>
+> 说明：判断Activity是否是task根，Activity本身给出了相关方法：`isTaskRoot()`
+
+
+
 ## 最佳实践
 
 1.当前在哪一个activity
