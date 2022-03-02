@@ -19,7 +19,8 @@ public class SocketThread extends Thread{
         try {
             //创建socket
             //创建socket客户端并发起连接
-            Socket socket = new Socket("192.168.17.51", 20000);
+//            Socket socket = new Socket("172.16.162.218", 11111);
+            Socket socket = new Socket("172.16.162.158", 20000);
             //写入数据
             OutputStream outputStream = socket.getOutputStream();
             outputStream.write(("Hello, 我是来自客户端的消息" + "\n").getBytes());
