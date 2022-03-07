@@ -87,6 +87,14 @@ public class VoteMsgBinCoder implements VoteMsgCoder {
 
 
 
+这里面用到很多的io操作，可参考原来的博文：
+
++ [Java IO流](https://blog.csdn.net/winfredzen/article/details/51175148)
+
+
+
+
+
 ## 粘包和分包
 
 参考：
