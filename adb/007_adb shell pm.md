@@ -44,6 +44,24 @@ adb shell dumpsys package | grep -Eo "^[[:space:]]+[0-9a-f]+[[:space:]]+com.andr
 
 
 
+**查看当前用户**
+
+```shell
+adb shell pm list users
+```
+
+![012](https://github.com/winfredzen/Android-Basic/blob/master/adb/images/012.png)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
