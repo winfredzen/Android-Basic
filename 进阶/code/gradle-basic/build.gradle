@@ -51,17 +51,17 @@ def map = ["name" : "mooc", "age" : "100"]
 //println("map is $map")
 //println("age is ${map["age"]}")
 
-for (int i = 0; i < 10; i++) {
-    println("age is $i")
-}
+//for (int i = 0; i < 10; i++) {
+//    println("age is $i")
+//}
 
 
-def hello(String name) {
-    println("Hello, $name")
-}
-hello("wz")
+//def hello(String name) {
+//    println("Hello, $name")
+//}
+//hello("wz")
 
-
+println("[life-cycle] 我是根目录build.gradle")
 
 
 

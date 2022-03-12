@@ -1,5 +1,27 @@
 include ':app'
 
+println("[life-cycle] 我是settings.gradle")
 
+//添加 构建的生命周期监听
+gradle.addBuildListener(new BuildAdapter() {
+
+    @Override
+    void settingsEvaluated(Settings settings) {
+        super.settingsEvaluated(settings)
+        println("[life-cycle] 初始化阶段完成")
+    }
+
+    @Override
+    void projectsEvaluated(Gradle gradle) {
+        super.projectsEvaluated(gradle)
+        println("[life-cycle] 配置阶段完成")
+    }
+
+    @Override
+    void buildFinished(BuildResult buildResult) {
+        super.buildFinished(buildResult)
+        println("[life-cycle] 构建结束")
+    }
+})
 
 

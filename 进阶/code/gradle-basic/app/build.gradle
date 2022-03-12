@@ -36,7 +36,7 @@ def c = { println("Hello Closure")}
 c()
 
 // 有一个的参数的时候，参数可以忽略，默认名称为 it
-def c2 = { println("c2: it = $it") }
+def c2 = {it -> println("c2: it = $it") }
 c2("imooc")
 
 // 只有一个参数的时候，名称可以任意指定，但是it就不可用了
@@ -110,22 +110,13 @@ class Android {
 
 }
 
+println("[life-cycle] 我是app目录build.gradle")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+task testTask() {
+    doLast {
+        println("[life-cycle] 我是任务中的代码")
+    }
+}
 
 
 
