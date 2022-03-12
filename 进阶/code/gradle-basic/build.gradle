@@ -1,0 +1,72 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        // 声明插件ID与版本号
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+println("Hello World, Groovy")
+
+int a = 10
+def b = 10
+
+//println("a = $a")
+//println("b = $b")
+
+//String str = "Hello, " + "World"
+//String str2 = str.toUpperCase()
+//println("str = $str2")
+
+
+//def array = [1, 2, 3, 4]
+//array.add(5)
+////遍历
+//array.each {
+//    println("each item is $it")
+//}
+//println("array is $array")
+
+def map = ["name" : "mooc", "age" : "100"]
+
+//println("map is $map")
+//println("age is ${map["age"]}")
+
+for (int i = 0; i < 10; i++) {
+    println("age is $i")
+}
+
+
+def hello(String name) {
+    println("Hello, $name")
+}
+hello("wz")
+
+
+
+
+
+
+
+
+
+
