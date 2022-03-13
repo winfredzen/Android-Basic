@@ -119,7 +119,7 @@ task testTask() {
 }
 
 
-
+println("[我是app project] 我的工程路径是${project.projectDir}")
 
 
 
