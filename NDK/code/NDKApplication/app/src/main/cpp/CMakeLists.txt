@@ -53,6 +53,7 @@ add_library( # Sets the name of the library.
 
         # Provides a relative path to your source file(s).
         jni/jni_dynamic_load.cpp
+        jni/jni_basic_type.cpp
         base/jvm.cpp
         base/base.cpp
         )

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.wz.myapplication.databinding.ActivityMainBinding;
+import com.wz.myapplication.jni.JNIBasicType;
 import com.wz.myapplication.load.JNIDynamicLoad;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,8 +33,12 @@ public class MainActivity extends AppCompatActivity {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                JNIDynamicLoad jniDynamicLoad = new JNIDynamicLoad();
-                tv.setText(jniDynamicLoad.getNativeString());
+//                JNIDynamicLoad jniDynamicLoad = new JNIDynamicLoad();
+//                tv.setText(jniDynamicLoad.getNativeString());
+
+                JNIBasicType jniBasicType = new JNIBasicType();
+                tv.setText(jniBasicType.callNativeInt(2) + "");
+
             }
         });
 

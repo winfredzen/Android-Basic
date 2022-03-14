@@ -4,6 +4,18 @@
 
 + [Android CMake以及NDK实践基础](https://www.imooc.com/learn/1212)
 
+
+
+参考如下的博客：
+
+- [Android JNI 基本操作](https://glumes.com/post/android/android-jni-basic-operation/)
+- [Android JNI 数组 操作](https://glumes.com/post/android/android-jni-array-operation/)
+- [Android 通过 JNI 访问 Java 字段和方法调用](https://glumes.com/post/android/android-jni-access-field-and-method/)
+- [Android 通过 JNI 调用 Java 类的构造方法和父类的方法](https://glumes.com/post/android/android-jni-invoke-constructor-method-and-super-method/)
+- [Android JNI 调用时缓存字段和方法 ID](https://glumes.com/post/android/android-jni-cache-fieldid-and-methodid/)
+
+
+
 ## 在Java中调用JNI方法
 
 ![019](https://github.com/winfredzen/Android-Basic/blob/master/NDK/images/019.png)
@@ -194,23 +206,127 @@ tv.setOnClickListener(new View.OnClickListener() {
 
 
 
+### JNI基础数据类型的转换
+
+对应基础类型字段的转换：
+
+| Java 类型 | JNI 对应的描述转 |
+| :-------- | :--------------- |
+| boolean   | Z                |
+| byte      | B                |
+| char      | C                |
+| short     | S                |
+| int       | I                |
+| long      | J                |
+| float     | F                |
+| double    | D                |
+
+`JNIBasicType.java`
+
+```java
+public class JNIBasicType {
+    static {
+        System.loadLibrary("dynamic-lib");
+    }
+
+    public native int callNativeInt(int num);
+
+    private native byte callNativeByte(byte b);
+
+    private native char callNativeChar(char ch);
+
+    private native short callNativeShort(short sh);
+
+    private native long callNativeLong(long l);
+
+    private native float callNativeFloat(float f);
+
+    private native double callNativeDouble(double d);
+
+    private native boolean callNativeBoolean(boolean value);
+}
+
+```
+
+`jni_basic_type.cpp`
+
+```java
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_wz_myapplication_jni_JNIBasicType_callNativeInt(JNIEnv *env, jobject thiz,
+                                                               jint num) {
+//    LOGD("JAVA int value is %d", num);
+    jint c_num=num *2;
+    return c_num;
+}
+
+extern "C"
+JNIEXPORT jbyte JNICALL
+Java_com_wz_myapplication_jni_JNIBasicType_callNativeByte(JNIEnv *env, jobject thiz,
+                                                                jbyte b) {
+//    LOGD("java byte value is %d", b);
+    jbyte c_byte = b + (jbyte) 10;
+    return c_byte;
+}
 
 
+extern "C"
+JNIEXPORT jchar JNICALL
+Java_com_wz_myapplication_jni_JNIBasicType_callNativeChar(JNIEnv *env, jobject thiz,
+                                                                jchar ch) {
+
+//    LOGD("java char value is %c", ch);
+    jchar c_char = ch + (jchar) 3;
+    return c_char;
+}
+
+extern "C"
+JNIEXPORT jshort JNICALL
+Java_com_wz_myapplication_jni_JNIBasicType_callNativeShort(JNIEnv *env, jobject thiz,
+                                                                 jshort sh) {
+//    LOGD("java char value is %d", sh);
+    jshort c_short = sh + (jshort) 10;
+    return c_short;
+}
+
+extern "C"
+JNIEXPORT jlong JNICALL
+Java_com_wz_myapplication_jni_JNIBasicType_callNativeLong(JNIEnv *env, jobject thiz,
+                                                                jlong l) {
+//    LOGD("java long value is %ld", l);
+    jlong c_long = l + 100;
+    return c_long;
+}
 
 
+extern "C"
+JNIEXPORT jfloat JNICALL
+Java_com_wz_myapplication_jni_JNIBasicType_callNativeFloat(JNIEnv *env, jobject thiz,
+                                                                 jfloat f) {
+//    LOGD("java float value is %f", f);
+    jfloat c_float = f + (jfloat) 10.0;
+    return c_float;
+}
 
 
+extern "C"
+JNIEXPORT jdouble JNICALL
+Java_com_wz_myapplication_jni_JNIBasicType_callNativeDouble(JNIEnv *env, jobject thiz,
+                                                                  jdouble d) {
+//    LOGD("java double value is %f", d);
+    jdouble c_double = d + 20.0;
+    return c_double;
+}
 
-
-
-
-
-
-
-
-
-
-
+extern "C"
+JNIEXPORT jboolean JNICALL
+Java_com_wz_myapplication_jni_JNIBasicType_callNativeBoolean(JNIEnv *env, jobject thiz,
+                                                                   jboolean value) {
+//    LOGD("java boolean value is %d", value);
+    jboolean c_bool = (jboolean) !value;
+    return c_bool;
+}
+```
 
 
 
