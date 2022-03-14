@@ -45,12 +45,25 @@ add_library( # Sets the name of the library.
         # Provides a relative path to your source file(s).
         people/People.cpp)
 
+add_library( # Sets the name of the library.
+        dynamic-lib
+
+        # Sets the library as a shared library.
+        SHARED
+
+        # Provides a relative path to your source file(s).
+        jni/jni_dynamic_load.cpp
+        base/jvm.cpp
+        base/base.cpp
+        )
+
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
 # default, you only need to specify the name of the public NDK library
 # you want to add. CMake verifies that the library exists before
 # completing its build.
 
+include_directories(${CMAKE_SOURCE_DIR}/base)
 include_directories(people/)
 
 # 查找一些动态库，查找Android中log库，并命名为log-lib
@@ -69,6 +82,7 @@ find_library( # Sets the name of the path variable.
 target_link_libraries( # Specifies the target library.
         myapplication
         people-lib
+        dynamic-lib
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib})
