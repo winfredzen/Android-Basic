@@ -14,6 +14,10 @@ message(${CMAKE_CURRENT_LIST_FILE})
 #cmake所在文件夹的路径
 message(${CMAKE_CURRENT_LIST_DIR})
 
+IF(TRUE)
+    message("this is true")
+ENDIF()
+
 # Declares and names the project.
 
 project("myapplication")
@@ -32,11 +36,22 @@ add_library( # Sets the name of the library.
         # Provides a relative path to your source file(s).
         native-lib.cpp)
 
+add_library( # Sets the name of the library.
+        people-lib
+
+        # Sets the library as a shared library.
+        SHARED
+
+        # Provides a relative path to your source file(s).
+        people/People.cpp)
+
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
 # default, you only need to specify the name of the public NDK library
 # you want to add. CMake verifies that the library exists before
 # completing its build.
+
+include_directories(people/)
 
 # 查找一些动态库，查找Android中log库，并命名为log-lib
 find_library( # Sets the name of the path variable.
@@ -53,7 +68,7 @@ find_library( # Sets the name of the path variable.
 # 动态库关联的语法
 target_link_libraries( # Specifies the target library.
         myapplication
-
+        people-lib
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib})

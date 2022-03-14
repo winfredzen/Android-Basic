@@ -114,6 +114,124 @@ message(${CMAKE_CURRENT_LIST_DIR})
 
 
 
+条件判断语句
+
+```cmake
+IF(TRUE)
+    message("this is true")
+ENDIF()
+```
+
+
+
+在cpp文件夹下创建一个people文件夹，创建People.cpp类，如下：
+
+![016](https://github.com/winfredzen/Android-Basic/blob/master/NDK/images/016.png)
+
+编辑`CMakeLists.txt`，添加如下的内容
+
+```cmake
+add_library( # Sets the name of the library.
+        people-lib
+
+        # Sets the library as a shared library.
+        SHARED
+
+        # Provides a relative path to your source file(s).
+        people/People.cpp)
+```
+
+build后，在build目录下有如下的内容
+
+![017](https://github.com/winfredzen/Android-Basic/blob/master/NDK/images/017.png)
+
+
+
+native-lib关联people-lib
+
+```cmake
+# 动态库关联的语法
+target_link_libraries( # Specifies the target library.
+        myapplication
+        people-lib
+        # Links the target library to the log library
+        # included in the NDK.
+        ${log-lib})
+```
+
+在`native-lib.cpp`中使用，需导入`#include "people/People.h"`，如果在`CMakeLists.txt`中添加`include_directories(people/)`，则可以直接导入`#include <People.h>`
+
+`People.h`
+
+```c++
+#ifndef NDKAPPLICATION_PEOPLE_H
+#define NDKAPPLICATION_PEOPLE_H
+
+#include <string>
+class People {
+public:
+    std::string getString();
+};
+
+#endif //NDKAPPLICATION_PEOPLE_H
+```
+
+`People.cpp`
+
+```c++
+#include "People.h"
+std::string People::getString() {
+    return "This is from People";
+}
+```
+
+`native-lib.cpp`
+
+```c++
+#include <jni.h>
+#include <string>
+//#include "people/People.h"
+#include <People.h>
+
+extern "C" JNIEXPORT jstring JNICALL
+Java_com_wz_myapplication_MainActivity_stringFromJNI(
+        JNIEnv* env,
+        jobject /* this */) {
+    std::string hello = "Hello from C++";
+    People people;
+    return env->NewStringUTF(people.getString().c_str());
+//    return env->NewStringUTF(hello.c_str());
+}
+```
+
+此时界面上显示的内容如下：
+
+![018](https://github.com/winfredzen/Android-Basic/blob/master/NDK/images/018.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
