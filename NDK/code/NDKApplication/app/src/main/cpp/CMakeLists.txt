@@ -2,8 +2,17 @@
 # documentation: https://d.android.com/studio/projects/add-native-code.html
 
 # Sets the minimum version of CMake required to build the native library.
+# 最小版本要求
+cmake_minimum_required(VERSION 3.4.1)
 
-cmake_minimum_required(VERSION 3.10.2)
+set(var hello)
+message(${var})
+set(var 111)
+message(${var})
+
+message(${CMAKE_CURRENT_LIST_FILE})
+#cmake所在文件夹的路径
+message(${CMAKE_CURRENT_LIST_DIR})
 
 # Declares and names the project.
 
@@ -13,7 +22,7 @@ project("myapplication")
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
-
+# 将cpp文件编译成动态库的一个语法
 add_library( # Sets the name of the library.
         myapplication
 
@@ -29,6 +38,7 @@ add_library( # Sets the name of the library.
 # you want to add. CMake verifies that the library exists before
 # completing its build.
 
+# 查找一些动态库，查找Android中log库，并命名为log-lib
 find_library( # Sets the name of the path variable.
         log-lib
 
@@ -40,6 +50,7 @@ find_library( # Sets the name of the path variable.
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
 
+# 动态库关联的语法
 target_link_libraries( # Specifies the target library.
         myapplication
 

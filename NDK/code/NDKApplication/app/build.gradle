@@ -18,6 +18,10 @@ android {
                 cppFlags '-std=c++11'
             }
         }
+        //只在模拟器上进行编译
+        ndk {
+            abiFilters "x86"
+        }
     }
 
     buildTypes {
@@ -33,7 +37,8 @@ android {
     externalNativeBuild {
         cmake {
             path file('src/main/cpp/CMakeLists.txt')
-            version '3.10.2'
+            //修改版本
+            version '3.6.0'
         }
     }
     buildFeatures {
