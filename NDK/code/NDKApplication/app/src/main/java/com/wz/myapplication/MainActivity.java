@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 //                tv.setText(jniBasicType.callNativeInt(2) + "");
 
                 JNIString jniString = new JNIString();
-                tv.setText(jniString.callNativeString("test jni string"));
+                tv.setText(jniString.getHalfString("test jni string"));
 
             }
         });
