@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.wz.myapplication.databinding.ActivityMainBinding;
 import com.wz.myapplication.jni.JNIBasicType;
+import com.wz.myapplication.jni.JNIReferenceType;
 import com.wz.myapplication.jni.JNIString;
 import com.wz.myapplication.load.JNIDynamicLoad;
 
@@ -40,9 +41,12 @@ public class MainActivity extends AppCompatActivity {
 //                JNIBasicType jniBasicType = new JNIBasicType();
 //                tv.setText(jniBasicType.callNativeInt(2) + "");
 
-                JNIString jniString = new JNIString();
-                tv.setText(jniString.getHalfString("test jni string"));
+//                JNIString jniString = new JNIString();
+//                tv.setText(jniString.getHalfString("test jni string"));
 
+
+                JNIReferenceType jniReferenceType = new JNIReferenceType();
+                tv.setText(jniReferenceType.callNativeStringArray(new String[]{"one", "two"}));
             }
         });
 

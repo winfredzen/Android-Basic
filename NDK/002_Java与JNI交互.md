@@ -1,4 +1,4 @@
-# Java与JNI交互
+# Java与JNI交互 一
 
 内容来自：
 
@@ -331,6 +331,215 @@ Java_com_wz_myapplication_jni_JNIBasicType_callNativeBoolean(JNIEnv *env, jobjec
 
 
 ### Java与JNI字符串转换
+
+`JNIString.java`
+
+```java
+public class JNIString {
+    static {
+        System.loadLibrary("dynamic-lib");
+    }
+
+    public native String callNativeString(String str);
+
+    public native void StringMethod(String str);
+
+    public native String reverseString(String str);
+
+    public native String getHalfString(String str);
+
+
+
+}
+```
+
+`jni_string.cpp`
+
+```c++
+//
+// Created by jia76 on 2020/11/10.
+//
+#include <jni.h>
+#include <base.h>
+#include <cstdio>
+
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_wz_myapplication_jni_JNIString_callNativeString(JNIEnv *env, jobject thiz,
+                                                         jstring str_) {
+    // Java 的字符串并不能直接转成 C/C++ 风格的字符串
+    // 需要用到 GetStringChars 或者 GetStringUTFChars 相应的函数来申请内存
+    // 转成一个指向 JVM 地址的指针
+    // 最后还要释放该指针的内存
+
+    const char *str = env->GetStringUTFChars(str_, 0);
+//    LOGD("java string  is %s",str);
+    // GetStringUTFChars 涉及到申请内存，最好做个检查，防止 OOM
+    // Get 和 Release 要配套使用，避免内存泄漏
+    env->ReleaseStringUTFChars(str_, str);
+    // 从 Native 返回字符串，将 C/C++ 风格的字符串返回到 Java 层
+    // 也需要用到特定的函数来转换 NewStringUTF 或者 NewString 等
+    const char *c_str = "this is C style string";
+
+//    env->GetStringRegion()
+    return env->NewStringUTF(c_str);
+}
+
+
+
+/**
+ * 反转字符串操作
+ */
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_wz_myapplication_jni_JNIString_reverseString(JNIEnv *env, jobject thiz,
+                                                      jstring str_) {
+
+
+    const char *str = env->GetStringUTFChars(str_, 0);
+
+    int length = env->GetStringLength(str_);
+
+    char reverseString[length];
+
+    for (int i = 0; i < length; ++i) {
+        reverseString[i] = str[length - 1 - i];
+    }
+
+    env->ReleaseStringUTFChars(str_, str);
+
+    // 此处的使用会引起崩溃,传入的字符串是 hello str 时
+    return env->NewStringUTF(reverseString);
+}
+
+
+
+/**
+ * 得到字符串一半内容，使用 GetStringRegion 方法
+ */
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_wz_myapplication_jni_JNIString_getHalfString(JNIEnv *env, jobject thiz,
+                                                      jstring str_) {
+
+    int len = env->GetStringLength(str_);
+
+    jchar outputBuf[len / 2];
+
+    // 截取一部分内容放到缓冲区里面去
+    env->GetStringRegion(str_, 0, len / 2, outputBuf);
+
+    // 再从缓冲区中得到 Java 字符串
+    jstring ret = env->NewString(outputBuf, len / 2);
+
+    return ret;
+}
+
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_wz_myapplication_jni_JNIString_StringMethod(JNIEnv *env, jobject thiz, jstring str_) {
+
+    const char *str = env->GetStringUTFChars(str_, 0);
+    char buf[128];
+    int len = env->GetStringLength(str_);
+//    LOGD("java string length is %d",len);
+    env->GetStringUTFRegion(str_, 0, len - 1, buf);
+//    LOGD("java string length is %s",buf);
+    env->ReleaseStringUTFChars(str_, str);
+
+}
+```
+
+
+
+### Java与JNI引用类型转换
+
+除了基本数据类型之外，引用数据类型也有着一一对应。
+
+| Java 引用类型       | Native 类型   | Java 引用类型 | Native 类型  |
+| :------------------ | :------------ | :------------ | :----------- |
+| All objects         | jobject       | char[][]      | jcharArray   |
+| java.lang.Class     | jclass        | short[][]     | jshortArray  |
+| java.lang.String    | jstring       | int[][]       | jintArray    |
+| Object[][]          | jobjectArray  | long[][]      | jlongArray   |
+| boolean[][]         | jbooleanArray | float[][]     | jfloatArray  |
+| byte[][]            | jbyteArray    | double[][]    | jdoubleArray |
+| java.lang.Throwable | jthrowable    |               |              |
+
+已数组为例
+
+`JNIReferenceType.java`
+
+```java
+public class JNIReferenceType {
+    static {
+        System.loadLibrary("dynamic-lib");
+    }
+
+    public native String callNativeStringArray(String[] strArray);
+
+}
+```
+
+`jni_reference_type.cpp`
+
+```c++
+#include <jni.h>
+#include <base.h>
+#include <cstdio>
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_wz_myapplication_jni_JNIReferenceType_callNativeStringArray(JNIEnv *env,jobject thiz,jobjectArray  str_array) {
+
+    int  len=env->GetArrayLength(str_array); //这个方法对于所有的数组都是公用的
+//    LOGD( "len is %d ",len);
+    jstring  firstStr= static_cast<jstring>(env->GetObjectArrayElement(str_array, 0));//拿到对象数组的首元素
+//    const char* str:
+//    意义：确保*str的内容不会改变，也就是用str这个指针无法改变str这个指针指向的地址的内容，
+//    但是可以改变这个指针
+//    char const str和const charstr含义一样
+//    char* const str:
+//    意义：确保str这个指针不会改变，但是这个指针里面的内容可以改变。
+    const  char  *str=env->GetStringUTFChars(firstStr,0);
+//    LOGD( "len is %s ",str);
+    env->ReleaseStringUTFChars(firstStr,str);
+    return  env->NewStringUTF(str);
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
