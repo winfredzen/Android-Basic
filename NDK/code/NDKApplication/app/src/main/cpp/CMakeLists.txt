@@ -56,6 +56,7 @@ add_library( # Sets the name of the library.
         jni/jni_basic_type.cpp
         jni/jni_string.cpp
         jni/jni_reference_type.cpp
+        jni/jni_access_field.cpp
         base/jvm.cpp
         base/base.cpp
         )
