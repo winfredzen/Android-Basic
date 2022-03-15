@@ -61,6 +61,12 @@ add_library( # Sets the name of the library.
         base/base.cpp
         )
 
+#add_library(log SHARED IMPORTED)
+#set_target_properties(log
+#        PROPERTIES IMPORTED_LOCATION
+#        /Users/wangzhen/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/30/liblog.so)
+
+
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
 # default, you only need to specify the name of the public NDK library
