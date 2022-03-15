@@ -1,0 +1,5 @@
+hello
+1111
+D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/CMakeLists.txt
+D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp
+THISISTRUE

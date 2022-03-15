@@ -1,0 +1,5 @@
+D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a/CMakeFiles/native-lib.dir
+D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a/CMakeFiles/people-lib.dir
+D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a/CMakeFiles/base-lib.dir
+D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a/CMakeFiles/rebuild_cache.dir

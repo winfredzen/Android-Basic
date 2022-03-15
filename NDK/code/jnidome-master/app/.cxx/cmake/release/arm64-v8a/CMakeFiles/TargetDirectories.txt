@@ -1,0 +1,5 @@
+D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a/CMakeFiles/native-lib.dir
+D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a/CMakeFiles/people-lib.dir
+D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a/CMakeFiles/base-lib.dir
+D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a/CMakeFiles/rebuild_cache.dir

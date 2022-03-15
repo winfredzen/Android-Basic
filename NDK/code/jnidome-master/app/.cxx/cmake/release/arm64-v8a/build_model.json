@@ -1,0 +1,200 @@
+{
+  "abi": "ARM64_V8A",
+  "abiPlatformVersion": 19,
+  "buildSettings": {
+    "environmentVariables": []
+  },
+  "cmake": {
+    "cmakeArtifactsBaseFolder": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a",
+    "cmakeServerLogFile": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a\\cmake_server_log.txt",
+    "cmakeWrappingBaseFolder": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cxx\\release\\arm64-v8a",
+    "effectiveConfiguration": {
+      "name": "traditional-android-studio-cmake-environment",
+      "description": "Composite reified CMakeSettings configuration",
+      "generator": "Ninja",
+      "inheritEnvironments": [
+        "ndk"
+      ],
+      "buildRoot": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a",
+      "cmakeToolchain": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\build\\cmake\\android.toolchain.cmake",
+      "cmakeExecutable": "D:\\work\\android\\android-sdk\\cmake\\3.6.4111459\\bin\\cmake.exe",
+      "variables": [
+        {
+          "name": "CMAKE_FIND_ROOT_PATH",
+          "value": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\prefab\\arm64-v8a\\prefab"
+        },
+        {
+          "name": "CMAKE_BUILD_TYPE",
+          "value": "Release"
+        },
+        {
+          "name": "CMAKE_TOOLCHAIN_FILE",
+          "value": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\build\\cmake\\android.toolchain.cmake"
+        },
+        {
+          "name": "ANDROID_ABI",
+          "value": "arm64-v8a"
+        },
+        {
+          "name": "ANDROID_NDK",
+          "value": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669"
+        },
+        {
+          "name": "ANDROID_PLATFORM",
+          "value": "android-19"
+        },
+        {
+          "name": "CMAKE_ANDROID_ARCH_ABI",
+          "value": "arm64-v8a"
+        },
+        {
+          "name": "CMAKE_ANDROID_NDK",
+          "value": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669"
+        },
+        {
+          "name": "CMAKE_EXPORT_COMPILE_COMMANDS",
+          "value": "ON"
+        },
+        {
+          "name": "CMAKE_LIBRARY_OUTPUT_DIRECTORY",
+          "value": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\build\\intermediates\\cmake\\release\\obj\\arm64-v8a"
+        },
+        {
+          "name": "CMAKE_MAKE_PROGRAM",
+          "value": "D:\\work\\android\\android-sdk\\cmake\\3.6.4111459\\bin\\ninja.exe"
+        },
+        {
+          "name": "CMAKE_SYSTEM_NAME",
+          "value": "Android"
+        },
+        {
+          "name": "CMAKE_SYSTEM_VERSION",
+          "value": "19"
+        }
+      ]
+    }
+  },
+  "cxxBuildFolder": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a",
+  "info": {
+    "abi": "ARM64_V8A",
+    "bitness": 64,
+    "deprecated": false,
+    "default": true
+  },
+  "originalCxxBuildFolder": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a",
+  "variant": {
+    "buildSystemArgumentList": [],
+    "buildTargetSet": [],
+    "cFlagsList": [],
+    "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
+    "cppFlagsList": [],
+    "isDebuggableEnabled": false,
+    "module": {
+      "buildSystem": "CMAKE",
+      "cmake": {
+        "cmakeExe": "D:\\work\\android\\android-sdk\\cmake\\3.6.4111459\\bin\\cmake.exe",
+        "minimumCmakeVersion": "3.6.0",
+        "ninjaExe": "D:\\work\\android\\android-sdk\\cmake\\3.6.4111459\\bin\\ninja.exe"
+      },
+      "cmakeToolchainFile": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\build\\cmake\\android.toolchain.cmake",
+      "cxxFolder": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx",
+      "gradleModulePathName": ":app",
+      "intermediatesFolder": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\build\\intermediates",
+      "makeFile": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\CMakeLists.txt",
+      "moduleBuildFile": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\build.gradle",
+      "moduleRootFolder": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app",
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkFolder": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669",
+      "ndkMetaAbiList": [
+        {
+          "abi": "ARMEABI_V7A",
+          "bitness": 32,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "ARM64_V8A",
+          "bitness": 64,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "X86",
+          "bitness": 32,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "X86_64",
+          "bitness": 64,
+          "deprecated": false,
+          "default": true
+        }
+      ],
+      "ndkMetaPlatforms": {
+        "min": 16,
+        "max": 29,
+        "aliases": {
+          "20": 19,
+          "25": 24,
+          "J": 16,
+          "J-MR1": 17,
+          "J-MR2": 18,
+          "K": 19,
+          "L": 21,
+          "L-MR1": 22,
+          "M": 23,
+          "N": 24,
+          "N-MR1": 24,
+          "O": 26,
+          "O-MR1": 27,
+          "P": 28,
+          "Q": 29
+        }
+      },
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultStl": "LIBCXX_STATIC",
+      "ndkVersion": "21.0.6113669",
+      "project": {
+        "compilerSettingsCacheFolder": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\.cxx",
+        "cxxFolder": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\.cxx",
+        "isBuildOnlyTargetAbiEnabled": true,
+        "isCmakeBuildCohabitationEnabled": false,
+        "isNativeCompilerSettingsCacheEnabled": false,
+        "rootBuildGradleFolder": "D:\\BaiduNetdiskDownload\\work\\MyApplication",
+        "sdkFolder": "D:\\work\\android\\android-sdk",
+        "isPrefabEnabled": false
+      },
+      "splitsAbiFilterSet": [],
+      "stlSharedObjectMap": {
+        "LIBCXX_SHARED": {
+          "ARMEABI_V7A": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
+          "ARM64_V8A": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
+          "X86": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+          "X86_64": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
+        },
+        "LIBCXX_STATIC": {},
+        "NONE": {},
+        "SYSTEM": {}
+      }
+    },
+    "objFolder": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\build\\intermediates\\cmake\\release\\obj",
+    "variantName": "release",
+    "validAbiList": [
+      "ARM64_V8A"
+    ],
+    "prefabDirectory": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\prefab",
+    "prefabPackageDirectoryList": []
+  },
+  "prefabFolder": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\prefab\\arm64-v8a"
+}

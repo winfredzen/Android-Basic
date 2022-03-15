@@ -1,0 +1,155 @@
+
+{
+	"buildFiles" : 
+	[
+		"D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"D:\\work\\android\\android-sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"base-lib-Release-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "base-lib",
+			"buildCommand" : "D:\\work\\android\\android-sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a --target base-lib",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dbase_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/base/base.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dbase_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/base/jvm.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				}
+			],
+			"output" : "D:/BaiduNetdiskDownload/work/MyApplication/app/build/intermediates/cmake/release/obj/arm64-v8a/libbase-lib.so",
+			"toolchain" : "2373039953"
+		},
+		"native-lib-Release-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "native-lib",
+			"buildCommand" : "D:\\work\\android\\android-sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a --target native-lib",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/native-lib.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/jni/jni_onload.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/jni/jni_basic_type.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/jni/jni_string.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/jni/jni_reference_type.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/jni/jni_access_field.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/jni/jni_invoke_method.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/jni/jni_reference.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/jni/jni_exception.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/jni/jni_thread.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/jni/jni_wait_thread.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/jni/jni_product_and_consumer_thread.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/jni/jni_bitmap.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				}
+			],
+			"output" : "D:/BaiduNetdiskDownload/work/MyApplication/app/build/intermediates/cmake/release/obj/arm64-v8a/libnative-lib.so",
+			"toolchain" : "2373039953"
+		},
+		"people-lib-Release-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "people-lib",
+			"buildCommand" : "D:\\work\\android\\android-sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a --target people-lib",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dpeople_lib_EXPORTS -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\people -ID:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/people/People.cpp",
+					"workingDirectory" : "D:/BaiduNetdiskDownload/work/MyApplication/app/.cxx/cmake/release/arm64-v8a"
+				}
+			],
+			"output" : "D:/BaiduNetdiskDownload/work/MyApplication/app/build/intermediates/cmake/release/obj/arm64-v8a/libpeople-lib.so",
+			"toolchain" : "2373039953"
+		}
+	},
+	"toolchains" : 
+	{
+		"2373039953" : 
+		{
+			"cCompilerExecutable" : "D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}

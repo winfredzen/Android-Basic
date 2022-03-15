@@ -1,0 +1,97 @@
+[
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\native-lib.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\native-lib.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\native-lib.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\jni\\jni_onload.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_onload.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_onload.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\jni\\jni_basic_type.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_basic_type.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_basic_type.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\jni\\jni_string.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_string.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_string.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\jni\\jni_reference_type.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_reference_type.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_reference_type.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\jni\\jni_access_field.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_access_field.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_access_field.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\jni\\jni_invoke_method.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_invoke_method.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_invoke_method.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\jni\\jni_reference.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_reference.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_reference.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\jni\\jni_exception.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_exception.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_exception.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\jni\\jni_thread.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_thread.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_thread.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\jni\\jni_wait_thread.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_wait_thread.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_wait_thread.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\jni\\jni_product_and_consumer_thread.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_product_and_consumer_thread.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_product_and_consumer_thread.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\jni\\jni_bitmap.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_bitmap.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\jni\\jni_bitmap.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dpeople_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\people-lib.dir\\people\\People.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\people\\People.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\people\\People.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dbase_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\base-lib.dir\\base\\base.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\base\\base.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\base\\base.cpp"
+},
+
+{
+  "directory": "D:/work/android/workSpace/git/jnidome/app/.cxx/cmake/debug/arm64-v8a",
+  "command": "D:\\work\\android\\android-sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dbase_lib_EXPORTS -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/people -ID:/work/android/workSpace/git/jnidome/app/src/main/cpp/base  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\base-lib.dir\\base\\jvm.cpp.o -c D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\base\\jvm.cpp",
+  "file": "D:\\work\\android\\workSpace\\git\\jnidome\\app\\src\\main\\cpp\\base\\jvm.cpp"
+}
+]

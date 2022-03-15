@@ -1,0 +1,18 @@
+# ninja log v5
+7	151	0	CMakeFiles/base-lib.dir/base/base.cpp.o	360905fa1c2b8b17
+0	174	0	CMakeFiles/base-lib.dir/base/jvm.cpp.o	5fcd17cfd9951f11
+174	253	0	D:/BaiduNetdiskDownload/work/MyApplication/app/build/intermediates/cmake/release/obj/arm64-v8a/libbase-lib.so	405a7143da7f5f49
+3	447	0	CMakeFiles/people-lib.dir/people/People.cpp.o	7c1742ef14c2851f
+448	543	0	D:/BaiduNetdiskDownload/work/MyApplication/app/build/intermediates/cmake/release/obj/arm64-v8a/libpeople-lib.so	4cb9e063c4375939
+543	815	0	CMakeFiles/native-lib.dir/jni/jni_reference_type.cpp.o	22ad8fbe6aae4bcc
+545	838	0	CMakeFiles/native-lib.dir/jni/jni_access_field.cpp.o	30ec868251b6ab8a
+550	846	0	CMakeFiles/native-lib.dir/jni/jni_invoke_method.cpp.o	f7a0edc254c11582
+561	847	0	CMakeFiles/native-lib.dir/jni/jni_basic_type.cpp.o	f33d8086a3ecfaec
+547	856	0	CMakeFiles/native-lib.dir/jni/jni_onload.cpp.o	f6cbdcce06c36e84
+558	891	0	CMakeFiles/native-lib.dir/jni/jni_exception.cpp.o	ce3750950e40812d
+556	895	0	CMakeFiles/native-lib.dir/jni/jni_reference.cpp.o	588f8b77b5f141b
+564	909	0	CMakeFiles/native-lib.dir/jni/jni_string.cpp.o	4181a6001e0b437
+815	1012	0	CMakeFiles/native-lib.dir/jni/jni_thread.cpp.o	db414a1c363f20e8
+838	1013	0	CMakeFiles/native-lib.dir/jni/jni_wait_thread.cpp.o	8b5b7ef832f1a376
+553	1176	0	CMakeFiles/native-lib.dir/native-lib.cpp.o	31fab4429de9d947
+567	1296	0	CMakeFiles/native-lib.dir/jni/jni_product_and_consumer_thread.cpp.o	9080c72705037d56

@@ -1,0 +1,51 @@
+[1/18] Building CXX object CMakeFiles/base-lib.dir/base/jvm.cpp.o
+[2/18] Building CXX object CMakeFiles/people-lib.dir/people/People.cpp.o
+[3/18] Building CXX object CMakeFiles/base-lib.dir/base/base.cpp.o
+[4/18] Linking CXX shared library D:\BaiduNetdiskDownload\work\MyApplication\app\build\intermediates\cmake\release\obj\arm64-v8a\libbase-lib.so
+[5/18] Linking CXX shared library D:\BaiduNetdiskDownload\work\MyApplication\app\build\intermediates\cmake\release\obj\arm64-v8a\libpeople-lib.so
+[6/18] Building CXX object CMakeFiles/native-lib.dir/jni/jni_reference_type.cpp.o
+[7/18] Building CXX object CMakeFiles/native-lib.dir/jni/jni_access_field.cpp.o
+[8/18] Building CXX object CMakeFiles/native-lib.dir/jni/jni_onload.cpp.o
+[9/18] Building CXX object CMakeFiles/native-lib.dir/jni/jni_invoke_method.cpp.o
+[10/18] Building CXX object CMakeFiles/native-lib.dir/native-lib.cpp.o
+[11/18] Building CXX object CMakeFiles/native-lib.dir/jni/jni_reference.cpp.o
+[12/18] Building CXX object CMakeFiles/native-lib.dir/jni/jni_exception.cpp.o
+[13/18] Building CXX object CMakeFiles/native-lib.dir/jni/jni_basic_type.cpp.o
+[14/18] Building CXX object CMakeFiles/native-lib.dir/jni/jni_string.cpp.o
+[15/18] Building CXX object CMakeFiles/native-lib.dir/jni/jni_product_and_consumer_thread.cpp.o
+[16/18] Building CXX object CMakeFiles/native-lib.dir/jni/jni_thread.cpp.o
+[17/18] Building CXX object CMakeFiles/native-lib.dir/jni/jni_wait_thread.cpp.o
+D:\BaiduNetdiskDownload\work\MyApplication\app\src\main\cpp\jni\jni_thread.cpp:69:31: warning: format specifies type 'long long' but the argument has type '__kernel_time_t' (aka 'long') [-Wformat]
+    LOGD("start time is %lld",begin.tv_sec);
+                        ~~~~  ^~~~~~~~~~~~
+                        %ld
+D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/base\base.h:10:65: note: expanded from macro 'LOGD'
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
+                                                                ^~~~~~~~~~~
+D:\BaiduNetdiskDownload\work\MyApplication\app\src\main\cpp\jni\jni_thread.cpp:74:29: warning: format specifies type 'long long' but the argument has type '__kernel_time_t' (aka 'long') [-Wformat]
+    LOGD("end time is %lld",end.tv_sec);
+                      ~~~~  ^~~~~~~~~~
+                      %ld
+D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/base\base.h:10:65: note: expanded from macro 'LOGD'
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
+                                                                ^~~~~~~~~~~
+D:\BaiduNetdiskDownload\work\MyApplication\app\src\main\cpp\jni\jni_thread.cpp:76:28: warning: format specifies type 'int' but the argument has type 'long' [-Wformat]
+    LOGD("Time used is %d",end.tv_sec- begin.tv_sec);
+                       ~~  ^~~~~~~~~~~~~~~~~~~~~~~~
+                       %ld
+D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/base\base.h:10:65: note: expanded from macro 'LOGD'
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
+                                                                ^~~~~~~~~~~
+D:\BaiduNetdiskDownload\work\MyApplication\app\src\main\cpp\jni\jni_thread.cpp:96:26: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+    LOGD("result is %d", ret);
+                    ~~   ^~~
+D:/BaiduNetdiskDownload/work/MyApplication/app/src/main/cpp/base\base.h:10:65: note: expanded from macro 'LOGD'
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
+                                                                ^~~~~~~~~~~
+4 warnings generated.
+[18/18] Linking CXX shared library D:\BaiduNetdiskDownload\work\MyApplication\app\build\intermediates\cmake\release\obj\arm64-v8a\libnative-lib.so
+FAILED: cmd.exe /C "cd . && D:\work\android\android-sdk\ndk\21.0.6113669\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe  --target=aarch64-none-linux-android21 --gcc-toolchain=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/work/android/android-sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -fPIC -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -shared -Wl,-soname,libnative-lib.so -o D:\BaiduNetdiskDownload\work\MyApplication\app\build\intermediates\cmake\release\obj\arm64-v8a\libnative-lib.so CMakeFiles/native-lib.dir/native-lib.cpp.o CMakeFiles/native-lib.dir/jni/jni_onload.cpp.o CMakeFiles/native-lib.dir/jni/jni_basic_type.cpp.o CMakeFiles/native-lib.dir/jni/jni_string.cpp.o CMakeFiles/native-lib.dir/jni/jni_reference_type.cpp.o CMakeFiles/native-lib.dir/jni/jni_access_field.cpp.o CMakeFiles/native-lib.dir/jni/jni_invoke_method.cpp.o CMakeFiles/native-lib.dir/jni/jni_reference.cpp.o CMakeFiles/native-lib.dir/jni/jni_exception.cpp.o CMakeFiles/native-lib.dir/jni/jni_thread.cpp.o CMakeFiles/native-lib.dir/jni/jni_wait_thread.cpp.o CMakeFiles/native-lib.dir/jni/jni_product_and_consumer_thread.cpp.o  D:/BaiduNetdiskDownload/work/MyApplication/app/build/intermediates/cmake/release/obj/arm64-v8a/libpeople-lib.so D:/BaiduNetdiskDownload/work/MyApplication/app/build/intermediates/cmake/release/obj/arm64-v8a/libbase-lib.so -llog -latomic -lm && cd ."
+CMakeFiles/native-lib.dir/jni/jni_product_and_consumer_thread.cpp.o:(.bss.flag+0x0): multiple definition of `flag'
+CMakeFiles/native-lib.dir/jni/jni_wait_thread.cpp.o:(.bss.flag+0x0): first defined here
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.

@@ -1,0 +1,31 @@
+{
+  "buildFiles": [
+    "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\src\\main\\cpp\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "D:\\work\\android\\android-sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a --target clean"
+  ],
+  "libraries": {
+    "native-lib-Release-arm64-v8a": {
+      "artifactName": "native-lib",
+      "buildCommand": "D:\\work\\android\\android-sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a --target native-lib",
+      "abi": "arm64-v8a",
+      "output": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\build\\intermediates\\cmake\\release\\obj\\arm64-v8a\\libnative-lib.so",
+      "runtimeFiles": []
+    },
+    "people-lib-Release-arm64-v8a": {
+      "artifactName": "people-lib",
+      "buildCommand": "D:\\work\\android\\android-sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a --target people-lib",
+      "abi": "arm64-v8a",
+      "output": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\build\\intermediates\\cmake\\release\\obj\\arm64-v8a\\libpeople-lib.so",
+      "runtimeFiles": []
+    },
+    "base-lib-Release-arm64-v8a": {
+      "artifactName": "base-lib",
+      "buildCommand": "D:\\work\\android\\android-sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\.cxx\\cmake\\release\\arm64-v8a --target base-lib",
+      "abi": "arm64-v8a",
+      "output": "D:\\BaiduNetdiskDownload\\work\\MyApplication\\app\\build\\intermediates\\cmake\\release\\obj\\arm64-v8a\\libbase-lib.so",
+      "runtimeFiles": []
+    }
+  }
+}
