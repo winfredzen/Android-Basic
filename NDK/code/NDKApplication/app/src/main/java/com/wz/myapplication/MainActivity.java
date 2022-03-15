@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.wz.myapplication.databinding.ActivityMainBinding;
 import com.wz.myapplication.jni.JNIBasicType;
+import com.wz.myapplication.jni.JNIString;
 import com.wz.myapplication.load.JNIDynamicLoad;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,8 +37,11 @@ public class MainActivity extends AppCompatActivity {
 //                JNIDynamicLoad jniDynamicLoad = new JNIDynamicLoad();
 //                tv.setText(jniDynamicLoad.getNativeString());
 
-                JNIBasicType jniBasicType = new JNIBasicType();
-                tv.setText(jniBasicType.callNativeInt(2) + "");
+//                JNIBasicType jniBasicType = new JNIBasicType();
+//                tv.setText(jniBasicType.callNativeInt(2) + "");
+
+                JNIString jniString = new JNIString();
+                tv.setText(jniString.callNativeString("test jni string"));
 
             }
         });

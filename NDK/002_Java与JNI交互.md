@@ -330,6 +330,8 @@ Java_com_wz_myapplication_jni_JNIBasicType_callNativeBoolean(JNIEnv *env, jobjec
 
 
 
+### Java与JNI字符串转换
+
 
 
 
