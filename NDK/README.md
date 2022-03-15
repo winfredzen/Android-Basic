@@ -1,8 +1,20 @@
 # NDK
 
+Android 原生开发套件 (NDK)：一套工具，可让您在 Android 应用中使用 C 和 C++ 代码。
 
+CMake：一款外部构建工具，可与 Gradle 搭配使用来构建原生库。如果您只计划使用 ndk-build，则不需要此组件。
+
+LLDB：Android Studio 用于调试原生代码的调试程序。默认情况下，安装 Android Studio 时会随同安装 LLDB
 
 ## 创建 android ndk 项目
+
+可参考官方文档：
+
++ [向您的项目添加 C 和 C++ 代码](https://developer.android.com/studio/projects/add-native-code)
+
++ [安装及配置 NDK 和 CMake](https://developer.android.com/studio/projects/install-ndk)
+
+  
 
 ![001](https://github.com/winfredzen/Android-Basic/blob/master/NDK/images/001.png)
 
