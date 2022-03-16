@@ -9,5 +9,15 @@ class RouterPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         println("I am from RouterPlugin, apply from ${project.name}")
+
+        //注册Extension
+        project.getExtensions().create("router", RouterExtension)
+
+        //获取用户设置的RouterExtension
+        project.afterEvaluate {
+            //这里是中括号，不是小括号
+            RouterExtension extension = project["router"]
+            println("用户设置的wiki路径为 ${extension.wikiDir}")
+        }
     }
 }

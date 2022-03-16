@@ -4,6 +4,11 @@ plugins {
     id 'com.imooc.router'
 }
 
+//设置路由插件参数
+router {
+    wikiDir getRootDir().absolutePath
+}
+
 android {
     compileSdk 31
 
