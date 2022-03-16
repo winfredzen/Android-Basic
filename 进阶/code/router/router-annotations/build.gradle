@@ -1,0 +1,9 @@
+// 应用java插件
+apply plugin: 'java'
+
+// 设置源码兼容性
+targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = JavaVersion.VERSION_1_7
+
+// 应用发布功能
+apply from : rootProject.file("maven-publish.gradle")

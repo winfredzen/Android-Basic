@@ -1,0 +1,14 @@
+*.iml
+.gradle
+/local.properties
+.idea/
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+build/
+./build
+/captures
+/router-gradle-plugin
+.externalNativeBuild
+.cxx
+/router_mapping
