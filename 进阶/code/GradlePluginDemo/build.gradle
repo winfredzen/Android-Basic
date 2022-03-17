@@ -1,10 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
+        //配置maven仓库的地址，可以是相对路径和绝对路劲
+        maven {
+            url uri("/Users/wangzhen/Documents/GitHub/Android-Basic/进阶/code/GradlePlugin/repo")
+        }
         jcenter()
         google()
         mavenCentral()
-        maven { url "https://maven.google.com" }
 
     }
     dependencies {
@@ -12,15 +15,21 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+        // 声明依赖的插件，形式 groupId + artifactId + version
+        classpath 'com.imooc.router:router-gradle-plugin:1.0.0'
     }
 }
 
 allprojects {
     repositories {
+        //配置maven仓库的地址，可以是相对路径和绝对路劲
+        maven {
+            url uri("/Users/wangzhen/Documents/GitHub/Android-Basic/进阶/code/GradlePlugin/repo")
+        }
         jcenter()
         google()
         mavenCentral()
-        maven { url "https://maven.google.com" }
     }
 }
 
