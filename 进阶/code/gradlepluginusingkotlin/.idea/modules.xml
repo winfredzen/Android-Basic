@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GradlePluginUsingKotlin.iml" filepath="$PROJECT_DIR$/.idea/modules/GradlePluginUsingKotlin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GradlePluginUsingKotlin.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GradlePluginUsingKotlin.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GradlePluginUsingKotlin.buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/GradlePluginUsingKotlin.buildSrc.iml" />
+    </modules>
+  </component>
+</project>

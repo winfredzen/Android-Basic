@@ -1,0 +1,2 @@
+include ':app' // Gradle新版本6.x开始，不用显式include buildSrc
+rootProject.name = "GradlePluginUsingKotlin"
