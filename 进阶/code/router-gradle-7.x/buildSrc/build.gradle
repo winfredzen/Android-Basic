@@ -1,0 +1,48 @@
+// 引用groovy插件，编译插件工程中的代码
+apply plugin: 'groovy'
+
+// 声明仓库的地址
+repositories {
+    jcenter()
+    google()
+}
+
+// 声明依赖的包
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:7.0.0'
+}
+
+apply plugin: 'maven-publish'
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    archiveClassifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+// 配置发布到maven时候到参数：
+// 使用方式：
+//     1. 拷贝本工程命名为buildSrcTemp (Gradle无法直接发布本工程)
+//     2. setting.gradle中include工程buildSrcTemp
+//     3. 执行 gradlew :buildSrcTemp:publish
+//     4. 在根目录repo中可找到发布的JAR
+publishing {
+    publications {
+        pluginMaven(MavenPublication) {
+            // 设置groupId，通常为包名
+            groupId 'com.imooc.router'
+            // 设置artifactId，为当前插件的名称
+            artifactId 'router-gradle-plugin'
+            // 设置插件的版本号
+            version '1.0.1'
+            artifact sourcesJar
+        }
+    }
+
+    repositories {
+        maven {
+            url uri("../repo")
+        }
+    }
+}

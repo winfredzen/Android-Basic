@@ -1,0 +1,58 @@
+// 使用maven-publish插件中的发布功能
+apply plugin: 'maven-publish'
+
+// 读取工程的配置
+Properties gradleProperties = new Properties()
+gradleProperties.load(project.rootProject.file('gradle.properties').newDataInputStream())
+
+def VERSION_NAME = gradleProperties.getProperty("VERSION_NAME")
+def POM_URL = gradleProperties.getProperty("POM_URL")
+def GROUP_ID = gradleProperties.getProperty("GROUP_ID")
+
+Properties projectGradleProperties = new Properties()
+projectGradleProperties.load(
+        project.file('gradle.properties').newDataInputStream()
+)
+
+def POM_ARTIFACT_ID = projectGradleProperties.getProperty("POM_ARTIFACT_ID")
+
+println("maven-publish VERSION_NAME = $VERSION_NAME")
+println("maven-publish POM_URL = $POM_URL")
+println("maven-publish GROUP_ID = $GROUP_ID")
+println("maven-publish POM_ARTIFACT_ID = $POM_ARTIFACT_ID")
+
+// 配置发布到maven时候到参数：
+// 使用方式：
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            afterEvaluate {
+                artifact(tasks.getByName("jar"))
+            }
+
+            version VERSION_NAME
+            groupId GROUP_ID
+            artifactId POM_ARTIFACT_ID
+
+            pom.withXml {
+                def dependenciesNode = asNode().appendNode('dependencies')
+                configurations.implementation.allDependencies.each {
+                    if (it.version == "unspecified") {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', GROUP_ID)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', VERSION_NAME)
+                        dependencyNode.appendNode('scope', 'implementation')
+                    }
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url uri(POM_URL)
+        }
+    }
+}

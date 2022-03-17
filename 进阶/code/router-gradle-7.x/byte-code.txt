@@ -1,0 +1,87 @@
+package asm.com.imooc.router.demo.sample;
+
+import java.util.*;
+
+import org.objectweb.asm.*;
+
+public class RouterMappingDump implements Opcodes {
+
+    public static byte[] dump() throws Exception {
+
+        ClassWriter cw = new ClassWriter(0);
+        FieldVisitor fv;
+        MethodVisitor mv;
+        AnnotationVisitor av0;
+
+        cw.visit(V1_7, ACC_PUBLIC + ACC_SUPER,
+            "com/imooc/router/demo/sample/RouterMapping",
+            null,
+            "java/lang/Object", null);
+
+        cw.visitSource("RouterMapping.java", null);
+
+        {
+            mv = cw.visitMethod(ACC_PUBLIC, "<init>", "()V", null, null);
+            mv.visitCode();
+            Label l0 = new Label();
+            mv.visitLabel(l0);
+            mv.visitLineNumber(6, l0);
+            mv.visitVarInsn(ALOAD, 0);
+            mv.visitMethodInsn(INVOKESPECIAL, "java/lang/Object",
+                    "<init>", "()V", false);
+            mv.visitInsn(RETURN);
+            Label l1 = new Label();
+            mv.visitLabel(l1);
+            mv.visitLocalVariable("this",
+                "Lcom/imooc/router/demo/sample/RouterMapping;", null, l0, l1, 0);
+            mv.visitMaxs(1, 1);
+            mv.visitEnd();
+        }
+        {
+            mv = cw.visitMethod(ACC_PUBLIC + ACC_STATIC,
+                "get", "()Ljava/util/Map;",
+                "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", null);
+            mv.visitCode();
+            Label l0 = new Label();
+            mv.visitLabel(l0);
+            mv.visitLineNumber(10, l0);
+            mv.visitTypeInsn(NEW, "java/util/HashMap");
+            mv.visitInsn(DUP);
+            mv.visitMethodInsn(INVOKESPECIAL,
+                "java/util/HashMap", "<init>", "()V", false);
+            mv.visitVarInsn(ASTORE, 0);
+            Label l1 = new Label();
+            mv.visitLabel(l1);
+            mv.visitLineNumber(12, l1);
+            mv.visitVarInsn(ALOAD, 0);
+            mv.visitMethodInsn(INVOKESTATIC,
+                "com/imooc/router/demo/sample/RouterMapping_1", "get",
+                "()Ljava/util/Map;", false);
+            mv.visitMethodInsn(INVOKEINTERFACE,
+            "java/util/Map", "putAll", "(Ljava/util/Map;)V", true);
+            Label l2 = new Label();
+            mv.visitLabel(l2);
+            mv.visitLineNumber(14, l2);
+            mv.visitVarInsn(ALOAD, 0);
+            mv.visitMethodInsn(INVOKESTATIC,
+                    "com/imooc/router/demo/sample/RouterMapping_2",
+                    "get", "()Ljava/util/Map;", false);
+            mv.visitMethodInsn(INVOKEINTERFACE,
+                    "java/util/Map", "putAll", "(Ljava/util/Map;)V", true);
+            Label l3 = new Label();
+            mv.visitLabel(l3);
+            mv.visitLineNumber(18, l3);
+            mv.visitVarInsn(ALOAD, 0);
+            mv.visitInsn(ARETURN);
+            Label l4 = new Label();
+            mv.visitLabel(l4);
+            mv.visitLocalVariable("map", "Ljava/util/Map;",
+                "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", l1, l4, 0);
+            mv.visitMaxs(2, 1);
+            mv.visitEnd();
+        }
+        cw.visitEnd();
+
+        return cw.toByteArray();
+    }
+}
