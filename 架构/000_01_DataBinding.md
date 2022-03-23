@@ -105,6 +105,216 @@ private fun getDrawablePopularity(popularity: Popularity, context: Context): Dra
 
 
 
+### ViewModel
+
+在看下的上面用到的`ViewModel`
+
+```kotlin
+/**
+ * A VM for [com.example.android.databinding.basicsample.ui.SolutionActivity].
+ */
+class SimpleViewModelSolution : ViewModel() {
+    private val _name = MutableLiveData("Ada")
+    private val _lastName = MutableLiveData("Lovelace")
+    private val _likes =  MutableLiveData(0)
+
+    val name: LiveData<String> = _name
+    val lastName: LiveData<String> = _lastName
+    val likes: LiveData<Int> = _likes
+
+    // popularity is exposed as LiveData using a Transformation instead of a @Bindable property.
+    val popularity: LiveData<Popularity> = Transformations.map(_likes) {
+        when {
+            it > 9 -> Popularity.STAR
+            it > 4 -> Popularity.POPULAR
+            else -> Popularity.NORMAL
+        }
+    }
+
+    fun onLike() {
+        _likes.value = (_likes.value ?: 0) + 1
+    }
+}
+
+```
+
+> you can make one `LiveData` depend on another using [Transformations](https://developer.android.com/reference/android/arch/lifecycle/Transformations). This mechanism allows the library to update the UI when the value changes.
+
+
+
+## Observable vs LiveData
+
+该使用Observable还是LiveData呢？
+
+参考：
+
++ [Android Data Binding Library — from Observable Fields to LiveData in two steps](https://medium.com/androiddevelopers/android-data-binding-library-from-observable-fields-to-livedata-in-two-steps-690a384218f2)
+
+
+
+[Data Binding Library](https://developer.android.com/topic/libraries/data-binding/)中有许多可观察类：ObservableBoolean` , `ObservableInt`, `ObservableDouble等，还可以使用`ObservableField<T>`
+
+在[Architecture Components](https://developer.android.com/topic/libraries/architecture)中，则引入了[**LiveData**](https://developer.android.com/topic/libraries/architecture/livedata)，也是可观察的
+
+> [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) is lifecycle-aware but this is not a huge advantage with respect to Observable Fields because Data Binding already checks when the view is active. However, **LiveData supports** [**Transformations**](https://developer.android.com/reference/android/arch/lifecycle/Transformations)**, and many Architecture Components, like** [**Room**](https://developer.android.com/topic/libraries/architecture/room) **and** [**WorkManager**](https://developer.android.com/reference/androidx/work/WorkManager)**, support LiveData**.
+>
+> LiveData 是生命周期感知的，但这对于可观察字段来说并不是一个巨大的优势，因为数据绑定已经检查了视图何时处于活动状态。 但是，LiveData 支持转换，并且许多架构组件，例如 Room 和 WorkManager，都支持 LiveData。
+
+推荐使用LiveData，迁移到LiveData需要如下的操作
+
+1.使用LiveData替换Observable Fields可观察字段
+
+替换前：
+
+```xml
+<data>
+    <import type="android.databinding.ObservableField"/>
+    <variable 
+        name="name" 
+        type="ObservableField&lt;String>" />
+</data>
+…
+<TextView
+    android:text="@{name}"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+```
+
+替换后：
+
+```xml
+<data>
+        <import type="android.arch.lifecycle.LiveData" />
+        <variable
+            name="name"
+            type="LiveData&lt;String>" />
+</data>
+…
+<TextView
+    android:text="@{name}"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+```
+
+另一种方式，在ViewModel中可直接替换
+
+替换前：
+
+```kotlin
+class MyViewModel : ViewModel() {
+    val name = ObservableField<String>("Ada")
+}
+```
+
+替换后：
+
+```kotlin
+class MyViewModel : ViewModel() {
+    private val _name = MutableLiveData<String>().apply { value = "Ada" }
+
+    val name: LiveData<String> = _name // Expose the immutable version of the LiveData
+}
+```
+
+
+
+2.设置LiveData的lifecycle owner
+
+替换前：
+
+```kotlin
+val binding = DataBindingUtil.setContentView<TheGeneratedBinding>(
+    this,
+    R.layout.activity_data_binding
+)
+
+binding.name = myLiveData // or myViewModel
+```
+
+替换后：
+
+```kotlin
+val binding = DataBindingUtil.setContentView<TheGeneratedBinding>(
+    this,
+    R.layout.activity_data_binding
+)
+
+binding.lifecycleOwner = this // Use viewLifecycleOwner for fragments
+
+binding.name = myLiveData // or myViewModel
+```
+
+> 如果使用的是**fragment**，推荐使用**fragment.viewLifecycleOwner**（代替**fragment’s lifecycle**）
+
+
+
+## 经验教训
+
+官方文档推荐的
+
+- [数据绑定 - 经验教训](https://medium.com/androiddevelopers/data-binding-lessons-learnt-4fd16576b719)
+
+总结了作者在使用DataBinding时的一些经验教训
+
+1.尽量使用标准的binding
+
+很多的时候，都需要格式化字符串，如果使用自定义binding adapter的话
+
+```kotlin
+/* Copyright 2018 Google LLC.
+   SPDX-License-Identifier: Apache-2.0 */
+@BindingAdapter("showTitle")
+fun showTitle(view: TextView, show: TiviShow) {
+    view.text = buildSpannedString {
+        inSpans(...) {
+            append(show.title)
+        }
+        if (show.firstAired != null) {
+            append(" ")
+            inSpans(...) {
+                append("(")
+                append(show.firstAired.year)
+                append(")")
+            }
+        }
+    }
+}
+```
+
+```kotlin
+<!-- Copyright 2018 Google LLC.
+     SPDX-License-Identifier: Apache-2.0 -->
+<TextView
+    app:showTitle="@{viewState.show}" />
+```
+
+有很多副作用，所以可以把这些逻辑放在一个类中
+
+```xml
+<!-- Copyright 2018 Google LLC.
+     SPDX-License-Identifier: Apache-2.0 -->
+<layout>
+    <data>
+        <variable
+            name="textCreator"
+            type="app.tivi.ShowDetailsTextCreator" />
+        <variable
+            name="state"
+            type="app.tivi.showdetails.ShowDetailsViewState" />
+    </data>
+
+    <TextView
+        android:text="@{textCreator.genreString(state.genres)}" />
+
+</layout>
+```
+
+
+
+
+
+
+
 
 
 
