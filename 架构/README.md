@@ -4,7 +4,7 @@
 
 + [数据绑定库](https://developer.android.com/topic/libraries/data-binding)
 
-
+数据绑定库是一种支持库，借助该库，您可以使用声明性格式（而非程序化地）将布局中的界面组件绑定到应用中的数据源。
 
 ## 入门
 
@@ -42,6 +42,41 @@ android {
     </layout>
 ```
 
+绑定的数据对象，可以是public的属性，也可以是get方法
+
+```java
+
+    public class User {
+      public final String firstName;
+      public final String lastName;
+      public User(String firstName, String lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+      }
+    }
+    
+    public class User {
+      private final String firstName;
+      private final String lastName;
+      public User(String firstName, String lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+      }
+      public String getFirstName() {
+          return this.firstName;
+      }
+      public String getLastName() {
+          return this.lastName;
+      }
+    }
+
+    
+```
+
+用于 [`android:text`](https://developer.android.com/reference/android/widget/TextView#attr_android:text) 特性的表达式 `@{user.firstName}` 访问前一个类中的 `firstName` 字段和后一个类中的 `getFirstName()` 方法。或者，如果该方法存在，也将解析为 `firstName()`。
+
+
+
 3.生成的绑定类
 
 > 系统会为每个布局文件生成一个绑定类。默认情况下，类名称基于布局文件的名称，它会转换为 Pascal 大小写形式并在末尾添加 Binding 后缀。以上布局文件名为 `activity_main.xml`，因此生成的对应类为 `ActivityMainBinding`
@@ -75,7 +110,7 @@ android {
     ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
 ```
 
-如果您要在 `Fragment`、`ListView` 或 `RecyclerView` 适配器中使用数据绑定项，您可能更愿意使用绑定类或 [`DataBindingUtil`](https://developer.android.com/reference/androidx/databinding/DataBindingUtil?hl=zh-cn) 类的 [`inflate()`](https://developer.android.com/reference/androidx/databinding/DataBindingUtil?hl=zh-cn#inflate(android.view.LayoutInflater, int, android.view.ViewGroup, boolean, android.databinding.DataBindingComponent)) 方法，如以下代码示例所示
+如果您要在 `Fragment`、`ListView` 或 `RecyclerView` 适配器中使用数据绑定项，您可能更愿意使用绑定类或 [`DataBindingUtil`](https://developer.android.com/reference/androidx/databinding/DataBindingUtil?hl=zh-cn) 类的 `inflate()`方法，如以下代码示例所示
 
 ```java
 ListItemBinding binding = ListItemBinding.inflate(layoutInflater, viewGroup, false);
@@ -85,7 +120,352 @@ ListItemBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.list_
 
 
 
-5.可观察的数据对象
+### 表达式语言
+
+```xml
+android:text="@{String.valueOf(index + 1)}"
+    android:visibility="@{age > 13 ? View.GONE : View.VISIBLE}"
+    android:transitionName='@{"image_" + id}'
+```
+
+**Null 合并运算符**
+
+```xml
+android:text="@{user.displayName ?? user.lastName}"
+
+android:text="@{user.displayName != null ? user.displayName : user.lastName}"
+```
+
+**属性引用**
+
+对于字段、getter 和 [`ObservableField`](https://developer.android.com/reference/androidx/databinding/ObservableField) 对象都一样
+
+```xml
+android:text="@{user.lastName}"
+```
+
+**避免出现 Null 指针异常**
+
+生成的数据绑定代码会自动检查有没有 `null` 值并避免出现 Null 指针异常。例如，在表达式 `@{user.name}` 中，如果 `user` 为 Null，则为 `user.name` 分配默认值 `null`。如果您引用 `user.age`，其中 age 的类型为 `int`，则数据绑定使用默认值 `0`
+
+**视图引用**
+
+表达式可以通过以下语法按 ID 引用布局中的其他视图：
+
+```xml
+android:text="@{exampleText.text}"
+```
+
+**集合**
+
+为方便起见，可使用 `[]` 运算符访问常见集合，例如数组、列表、稀疏列表和映射。
+
+```xml
+<data>
+        <import type="android.util.SparseArray"/>
+        <import type="java.util.Map"/>
+        <import type="java.util.List"/>
+        <variable name="list" type="List&lt;String>"/>
+        <variable name="sparse" type="SparseArray&lt;String>"/>
+        <variable name="map" type="Map&lt;String, String>"/>
+        <variable name="index" type="int"/>
+        <variable name="key" type="String"/>
+    </data>
+    …
+    android:text="@{list[index]}"
+    …
+    android:text="@{sparse[index]}"
+    …
+    android:text="@{map[key]}"
+    
+```
+
+> **注意**：要使 XML 不含语法错误，您必须转义 `<` 字符。例如：不要写成 `List<String>` 形式，而是必须写成 `List<String>`。
+
+还可以使用 `object.key` 表示法在映射中引用值。例如，以上示例中的 `@{map[key]}` 可替换为 `@{map.key}`。
+
+**字符串字面量**
+
+可以使用单引号括住特性值，这样就可以在表达式中使用双引号
+
+```xml
+android:text='@{map["firstName"]}'
+```
+
+也可以使用双引号括住特性值。如果这样做，则还应使用反单引号 ``` 将字符串字面量括起来
+
+```xml
+android:text="@{map[`firstName`]}"
+```
+
+**资源**
+
+可以使用以下语法引用应用资源
+
+```xml
+android:padding="@{large? @dimen/largePadding : @dimen/smallPadding}"
+```
+
+可以通过提供参数来评估格式字符串和复数形式
+
+```xml
+android:text="@{@string/nameFormat(firstName, lastName)}"
+    android:text="@{@plurals/banana(bananaCount)}"
+```
+
+可以将[属性引用](https://developer.android.com/topic/libraries/data-binding/expressions#property_reference)和[视图引用](https://developer.android.com/topic/libraries/data-binding/expressions#view_references)作为资源参数进行传递：
+
+```xml
+android:text="@{@string/example_resource(user.lastName, exampleText.text)}"
+```
+
+
+
+### 事件处理
+
+**方法引用**
+
+主要优点是**表达式在编译时进行处理**，因此，如果该方法不存在或其签名不正确，则会收到编译时错误。
+
+**方法引用和监听器绑定之间的主要区别在于实际监听器实现是在绑定数据时创建的，而不是在事件触发时创建的。**如果您希望在事件发生时对表达式求值，则应使用[监听器绑定](https://developer.android.com/topic/libraries/data-binding/expressions#listener_bindings)。
+
+如：
+
+```java
+    public class MyHandlers {
+        public void onClickFriend(View view) { ... }
+    }
+
+
+<?xml version="1.0" encoding="utf-8"?>
+    <layout xmlns:android="http://schemas.android.com/apk/res/android">
+       <data>
+           <variable name="handlers" type="com.example.MyHandlers"/>
+           <variable name="user" type="com.example.User"/>
+       </data>
+       <LinearLayout
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <TextView android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@{user.firstName}"
+               android:onClick="@{handlers::onClickFriend}"/>
+       </LinearLayout>
+    </layout>
+```
+
+> **注意**：表达式中的方法签名必须与监听器对象中的方法签名完全一致。
+
+
+
+**监听器绑定**
+
+监听器绑定是在事件发生时运行的绑定表达式
+
+在方法引用中，方法的参数必须与事件监听器的参数匹配。在监听器绑定中，只有您的返回值必须与监听器的预期返回值相匹配（预期返回值无效除外）
+
+例如，请参考以下具有 `onSaveClick()` 方法的 presenter 类：
+
+```java
+    public class Presenter {
+        public void onSaveClick(Task task){}
+    }
+```
+
+然后，您可以将点击事件绑定到 `onSaveClick()` 方法，如下所示：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+    <layout xmlns:android="http://schemas.android.com/apk/res/android">
+        <data>
+            <variable name="task" type="com.android.example.Task" />
+            <variable name="presenter" type="com.android.example.Presenter" />
+        </data>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:onClick="@{() -> presenter.onSaveClick(task)}" />
+        </LinearLayout>
+    </layout>
+    
+```
+
+在上面的示例中，我们尚未定义传递给 `onClick(View)` 的 `view` 参数
+
+监听器绑定提供两个监听器参数选项：您可以忽略方法的所有参数，也可以命名所有参数。如果您想命名参数，则可以在表达式中使用这些参数。例如，上面的表达式可以写成如下形式：
+
+```xml
+android:onClick="@{(view) -> presenter.onSaveClick(task)}"
+```
+
+如果您想在表达式中使用参数，则采用如下形式：
+
+```java
+    public class Presenter {
+        public void onSaveClick(View view, Task task){}
+    }
+
+    
+android:onClick="@{(theView) -> presenter.onSaveClick(theView, task)}"
+    
+```
+
+您可以在 lambda 表达式中使用多个参数：
+
+```java
+    public class Presenter {
+        public void onCompletedChanged(Task task, boolean completed){}
+    }
+
+    
+<CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content"
+          android:onCheckedChanged="@{(cb, isChecked) -> presenter.completeChanged(task, isChecked)}" />
+    
+```
+
+如果您监听的事件返回类型不是 `void` 的值，则您的表达式也必须返回相同类型的值。例如，如果要监听长按事件，表达式应返回一个布尔值。
+
+```java
+    public class Presenter {
+        public boolean onLongClick(View view, Task task) { }
+    }
+
+    
+android:onLongClick="@{(theView) -> presenter.onLongClick(theView, task)}"
+    
+```
+
+如果由于 `null` 对象而无法对表达式求值，则数据绑定将返回该类型的默认值。例如，引用类型返回 `null`，`int` 返回 `0`，`boolean` 返回 `false`，等等。
+
+如果您需要将表达式与谓词（例如，三元运算符）结合使用，则可以使用 `void` 作为符号。
+
+```xml
+android:onClick="@{(v) -> v.isVisible() ? doSomething() : void}"
+```
+
+
+
+### 导入、变量和包含
+
+**导入**
+
+```xml
+<data>
+        <import type="android.view.View"/>
+    </data>
+```
+
+类型别名
+
+```xml
+<import type="android.view.View"/>
+    <import type="com.example.real.estate.View"
+            alias="Vista"/>
+```
+
+导入其他类
+
+```xml
+<data>
+        <import type="com.example.User"/>
+        <import type="java.util.List"/>
+        <variable name="user" type="User"/>
+        <variable name="userList" type="List&lt;User>"/>
+    </data>
+```
+
+还可以使用导入的类型来对表达式的一部分进行类型转换。以下示例将 `connection` 属性强制转换为类型 `User`
+
+```xml
+<TextView
+       android:text="@{((User)(user.connection)).lastName}"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+    
+```
+
+在表达式中引用静态字段和方法时，也可以使用导入的类型。以下代码会导入 `MyStringUtils` 类，并引用其 `capitalize` 方法：
+
+```xml
+<data>
+        <import type="com.example.MyStringUtils"/>
+        <variable name="user" type="com.example.User"/>
+    </data>
+    …
+    <TextView
+       android:text="@{MyStringUtils.capitalize(user.lastName)}"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+    
+```
+
+就像在托管代码中一样，系统会自动导入 `java.lang.*`
+
+
+
+**变量**
+
+```xml
+<data>
+        <import type="android.graphics.drawable.Drawable"/>
+        <variable name="user" type="com.example.User"/>
+        <variable name="image" type="Drawable"/>
+        <variable name="note" type="String"/>
+    </data>
+```
+
+系统会根据需要生成名为 `context` 的特殊变量，用于绑定表达式。`context` 的值是根视图的 `getContext()` 方法中的 `Context` 对象。`context` 变量会被具有该名称的显式变量声明替换。
+
+
+
+**包含**
+
+通过使用应用命名空间和特性中的变量名称，变量可以从包含的布局传递到被包含布局的绑定。以下示例展示了来自 `name.xml` 和 `contact.xml` 布局文件的被包含 `user` 变量：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+    <layout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:bind="http://schemas.android.com/apk/res-auto">
+       <data>
+           <variable name="user" type="com.example.User"/>
+       </data>
+       <LinearLayout
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <include layout="@layout/name"
+               bind:user="@{user}"/>
+           <include layout="@layout/contact"
+               bind:user="@{user}"/>
+       </LinearLayout>
+    </layout>
+```
+
+数据绑定不支持 include 作为 merge 元素的直接子元素。例如，以下布局不受支持：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+    <layout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:bind="http://schemas.android.com/apk/res-auto">
+       <data>
+           <variable name="user" type="com.example.User"/>
+       </data>
+       <merge><!-- Doesn't work -->
+           <include layout="@layout/name"
+               bind:user="@{user}"/>
+           <include layout="@layout/contact"
+               bind:user="@{user}"/>
+       </merge>
+    </layout>
+```
+
+
+
+
+
+
+
+## 可观察的数据对象
 
 可观察性是指一个对象将其数据变化告知其他对象的能力
 
