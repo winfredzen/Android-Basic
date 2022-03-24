@@ -618,6 +618,316 @@ You can register for this property on `ImageView` with the following method. Thi
 
 
 
+## 生成的绑定类
+
+参考自：
+
++ [生成的绑定类](https://developer.android.com/topic/libraries/data-binding/generated-binding)
+
+
+
+**创建绑定对象**
+
+如：
+
+```java
+mViewDataBinding = DataBindingUtil.setContentView(this, getLayoutId());
+```
+
+
+
+**即时绑定**
+
+当可变或可观察对象发生更改时，绑定会按照计划在下一帧之前发生更改。但有时必须立即执行绑定。要强制执行，请使用 [`executePendingBindings()`](https://developer.android.com/reference/androidx/databinding/ViewDataBinding#executePendingBindings()) 方法。
+
+
+
+**自定义绑定类名称**
+
+默认情况下，绑定类是根据布局文件的名称生成的，以大写字母开头，移除下划线 ( _ )，将后一个字母大写，最后添加后缀 **Binding**。
+
+通过调整 `data` 元素的 `class` 特性，绑定类可重命名或放置在不同的包中
+
+```xml
+<data class="ContactItem">
+        …
+    </data>
+```
+
+
+
+## 绑定适配器
+
+参考：
+
++ [绑定适配器](https://developer.android.com/topic/libraries/data-binding/binding-adapters)
+
+
+
+1.自动选择方法，对于名为 `example` 的特性，库自动尝试查找接受兼容类型作为参数的方法 `setExample(arg)`
+
+2.指定自定义方法名称
+
+一些属性具有名称不符的 setter 方法
+
+在以下示例中，`android:tint` 属性与 `setImageTintList(ColorStateList)` 方法相关联，而不与 `setTint()` 方法相关联：
+
+```java
+    @BindingMethods({
+           @BindingMethod(type = "android.widget.ImageView",
+                          attribute = "android:tint",
+                          method = "setImageTintList"),
+    })
+```
+
+
+
+3.提供自定义的逻辑
+
+例如，`android:paddingLeft` 特性没有关联的 setter，而是提供了 `setPadding(left, top, right, bottom)` 方法。使用 [`BindingAdapter`](https://developer.android.com/reference/androidx/databinding/BindingAdapter) 注释的静态绑定适配器方法支持自定义特性 setter 的调用方式。
+
+```java
+    @BindingAdapter("android:paddingLeft")
+    public static void setPaddingLeft(View view, int padding) {
+      view.setPadding(padding,
+                      view.getPaddingTop(),
+                      view.getPaddingRight(),
+                      view.getPaddingBottom());
+    }
+```
+
+还可以使用接收多个属性的适配器
+
+```java
+    @BindingAdapter({"imageUrl", "error"})
+    public static void loadImage(ImageView view, String url, Drawable error) {
+      Picasso.get().load(url).error(error).into(view);
+    }
+```
+
+可以在布局中使用适配器，如以下示例所示。请注意，`@drawable/venueError` 引用应用中的资源。使用 `@{}` 将资源括起来可使其成为有效的绑定表达式。
+
+```xml
+<ImageView app:imageUrl="@{venue.imageUrl}" app:error="@{@drawable/venueError}" />
+```
+
+如果 `ImageView` 对象同时使用了 `imageUrl` 和 `error`，并且 `imageUrl` 是字符串，`error` 是 `Drawable`，就会调用适配器。如果您希望在设置了任意属性时调用适配器，则可以将适配器的可选 [`requireAll`](https://developer.android.com/reference/androidx/databinding/BindingAdapter#requireAll()) 标志设置为 `false`，如以下示例所示：
+
+```java
+    @BindingAdapter(value={"imageUrl", "placeholder"}, requireAll=false)
+    public static void setImageUrl(ImageView imageView, String url, Drawable placeHolder) {
+      if (url == null) {
+        imageView.setImageDrawable(placeholder);
+      } else {
+        MyImageLoader.loadInto(imageView, url, placeholder);
+      }
+    }
+```
+
+绑定适配器方法可以选择性在处理程序中使用旧值。同时获取旧值和新值的方法应该先为属性声明所有旧值，然后再声明新值，如以下示例所示：
+
+```java
+    @BindingAdapter("android:paddingLeft")
+    public static void setPaddingLeft(View view, int oldPadding, int newPadding) {
+      if (oldPadding != newPadding) {
+          view.setPadding(newPadding,
+                          view.getPaddingTop(),
+                          view.getPaddingRight(),
+                          view.getPaddingBottom());
+       }
+    }
+```
+
+事件处理脚本只能与具有一种抽象方法的接口或抽象类一起使用，如以下示例所示：
+
+```java
+    @BindingAdapter("android:onLayoutChange")
+    public static void setOnLayoutChangeListener(View view, View.OnLayoutChangeListener oldValue,
+           View.OnLayoutChangeListener newValue) {
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (oldValue != null) {
+          view.removeOnLayoutChangeListener(oldValue);
+        }
+        if (newValue != null) {
+          view.addOnLayoutChangeListener(newValue);
+        }
+      }
+    }
+
+    
+```
+
+按如下方式在布局中使用此事件处理脚本：
+
+```xml
+<View android:onLayoutChange="@{() -> handler.layoutChanged()}"/>
+```
+
+
+
+#### 自定义转换
+
+在某些情况下，需要在特定类型之间进行自定义转换。例如，视图的 `android:background` 特性需要 `Drawable`，但指定的 `color` 值是整数。以下示例展示了某个属性需要 `Drawable`，但结果提供了一个整数：
+
+```xml
+<View
+       android:background="@{isError ? @color/red : @color/white}"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+    
+```
+
+每当需要 `Drawable` 且返回整数时，`int` 都应转换为 `ColorDrawable`。您可以使用带有 [`BindingConversion`](https://developer.android.com/reference/androidx/databinding/BindingConversion) 注释的静态方法完成这个转换，如下所示：
+
+```java
+    @BindingConversion
+    public static ColorDrawable convertColorToDrawable(int color) {
+        return new ColorDrawable(color);
+    }
+
+    
+```
+
+但是，绑定表达式中提供的值类型必须保持一致。您不能在同一个表达式中使用不同的类型，如以下示例所示：
+
+```xml
+<View
+       android:background="@{isError ? @drawable/error : @color/white}"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+    
+```
+
+
+
+## 将布局视图绑定到架构组件
+
+参考：
+
++ [将布局视图绑定到架构组件](https://developer.android.com/topic/libraries/data-binding/architecture)
+
+
+
+1.使用LiveData
+
+> 与实现 [`Observable`](https://developer.android.com/reference/androidx/databinding/Observable) 的对象（例如[可观察字段](https://developer.android.com/topic/libraries/data-binding/observability#observable_fields)）不同，`LiveData` 对象了解订阅数据更改的观察器的生命周期。了解这一点有许多好处，具体说明请参阅[使用 LiveData 的优势](https://developer.android.com/topic/libraries/architecture/livedata#the_advantages_of_using_livedata)
+
+
+
+2.使用ViewModel
+
+```java
+    class ViewModelActivity extends AppCompatActivity {
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            // Obtain the ViewModel component.
+            UserModel userModel = new ViewModelProvider(this).get(UserModel.class);
+
+            // Inflate view and obtain an instance of the binding class.
+            UserBinding binding = DataBindingUtil.setContentView(this, R.layout.user);
+
+            // Assign the component to a property in the binding class.
+            binding.viewmodel = userModel;
+        }
+    }
+    
+```
+
+```xml
+<CheckBox
+        android:id="@+id/rememberMeCheckBox"
+        android:checked="@{viewmodel.rememberMe}"
+        android:onCheckedChanged="@{() -> viewmodel.rememberMeChanged()}" />
+```
+
+
+
+3.使用Observable ViewModel 
+
+这种情况与使用LiveData类似
+
+使用实现 `Observable` 的 `ViewModel` 组件可让您更好地控制应用中的绑定适配器。例如，这种模式可让您更好地控制数据更改时发出的通知，您还可以指定自定义方法来设置双向数据绑定中的属性值。
+
+如需实现可观察的 `ViewModel` 组件，您必须创建一个从 [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) 类继承而来并实现 [`Observable`](https://developer.android.com/reference/androidx/databinding/Observable) 接口的类。您可以使用 [`addOnPropertyChangedCallback()`](https://developer.android.com/reference/androidx/databinding/Observable#addOnPropertyChangedCallback(android.databinding.Observable.OnPropertyChangedCallback)) 和 [`removeOnPropertyChangedCallback()`](https://developer.android.com/reference/androidx/databinding/Observable#removeOnPropertyChangedCallback(android.databinding.Observable.OnPropertyChangedCallback)) 方法提供观察器订阅或取消订阅通知时的自定义逻辑。您还可以在 [`notifyPropertyChanged()`](https://developer.android.com/reference/androidx/databinding/BaseObservable#notifyPropertyChanged(int)) 方法中提供属性更改时运行的自定义逻辑。以下代码示例展示了如何实现一个可观察的 `ViewModel`：
+
+```java
+    /**
+     * A ViewModel that is also an Observable,
+     * to be used with the Data Binding Library.
+     */
+    class ObservableViewModel extends ViewModel implements Observable {
+        private PropertyChangeRegistry callbacks = new PropertyChangeRegistry();
+
+        @Override
+        protected void addOnPropertyChangedCallback(
+                Observable.OnPropertyChangedCallback callback) {
+            callbacks.add(callback);
+        }
+
+        @Override
+        protected void removeOnPropertyChangedCallback(
+                Observable.OnPropertyChangedCallback callback) {
+            callbacks.remove(callback);
+        }
+
+        /**
+         * Notifies observers that all properties of this instance have changed.
+         */
+        void notifyChange() {
+            callbacks.notifyCallbacks(this, 0, null);
+        }
+
+        /**
+         * Notifies observers that a specific property has changed. The getter for the
+         * property that changes should be marked with the @Bindable annotation to
+         * generate a field in the BR class to be used as the fieldId parameter.
+         *
+         * @param fieldId The generated BR id for the Bindable field.
+         */
+        void notifyPropertyChanged(int fieldId) {
+            callbacks.notifyCallbacks(this, fieldId, null);
+        }
+    }
+    
+```
+
+
+
+## 双向数据绑定
+
+参考：
+
++ [双向数据绑定](https://developer.android.com/topic/libraries/data-binding/two-way)
+
+
+
+使用单向数据绑定时，您可以为特性设置值，并设置对该特性的变化作出反应的监听器：
+
+```xml
+    <CheckBox
+        android:id="@+id/rememberMeCheckBox"
+        android:checked="@{viewmodel.rememberMe}"
+        android:onCheckedChanged="@{viewmodel.rememberMeChanged}"
+    />
+    
+```
+
+双向数据绑定为此过程提供了一种快捷方式：
+
+```xml
+    <CheckBox
+        android:id="@+id/rememberMeCheckBox"
+        android:checked="@={viewmodel.rememberMe}"
+    />
+    
+```
+
+`@={}` 表示法（其中重要的是包含“=”符号）可接收属性的数据更改并同时监听用户更新。
+
+
+
+
+
 ## 教程
 
 ### 1.参考[Using data binding in Android - Tutorial](https://www.vogella.com/tutorials/AndroidDatabinding/article.html)
