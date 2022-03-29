@@ -534,6 +534,25 @@ public class EditNameDialog extends DialogFragment {
 
 
 
+## Dialogment vs Dialog
+
+参考：
+
++ [Dialogment详解](https://juejin.cn/post/6844903807764135944)
+
+和 Dialog 的区别：
+
+- 相比较 Dialog 来说，DialogFragment 其内嵌了一个 Dialog ，并对它进行一些灵活的管理，并且在 Activity  被异常销毁后重建的时候，DialogFragment 也会跟着重建，单独使用 Dialog 就不会。而且我们可以在 DialogFragment 的 onSaveInstanceState 方法中保存一些我们的数据，DialogFragment 跟着 Activity 重建的时候，从 onRestoreInstanceState 中取出数据，恢复页面显示。
+- Dialog 不适合复杂UI，而且不适合弹窗中有网络请求的逻辑开发。而 DialogFragment 可以当做一个 Fragment 来使用，比较适合做一些复杂的逻辑，网络请求。
+
+### 基本使用方式
+
+1. **创建方式：**
+   - 重写 `onCreateView` 方法，自定义布局。适用于复杂UI场景。
+   - 重写 `onCreateDialog` 方法，自定义Dialog。适用于简单、传统弹窗UI。
+
+
+
 ## 其它教程
 
 + [Android开发 DialogFragment对话框详解](https://www.cnblogs.com/guanxinjing/p/12044196.html)
