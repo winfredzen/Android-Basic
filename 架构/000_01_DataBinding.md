@@ -311,7 +311,25 @@ fun showTitle(view: TextView, show: TiviShow) {
 
 
 
+2.include中使用databinding的一些问题
 
+a.传递变量，这个官方文档有讲到
+
+b.获取include中的控件，参考：
+
++ [DataBinding-xml中使用include](https://blog.csdn.net/u010976213/article/details/77746315)
+
+需要设置id等属性
+
+例如，遇到在include中设置margin不生效的问题，测试就需要设置width、height等其他的属性，
+
+c.自定义adapter的问题，参考：
+
++ [Applying databinding adapter to include tag](https://stackoverflow.com/questions/50722783/applying-databinding-adapter-to-include-tag)
+
+> Apparently, currently you are not able to use `BindingAdapters` with `included` layout elements, but you can pass your variables inside the included layouts (for them to handle).
+>
+> 即不能使用
 
 
 
