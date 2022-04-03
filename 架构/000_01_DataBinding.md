@@ -333,6 +333,203 @@ c.自定义adapter的问题，参考：
 
 
 
+## 双向绑定
+
+参考：
+
++ [双向数据绑定](https://developer.android.com/topic/libraries/data-binding/two-way?hl=zh-cn)
+
+不过在开发中，需要很多自定义的view，如何在自定义view中使用双向绑定呢？
+
+参考：
+
++ [Two-way Databinding with a custom property in Android](https://medium.com/@douglas.iacovelli/custom-two-way-databinding-made-easy-f8b17a4507d2)
+
+
+
+### 相关类和接口
+
+1.`InverseBindingAdapter`
+
+`InverseBindingAdapter` 与用于在设置从视图收集的值时检索视图值的方法相关联。我自己的理解是**get方法**
+
+如TextView的text方法：
+
+```java
+    @InverseBindingAdapter(attribute = "android:text", event = "android:textAttrChanged")
+    public static String getTextString(TextView view) {
+        return view.getText().toString();
+    }
+```
+
+> 这里的关键点就是`@InverseBindingAdapter`去定义取值操作，注意这里有个`event = “android:textAttrChanged”`，这指的是当这个事件`android:textAttrChanged`发生的时候才去从view取值到viewmodel。那么如何定义`android:textAttrChanged`何时发生呢，这里是个纯粹的观察者，TextView的话是需要定义一个TextWatcher然后在`onTextChanged`的时候回调：`textAttrChanged.onChange()`。
+
+`android:textAttrChanged`的定义，在官方教程中，有如下的说明：
+
+> **注意**：每个双向绑定都会生成“合成事件特性”。该特性与基本特性具有相同的名称，但包含**后缀 `"AttrChanged"`**。合成事件特性允许库创建使用 `@BindingAdapter` 注释的方法，以将事件监听器与相应的 `View` 实例相关联。
+
+```java
+    @BindingAdapter(value = {"android:beforeTextChanged", "android:onTextChanged",
+            "android:afterTextChanged", "android:textAttrChanged"}, requireAll = false)
+    public static void setTextWatcher(TextView view, final BeforeTextChanged before,
+            final OnTextChanged on, final AfterTextChanged after,
+            final InverseBindingListener textAttrChanged) {
+        final TextWatcher newValue;
+        if (before == null && after == null && on == null && textAttrChanged == null) {
+            newValue = null;
+        } else {
+            newValue = new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    if (before != null) {
+                        before.beforeTextChanged(s, start, count, after);
+                    }
+                }
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (on != null) {
+                        on.onTextChanged(s, start, before, count);
+                    }
+                    if (textAttrChanged != null) {
+                        textAttrChanged.onChange();
+                    }
+                }
+                @Override
+                public void afterTextChanged(Editable s) {
+                    if (after != null) {
+                        after.afterTextChanged(s);
+                    }
+                }
+            };
+        }
+        final TextWatcher oldValue = ListenerUtil.trackListener(view, newValue, R.id.textWatcher);
+        if (oldValue != null) {
+            view.removeTextChangedListener(oldValue);
+        }
+        if (newValue != null) {
+            view.addTextChangedListener(newValue);
+        }
+    }
+```
+
+TextView的text的set方法，**注意要判断新值和旧值是否相等**，避免死循环
+
+```java
+    @BindingAdapter("android:text")
+    public static void setText(TextView view, CharSequence text) {
+        final CharSequence oldText = view.getText();
+        if (text == oldText || (text == null && oldText.length() == 0)) {
+            return;
+        }
+        if (text instanceof Spanned) {
+            if (text.equals(oldText)) {
+                return; // No change in the spans, so don't set anything.
+            }
+        } else if (!haveContentsChanged(text, oldText)) {
+            return; // No content changes, so don't set anything.
+        }
+        view.setText(text);
+    }
+```
+
+
+
+2.`InverseBindingListener`
+
+由所有双向绑定实现的侦听器，以在发生触发更改时得到通知。 例如，当 `android:text` 有双向绑定时，会在布局的绑定类中生成 `InverseBindingListener` 的实现。
+
+```java
+ private static class InverseListenerTextView implements InverseBindingListener {
+     @Override
+     public void onChange() {
+         mObj.setTextValue(mTextView.getText());
+     }
+ }
+```
+
+
+
+### 参考例子
+
+1.[Android Data Binding-21 | @InverseBindingMethod-TwoWay Binding for Custom View Types | U4Universe](https://www.youtube.com/watch?v=F9hS3Kf4Qz0&list=PLj76U7gxVixSLWg2v5MT6TcssOVL214oH&index=21)
+
+源码例子位于https://github.com/saifi369/TwoWayDataBinding/tree/4-%40InverseBindingMethods
+
+一个自定义Spinner的例子
+
+```kotlin
+@BindingMethods(
+        BindingMethod(type = MySpinner::class, attribute = "city", method = "setSelectedCity"),
+        BindingMethod(type = MySpinner::class, attribute = "cityAttrChanged", method = "setBindingListener")
+)
+
+@InverseBindingMethods(
+        InverseBindingMethod(type = MySpinner::class, attribute = "city", method = "getSelectedCity")
+)
+
+class MySpinner : androidx.appcompat.widget.AppCompatSpinner {
+
+    private lateinit var inverseBindingListener: InverseBindingListener
+
+    constructor(context: Context) : super(context) {
+        init()
+    }
+
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init()
+    }
+
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        init()
+    }
+
+    private fun init() {
+
+        onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                inverseBindingListener.onChange()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+        }
+
+    }
+
+    fun setSelectedCity(city: Cities) {
+        Log.d(TAG, "setSelectedCity: called")
+        setSelection(city.ordinal)
+    }
+
+    fun getSelectedCity(): Cities {
+        Log.d(TAG, "getSelectedCity: called")
+        return Cities.values()[selectedItemPosition]
+    }
+
+    fun setBindingListener(listener: InverseBindingListener) {
+        Log.d(TAG, "setBindingListener: called")
+        this.inverseBindingListener = listener
+    }
+}
+```
+
+在xml中使用：
+
+```xml
+<com.example.twowaydatabinding.MySpinner
+    android:id="@+id/spinner_city"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="50dp"
+    city="@={viewModel.user.city}"
+    android:entries="@array/cities" />
+```
+
+
+
+![062](https://github.com/winfredzen/Android-Basic/blob/master/%E6%9E%B6%E6%9E%84/images/062.png)
+
 
 
 

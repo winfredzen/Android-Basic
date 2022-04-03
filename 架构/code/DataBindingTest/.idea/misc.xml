@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33559782608695654" />
+        <entry key="app/src/main/res/layout/layout_currency_edittext.xml" value="0.33559782608695654" />
+        <entry key="app/src/main/res/layout/layout_my_custom_view.xml" value="0.33559782608695654" />
+      </map>
+    </option>
+  </component>
   <component name="FindBugsConfigurable">
     <option name="make" value="true" />
     <option name="effort" value="default" />
