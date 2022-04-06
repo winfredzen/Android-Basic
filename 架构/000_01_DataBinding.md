@@ -534,9 +534,52 @@ class MySpinner : androidx.appcompat.widget.AppCompatSpinner {
 
 
 
+2.[Advanced DataBinding in Custom Views](https://blog.yudiz.com/advanced-databinding-in-custom-views/)
+
+```kotlin
+object CustomEditTextBinding {
+    @JvmStatic
+    @BindingAdapter(value = ["editTextValueAttrChanged"])
+    fun setListener(customField: CustomEditText, listener: InverseBindingListener?) {
+        if (listener != null) {
+            customField.edt.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(
+                    charSequence: CharSequence,
+                    i: Int,
+                    i1: Int,
+                    i2: Int
+                ) {}
+                override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+                override fun afterTextChanged(editable: Editable) {
+                    listener.onChange()
+                }
+            })
+        }
+    }
+ 
+    @JvmStatic
+    @BindingAdapter("editTextValue")
+    fun setRealValue(customField: CustomEditText, value: String) {
+        if(customField.edt.text.toString() != value) {
+            customField.edt.setText(value)
+        }
+    }
+ 
+    @JvmStatic
+    @InverseBindingAdapter(attribute = "editTextValue")
+    fun getRealValue(customField: CustomEditText): String {
+        return customField.edt.text.toString()
+    }
+}
+```
 
 
 
+### 其它可参考
+
++ [Android官方架构组件DataBinding-Ex: 双向绑定篇](https://www.jianshu.com/p/e8b6ba90de53)
++ [Android进阶六:Databinding的双向绑定](https://blog.csdn.net/lixpjita39/article/details/78751811)
++ [使用Android BindingAdapter与InverseBindingAdapter实现SeekBar双向（正向/反向）数据绑定](https://blog.csdn.net/zhangphil/article/details/77839555)
 
 
 
