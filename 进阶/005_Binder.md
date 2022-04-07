@@ -139,21 +139,343 @@
 
 
 
+## Binder 通信过程
+
+参考：
+
++ [写给 Android 应用工程师的 Binder 原理剖析](https://zhuanlan.zhihu.com/p/35519585)
 
 
 
+> 至此，我们大致能总结出 Binder 通信过程：
+>
+> 1. 首先，一个进程使用 BINDER*SET*CONTEXT_MGR 命令通过 Binder 驱动将自己注册成为 ServiceManager；
+> 2. Server 通过驱动向 ServiceManager 中注册 Binder（Server 中的 Binder 实体），表明可以对外提供服务。驱动为这个 Binder 创建位于内核中的实体节点以及 ServiceManager 对实体的引用，将名字以及新建的引用打包传给 ServiceManager，ServiceManger 将其填入查找表。
+> 3. Client 通过名字，在 Binder 驱动的帮助下从 ServiceManager 中获取到对 Binder 实体的引用，通过这个引用就能实现和 Server 进程的通信。
+>
+> 我们看到整个通信过程都需要 Binder 驱动的接入。下图能更加直观的展现整个通信过程(为了进一步抽象通信过程以及呈现上的方便，下图我们忽略了 Binder 实体及其引用的概念)：
+>
+> ![074](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/074.jpeg)
 
 
 
+## 相关类介绍
+
+参考：
+
++ [写给 Android 应用工程师的 Binder 原理剖析](https://zhuanlan.zhihu.com/p/35519585)
 
 
 
+例如，定义一个aidl, `IMsgManager`
+
+```java
+// IMsg.aidl
+package com.aidl.service;
+import com.aidl.service.IReceiveMsgListener;
+import com.aidl.service.Msg;
+// Declare any non-default types here with import statements
+
+interface IMsgManager {
+   void sendMsg(in Msg msg);
+   void registerReceiveListener(IReceiveMsgListener receiveListener);
+   void unregisterReceiveListener(IReceiveMsgListener receiveListener);
+}
+
+```
+
+生成的类中，有如下的代码
+
+![072](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/072.png)
+
+1.Binder
+
+[Binder](https://developer.android.com/reference/android/os/Binder):Base class for a remotable object - 远程对象的基类
+
+```java
+public class Binder implements IBinder
+```
+
+2.[IInterface](https://developer.android.com/reference/android/os/IInterface) - 一个接口, Base class for Binder interfaces. When defining a new interface, you must derive it from IInterface.
+
+```java
+
+/**
+ * Base class for Binder interfaces.  When defining a new interface,
+ * you must derive it from IInterface.
+ */
+public interface IInterface
+{
+    /**
+     * Retrieve the Binder object associated with this interface.
+     * You must use this instead of a plain cast, so that proxy objects
+     * can return the correct result.
+     */
+    public IBinder asBinder();
+}
+
+```
+
+3.[IBinder](https://developer.android.com/reference/android/os/IBinder) - Base interface for a remotable object, 远程对象的基本接口
+
+不要直接实现这个接口，而是从 Binder 扩展而来
+
+The key IBinder API is `transact()` matched by `Binder.onTransact()`
+
+The `linkToDeath()` method can be used to register a DeathRecipient with the IBinder, which will be called when its containing process goes away.
+
+4.Stub
+
+编译工具会给我们生成一个名为 Stub 的静态内部类；这个类继承了 Binder, 说明它是一个 Binder 本地对象，它实现了 IInterface 接口，表明它具有 Server 承诺给 Client 的能力；Stub 是一个抽象类，具体的 IInterface 的相关实现需要开发者自己实现。
 
 
 
+`asInterface`方法
+
+```java
+    /**
+     * Cast an IBinder object into an com.aidl.service.IMsgManager interface,
+     * generating a proxy if needed.
+     */
+    public static com.aidl.service.IMsgManager asInterface(android.os.IBinder obj)
+    {
+      if ((obj==null)) {
+        return null;
+      }
+      android.os.IInterface iin = obj.queryLocalInterface(DESCRIPTOR);
+      if (((iin!=null)&&(iin instanceof com.aidl.service.IMsgManager))) {
+        return ((com.aidl.service.IMsgManager)iin);
+      }
+      return new com.aidl.service.IMsgManager.Stub.Proxy(obj);
+    }
+```
+
+> Client 端在创建和服务端的连接，调用 `bindService` 时需要创建一个 `ServiceConnection` 对象作为入参。在 `ServiceConnection` 的回调方法 `onServiceConnected` 中 会通过这个 `asInterface(IBinder binder)` 拿到 `IMsgManager` 对象，这个 `IBinder` 类型的入参 binder 是驱动传给我们的，正如你在代码中看到的一样，方法中会去调用 `binder.queryLocalInterface()` 去查找 `Binder` 本地对象，如果找到了就说明 Client 和 Server 在**同一进程**，那么这个 binder 本身就是 Binder 本地对象，可以直接使用。否则说明是 binder 是个远程对象，也就是 `BinderProxy`。因此需要我们创建一个代理对象 `Proxy`，通过这个代理对象来是实现远程访问。
 
 
 
+5.Proxy - 代理对象
+
+和Stub一样，有实现了`com.aidl.service.IMsgManager`接口
+
+![073](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/073.png)
+
+生成的`IMsgManager`源码
+
+```java
+/*
+ * This file is auto-generated.  DO NOT MODIFY.
+ */
+package com.aidl.service;
+// Declare any non-default types here with import statements
+
+public interface IMsgManager extends android.os.IInterface
+{
+  /** Default implementation for IMsgManager. */
+  public static class Default implements com.aidl.service.IMsgManager
+  {
+    @Override public void sendMsg(com.aidl.service.Msg msg) throws android.os.RemoteException
+    {
+    }
+    @Override public void registerReceiveListener(com.aidl.service.IReceiveMsgListener receiveListener) throws android.os.RemoteException
+    {
+    }
+    @Override public void unregisterReceiveListener(com.aidl.service.IReceiveMsgListener receiveListener) throws android.os.RemoteException
+    {
+    }
+    @Override
+    public android.os.IBinder asBinder() {
+      return null;
+    }
+  }
+  /** Local-side IPC implementation stub class. */
+  public static abstract class Stub extends android.os.Binder implements com.aidl.service.IMsgManager
+  {
+    private static final java.lang.String DESCRIPTOR = "com.aidl.service.IMsgManager";
+    /** Construct the stub at attach it to the interface. */
+    public Stub()
+    {
+      this.attachInterface(this, DESCRIPTOR);
+    }
+    /**
+     * Cast an IBinder object into an com.aidl.service.IMsgManager interface,
+     * generating a proxy if needed.
+     */
+    public static com.aidl.service.IMsgManager asInterface(android.os.IBinder obj)
+    {
+      if ((obj==null)) {
+        return null;
+      }
+      android.os.IInterface iin = obj.queryLocalInterface(DESCRIPTOR);
+      if (((iin!=null)&&(iin instanceof com.aidl.service.IMsgManager))) {
+        return ((com.aidl.service.IMsgManager)iin);
+      }
+      return new com.aidl.service.IMsgManager.Stub.Proxy(obj);
+    }
+    @Override public android.os.IBinder asBinder()
+    {
+      return this;
+    }
+    @Override public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel reply, int flags) throws android.os.RemoteException
+    {
+      java.lang.String descriptor = DESCRIPTOR;
+      switch (code)
+      {
+        case INTERFACE_TRANSACTION:
+        {
+          reply.writeString(descriptor);
+          return true;
+        }
+        case TRANSACTION_sendMsg:
+        {
+          data.enforceInterface(descriptor);
+          com.aidl.service.Msg _arg0;
+          if ((0!=data.readInt())) {
+            _arg0 = com.aidl.service.Msg.CREATOR.createFromParcel(data);
+          }
+          else {
+            _arg0 = null;
+          }
+          this.sendMsg(_arg0);
+          reply.writeNoException();
+          return true;
+        }
+        case TRANSACTION_registerReceiveListener:
+        {
+          data.enforceInterface(descriptor);
+          com.aidl.service.IReceiveMsgListener _arg0;
+          _arg0 = com.aidl.service.IReceiveMsgListener.Stub.asInterface(data.readStrongBinder());
+          this.registerReceiveListener(_arg0);
+          reply.writeNoException();
+          return true;
+        }
+        case TRANSACTION_unregisterReceiveListener:
+        {
+          data.enforceInterface(descriptor);
+          com.aidl.service.IReceiveMsgListener _arg0;
+          _arg0 = com.aidl.service.IReceiveMsgListener.Stub.asInterface(data.readStrongBinder());
+          this.unregisterReceiveListener(_arg0);
+          reply.writeNoException();
+          return true;
+        }
+        default:
+        {
+          return super.onTransact(code, data, reply, flags);
+        }
+      }
+    }
+    private static class Proxy implements com.aidl.service.IMsgManager
+    {
+      private android.os.IBinder mRemote;
+      Proxy(android.os.IBinder remote)
+      {
+        mRemote = remote;
+      }
+      @Override public android.os.IBinder asBinder()
+      {
+        return mRemote;
+      }
+      public java.lang.String getInterfaceDescriptor()
+      {
+        return DESCRIPTOR;
+      }
+      @Override public void sendMsg(com.aidl.service.Msg msg) throws android.os.RemoteException
+      {
+        android.os.Parcel _data = android.os.Parcel.obtain();
+        android.os.Parcel _reply = android.os.Parcel.obtain();
+        try {
+          _data.writeInterfaceToken(DESCRIPTOR);
+          if ((msg!=null)) {
+            _data.writeInt(1);
+            msg.writeToParcel(_data, 0);
+          }
+          else {
+            _data.writeInt(0);
+          }
+          boolean _status = mRemote.transact(Stub.TRANSACTION_sendMsg, _data, _reply, 0);
+          if (!_status && getDefaultImpl() != null) {
+            getDefaultImpl().sendMsg(msg);
+            return;
+          }
+          _reply.readException();
+        }
+        finally {
+          _reply.recycle();
+          _data.recycle();
+        }
+      }
+      @Override public void registerReceiveListener(com.aidl.service.IReceiveMsgListener receiveListener) throws android.os.RemoteException
+      {
+        android.os.Parcel _data = android.os.Parcel.obtain();
+        android.os.Parcel _reply = android.os.Parcel.obtain();
+        try {
+          _data.writeInterfaceToken(DESCRIPTOR);
+          _data.writeStrongBinder((((receiveListener!=null))?(receiveListener.asBinder()):(null)));
+          boolean _status = mRemote.transact(Stub.TRANSACTION_registerReceiveListener, _data, _reply, 0);
+          if (!_status && getDefaultImpl() != null) {
+            getDefaultImpl().registerReceiveListener(receiveListener);
+            return;
+          }
+          _reply.readException();
+        }
+        finally {
+          _reply.recycle();
+          _data.recycle();
+        }
+      }
+      @Override public void unregisterReceiveListener(com.aidl.service.IReceiveMsgListener receiveListener) throws android.os.RemoteException
+      {
+        android.os.Parcel _data = android.os.Parcel.obtain();
+        android.os.Parcel _reply = android.os.Parcel.obtain();
+        try {
+          _data.writeInterfaceToken(DESCRIPTOR);
+          _data.writeStrongBinder((((receiveListener!=null))?(receiveListener.asBinder()):(null)));
+          boolean _status = mRemote.transact(Stub.TRANSACTION_unregisterReceiveListener, _data, _reply, 0);
+          if (!_status && getDefaultImpl() != null) {
+            getDefaultImpl().unregisterReceiveListener(receiveListener);
+            return;
+          }
+          _reply.readException();
+        }
+        finally {
+          _reply.recycle();
+          _data.recycle();
+        }
+      }
+      public static com.aidl.service.IMsgManager sDefaultImpl;
+    }
+    static final int TRANSACTION_sendMsg = (android.os.IBinder.FIRST_CALL_TRANSACTION + 0);
+    static final int TRANSACTION_registerReceiveListener = (android.os.IBinder.FIRST_CALL_TRANSACTION + 1);
+    static final int TRANSACTION_unregisterReceiveListener = (android.os.IBinder.FIRST_CALL_TRANSACTION + 2);
+    public static boolean setDefaultImpl(com.aidl.service.IMsgManager impl) {
+      // Only one user of this interface can use this function
+      // at a time. This is a heuristic to detect if two different
+      // users in the same process use this function.
+      if (Stub.Proxy.sDefaultImpl != null) {
+        throw new IllegalStateException("setDefaultImpl() called twice");
+      }
+      if (impl != null) {
+        Stub.Proxy.sDefaultImpl = impl;
+        return true;
+      }
+      return false;
+    }
+    public static com.aidl.service.IMsgManager getDefaultImpl() {
+      return Stub.Proxy.sDefaultImpl;
+    }
+  }
+  public void sendMsg(com.aidl.service.Msg msg) throws android.os.RemoteException;
+  public void registerReceiveListener(com.aidl.service.IReceiveMsgListener receiveListener) throws android.os.RemoteException;
+  public void unregisterReceiveListener(com.aidl.service.IReceiveMsgListener receiveListener) throws android.os.RemoteException;
+}
+
+```
+
+
+
+## 自己的理解
+
+![075](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/075.png)
 
 
 
