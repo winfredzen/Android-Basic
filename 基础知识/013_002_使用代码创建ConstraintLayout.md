@@ -161,3 +161,130 @@ public class MyConstraintLayout extends ConstraintLayout {
 当宽度和高度为`ConstraintSet.MATCH_CONSTRAINT`时，效果如下：
 
 ![076](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/076.png)
+
+
+
+## chain
+
+使用代码创建chain
+
+参考：
+
++ [How to Programmatically Setup a Android ConstraintLayout Chains and Chain Styles](https://www.youtube.com/watch?v=ZfaaOr7Sv-U)
+
+
+
+```java
+    private void hardcode2by2GridOfButtons2(Context context, ConstraintSet constraintSet) {
+        Button button1 = new Button(context);
+        button1.setId(View.generateViewId());
+        button1.setText("ONE");
+        addView(button1);
+
+        Button button2 = new Button(context);
+        button2.setId(View.generateViewId());
+        button2.setText("TWO");
+        addView(button2);
+
+        Button button3 = new Button(context);
+        button3.setId(View.generateViewId());
+        button3.setText("THREE");
+        addView(button3);
+
+        Button button4 = new Button(context);
+        button4.setId(View.generateViewId());
+        button4.setText("FOUR");
+        addView(button4);
+
+        //button1
+        //限制button1的宽和高
+        constraintSet.constrainWidth(button1.getId(), ConstraintSet.WRAP_CONTENT);
+        constraintSet.constrainHeight(button1.getId(), ConstraintSet.WRAP_CONTENT);
+        //button1的水平和垂直限制
+        constraintSet.connect(button1.getId(), ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START);
+        constraintSet.connect(button1.getId(), ConstraintSet.END, button2.getId(), ConstraintSet.START);
+        constraintSet.connect(button1.getId(), ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP);
+        constraintSet.connect(button1.getId(), ConstraintSet.BOTTOM, button3.getId(), ConstraintSet.TOP);
+
+        //button2
+        constraintSet.constrainWidth(button2.getId(), ConstraintSet.WRAP_CONTENT);
+        constraintSet.constrainHeight(button2.getId(), ConstraintSet.WRAP_CONTENT);
+        constraintSet.connect(button2.getId(), ConstraintSet.START, button1.getId(), ConstraintSet.END);
+        constraintSet.connect(button2.getId(), ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END);
+        constraintSet.connect(button2.getId(), ConstraintSet.TOP, button1.getId(), ConstraintSet.TOP);
+        constraintSet.connect(button2.getId(), ConstraintSet.BOTTOM, button1.getId(), ConstraintSet.BOTTOM);
+
+        //button3
+        constraintSet.constrainWidth(button3.getId(), ConstraintSet.WRAP_CONTENT);
+        constraintSet.constrainHeight(button3.getId(), ConstraintSet.WRAP_CONTENT);
+        constraintSet.connect(button3.getId(), ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START);
+        constraintSet.connect(button3.getId(), ConstraintSet.END, button4.getId(), ConstraintSet.START);
+        constraintSet.connect(button3.getId(), ConstraintSet.TOP, button1.getId(), ConstraintSet.BOTTOM);
+        constraintSet.connect(button3.getId(), ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM);
+
+        //button4
+        constraintSet.constrainWidth(button4.getId(), ConstraintSet.WRAP_CONTENT);
+        constraintSet.constrainHeight(button4.getId(), ConstraintSet.WRAP_CONTENT);
+        constraintSet.connect(button4.getId(), ConstraintSet.START, button3.getId(), ConstraintSet.END);
+        constraintSet.connect(button4.getId(), ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END);
+        constraintSet.connect(button4.getId(), ConstraintSet.TOP, button3.getId(), ConstraintSet.TOP);
+        constraintSet.connect(button4.getId(), ConstraintSet.BOTTOM, button3.getId(), ConstraintSet.BOTTOM);
+
+        int[] horizontalChainIds1 = {button1.getId(), button2.getId()};
+        constraintSet.createHorizontalChain(ConstraintSet.PARENT_ID,
+                ConstraintSet.LEFT,
+                ConstraintSet.PARENT_ID,
+                ConstraintSet.RIGHT,
+                horizontalChainIds1,
+                null,
+                ConstraintSet.CHAIN_PACKED);
+        int[] horizontalChainIds2 = {button3.getId(), button4.getId()};
+        constraintSet.createHorizontalChain(ConstraintSet.PARENT_ID,
+                ConstraintSet.LEFT,
+                ConstraintSet.PARENT_ID,
+                ConstraintSet.RIGHT,
+                horizontalChainIds2,
+                null,
+                ConstraintSet.CHAIN_PACKED);
+        int[] verticalChainIds = {button1.getId(), button3.getId()};
+        constraintSet.createVerticalChain(ConstraintSet.PARENT_ID,
+                ConstraintSet.TOP,
+                ConstraintSet.PARENT_ID,
+                ConstraintSet.BOTTOM,
+                verticalChainIds,
+                null,
+                ConstraintSet.CHAIN_PACKED);
+
+    }
+```
+
+效果如下：
+
+![077](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/077.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
