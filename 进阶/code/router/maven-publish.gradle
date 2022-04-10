@@ -6,10 +6,13 @@ Properties gradleProperties = new Properties()
 gradleProperties.load(
         project.rootProject.file('gradle.properties').newDataInputStream())
 
+//读取工程配置
 def VERSION_NAME = gradleProperties.getProperty("VERSION_NAME")
+//发布的位置
 def POM_URL = gradleProperties.getProperty("POM_URL")
 def GROUP_ID = gradleProperties.getProperty("GROUP_ID")
 
+//当前工程的文件
 Properties projectGradleProperties = new Properties()
 projectGradleProperties.load(
         project.file('gradle.properties').newDataInputStream()
@@ -33,6 +36,7 @@ uploadArchives {
                 pom.version = VERSION_NAME
             }
 
+            //将依赖的包修改版本号
             pom.whenConfigured { pom ->
                 pom.dependencies.forEach { dep ->
 
