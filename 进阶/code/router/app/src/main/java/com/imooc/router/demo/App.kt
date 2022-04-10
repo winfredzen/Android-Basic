@@ -8,6 +8,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
-//        Router.init()
+        Router.init()
     }
 }
