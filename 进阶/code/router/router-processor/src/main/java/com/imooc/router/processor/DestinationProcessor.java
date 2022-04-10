@@ -14,16 +14,20 @@ import java.util.Collections;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
+import javax.annotation.processing.Messager;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
+import javax.tools.Diagnostic;
 import javax.tools.JavaFileObject;
 
 @AutoService(Processor.class)
 public class DestinationProcessor extends AbstractProcessor {
 
     private static final String TAG = "DestinationProcessor";
+
+    private Messager messager; //编译期打印日志
 
     /**
      * 编译器找到我们关心的注解后，会回调这个方法
@@ -40,7 +44,10 @@ public class DestinationProcessor extends AbstractProcessor {
             return false;
         }
 
+        messager = processingEnv.getMessager();
+
         System.out.println(TAG + " >>> process start ...");
+        messager.printMessage(Diagnostic.Kind.WARNING, " >>> process start ...");
 
         String rootDir = processingEnv.getOptions().get("root_project_dir");
 
@@ -116,6 +123,7 @@ public class DestinationProcessor extends AbstractProcessor {
                 + mappingFullClassName);
 
         System.out.println(TAG + " >>> class content = \n" + builder);
+        messager.printMessage(Diagnostic.Kind.WARNING, TAG + " >>> class content = \n" + builder);
 
         // 写入自动生成的类到本地文件中
         try {
