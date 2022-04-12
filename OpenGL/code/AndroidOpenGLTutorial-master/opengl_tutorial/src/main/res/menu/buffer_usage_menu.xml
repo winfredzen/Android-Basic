@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/vertex_buffer_usage"
+        android:title="VBO 使用" />
+
+    <item
+        android:id="@+id/vertex_array_object_usage"
+        android:title="VAO 使用" />
+</menu>

@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">OpenGLTutorial</string>
+
+    <string name="menu_rotate">前后移动相机</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="glsl_image_process">着色器图像处理</string>
+
+
+    <string name="no_camera_permission">没有相机权限，搞毛~</string>
+
+    <!--着色器图像处理相关-->
+    <string name="filter_0">原始图像</string>
+    <string name="filter_1">平滑过滤</string>
+    <string name="filter_2">边缘检测</string>
+    <string name="filter_3">锐化处理</string>
+    <string name="filter_4">浮雕效果</string>
+    <string name="filter_5">图像渐变</string>
+    <string name="filter_haha">哈哈镜效果</string>
+
+    <string name="obj_import">模型导入</string>
+
+    <string name="scissor_test">裁剪测试</string>
+    <string name="color_blend">颜色混合</string>
+    <string name="alpha_test">Alpha测试</string>
+    <string name="stencil_test">模板测试</string>
+    <string name="clip_face">任意屏幕裁剪</string>
+    <string name="environment_light">环境光</string>
+    <string name="scatter_light">散射光</string>
+    <string name="mirror_light">镜面光</string>
+    <string name="mix_light">混合光</string>
+    <string name="direction_light">定向光</string>
+    <string name="no_light">无光照</string>
+    <string name="glsl_replace">着色器替换</string>
+    <string name="blend_replace">颜色融合替换</string>
+    <string name="depth_test">深度测试</string>
+</resources>

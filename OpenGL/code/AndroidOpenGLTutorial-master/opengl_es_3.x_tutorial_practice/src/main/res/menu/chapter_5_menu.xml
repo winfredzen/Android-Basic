@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/chapter_1"
+        android:title="六角形" />
+
+    <item
+        android:id="@+id/chapter_2"
+        android:title="立方体" />
+
+    <item
+        android:id="@+id/chapter_3"
+        android:title="属性" />
+
+</menu>

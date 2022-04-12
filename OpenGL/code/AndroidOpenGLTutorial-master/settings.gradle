@@ -1,0 +1,7 @@
+include ':opengl_tutorial',
+        ':opengl_es_3.x_tutorial_practice'
+//        ':comlib'
+//        ':official_opengl_sample',
+//        ':magic_cube',
+//        ':opengl_kotlin_native',
+//        ':MagicCube'

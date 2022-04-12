@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.glumes.openglbasicshape">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".OpenGLApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/study"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/study"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".transition_banner.TransitionBannerActivity"></activity>
+        <activity android:name=".transition.TransitionActivity" />
+        <activity android:name=".bezier.beziertouch.BezierTouchActivity" />
+        <activity android:name=".bezier.drawer.BezierDrawActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MagicCubeActivity" />
+        <activity android:name=".touch.TouchActivity" />
+        <activity
+            android:name=".activitiy.BasicGraphActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".activitiy.BasicShapeActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".activitiy.TextureActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".filter.GLSurfaceViewFilterActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".info.CameraInfoActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".write.GLWriteActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".offscreen.EglDemoActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".move.RotateAndMoveActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity android:name=".TestActivity" />
+        <activity
+            android:name=".imageprocessing.ImageProcessingActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".obj.ImportObjectActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".CameraRawDataCodecActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".fbo.FrameBufferObjectActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".multitest.MultiTestActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".bezier.curve.BezierActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".blend.BlendActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".light.LightActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/NoActionBarTheme" />
+        <activity android:name="com.glumes.video.FrameReplaceActivity" />
+        <activity
+            android:name=".bufferusage.BufferUsageActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".collision.CollisionActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/NoActionBarTheme" />
+        <activity android:name=".egl.EglActivity" />
+        <activity android:name=".texturemix.TextureMixActivity" />
+    </application>
+
+</manifest>

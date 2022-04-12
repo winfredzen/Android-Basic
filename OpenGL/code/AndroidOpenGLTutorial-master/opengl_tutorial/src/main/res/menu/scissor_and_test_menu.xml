@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/scissor_test"
+        android:title="@string/scissor_test" />
+
+    <item
+        android:id="@+id/alpha_test"
+        android:title="@string/alpha_test" />
+
+
+    <item
+        android:id="@+id/depth_test"
+        android:title="@string/depth_test" />
+
+    <item
+        android:id="@+id/stencil_test"
+        android:title="@string/stencil_test" />
+
+    <item
+        android:id="@+id/clip_face_test"
+        android:title="@string/clip_face" />
+</menu>
