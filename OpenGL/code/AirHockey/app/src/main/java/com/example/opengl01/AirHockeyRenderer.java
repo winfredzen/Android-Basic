@@ -33,9 +33,11 @@ import javax.microedition.khronos.opengles.GL10;
  * create by wangzhen 2021/12/13
  */
 public class AirHockeyRenderer implements GLSurfaceView.Renderer {
-
+    //每个顶点由2个分量组成
     private static final int POSITION_COMPONENT_COUNT = 2;
+    //每个Float 4个字节
     private static final int BYTE_PER_FLOAT = 4;
+    //FloatBuffer在本地内存中存储数据
     private final FloatBuffer vertexData;
     private final Context context;
     private int program;
@@ -47,6 +49,30 @@ public class AirHockeyRenderer implements GLSurfaceView.Renderer {
 
     public AirHockeyRenderer(Context context) {
         this.context = context;
+
+//        float[] tableVertices = {
+//                0f, 0f,
+//                0f, 14f,
+//                9f, 14f,
+//                9f, 0f
+//        };
+
+//        float[] tableVerticesWithTriangles = {
+//                //三角形1
+//                0f, 0f,
+//                9f, 14f,
+//                0f, 14f,
+//                //三角形2
+//                0f, 0f,
+//                9f, 0f,
+//                9f, 14f,
+//                //直线
+//                0f, 7f,
+//                9f, 7f,
+//                //2个木槌点
+//                4.5f, 2f,
+//                4.5f, 12f
+//        };
 
         float[] tableVerticesWithTriangles = {
                 // Triangle 1
@@ -68,6 +94,7 @@ public class AirHockeyRenderer implements GLSurfaceView.Renderer {
                 0f,  0.25f
         };
 
+        //分配本地内存
         vertexData = ByteBuffer.allocateDirect(tableVerticesWithTriangles.length * BYTE_PER_FLOAT)
                 .order(ByteOrder.nativeOrder())
                 .asFloatBuffer();
