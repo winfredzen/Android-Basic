@@ -41,7 +41,9 @@ public class AirHockeyRenderer implements GLSurfaceView.Renderer {
     private final FloatBuffer vertexData;
     private final Context context;
     private int program;
+    //颜色
     private static final String U_COLOR = "u_Color";
+    //颜色在OpenGL程序对象中的位置
     private int uColorLocation;
 
     private static final String A_POSITION = "a_Position";
@@ -109,31 +111,40 @@ public class AirHockeyRenderer implements GLSurfaceView.Renderer {
 
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
+        //读取着色器代码
         String vertexShaderSource = TextResourceReader.readTextFileFromResource(context, R.raw.simple_vertext_shader);
-        String fragmentShaderSource = TextResourceReader.readTextFileFromResource(context, R.raw.fragment_shader);
+        String fragmentShaderSource = TextResourceReader.readTextFileFromResource(context, R.raw.simple_fragment_shader);
 
+        //编译着色器
         int vertexShader = ShaderHelper.compileVertexShader(vertexShaderSource);
         int fragmentShader = ShaderHelper.compileFragmentShader(fragmentShaderSource);
 
+        //链接程序
         program = ShaderHelper.linkProgram(vertexShader, fragmentShader);
 
         if (LoggerConfig.ON) {
+            //验证程序
             ShaderHelper.validateProgram(program);
         }
 
+        //使用程序
         glUseProgram(program);
 
+        //获取uniform的位置，来设置颜色
         uColorLocation = glGetUniformLocation(program, U_COLOR);
+        //获取属性的位置
         aPositionLocation = glGetAttribLocation(program, A_POSITION);
 
         // Bind our data, specified by the variable vertexData, to the vertex
         // attribute at location A_POSITION_LOCATION.
+        //从开头读取数据
         vertexData.position(0);
+        //在vertexData中找到a_Position对应的数据
         glVertexAttribPointer(aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT,
                 false, 0, vertexData);
+        //使能顶点数组
         glEnableVertexAttribArray(aPositionLocation);
 
-//        GLES30.glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
     }
 
     @Override
@@ -146,18 +157,33 @@ public class AirHockeyRenderer implements GLSurfaceView.Renderer {
         GLES30.glClear(GLES20.GL_COLOR_BUFFER_BIT);
 
         // Draw the table.
+        //更新着色器代码中u_Color的值
         glUniform4f(uColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
+        /**
+         * 2个三角形，6个顶点
+         * first - 从哪里开始读取
+         * count - 读入多少个顶点
+         */
         glDrawArrays(GL_TRIANGLES, 0, 6);
 
         // Draw the center dividing line.
+        /**
+         * 绘制分隔线
+         */
         glUniform4f(uColorLocation, 1.0f, 0.0f, 0.0f, 1.0f);
         glDrawArrays(GL_LINES, 6, 2);
 
         // Draw the first mallet blue.
+        /**
+         * 第一个木槌
+         */
         glUniform4f(uColorLocation, 0.0f, 0.0f, 1.0f, 1.0f);
         glDrawArrays(GL_POINTS, 8, 1);
 
         // Draw the second mallet red.
+        /**
+         * 第二个木槌
+         */
         glUniform4f(uColorLocation, 1.0f, 0.0f, 0.0f, 1.0f);
         glDrawArrays(GL_POINTS, 9, 1);
     }
