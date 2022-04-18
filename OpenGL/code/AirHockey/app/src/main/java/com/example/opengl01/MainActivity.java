@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (supportsEs2) {
             mGLSurfaceView.setEGLContextClientVersion(2);
-            mGLSurfaceView.setRenderer(new FirstOpenglRender());
-//            mGLSurfaceView.setRenderer(new AirHockeyRenderer(this));
+//            mGLSurfaceView.setRenderer(new FirstOpenglRender());
+            mGLSurfaceView.setRenderer(new AirHockeyRenderer(this));
             rendererSet = true;
         } else {
             Toast.makeText(this, "不支持OpenGL 2.0", Toast.LENGTH_SHORT).show();
