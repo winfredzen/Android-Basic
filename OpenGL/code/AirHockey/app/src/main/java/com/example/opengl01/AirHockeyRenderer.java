@@ -146,7 +146,7 @@ public class AirHockeyRenderer implements GLSurfaceView.Renderer {
         glEnableVertexAttribArray(aPositionLocation);
 
     }
-
+x
     @Override
     public void onSurfaceChanged(GL10 gl, int width, int height) {
         GLES30.glViewport(0, 0, width, height);
