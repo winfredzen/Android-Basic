@@ -112,6 +112,8 @@ task autoPush {
 
 
 
+执行task `./gradlew :app:autoPush -q` 
+
 
 
 
