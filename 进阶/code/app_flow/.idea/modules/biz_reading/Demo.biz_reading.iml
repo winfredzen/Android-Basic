@@ -56,6 +56,9 @@
     <output-test url="file://$MODULE_DIR$/../../../biz_reading/build/intermediates/javac/debugUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../biz_reading">
+      <sourceFolder url="file://$MODULE_DIR$/../../../biz_reading/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../biz_reading/build/generated/res/resValues/debug" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../biz_reading/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../biz_reading/src/androidTest/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../biz_reading/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../biz_reading/src/test/java" isTestSource="true" />

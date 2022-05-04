@@ -106,6 +106,143 @@
 
 
 
+**使用MultiDex突破方法数65536的限制**
+
+MultiDex就是多Dex的意思，由于一个Dex放不下工程所有方法，所以要使用多Dex去放置
+
+用法：
+
+**小于21**
+
+![109](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/109.png)
+
+![110](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/110.png)
+
+![111](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/111.png)
+
+如果已集成其它Applicaiton，且不能被修改，可以使用如下的形式
+
+![112](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/112.png)
+
+**大于等于21**
+
+![113](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/113.png)
+
+
+
+采用MultiDex后安装包中的dex文件变多了
+
+![114](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/114.png)
+
+
+
+### 代码混淆
+
+**为什么使用代码混淆？**
+
+比如一些重要的方法，如果没有代码混淆，在编译后的apk中，可以直观的看到一些重要方法的名称
+
+![115](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/115.png)
+
+
+
+> 代码混淆，指的是在编译后，将代码中的类/方法/变量等信息进行重命名，把其改成毫无意义、较短的名字，同时也可以移除未被使用的类、方法、变量等。
+>
+> 在Android开发领域，之前主要是采用**Proguard**工具，进行代码混淆，不过在Android Gradle 插件 3.4.0 或者更高版本中，内部不再使用 ProGuard 执行编译时代码优化，而是与**R8编译器**协同工作。不过也不用太担心工具的更新带来太大的工作量，R8 支持所有现有 ProGuard 规则文件，因此在更新 Android Gradle 插件以使用 R8 时，并不需要更改现有的混淆规则。
+
+
+
+好处
+
++ 安全性
++ 缩小apk的体积
+
+
+
+开启混淆相对简单，通常是针对需要用于发布的 `release` 版本去开启，在app子工程中添加如下代码即可：
+
+```groovy
+android {
+    buildTypes {
+        release {
+            // 启用 代码 的缩减、混淆、优化功能
+            minifyEnabled true
+
+            // 启用资源的 缩减功能，主要用于移除无用资源
+            // 注意需要在 minifyEnabled 为 true 时，本选项才会发挥作用
+            shrinkResources true
+
+            // 配置混淆规则文件，用于自定义需要保留的代码
+            proguardFiles getDefaultProguardFile(
+                    'proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+    ...
+}
+
+```
+
+
+
+混淆后，dex文件
+
+![116](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/116.png)
+
+
+
+一些类和类的方法不需要混淆，所以需要配置
+
+如下，不混淆`MainActivity`的`importantMethodTwo`方法
+
+```groovy
+-keepclasseswithmembers class com.imooc.demo.MainActivity {
+    private void importantMethodTwo();
+}
+```
+
+![117](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/117.png)
+
+
+
+> 例如，你有一个类，是需要在运行时反射去调用的，那么就不能混淆，这时候可以在自定义的混淆配置文件中添加一行：
+>
+> ```groovy
+> -keep public class MyClass
+> ```
+
+
+
+**代码混淆之后，Crash堆栈难以定位问题，这时候怎么办？**
+
+> 在APK编译完成后，可以在build目录下，拿到一个 `mapping.txt` 文件，其中列出了经过混淆处理的类、方法和字段的名称与原始名称的映射关系。
+>
+> 我们在后续在分析Crash堆栈时，就需要利用这个文件，配合`retrace` 工具去将堆栈信息还原成与源码对应的形式。
+>
+> 另外注意，为确保还原的堆栈轨迹更清晰，与源代码中的行号能一一对应，建议在自定义的混淆规则文件中添加下面内容：
+>
+> ```groovy
+> -keepattributes LineNumberTable,SourceFile
+> ```
+
+![118](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/118.png)
+
+
+
+`retrace` 工具位于sdk路劲下的`/tools/proguard/bin/retrace.sh`
+
+![119](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/119.png)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
