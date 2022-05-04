@@ -229,17 +229,76 @@ android {
 
 
 
-`retrace` 工具位于sdk路劲下的`/tools/proguard/bin/retrace.sh`
+`retrace` 工具位于sdk路径下的`/tools/proguard/bin/retrace.sh`
 
 ![119](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/119.png)
 
 
 
+## 打包发布
+
+> 如何对应用进行**打包**？也就是 如何将其生成APK给到用户使用？
+>
+> 在Android Studio中，虽然也有对应的功能（`Build - Build APK(s)`），但是它更多是用在开发调试阶段，对于打包发布阶段并不适用，例如，企业级项目一般会采用Jenkins等持续集成工具，自动构建并生成APK，这个时候更多是使用**命令行**去执行打包的过程。
+>
+> 在命令行中，执行assemble任务，就可以生成目标APK：
+>
+> ```groovy
+> ./gradlew :app:assembleRelease  // mac/linux/unix
+> gradlew :app:assembleRelease  // windows
+> ```
 
 
 
+### APK签名
+
+APK需要被签名后，才能够安装到手机上。在开发阶段，通常使用的是`debug`版本的构建类型，Android插件会使用默认的签名文件对应用进行签名，所以各位发现这个阶段不自己去配置签名，也可以正常安装运行。
+
+默认的 `debug.keystore` 可以在下面路径找到：
+
+- `~/.android/`（在 Mac 和 Linux 上）
+- `C:\Documents and Settings\user.android\`（在 Windows XP 上）
+- `C:\Users\user.android\`（在 Windows Vista 以及 Windows 7、8 和 10 上）
 
 
+
+生成签名文件可以使用 Android Studio 中 `Generate Signed Bundle/APK` 功能（在`Build`菜单中），跟随界面提示操作即可。
+
+可能会有如下的提示
+
+![120](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/120.png)
+
+按提示操作
+
+![121](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/121.png)
+
+
+
+签名的使用，其实在平时我们更多需要关注的只是如何去把签名的信息**传递**给Android Gradle 插件，可以通过下面方式去传递：
+
+```groovy
+android {
+    // ...
+    signingConfigs {
+        
+        // 配置一个名为release的签名信息
+        release {
+            keyAlias 'test'
+            keyPassword '123456'
+            storeFile file('./my-key.jks')
+            storePassword '123456'
+		}
+    }
+    
+    buildTypes {
+        release {
+            // 为特定的构建变体指定签名文件
+            signingConfig signingConfigs.release
+        }
+
+}
+
+```
 
 
 
