@@ -61,6 +61,12 @@ public void getItemOffsets(Rect outRect, View view, RecyclerView parent, State s
 
 
 
+`getItemOffsets`方法中`outRect`参数，指的是在item的上、左、右、下方向所撑开的间距
+
+![059](https://github.com/winfredzen/Android-Basic/blob/master/UI/images/059.png)
+
+
+
 ### getItemOffsets() 
 
 如下的例子，将`RecyclerView`的背景设置为红色

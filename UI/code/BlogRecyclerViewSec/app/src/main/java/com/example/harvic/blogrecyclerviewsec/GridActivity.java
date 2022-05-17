@@ -21,8 +21,8 @@ public class GridActivity extends AppCompatActivity {
 
         //如果是横向滚动，后面的数值表示的是几行，如果是竖向滚动，后面的数值表示的是几列
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 5);
-        gridLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-//    gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        gridLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(gridLayoutManager);
 
         RecyclerAdapter adapter = new RecyclerAdapter(this, mDatas);
