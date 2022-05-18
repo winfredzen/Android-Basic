@@ -8,6 +8,9 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 
+/**
+ * 具有回收复用HolderView功能的LayoutManager
+ */
 public class CustomLayoutManagerRecyclered extends LayoutManager {
     private int mSumDy = 0;
     private int mTotalHeight = 0;
@@ -44,6 +47,7 @@ public class CustomLayoutManagerRecyclered extends LayoutManager {
 
         for (int i = 0; i < getItemCount(); i++) {
             Rect rect = new Rect(0, offsetY, mItemWidth, offsetY + mItemHeight);
+            //保存每个item的位置
             mItemRects.put(i, rect);
             offsetY += mItemHeight;
         }
@@ -79,7 +83,7 @@ public class CustomLayoutManagerRecyclered extends LayoutManager {
         }
 
         int travel = dy;
-//如果滑动到最顶部
+        //如果滑动到最顶部
         if (mSumDy + dy < 0) {
             travel = -mSumDy;
         } else if (mSumDy + dy > mTotalHeight - getVerticalSpace()) {
@@ -91,11 +95,13 @@ public class CustomLayoutManagerRecyclered extends LayoutManager {
         for (int i = getChildCount() - 1; i >= 0; i--) {
             View child = getChildAt(i);
             if (travel > 0) {//需要回收当前屏幕，上越界的View
+                //getDecoratedBottom(child) - travel 表示将这个item上移后，它的下边界的位置
                 if (getDecoratedBottom(child) - travel < 0) {
                     removeAndRecycleView(child, recycler);
                     continue;
                 }
             } else if (travel < 0) {//回收当前屏幕，下越界的View
+                //getDecoratedTop(child) - travel 得到移动item后的顶部的位置，如果位于屏幕的下方
                 if (getDecoratedTop(child) - travel > getHeight() - getPaddingBottom()) {
                     removeAndRecycleView(child, recycler);
                     continue;
@@ -104,7 +110,7 @@ public class CustomLayoutManagerRecyclered extends LayoutManager {
         }
 
         Rect visibleRect = getVisibleArea(travel);
-//布局子View阶段
+        //布局子View阶段
         if (travel >= 0) {
             View lastView = getChildAt(getChildCount() - 1);
             int minPos = getPosition(lastView) + 1;//从最后一个View+1开始吧
