@@ -29,7 +29,8 @@ public class LinearActivity extends AppCompatActivity {
 
         //添加分割线
 //        mRecyclerView.addItemDecoration(new LinearItemDecoration());
-        mRecyclerView.addItemDecoration(new LinearItemDecoration2(this));
+//        mRecyclerView.addItemDecoration(new LinearItemDecoration2(this));
+        mRecyclerView.addItemDecoration(new LinearItemDecoration3(this));
 
         RecyclerAdapter adapter = new RecyclerAdapter(this, mDatas);
         mRecyclerView.setAdapter(adapter);

@@ -200,13 +200,73 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
 
 
 
+### onDrawOver()
+
+`onDrawOver`是绘制在最上层的，其绘制的位置不受限制
+
+如下，绘制徽章和蒙层
+
+```java
+public class LinearItemDecoration3 extends RecyclerView.ItemDecoration {
+    private Paint mPaint;
+    private Bitmap mBitmap;
+
+    public LinearItemDecoration3(Context context) {
+        mPaint = new Paint();
+        mPaint.setColor(Color.GREEN);
+
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        mBitmap = BitmapFactory.decodeResource(context.getResources(), R.mipmap.xunzhang, options);
+    }
+
+    @Override
+    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+        super.onDraw(c, parent, state);
+
+    }
+
+    @Override
+    public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
+        super.onDrawOver(c, parent, state);
+
+        RecyclerView.LayoutManager layoutManager = parent.getLayoutManager();
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            View child = parent.getChildAt(i);
+            int index = parent.getChildAdapterPosition(child);
+            int left = layoutManager.getLeftDecorationWidth(child);
+            if (index % 5 == 0) {
+                //在交界处绘制
+                c.drawBitmap(mBitmap, left - mBitmap.getWidth() / 2, child.getTop(), mPaint);
+            }
+        }
+
+        //绘制蒙层
+        View temp = parent.getChildAt(0);
+        LinearGradient linearGradient = new LinearGradient(parent.getWidth() / 2, 0,
+                parent.getWidth() / 2, temp.getHeight() * 3,
+                0xff0000ff, 0x000000ff, Shader.TileMode.CLAMP);
+        mPaint.setShader(linearGradient);
+        c.drawRect(0, 0, parent.getWidth(), temp.getHeight() * 3, mPaint);
+
+    }
+
+    @Override
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+        super.getItemOffsets(outRect, view, parent, state);
+        outRect.top = 1;
+        outRect.left = 200;
+        outRect.bottom = 1;
+    }
+}
+```
+
+![061](https://github.com/winfredzen/Android-Basic/blob/master/UI/images/061.png)
 
 
 
-
-
-
-
+> `getChildAt(i)` - 只能get到屏幕显示的部分
+>
+> `getChildAdapterPosition(child)` - 获取对应的index
 
 
 
