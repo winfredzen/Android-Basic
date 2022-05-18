@@ -4,9 +4,12 @@ import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.support.v7.widget.RecyclerView.LayoutParams;
+import android.util.Log;
 import android.view.View;
 
 public class CustomLayoutManager extends LayoutManager {
+    private static final String TAG = "CustomLayoutManager";
+
     private int mSumDy = 0;
     private int mTotalHeight = 0;
 
@@ -23,9 +26,11 @@ public class CustomLayoutManager extends LayoutManager {
         for (int i = 0; i < getItemCount(); i++) {
             View view = recycler.getViewForPosition(i);
             addView(view);
+            //测量这个View，得到宽度 和 高度
             measureChildWithMargins(view, 0, 0);
             int width = getDecoratedMeasuredWidth(view);
             int height = getDecoratedMeasuredHeight(view);
+            //将每个item拜访在对应的位置
             layoutDecorated(view, 0, offsetY, width, offsetY + height);
             offsetY += height;
         }
@@ -46,6 +51,7 @@ public class CustomLayoutManager extends LayoutManager {
 
     @Override
     public int scrollVerticallyBy(int dy, RecyclerView.Recycler recycler, RecyclerView.State state) {
+        Log.d(TAG, "scrollVerticallyBy dy = " + dy);
         int travel = dy;
         //如果滑动到最顶部
         if (mSumDy + dy < 0) {
