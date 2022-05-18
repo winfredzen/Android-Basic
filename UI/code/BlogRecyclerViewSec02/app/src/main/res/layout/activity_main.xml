@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/linear_activity_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="LinearLayoutManager" />
+
+        <Button
+            android:id="@+id/grid_activity_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="GridLayoutManager" />
+
+        <Button
+            android:id="@+id/stagger_activity_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="StaggeredGridLayoutManager" />
+
+        <Button
+            android:id="@+id/diff_item_activity_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="加载不同item类型" />
+
+
+        <Button
+            android:id="@+id/custom_activity_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="CustomLayoutManager" />
+
+        <Button
+            android:id="@+id/recycled_activity_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="回收复用的LayoutManager" />
+
+        <Button
+            android:id="@+id/first_remould_recycled_activity_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="第一次改造LayoutManager" />
+
+        <Button
+            android:id="@+id/second_remould_recycled_activity_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="第二次改造LayoutManager" />
+
+        <Button
+            android:id="@+id/recycler_view_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="3D画廊"/>
+
+        <Button
+            android:id="@+id/linear_item_touch_helper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="垂直列表ItemTouchHelper" />
+
+        <Button
+            android:id="@+id/grid_item_touch_helper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="GridItemTo布局的ItemTouchHelper" />
+
+        <Button
+            android:id="@+id/btn_item_touch_helper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="带滑动按钮的列表" />
+
+        <Button
+            android:id="@+id/btn_qq_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="仿QQ滑动删除效果" />
+
+        <Button
+            android:id="@+id/snap_helper_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SnapHelper按钮"
+            android:padding="10dp"/>
+    </LinearLayout>
+</ScrollView>
