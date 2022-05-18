@@ -27,6 +27,10 @@ public class LinearActivity extends AppCompatActivity {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(linearLayoutManager);
 
+        //添加分割线
+//        mRecyclerView.addItemDecoration(new LinearItemDecoration());
+        mRecyclerView.addItemDecoration(new LinearItemDecoration2(this));
+
         RecyclerAdapter adapter = new RecyclerAdapter(this, mDatas);
         mRecyclerView.setAdapter(adapter);
     }

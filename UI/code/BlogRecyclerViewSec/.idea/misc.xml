@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_dehaze_gray.xml" value="0.37864583333333335" />
+        <entry key="app/src/main/res/layout/activity_linear.xml" value="0.297554347826087" />
         <entry key="app/src/main/res/layout/item_layout.xml" value="0.297554347826087" />
         <entry key="app/src/main/res/layout/item_section_layout.xml" value="0.297554347826087" />
       </map>

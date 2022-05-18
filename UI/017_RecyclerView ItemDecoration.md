@@ -67,6 +67,10 @@ public void getItemOffsets(Rect outRect, View view, RecyclerView parent, State s
 
 
 
+`getItemOffsets()`针对每个item都会执行一次。`onDraw()`和`onDrawOver()`函数全局执行一次
+
+
+
 ### getItemOffsets() 
 
 如下的例子，将`RecyclerView`的背景设置为红色
@@ -190,7 +194,9 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
 
 
 
+`onDraw()`函数绘制的内容，当超出边界时，会被item所覆盖，如下的例子：
 
+![060](https://github.com/winfredzen/Android-Basic/blob/master/UI/images/060.png)
 
 
 
