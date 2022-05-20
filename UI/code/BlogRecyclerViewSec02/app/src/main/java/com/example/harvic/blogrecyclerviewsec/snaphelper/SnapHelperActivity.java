@@ -3,6 +3,7 @@ package com.example.harvic.blogrecyclerviewsec.snaphelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 
@@ -32,11 +33,11 @@ public class SnapHelperActivity extends AppCompatActivity {
 //        LinearSnapHelper linearSnapHelper = new LinearSnapHelper();
 //        linearSnapHelper.attachToRecyclerView(mRecyclerView);
 
-        PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
-        pagerSnapHelper.attachToRecyclerView(mRecyclerView);
+//        PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
+//        pagerSnapHelper.attachToRecyclerView(mRecyclerView);
 
-//        StartSnapHelper startSnapHelper = new StartSnapHelper();
-//        startSnapHelper.attachToRecyclerView(mRecyclerView);
+        StartSnapHelper startSnapHelper = new StartSnapHelper();
+        startSnapHelper.attachToRecyclerView(mRecyclerView);
 
     }
 

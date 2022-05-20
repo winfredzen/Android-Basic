@@ -5,6 +5,8 @@
       <map>
         <entry key="app/src/main/res/layout/activity_flowlayout.xml" value="0.27898550724637683" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27898550724637683" />
+        <entry key="app/src/main/res/layout/activity_snap_helper.xml" value="0.29347826086956524" />
+        <entry key="app/src/main/res/layout/snap_helper_horizontal_item_layout.xml" value="0.29347826086956524" />
       </map>
     </option>
   </component>

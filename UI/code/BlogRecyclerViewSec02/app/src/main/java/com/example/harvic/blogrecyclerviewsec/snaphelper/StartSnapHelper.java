@@ -10,12 +10,14 @@ import android.util.Log;
 import android.view.View;
 
 public class StartSnapHelper extends LinearSnapHelper {
+    private static final String TAG = "StartSnapHelper";
 
     private OrientationHelper mHorizontalHelper, mVerticalHelper;
 
     @Nullable
     @Override
     public int[] calculateDistanceToFinalSnap(RecyclerView.LayoutManager layoutManager, View targetView) {
+        Log.d(TAG, "calculateDistanceToFinalSnap");
         int[] out = new int[2];
         if (layoutManager.canScrollHorizontally()) {
             out[0] = distanceToStart(targetView, getHorizontalHelper(layoutManager));
@@ -31,7 +33,11 @@ public class StartSnapHelper extends LinearSnapHelper {
     }
 
     private int distanceToStart(View targetView, OrientationHelper helper) {
-        Log.d("qijian","getDecoratedStart："+helper.getDecoratedStart(targetView)+
+        /**
+         * 1.getStartAfterPadding - 获取RecycleView左侧内边距（paddingLeft）
+         * 2.getDecoratedStart - 子View左边界点到父View的（0，0）点的水平间距
+         */
+        Log.d(TAG,"getDecoratedStart："+helper.getDecoratedStart(targetView)+
         "   helper.getStartAfterPadding()"+helper.getStartAfterPadding());
         return helper.getDecoratedStart(targetView) - helper.getStartAfterPadding();
     }
@@ -39,6 +45,7 @@ public class StartSnapHelper extends LinearSnapHelper {
     @Nullable
     @Override
     public View findSnapView(RecyclerView.LayoutManager layoutManager) {
+        Log.d(TAG, "findSnapView");
         if (layoutManager instanceof LinearLayoutManager) {
 
             if (layoutManager.canScrollHorizontally()) {
@@ -68,6 +75,12 @@ public class StartSnapHelper extends LinearSnapHelper {
 
             View child = layoutManager.findViewByPosition(firstChild);
 
+            /**
+             * 1.getDecoratedEnd - 子View右边界点到父View的（0，0）点的水平间距
+             * 2.getDecoratedMeasurement - view在水平方向上所占位置的大小（包括view的左右外边距）
+             *
+             *
+             */
             if (helper.getDecoratedEnd(child) >= helper.getDecoratedMeasurement(child) / 2
                     && helper.getDecoratedEnd(child) > 0) {
                 return child;
