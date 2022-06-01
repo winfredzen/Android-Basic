@@ -38,13 +38,243 @@ print("Test password = " + password)
 
 
 
+## 脚本的拆分
+
+将上面的代码移动到`read_local_prop.gradle`后
+
+![127](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/127.png)
+
+然后在app模块下的`build.gradle`，通过`apply from: project.file('read_local_prop.gradle')`引入
+
+
+
 
 
 ## 依赖库的管理
 
+**查看工程所有的依赖关系**
+
+`./gradlew app:dependencies`
+
+上面列出的信息太多了，可以对某个构建变体来过滤
+
+`./gradlew app:dependencies --configuration xiaomiDebugCompileClasspath`
+
+
+
+```groovy
+wangzhen@wangzhendeMacBook-Pro-2 app_flow % ./gradlew app:dependencies --configuration xiaomiDebugCompileClasspath
+
+> Configure project :app
+test user name ----- imooc
+test user pwd ----- 123456
+Test user name = imoocTest password = 123456
+> Task :app:dependencies
+
+------------------------------------------------------------
+Project :app
+------------------------------------------------------------
+
+xiaomiDebugCompileClasspath - Compile classpath for compilation 'xiaomiDebug' (target  (androidJvm)).
++--- project :biz_reading
++--- org.jetbrains.kotlin:kotlin-stdlib:1.3.72
+|    +--- org.jetbrains.kotlin:kotlin-stdlib-common:1.3.72
+|    \--- org.jetbrains:annotations:13.0
++--- androidx.core:core-ktx:1.2.0 -> 1.3.2
+|    +--- org.jetbrains.kotlin:kotlin-stdlib:1.3.71 -> 1.3.72 (*)
+|    +--- androidx.annotation:annotation:1.1.0
+|    \--- androidx.core:core:1.3.2
+|         +--- androidx.annotation:annotation:1.1.0
+|         +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0
+|         |    +--- androidx.lifecycle:lifecycle-common:2.1.0
+|         |    |    \--- androidx.annotation:annotation:1.1.0
+|         |    +--- androidx.arch.core:core-common:2.1.0
+|         |    |    \--- androidx.annotation:annotation:1.1.0
+|         |    \--- androidx.annotation:annotation:1.1.0
+|         \--- androidx.versionedparcelable:versionedparcelable:1.1.0
+|              +--- androidx.annotation:annotation:1.1.0
+|              \--- androidx.collection:collection:1.0.0 -> 1.1.0
+|                   \--- androidx.annotation:annotation:1.1.0
++--- androidx.appcompat:appcompat:1.1.0
+|    +--- androidx.annotation:annotation:1.1.0
+|    +--- androidx.core:core:1.1.0 -> 1.3.2 (*)
+|    +--- androidx.cursoradapter:cursoradapter:1.0.0
+|    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    +--- androidx.fragment:fragment:1.1.0
+|    |    +--- androidx.annotation:annotation:1.1.0
+|    |    +--- androidx.core:core:1.1.0 -> 1.3.2 (*)
+|    |    +--- androidx.collection:collection:1.1.0 (*)
+|    |    +--- androidx.viewpager:viewpager:1.0.0
+|    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    +--- androidx.core:core:1.0.0 -> 1.3.2 (*)
+|    |    |    \--- androidx.customview:customview:1.0.0
+|    |    |         +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |         \--- androidx.core:core:1.0.0 -> 1.3.2 (*)
+|    |    +--- androidx.loader:loader:1.0.0
+|    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    +--- androidx.core:core:1.0.0 -> 1.3.2 (*)
+|    |    |    +--- androidx.lifecycle:lifecycle-livedata:2.0.0
+|    |    |    |    +--- androidx.arch.core:core-runtime:2.0.0
+|    |    |    |    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    |    |    \--- androidx.arch.core:core-common:2.0.0 -> 2.1.0 (*)
+|    |    |    |    +--- androidx.lifecycle:lifecycle-livedata-core:2.0.0
+|    |    |    |    |    +--- androidx.lifecycle:lifecycle-common:2.0.0 -> 2.1.0 (*)
+|    |    |    |    |    +--- androidx.arch.core:core-common:2.0.0 -> 2.1.0 (*)
+|    |    |    |    |    \--- androidx.arch.core:core-runtime:2.0.0 (*)
+|    |    |    |    \--- androidx.arch.core:core-common:2.0.0 -> 2.1.0 (*)
+|    |    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0
+|    |    |         \--- androidx.annotation:annotation:1.1.0
+|    |    +--- androidx.activity:activity:1.0.0
+|    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.core:core:1.1.0 -> 1.3.2 (*)
+|    |    |    +--- androidx.lifecycle:lifecycle-runtime:2.1.0 (*)
+|    |    |    +--- androidx.lifecycle:lifecycle-viewmodel:2.1.0 (*)
+|    |    |    \--- androidx.savedstate:savedstate:1.0.0
+|    |    |         +--- androidx.annotation:annotation:1.1.0
+|    |    |         +--- androidx.arch.core:core-common:2.0.1 -> 2.1.0 (*)
+|    |    |         \--- androidx.lifecycle:lifecycle-common:2.0.0 -> 2.1.0 (*)
+|    |    \--- androidx.lifecycle:lifecycle-viewmodel:2.0.0 -> 2.1.0 (*)
+|    +--- androidx.appcompat:appcompat-resources:1.1.0
+|    |    +--- androidx.annotation:annotation:1.1.0
+|    |    +--- androidx.core:core:1.0.1 -> 1.3.2 (*)
+|    |    +--- androidx.vectordrawable:vectordrawable:1.1.0
+|    |    |    +--- androidx.annotation:annotation:1.1.0
+|    |    |    +--- androidx.core:core:1.1.0 -> 1.3.2 (*)
+|    |    |    \--- androidx.collection:collection:1.1.0 (*)
+|    |    +--- androidx.vectordrawable:vectordrawable-animated:1.1.0
+|    |    |    +--- androidx.vectordrawable:vectordrawable:1.1.0 (*)
+|    |    |    +--- androidx.interpolator:interpolator:1.0.0
+|    |    |    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    |    \--- androidx.collection:collection:1.1.0 (*)
+|    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
+|    +--- androidx.drawerlayout:drawerlayout:1.0.0
+|    |    +--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    |    +--- androidx.core:core:1.0.0 -> 1.3.2 (*)
+|    |    \--- androidx.customview:customview:1.0.0 (*)
+|    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
++--- com.google.android.material:material:1.1.0 -> 1.2.1
+|    +--- androidx.annotation:annotation:1.0.1 -> 1.1.0
+|    +--- androidx.appcompat:appcompat:1.1.0 (*)
+|    +--- androidx.cardview:cardview:1.0.0
+|    |    \--- androidx.annotation:annotation:1.0.0 -> 1.1.0
+|    +--- androidx.coordinatorlayout:coordinatorlayout:1.1.0
+|    |    +--- androidx.annotation:annotation:1.1.0
+|    |    +--- androidx.core:core:1.1.0 -> 1.3.2 (*)
+|    |    +--- androidx.customview:customview:1.0.0 (*)
+|    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
+|    +--- androidx.core:core:1.2.0 -> 1.3.2 (*)
+|    +--- androidx.annotation:annotation-experimental:1.0.0
+|    +--- androidx.fragment:fragment:1.0.0 -> 1.1.0 (*)
+|    +--- androidx.lifecycle:lifecycle-runtime:2.0.0 -> 2.1.0 (*)
+|    +--- androidx.recyclerview:recyclerview:1.0.0 -> 1.1.0
+|    |    +--- androidx.annotation:annotation:1.1.0
+|    |    +--- androidx.core:core:1.1.0 -> 1.3.2 (*)
+|    |    +--- androidx.customview:customview:1.0.0 (*)
+|    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
+|    +--- androidx.transition:transition:1.2.0
+|    |    +--- androidx.annotation:annotation:1.1.0
+|    |    +--- androidx.core:core:1.0.1 -> 1.3.2 (*)
+|    |    \--- androidx.collection:collection:1.0.0 -> 1.1.0 (*)
+|    +--- androidx.vectordrawable:vectordrawable:1.1.0 (*)
+|    \--- androidx.viewpager2:viewpager2:1.0.0
+|         +--- androidx.annotation:annotation:1.1.0
+|         +--- androidx.fragment:fragment:1.1.0 (*)
+|         +--- androidx.recyclerview:recyclerview:1.1.0 (*)
+|         +--- androidx.core:core:1.1.0 -> 1.3.2 (*)
+|         \--- androidx.collection:collection:1.1.0 (*)
++--- androidx.constraintlayout:constraintlayout:1.1.3
+|    \--- androidx.constraintlayout:constraintlayout-solver:1.1.3
++--- org.jetbrains.kotlin:kotlin-stdlib:{strictly 1.3.72} -> 1.3.72 (c)
++--- androidx.core:core-ktx:{strictly 1.3.2} -> 1.3.2 (c)
++--- androidx.appcompat:appcompat:{strictly 1.1.0} -> 1.1.0 (c)
++--- com.google.android.material:material:{strictly 1.2.1} -> 1.2.1 (c)
++--- androidx.constraintlayout:constraintlayout:{strictly 1.1.3} -> 1.1.3 (c)
++--- org.jetbrains.kotlin:kotlin-stdlib-common:{strictly 1.3.72} -> 1.3.72 (c)
++--- org.jetbrains:annotations:{strictly 13.0} -> 13.0 (c)
++--- androidx.annotation:annotation:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.core:core:{strictly 1.3.2} -> 1.3.2 (c)
++--- androidx.cursoradapter:cursoradapter:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.fragment:fragment:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.appcompat:appcompat-resources:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.drawerlayout:drawerlayout:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.collection:collection:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.cardview:cardview:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.coordinatorlayout:coordinatorlayout:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.annotation:annotation-experimental:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.lifecycle:lifecycle-runtime:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.recyclerview:recyclerview:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.transition:transition:{strictly 1.2.0} -> 1.2.0 (c)
++--- androidx.vectordrawable:vectordrawable:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.viewpager2:viewpager2:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.constraintlayout:constraintlayout-solver:{strictly 1.1.3} -> 1.1.3 (c)
++--- androidx.versionedparcelable:versionedparcelable:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.viewpager:viewpager:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.loader:loader:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.activity:activity:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.lifecycle:lifecycle-viewmodel:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.vectordrawable:vectordrawable-animated:{strictly 1.1.0} -> 1.1.0 (c)
++--- androidx.customview:customview:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.lifecycle:lifecycle-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.arch.core:core-common:{strictly 2.1.0} -> 2.1.0 (c)
++--- androidx.lifecycle:lifecycle-livedata:{strictly 2.0.0} -> 2.0.0 (c)
++--- androidx.savedstate:savedstate:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.interpolator:interpolator:{strictly 1.0.0} -> 1.0.0 (c)
++--- androidx.arch.core:core-runtime:{strictly 2.0.0} -> 2.0.0 (c)
+\--- androidx.lifecycle:lifecycle-livedata-core:{strictly 2.0.0} -> 2.0.0 (c)
+
+(c) - dependency constraint
+(*) - dependencies omitted (listed previously)
+
+A web-based, searchable dependency report is available by adding the --scan option.
+
+BUILD SUCCESSFUL in 996ms
+1 actionable task: 1 executed
+
+```
+
+
+
+**编译期监测依赖的安全性**
+
 > 编译时进行依赖检查，主要可以检查是否引用了某些团队禁用的库、或者是SNAPSHOT版本AAR等
 >
 > 建议各位可以建立一个意识：单靠口头约束力，是很难把某些规则严格落地的，如果这个过程中，可以加入**自动化**的检测手段，就尽可能及早加上，让机器帮助我们去进行规则的校验。**开发-编译-运行**，编译是运行前的最后一道关卡，许许多多的校验（不仅局限于依赖检查）都可以在编译期进行，提前将问题暴露出来。
+
+
+
+如下的例子：
+
+```groovy
+// 编译期间检测依赖库的合法性
+configurations.all {
+    resolutionStrategy.eachDependency { details ->
+        String dependency = details.requested.toString()
+        if (dependency.contains("com.google.android.material")) {
+            throw new RuntimeException("不允许使用 $dependency")
+        }
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
