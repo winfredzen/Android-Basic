@@ -258,11 +258,17 @@ configurations.all {
 
 
 
+## BuildConfig
 
+`BuildConfig`是安卓编译期间gradle自动生成的一个类，可以定义与当前编译相关的变量
 
+`BuildConfig`可以理解成由编译期去控制运行时某些功能的手段
 
+![128](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/128.png)
 
+![129](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/129.png)
 
+![130](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/130.png)
 
 
 
