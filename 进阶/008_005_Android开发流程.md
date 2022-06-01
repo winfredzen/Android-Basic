@@ -302,6 +302,184 @@ android {
 
 
 
+## 定制不同的apk
+
+构建定制，指的是通过**配置**，在**同一个**工程项目中，生成多个带有不同特性的APK。
+
+例如，某些公司开发的一个APP，对外会发布两个版本：一个是功能有限的免费版本，另一个是包含全部可用功能的付费版本。这个时候，就可以通过构建定制去满足这种需求。
+
+在Android开发中，进行APK的构建定制的主要手段，是配置**构建变体**（***Build Variant***）。
+
+构建变体主要由 构建类型 和 产品变种 组成。
+
+先讲讲这两个概念。
+
+- 构建类型（***Build types***）：用来定义在构建和打包应用时使用的某些属性，如签名信息等。通常针对**开发生命周期的不同阶段**进行配置。debug、release就是最常见的构建类型，你可以根据实际情况，对构建类型进行进一步细分。在每一种构建类型中，每一个选项都可以自由定制，以混淆处理为例，debug通常不会开启，而release版本才会开启。
+- 产品变种（***Product flavors***）：可以用于定义面向用户发布的**多个产品（即当前应用的不同版本）**，如本节开头提到的应用的**免费版**和**付费版**。在不同的产品变种中，我们可以配置不同的代码和资源等信息。
+
+
+
+构建类型的配置形式如下所示：
+
+```groovy
+android {
+   
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
+
+        preRelease {
+            ...
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+     
+    }
+}
+
+```
+
+**默认情况下，Android Studio会创建debug和release两种构建类型**
+
+
+
+产品变种的配置形式如下所示：
+
+```groovy
+android {
+    ...
+    defaultConfig {...}
+    buildTypes {
+        debug{...}
+        release{...}
+    }
+    
+    //指定产品变种的 纬度，这里只指定了一个。
+    flavorDimensions "version"
+    
+    productFlavors {
+        free {
+            // Assigns this product flavor to the "version" flavor dimension.
+            // If you are using only one dimension, this property is optional,
+            // and the plugin automatically assigns all the module's flavors to
+            // that dimension.
+            // 为当前产品变种指定 version 这一纬度。
+            // 注意每个
+            dimension "version"
+            applicationIdSuffix ".free"
+            versionNameSuffix "-free"
+        }
+        
+        paid {
+            dimension "version"
+            applicationIdSuffix ".paid"
+            versionNameSuffix "-paid"
+        }
+    }
+}
+
+```
+
+
+
+## 多渠道打包
+
+> 国内Android应用分发市场众多，在发布 APK 时一般需要生成多个渠道包，上传到不同的应用市场。这些渠道包会包含不同的渠道信息，在 APP和后台交互或者数据上报时，会带上各自的渠道信息。这样，我们就能统计到每个分发市场的下载数、用户数等关键数据。
+>
+> 基于上述定义，我们多渠道打包的核心过程其实分成两步：
+>
+> - 向APK中，写入渠道号信息
+> - 在运行期间，读取渠道号信息
+>
+> Android官方机制里面，其实是支持多渠道打包的。其基本原理是 `manifestPlaceholders` 与 产品变种 相结合。这是最“正统”的多渠道打包方式
+>
+> 不过其**问题**在于，每生成一个渠道包，都要重新执行一遍构建流程，**效率太低**，只适用于渠道较少的场景。因此业界衍生了各种多渠道打包的方案。
+>
+> 例如，其中一个方案是，在assets内部的一个预置一个文件用来存放渠道名信息。在构建出一个母包后，遍历所有渠道名称，替换预置的文件，然后重新签名。
+>
+> 再比如，在 `META-INF` 中添加一个使用渠道号命名的空文件，这种方式更为高效，不过在 APK Signature Scheme v2 下，已经行不通了。
+
+
+
+1.`AndroidManifest.xml`中添加`meta-data`
+
+![122](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/122.png)
+
+
+
+2.app目录下的build.gradle，构建变体
+
+![123](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/123.png)
+
+
+
+构建，选择`assembleRelease`，双击
+
+![124](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/124.png)
+
+
+
+**验证是否写入**
+
+1.使用aapt，工具的路径`/Users/wangzhen/Library/Android/sdk/build-tools/29.0.2`
+
+2.`./aapt dump xmltree /Users/wangzhen/Documents/GitHub/Android-Basic/进阶/code/app_flow/app/build/outputs/apk/xiaomi/release/Demo_xiaomi_1.0.apk AndroidManifest.xml`
+
+![125](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/125.png)
+
+
+
+**APK重命名**
+
+
+
+```groovy
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            if (variant.buildType.name.equals('release')) {
+                def fileName =
+                        "Demo_${variant.productFlavors[0].name}" +
+                                "_${defaultConfig.versionName}.apk"
+                output.outputFileName = fileName
+            }
+        }
+
+    }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
