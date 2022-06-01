@@ -456,7 +456,18 @@ android {
 
 
 
+**读取渠道**
 
+```kotlin
+try {
+    val appInfo = packageManager
+        .getApplicationInfo(packageName,PackageManager.GET_META_DATA)
+    val channelName = appInfo.metaData.getString("MTA_CHANNEL")
+    Log.i("channel_test", "channel = $channelName")
+} catch (e: Exception) {
+    // ignore
+}
+```
 
 
 

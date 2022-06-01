@@ -6,7 +6,7 @@ plugins {
 android {
     compileSdkVersion 29
 
-    buildToolsVersion "29.0.1"
+    buildToolsVersion "29.0.2"
 
     signingConfigs {
         release {
@@ -54,9 +54,9 @@ android {
     flavorDimensions "channel"
 
     productFlavors {
-        dev {
-            minSdkVersion 26
-        }
+//        dev {
+//            minSdkVersion 26
+//        }
         baidu {
             manifestPlaceholders = [MTA_CHANNEL_VALUE: "baidu"]
         }
@@ -113,3 +113,24 @@ apply from: project.file('read_local_prop.gradle')
 //        }
 //    }
 //}
+
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file("local.properties").newDataInputStream())
+//获取
+def username = properties.get("USER_NAME")
+def password = properties.get("PASSWORD")
+print("Test user name = " + username)
+print("Test password = " + password)
+
+
+
+
+
+
+
+
+
+
+
+
