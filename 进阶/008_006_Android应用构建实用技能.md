@@ -272,15 +272,48 @@ configurations.all {
 
 
 
+## 构建速度优化
+
+> 构建速度优化关乎一个团队的开发效率，是所有开发者都应该关注的一个话题，我们主要从分析、定位、解决三个层面展开讲述。
+>
+> **哪些因素会导致构建速度变慢？**
+>
+> 首先我们从理论层面，去看看都会有哪些阶段会导致构建耗时过长。
+>
+> 结合Gradle生命周期的角度，自上而下去分析：
+>
+> - 初始化阶段：此阶段主要执行settings.gradle 脚本，脚本中若包含过多的子工程或者其他耗时操作，会拖慢这个阶段的执行。
+> - 配置阶段：解析执行各个子工程的build.gradle脚本，若脚本中、或者使用的插件的apply方法中等地方存在耗时操作，则可能会导致这个阶段耗时过长，此外，工程依赖的下载和解析，也会占用一定时长。
+> - 执行阶段：主要是执行前一阶段配置好的所有的Task。这个流程其实就涉及到了APK的构建流程。过程中会分为资源编译、javac/kotlinc、proguard、dex、打包签名等步骤。这里每一个步骤都有可能会导致耗时慢，例如代码量庞大的时候，javac/kotlinc等阶段的耗时自然也就随之上升。
+>
+> 了解上述几个阶段后，就可以了解有哪些因素会影响构建速度了，例如网络环境差，会影响配置阶段拉取依赖的过长、工程代码量庞大，会导致javac/kotlinc以及dex等阶段耗时过长等。更多因素，各位可以举一反三去分析。
 
 
 
+**用什么手段去优化？**
+
+- 及时更新工具链
+- 创建本地开发专用的构建变体
+
+​	![131](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/131.png)
+
+- 离线模式
+
+​	![132](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/132.png)
+
+- 创建库模块
 
 
 
+**如何分析构建的性能瓶颈？**
 
+对于实际项目的构建速度优化，还是需要**具体问题具体分析**、“先分析、后动手”，建议使用Gradle的`profile`工具，去生成一份耗时的报告，结合起来优化构建耗时。
 
+```groovy
+./gradlew :app:assembleDebug --offline --rerun-tasks --profile
+```
 
+![133](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/133.png)
 
 
 

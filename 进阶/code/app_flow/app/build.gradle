@@ -54,6 +54,7 @@ android {
     flavorDimensions "channel"
 
     productFlavors {
+        // 在开发阶段为了得到更快的构建速度，设置minSdkVersion 26，不走multidex分包
 //        dev {
 //            minSdkVersion 26
 //        }
