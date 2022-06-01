@@ -317,6 +317,34 @@ configurations.all {
 
 
 
+## APK逆向入门
+
+> 掌握简单的逆向知识有助于进行竞品分析、构建产物分析等工作，用到的几个工具如下：
+>
+> - [ui-automatorviewer](https://developer.android.com/training/testing/ui-automator) ： 用于查看/分析APK的UI布局层级
+> - [dex2jar](https://github.com/pxb1988/dex2jar/releases)： 用于将APK包中的Dex文件反编译为包含class字节码的Jar包
+> - [jd-gui](https://github.com/java-decompiler/jd-gui/releases)：用于以直观的形式去查看Jar包中的代码
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
