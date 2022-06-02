@@ -165,17 +165,170 @@
 
 ![141](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/141.png)
 
+![142](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/142.png)
+
+但在我的mac电脑上提示出错，我认为应该是**java版本的问题**
 
 
 
+4.运行时，注入补丁包，`ReflectUtil`
+
+```kotlin
+/**
+ * 反射工具类
+ * 用来获取某个私有的字段或者方法
+ */
+object ReflectUtil {
+
+    /**
+     * 获取某个字段，并将它设置为可访问
+     */
+    fun findField(instance: Any, name: String): Field {
+        var clazz = instance.javaClass
+        while (clazz != null) {
+            try {
+                val field = clazz.getDeclaredField(name)
+                if (!field.isAccessible) {
+                    field.isAccessible = true
+                }
+                return field
+            } catch (e: NoSuchFieldException) {
+                clazz = clazz.superclass as Class<Any>
+            }
+        }
+        throw NoSuchFieldException("Field not found: $name")
+    }
+
+    /**
+     * 反射获取某个方法，并将它设置为可访问
+     */
+    fun findMethod(instance: Any,
+                   name: String,
+                   vararg paramType: Class<*>?
+    ): Method {
+        var clazz = instance.javaClass
+        while (clazz != null) {
+            try {
+                val method = clazz.getDeclaredMethod(name, *paramType)
+                if (!method.isAccessible) {
+                    method.isAccessible = true
+                }
+                return method
+            } catch (e: NoSuchMethodException) {
+                clazz = clazz.superclass as Class<Any>
+            }
+        }
+        throw NoSuchMethodException("Method not found: $name")
+    }
+
+}
+```
+
+5.实现运行时注入的逻辑，`HotFixUtil`
+
+```kotlin
+/**
+ * 负责运行时注入补丁包
+ */
+object HotFixUtil {
+
+    private val FIXED_DEX_PATH =
+        "${Environment.getExternalStorageDirectory().absolutePath}/fixed.dex"
+
+    /**
+     * 注入补丁包
+     */
+    fun install(context: Context) {
+        try {
+            // 获取补丁包的路径
+            val fixedDexFile = File(FIXED_DEX_PATH)
+            // 若补丁包不存在，说明不需要修复，直接返回
+            if(!fixedDexFile.exists()) {
+                return
+            }
+
+            // 尝试获取 PathClassLoader 的 pathList
+            val pathListField = ReflectUtil.findField(
+                context.classLoader,
+                "pathList"
+            )
+            val dexPathList = pathListField.get(context.classLoader)
+
+            // DexPathList 类里面  makeDexElements 方法
+            val makeDexElements = ReflectUtil.findMethod(
+                dexPathList,
+                "makeDexElements",
+                List::class.java,
+                File::class.java,
+                List::class.java,
+                ClassLoader::class.java
+            )
+
+            // 把待加载的补丁文件，添加到一个列表中
+            val filesToBeInstalled = ArrayList<File>()
+            filesToBeInstalled.add(fixedDexFile)
+
+            // 准备 调用makeDexElements 方法所需的其他参数
+            val optimizedDirectory = File(context.filesDir, "fixed_dex")
+            val suppressedExceptions = ArrayList<IOException>()
+
+            // 得到 待修复Dex 对应的 Element[]
+            val extraElements = makeDexElements.invoke(
+                dexPathList,
+                filesToBeInstalled,
+                optimizedDirectory,
+                suppressedExceptions,
+                context.classLoader
+            ) as kotlin.Array<Any>
+
+            // 获取 原始的 Element[]
+            val dexElementsField = ReflectUtil.findField(
+                dexPathList, "dexElements"
+            )
+            val originalElements = dexElementsField.get(
+                dexPathList
+            ) as kotlin.Array<Any>
+
+            // 创建一个新的数组，用于合并
+            val combinedElements = Array.newInstance(
+                originalElements.javaClass.componentType,
+                originalElements.size + extraElements.size
+            ) as kotlin.Array<Any>
+
+            // 合并新旧数组
+            System.arraycopy(
+                extraElements,
+                0,
+                combinedElements,
+                0,
+                extraElements.size)
+            System.arraycopy(
+                originalElements,
+                0,
+                combinedElements,
+                extraElements.size,
+                originalElements.size
+            )
+
+            // 替换系统原来的 dexElements 数组
+            dexElementsField.set(dexPathList, combinedElements)
+
+        } catch (ex: Exception) {
+            throw RuntimeException(ex)
+        }
+    }
+}
+```
 
 
 
+5.推送补丁包至外部存储路径下
 
+![143](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/143.png)
 
+效果如下：
 
-
-
+![144](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/144.png)
 
 
 
