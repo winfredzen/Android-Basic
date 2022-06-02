@@ -109,6 +109,80 @@
 
 
 
+![137](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/137.png)
+
+
+
+## 基于构建技术理解热修复原理
+
+**什么是热修复？**
+
+> 移动热修复（Hotfix）系统主要针对已上线的APP，出现产品问题，通过服务端下发修复包到客户端，客户端进行安装修复。此过程中，无需用户额外操作，可快速达成紧急问题修复的目的。
+
+**热修复原理**
+
+1.编译期生成补丁包
+
+![138](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/138.png)
+
+2.运行期注入补丁包
+
+![139](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/139.png)
+
+
+
+**代码热修复，核心思路是向dexElement数组最前方，插入补丁Dex，达到“修复后的代码优先生效”的目的。**
+
+> 具体的实现，可以参考视频中的讲解（课程代码在`最新的Android 11`系统上可正常工作）。
+>
+> 这个部分重点在于带领大家理解热修复核心原理，因此没有进一步处理 **多系统兼容性** 的问题：热修复的核心操作需要反射调用一些隐藏的API，而这些API在不同版本的系统上，是可能不一致的。
+>
+> 例如`DexPathList`类里面的`makeDexElements`这个方法，在不同版本的参数列表就不一样：
+>
+> 【Android 11】
+> https://cs.android.com/android/platform/superproject/+/android-11.0.0_r1:libcore/dalvik/src/main/java/dalvik/system/DexPathList.java;drc=android-11.0.0_r1;l=363
+>
+> 【Android 5.1.1】
+> https://cs.android.com/android/platform/superproject/+/android-5.1.1_r38:libcore/dalvik/src/main/java/dalvik/system/DexPathList.java;l=203
+>
+> > 推荐用 [cs.android.com](http://cs.android.com/) 查看Android系统源码 `^_^`
+>
+> 本课程中的热修复代码是针对 **最新的Android 11** 的系统去进行编写的。如果是其他版本的系统，需要各位根据对应系统版本的源码，调整反射代码去兼容（可以通过判断系统版本号去增加if-else逻辑），才能成功运行。事实上，一般成熟的热修复框架（如Tinker），都是需要针对不同版本的系统去进行兼容的。
+>
+> 另外谈一谈如何进一步拓展学习。我们的案例中只涉及到了代码热修复。而实践中的热修复框架，还应当包含**资源热修复、SO热修复等功能**；此外，代码热修复也有着不同的技术流派，除本部分介绍的**Dex前插方案**，还可以通过编译时插桩、Native等手段实现代码热修复。建议各位可以深入地去学习对比微信 Tinker、美团Robust等框架等内部实现，全方位掌握热修复技术。
+
+
+
+1.新建module，包名保持一致，修改要替换的类
+
+2.使用`javac`，生成`.class`文件
+
+![140](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/140.png)
+
+3.生成`dex`文件
+
+使用`d8`或者`dx`
+
+![141](https://github.com/winfredzen/Android-Basic/blob/master/%E8%BF%9B%E9%98%B6/image/141.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
