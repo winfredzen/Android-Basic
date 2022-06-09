@@ -13,3 +13,51 @@ Android官方文档：
 
 
 
+## 权限
+
+参考：
+
++ [Bluetooth permissions](https://developer.android.com/guide/topics/connectivity/bluetooth/permissions)
++ [Android 12 中的新蓝牙权限](https://developer.android.google.cn/about/versions/12/features/bluetooth-permissions?hl=zh-cn)
+
+> `BLUETOOTH_SCAN`、`BLUETOOTH_ADVERTISE` 和 `BLUETOOTH_CONNECT` 权限是[运行时权限](https://developer.android.google.cn/guide/topics/permissions/overview?hl=zh-cn#runtime)。
+
+
+
+
+
+## 发现设备
+
+[startDiscovery()](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#startDiscovery())方法的一些说明：
+
+> Start the remote device discovery process.
+>
+> 启动远程设备发现过程
+>
+> The discovery process usually involves an inquiry scan of about 12 seconds, followed by a page scan of each new device to retrieve its Bluetooth name.
+>
+> 发现过程通常涉及大约 12 秒的查询扫描，然后对每个新设备进行页面扫描以检索其蓝牙名称
+>
+> This is an asynchronous call, it will return immediately. Register for `ACTION_DISCOVERY_STARTED` and `ACTION_DISCOVERY_FINISHED` intents to determine exactly when the discovery starts and completes. Register for `BluetoothDevice.ACTION_FOUND` to be notified as remote Bluetooth devices are found.
+>
+> 这是一个异步调用，它会立即返回。注册 `ACTION_DISCOVERY_STARTED` 和 `ACTION_DISCOVERY_FINISHED`  intent以确定发现何时开始和完成。注册 BluetoothDevice.ACTION_FOUND 以在找到远程蓝牙设备时得到通知。
+>
+> Device discovery is a heavyweight procedure. New connections to remote Bluetooth devices should not be attempted while discovery is in progress, and existing connections will experience limited bandwidth and high latency. Use `cancelDiscovery()` to cancel an ongoing discovery. Discovery is not managed by the Activity, but is run as a system service, so an application should always call `BluetoothAdapter#cancelDiscovery()` even if it did not directly request a discovery, just to be sure.
+>
+> Device discovery will only find remote devices that are currently *discoverable* (inquiry scan enabled). Many Bluetooth devices are not discoverable by default, and need to be entered into a special mode.
+>
+> If Bluetooth state is not `STATE_ON`, this API will return false. After turning on Bluetooth, wait for `ACTION_STATE_CHANGED` with `STATE_ON` to get the updated value.
+>
+> If a device is currently bonding, this request will be queued and executed once that device has finished bonding. If a request is already queued, this request will be ignored.
+> For apps targeting `Build.VERSION_CODES#R` or lower, this requires the `Manifest.permission#BLUETOOTH_ADMIN` permission which can be gained with a simple `<uses-permission>` manifest tag.
+> For apps targeting `Build.VERSION_CODES#S` or or higher, this requires the `Manifest.permission#BLUETOOTH_SCAN` permission which can be gained with `Activity.requestPermissions(String[], int)`.
+> In addition, this requires either the `Manifest.permission#ACCESS_FINE_LOCATION` permission or a strong assertion that you will never derive the physical location of the device. You can make this assertion by declaring `usesPermissionFlags="neverForLocation"` on the relevant `<uses-permission>` manifest tag, but it may restrict the types of Bluetooth devices you can interact with.
+> Requires `Manifest.permission.BLUETOOTH_SCAN`
+
+
+
+**出现的问题**
+
+1.`bluetoothAdapter.startDiscovery()`一直返回`false`，而且没有获扫描到蓝牙信息
+
+> 需要定位权限

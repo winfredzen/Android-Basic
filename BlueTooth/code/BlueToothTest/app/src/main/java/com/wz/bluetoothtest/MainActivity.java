@@ -8,7 +8,10 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,11 +29,30 @@ public class MainActivity extends AppCompatActivity {
     private String[] permissions = new String[]{
             Manifest.permission.BLUETOOTH_ADVERTISE,
             Manifest.permission.BLUETOOTH_CONNECT,
-            Manifest.permission.BLUETOOTH_SCAN
+            Manifest.permission.BLUETOOTH_SCAN,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION
     };
 
     private EditText logEditText;
     private BluetoothAdapter bluetoothAdapter;
+
+
+    // Create a BroadcastReceiver for ACTION_FOUND.
+    private final BroadcastReceiver receiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+                Log.d(TAG, "BroadcastReceiver onReceive");
+                // Discovery has found a device. Get the BluetoothDevice
+                // object and its info from the Intent.
+                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                String deviceName = device.getName();
+                String deviceHardwareAddress = device.getAddress(); // MAC address
+                logEditText.append("deviceName = " + deviceName + ", deviceHardwareAddress = " + deviceHardwareAddress + "\n");
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         logEditText = findViewById(R.id.log_edit_text);
+        registerReceiver();
         requestPermissions();
         setUpBluetooth();
     }
@@ -51,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
     public void requestPermissions() {
         // 检查是否有相应的权限
         boolean isAllGranted = checkPermissionsAllGranted(permissions);
+        Log.d(TAG, "requestPermissions isAllGranted = " + isAllGranted);
         // 如果这3个权限全部拥有，则直接执行备份
         if (isAllGranted) {
             return;
@@ -86,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void getBondedDevices(View view) {
+        logEditText.setText("");
         Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
 
         if (pairedDevices.size() > 0) {
@@ -97,6 +122,26 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    /**
+     * 发现设备.
+     *
+     * @param view
+     */
+    public void startDiscovery(View view) {
+        Log.d(TAG, "startDiscovery");
+        logEditText.setText("");
+        boolean b = bluetoothAdapter.startDiscovery();
+        Log.d(TAG, "startDiscovery b = " + b);
+    }
+
+    private void registerReceiver() {
+        // Register for broadcasts when a device is discovered.
+        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+        registerReceiver(receiver, filter);
+    }
+
+
 
 
     /**
@@ -124,5 +169,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Don't forget to unregister the ACTION_FOUND receiver.
+        unregisterReceiver(receiver);
+    }
 
 }

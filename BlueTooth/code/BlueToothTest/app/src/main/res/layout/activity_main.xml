@@ -15,6 +15,14 @@
         android:onClick="getBondedDevices"
         />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发现设备"
+        android:onClick="startDiscovery"
+        />
+
     <EditText
         android:id="@+id/log_edit_text"
         android:layout_width="match_parent"
