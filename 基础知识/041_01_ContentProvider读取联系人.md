@@ -1,4 +1,4 @@
-# ContentProvier读取联系人
+# ContentProvider读取联系人
 
 本篇内容是对学习ContentProvier的记录，内容来自第一行代码
 
@@ -161,7 +161,9 @@ class MainActivity : AppCompatActivity() {
 
 
 
+## 代码
 
+[ContactsTest](https://github.com/winfredzen/Android-Basic/tree/master/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/code/ContactsTest)
 
 
 

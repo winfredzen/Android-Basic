@@ -29,7 +29,13 @@ class MyProvider : ContentProvider() {
         return false
     }
 
-    override fun query(uri: Uri, projection: Array<String>?, selection: String?, selectionArgs: Array<String>?, sortOrder: String?): Cursor? {
+    override fun query(
+        uri: Uri,
+        projection: Array<String>?,
+        selection: String?,
+        selectionArgs: Array<String>?,
+        sortOrder: String?
+    ): Cursor? {
         when (uriMatcher.match(uri)) {
             table1Dir -> {
                 // 查询table1表中的所有数据
@@ -51,7 +57,12 @@ class MyProvider : ContentProvider() {
         return null
     }
 
-    override fun update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<String>?): Int {
+    override fun update(
+        uri: Uri,
+        values: ContentValues?,
+        selection: String?,
+        selectionArgs: Array<String>?
+    ): Int {
         return 0
     }
 
@@ -59,12 +70,12 @@ class MyProvider : ContentProvider() {
         return 0
     }
 
-override fun getType(uri: Uri) = when (uriMatcher.match(uri)) {
-    table1Dir -> "vnd.android.cursor.dir/vnd.com.example.app.provider.table1"
-    table1Item -> "vnd.android.cursor.item/vnd.com.example.app.provider.table1"
-    table2Dir -> "vnd.android.cursor.dir/vnd.com.example.app.provider.table2"
-    table2Item -> "vnd.android.cursor.item/vnd.com.example.app.provider.table2"
-    else -> null
-}
+    override fun getType(uri: Uri) = when (uriMatcher.match(uri)) {
+        table1Dir -> "vnd.android.cursor.dir/vnd.com.example.app.provider.table1"
+        table1Item -> "vnd.android.cursor.item/vnd.com.example.app.provider.table1"
+        table2Dir -> "vnd.android.cursor.dir/vnd.com.example.app.provider.table2"
+        table2Item -> "vnd.android.cursor.item/vnd.com.example.app.provider.table2"
+        else -> null
+    }
 
 }
