@@ -32,15 +32,132 @@ content://com.example.app.provider/table2
 val uri = Uri.parse("content://com.example.app.provider/table1")
 ```
 
+
+
+## query
+
+可以使用这个Uri对象查询table1表中的数据了
+
+```kotlin
+val cursor = contentResolver.query(
+ uri,
+ projection,
+ selection,
+ selectionArgs,
+ sortOrder)
+```
+
 ![079](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/079.png)
 
+查询完成后返回的仍然是一个`Cursor`对象
+
+```kotlin
+while (cursor.moveToNext()) {
+ val column1 = cursor.getString(cursor.getColumnIndex("column1"))
+ val column2 = cursor.getInt(cursor.getColumnIndex("column2"))
+}
+cursor.close()
+```
 
 
 
+## nsert
+
+向table1表中添加一条数据，代码如下所示：
+
+```kotlin
+val values = contentValuesOf("column1" to "text", "column2" to 1)
+contentResolver.insert(uri, values)
+```
+
+将待添加的数据组装到`ContentValues`中，然后调用`ContentResolver`的`insert()`方法，将`Uri`和`ContentValues`作为参数传入即可
 
 
 
+## upate
 
+```kotlin
+val values = contentValuesOf("column1" to "")
+contentResolver.update(uri, values, "column1 = ? and column2 = ?", arrayOf("text", "1"))
+```
+
+上述代码使用了`selection`和`selectionArgs`参数来对想要更新的数据进行约束，以防止所有的行都会受影响。
+
+
+
+## delete
+
+```kotlin
+contentResolver.delete(uri, "column2 = ?", arrayOf("1"))
+```
+
+
+
+## 读取系统联系人
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    private val contactsList = ArrayList<String>()
+    private lateinit var adapter: ArrayAdapter<String>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, contactsList)
+        contactsView.adapter = adapter
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.READ_CONTACTS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CONTACTS), 1)
+        } else {
+            readContacts()
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            1 -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    readContacts()
+                } else {
+                    Toast.makeText(this, "You denied the permission", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun readContacts() {
+        // 查询联系人数据
+        contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null)?.apply {
+            while (moveToNext()) {
+                // 获取联系人姓名
+                val displayName = getString(getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME))
+                // 获取联系人手机号
+                val number = getString(getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                contactsList.add("$displayName\n$number")
+            }
+            adapter.notifyDataSetChanged()
+            close()
+        }
+    }
+
+}
+
+```
+
+一些说明：
+
+1.Uri，即为`ContactsContract.CommonDataKinds.Phone.CONTENT_URI`，已做好封装
+
+![080](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/080.png)
+
+![080](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/080.png)
+
+![082](https://github.com/winfredzen/Android-Basic/blob/master/基础知识/images/082.png)
 
 
 
