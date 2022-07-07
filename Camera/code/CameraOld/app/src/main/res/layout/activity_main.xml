@@ -7,9 +7,10 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/photo_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Take Phto"
+        android:text="Take Photo"
         android:padding="20dp"
         android:background="@android:color/holo_blue_bright"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -17,10 +18,30 @@
         android:onClick="takePhoto"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take Video"
+        android:padding="20dp"
+        android:background="@android:color/holo_blue_bright"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/photo_tv"
+        android:layout_marginLeft="20dp"
+        android:onClick="takeVideo"
+        />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toBottomOf="@+id/photo_tv"
+        android:layout_marginTop="20dp"
+        />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 

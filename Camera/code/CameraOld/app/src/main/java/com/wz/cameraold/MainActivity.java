@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.VideoView;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,8 +22,10 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    static final int REQUEST_VIDEO_CAPTURE = 1;
 
     private ImageView imageView;
+    private VideoView videoView;
     String currentPhotoPath;
 
 
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         imageView = findViewById(R.id.imageView);
+        videoView = findViewById(R.id.videoView);
     }
 
     public void takePhoto(View view) {
@@ -107,6 +111,19 @@ public class MainActivity extends AppCompatActivity {
 //            imageView.setImageBitmap(imageBitmap);
 
             setPic();
+        }
+
+        if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == RESULT_OK) {
+            Uri videoUri = data.getData();
+            videoView.setVideoURI(videoUri);
+            videoView.start();
+        }
+    }
+
+    public void takeVideo(View view) {
+        Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takeVideoIntent, REQUEST_VIDEO_CAPTURE);
         }
     }
 }
