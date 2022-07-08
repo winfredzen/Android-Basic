@@ -25,6 +25,8 @@ class MainActivity06 : AppCompatActivity(), CoroutineScope by MainScope() {
         val submitButton = findViewById<Button>(R.id.submitButton).also {
             it.setOnClickListener {
                 launch {
+                    println("I'm working in thread ${Thread.currentThread().name}")
+                    delay(10000)
                     val todo = userServiceApi.retrieveTodoById(1)
                     nameTextView.text = todo.title
                 }
