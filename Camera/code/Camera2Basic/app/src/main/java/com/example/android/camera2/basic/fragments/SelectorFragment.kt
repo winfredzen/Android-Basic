@@ -88,6 +88,7 @@ class SelectorFragment : Fragment() {
             // Get list of all compatible cameras
             val cameraIds = cameraManager.cameraIdList.filter {
                 val characteristics = cameraManager.getCameraCharacteristics(it)
+                //当前Camera设备支持的功能列表
                 val capabilities = characteristics.get(
                         CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES)
                 capabilities?.contains(
@@ -98,6 +99,7 @@ class SelectorFragment : Fragment() {
             // Iterate over the list of cameras and return all the compatible ones
             cameraIds.forEach { id ->
                 val characteristics = cameraManager.getCameraCharacteristics(id)
+                //镜头方向
                 val orientation = lensOrientationString(
                         characteristics.get(CameraCharacteristics.LENS_FACING)!!)
 
@@ -111,7 +113,7 @@ class SelectorFragment : Fragment() {
                 availableCameras.add(FormatItem(
                         "$orientation JPEG ($id)", id, ImageFormat.JPEG))
 
-                // Return cameras that support RAW capability
+                // Return cameras that support RAW capability RAW格式
                 if (capabilities.contains(
                                 CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_RAW) &&
                         outputFormats.contains(ImageFormat.RAW_SENSOR)) {
