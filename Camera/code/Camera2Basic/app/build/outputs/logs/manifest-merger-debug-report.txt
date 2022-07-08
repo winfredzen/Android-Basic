@@ -1,11 +1,11 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
-INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
-INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
-INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
 MERGED from [androidx.databinding:viewbinding:4.2.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2d273631c88811ae02a5c66c866bd154/jetified-viewbinding-4.2.2/AndroidManifest.xml:17:1-22:12
-MERGED from [:utils] /Users/wangzhen/Downloads/Camera2Basic/utils/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:1-24:12
+MERGED from [:utils] /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/utils/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-fragment-ktx:2.2.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2b4550175efb2324917a4673c6f4e79e/navigation-fragment-ktx-2.2.2/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment-ktx:1.2.4] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/764db56f9de1f25d76ad37b46509807f/jetified-fragment-ktx-1.2.4/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-ui-ktx:2.2.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d3b5dd56ab1a55a0f69409e351912942/navigation-ui-ktx-2.2.2/AndroidManifest.xml:17:1-24:12
@@ -60,41 +60,41 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/wangzhen/.gradle/c
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/f4ca0e235d903f880f004dd518ec6cf8/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/c52d54815320e0024d7f551743ca3ef5/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/0c581176fe14b70987c147cf9315f40b/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
-INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
-INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
 	package
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:19:5-48
-		INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:19:5-48
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
-		INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
 	xmlns:tools
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:18:5-51
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:18:5-51
 	android:versionCode
-		INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
-		INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:17:1-49:12
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:17:11-69
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:17:11-69
 uses-permission#android.permission.CAMERA
-ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:22:5-65
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:22:5-65
 	android:name
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:22:22-62
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:22:22-62
 uses-feature#android.hardware.camera.any
-ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:25:5-64
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:25:5-64
 	android:name
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:25:19-61
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:25:19-61
 uses-feature#android.hardware.camera.raw
-ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:26:5-89
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:26:5-89
 	android:required
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:26:62-86
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:26:62-86
 	android:name
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:26:19-61
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:26:19-61
 application
-ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:28:5-47:19
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:28:5-47:19
 MERGED from [com.google.android.material:material:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/981feb5ecdc1e2f9ff9ddb856ba933f2/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/981feb5ecdc1e2f9ff9ddb856ba933f2/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/7a9525c3953056716b6ea0741ea6661f/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
@@ -110,41 +110,41 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /Users/wangzhen/.gradl
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.6.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b73355adf9893281e3474e977492bfb8/core-1.6.0/AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:31:9-41
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:31:9-41
 	android:fullBackupContent
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:30:9-41
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:30:9-41
 	tools:ignore
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:33:9-48
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:33:9-48
 	android:icon
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:32:9-45
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:32:9-45
 	android:allowBackup
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:29:9-35
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:29:9-35
 activity#com.example.android.camera2.basic.CameraActivity
-ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:35:9-46:20
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:35:9-46:20
 	android:clearTaskOnLaunch
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:37:13-45
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:37:13-45
 	android:theme
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:38:13-44
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:38:13-44
 	android:name
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:36:13-76
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:36:13-76
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:41:13-44:29
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:41:13-44:29
 action#android.intent.action.MAIN
-ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:42:17-69
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:42:17-69
 	android:name
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:42:25-66
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:42:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:43:17-77
+ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:43:17-77
 	android:name
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:43:27-74
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:43:27-74
 uses-sdk
-INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
-INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
 MERGED from [androidx.databinding:viewbinding:4.2.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2d273631c88811ae02a5c66c866bd154/jetified-viewbinding-4.2.2/AndroidManifest.xml:20:5-44
 MERGED from [androidx.databinding:viewbinding:4.2.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2d273631c88811ae02a5c66c866bd154/jetified-viewbinding-4.2.2/AndroidManifest.xml:20:5-44
-MERGED from [:utils] /Users/wangzhen/Downloads/Camera2Basic/utils/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:5-22:41
-MERGED from [:utils] /Users/wangzhen/Downloads/Camera2Basic/utils/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:5-22:41
+MERGED from [:utils] /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/utils/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:5-22:41
+MERGED from [:utils] /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/utils/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-fragment-ktx:2.2.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2b4550175efb2324917a4673c6f4e79e/navigation-fragment-ktx-2.2.2/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-fragment-ktx:2.2.2] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2b4550175efb2324917a4673c6f4e79e/navigation-fragment-ktx-2.2.2/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment-ktx:1.2.4] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/764db56f9de1f25d76ad37b46509807f/jetified-fragment-ktx-1.2.4/AndroidManifest.xml:20:5-22:41
@@ -253,13 +253,13 @@ MERGED from [androidx.print:print:1.0.0] /Users/wangzhen/.gradle/caches/transfor
 MERGED from [androidx.print:print:1.0.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/c52d54815320e0024d7f551743ca3ef5/print-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/0c581176fe14b70987c147cf9315f40b/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/0c581176fe14b70987c147cf9315f40b/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
-INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
-INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
+INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
-		ADDED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
+		ADDED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml

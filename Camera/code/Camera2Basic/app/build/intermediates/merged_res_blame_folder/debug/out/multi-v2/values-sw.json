@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/wangzhen/Downloads/Camera2Basic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw/values-sw.xml",
+            "outputFile": "/Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw/values-sw.xml",
             "map": [
                 {
                     "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b977a157e94f06ec5549233200aa48dd/appcompat-1.1.0/res/values-sw/values-sw.xml",

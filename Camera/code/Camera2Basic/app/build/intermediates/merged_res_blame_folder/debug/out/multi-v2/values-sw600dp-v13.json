@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/wangzhen/Downloads/Camera2Basic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
+            "outputFile": "/Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
                     "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/981feb5ecdc1e2f9ff9ddb856ba933f2/material-1.0.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",

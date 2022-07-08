@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/wangzhen/Downloads/Camera2Basic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
+                {
+                    "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "16,17",
+                        "startColumns": "4,4",
+                        "startOffsets": "645,695",
+                        "endColumns": "49,43",
+                        "endOffsets": "690,734"
+                    },
+                    "to": {
+                        "startLines": "606,609",
+                        "startColumns": "4,4",
+                        "startOffsets": "36249,36580",
+                        "endColumns": "49,43",
+                        "endOffsets": "36294,36619"
+                    }
+                },
                 {
                     "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/d9265f68c10a19eefd8aa981201d2e95/transition-1.0.1/res/values/values.xml",
                     "from": {
@@ -152,6 +169,25 @@
                     }
                 },
                 {
+                    "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "19",
+                        "startColumns": "4",
+                        "startOffsets": "726",
+                        "endLines": "24",
+                        "endColumns": "12",
+                        "endOffsets": "1048"
+                    },
+                    "to": {
+                        "startLines": "634",
+                        "startColumns": "4",
+                        "startOffsets": "39171",
+                        "endLines": "639",
+                        "endColumns": "12",
+                        "endOffsets": "39493"
+                    }
+                },
+                {
                     "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a72748e688f33b9259e5ca27ee5a25e5/navigation-runtime-2.2.2/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,10,13",
@@ -168,23 +204,6 @@
                         "endLines": "525,3127,4428,4434",
                         "endColumns": "52,24,24,24",
                         "endOffsets": "31501,204125,283539,283781"
-                    }
-                },
-                {
-                    "source": "/Users/wangzhen/Downloads/Camera2Basic/app/src/main/res/values/strings.xml",
-                    "from": {
-                        "startLines": "16,17",
-                        "startColumns": "4,4",
-                        "startOffsets": "645,695",
-                        "endColumns": "49,43",
-                        "endOffsets": "690,734"
-                    },
-                    "to": {
-                        "startLines": "606,609",
-                        "startColumns": "4,4",
-                        "startOffsets": "36249,36580",
-                        "endColumns": "49,43",
-                        "endOffsets": "36294,36619"
                     }
                 },
                 {
@@ -240,25 +259,6 @@
                         "endLines": "15,192,193,194,195,337,338,339,667,2065,2068,2071,3801",
                         "endColumns": "51,60,61,61,63,58,56,53,12,12,12,12,24",
                         "endOffsets": "781,10056,10118,10180,10244,19821,19878,19932,41358,132631,132757,132885,240793"
-                    }
-                },
-                {
-                    "source": "/Users/wangzhen/Downloads/Camera2Basic/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "19",
-                        "startColumns": "4",
-                        "startOffsets": "726",
-                        "endLines": "24",
-                        "endColumns": "12",
-                        "endOffsets": "1048"
-                    },
-                    "to": {
-                        "startLines": "634",
-                        "startColumns": "4",
-                        "startOffsets": "39171",
-                        "endLines": "639",
-                        "endColumns": "12",
-                        "endOffsets": "39493"
                     }
                 },
                 {
