@@ -408,4 +408,51 @@ class MainActivity06 : AppCompatActivity(), CoroutineScope by MainScope() {
 }
 ```
 
+> **思考**
+>
+> 我原以为MainScope是在主线程上运行的，在主线程中请求网络会阻塞线程，导致崩溃
+>
+> 所以我修改下代码：
+>
+> ```kotlin
+> 
+> class MainActivity06 : AppCompatActivity(), CoroutineScope by MainScope() {
+>     private lateinit var nameTextView: TextView
+> 
+>     override fun onCreate(savedInstanceState: Bundle?) {
+>         super.onCreate(savedInstanceState)
+>         setContentView(R.layout.activity_main)
+> 
+>         nameTextView = findViewById<TextView>(R.id.textView)
+>         nameTextView.text = "Jack"
+> 
+>         val submitButton = findViewById<Button>(R.id.submitButton).also {
+>             it.setOnClickListener {
+>                 launch {
+>                     println("I'm working in thread ${Thread.currentThread().name}")
+>                     delay(10000)
+>                     val todo = userServiceApi.retrieveTodoById(1)
+>                     nameTextView.text = todo.title
+>                 }
+>             }
+>         }
+>     }
+> 
+>     override fun onDestroy() {
+>         super.onDestroy()
+>         cancel()
+>     }
+> 
+> }
+> ```
+>
+> 但是App并没有崩溃，在等待的过程中，其它按钮也是可以点击的，输出结果显示也是主线程
+>
+> ```tex
+> 2022-07-08 09:25:22.536 8945-8945/com.example.coroutine I/System.out: I'm working in thread main
+> ```
+>
+> 难道这就是**协程的非阻塞**？该怎么立即呢？直接把协程当做线程理解？
+
+
 
