@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/wangzhen/Downloads/Camera2Basic/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_camera.xml",
+        "source": "/Users/wangzhen/Downloads/Camera2Basic/app/src/main/res/layout/fragment_camera.xml"
+    },
+    {
+        "merged": "/Users/wangzhen/Downloads/Camera2Basic/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_camera.xml",
+        "source": "/Users/wangzhen/Downloads/Camera2Basic/app/src/main/res/layout/activity_camera.xml"
+    }
+]

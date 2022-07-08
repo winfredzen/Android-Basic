@@ -1,0 +1,81 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3  ~ Copyright 2020 The Android Open Source Project
+4  ~
+5  ~ Licensed under the Apache License, Version 2.0 (the "License");
+6  ~ you may not use this file except in compliance with the License.
+7  ~ You may obtain a copy of the License at
+8  ~
+9  ~     https://www.apache.org/licenses/LICENSE-2.0
+10  ~
+11  ~ Unless required by applicable law or agreed to in writing, software
+12  ~ distributed under the License is distributed on an "AS IS" BASIS,
+13  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14  ~ See the License for the specific language governing permissions and
+15  ~ limitations under the License.
+16-->
+17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+18    package="com.android.example.camera2.basic"
+19    android:versionCode="1"
+20    android:versionName="1.0.0" >
+21
+22    <uses-sdk
+23        android:minSdkVersion="21"
+23-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
+24        android:targetSdkVersion="29" />
+24-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml
+25
+26    <!-- Permission declarations -->
+27    <uses-permission android:name="android.permission.CAMERA" />
+27-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:22:5-65
+27-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:22:22-62
+28
+29    <!-- A camera with (optional) RAW capability is required to use this application -->
+30    <uses-feature android:name="android.hardware.camera.any" />
+30-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:25:5-64
+30-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:25:19-61
+31    <uses-feature
+31-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:26:5-89
+32        android:name="android.hardware.camera.raw"
+32-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:26:19-61
+33        android:required="false" />
+33-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:26:62-86
+34
+35    <application
+35-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:28:5-47:19
+36        android:allowBackup="true"
+36-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:29:9-35
+37        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+37-->[androidx.core:core:1.6.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b73355adf9893281e3474e977492bfb8/core-1.6.0/AndroidManifest.xml:24:18-86
+38        android:debuggable="true"
+39        android:fullBackupContent="true"
+39-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:30:9-41
+40        android:icon="@drawable/ic_launcher"
+40-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:32:9-45
+41        android:label="@string/app_name"
+41-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:31:9-41
+42        android:testOnly="true" >
+43        <activity
+43-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:35:9-46:20
+44            android:name="com.example.android.camera2.basic.CameraActivity"
+44-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:36:13-76
+45            android:clearTaskOnLaunch="true"
+45-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:37:13-45
+46            android:theme="@style/AppTheme" >
+46-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:38:13-44
+47
+48            <!-- Main app intent filter -->
+49            <intent-filter>
+49-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:41:13-44:29
+50                <action android:name="android.intent.action.MAIN" />
+50-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:42:17-69
+50-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:42:25-66
+51
+52                <category android:name="android.intent.category.LAUNCHER" />
+52-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:43:17-77
+52-->/Users/wangzhen/Downloads/Camera2Basic/app/src/main/AndroidManifest.xml:43:27-74
+53            </intent-filter>
+54        </activity>
+55    </application>
+56
+57</manifest>

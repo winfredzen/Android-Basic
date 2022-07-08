@@ -1,0 +1,24 @@
+com/example/android/camera2/basic/fragments/ImageViewerFragmentArgs.java
+ com.example.android.camera2.basic.fragments.ImageViewerFragmentArgs
+ com.example.android.camera2.basic.fragments.ImageViewerFragmentArgs$1
+ com.example.android.camera2.basic.fragments.ImageViewerFragmentArgs$Builder
+com/example/android/camera2/basic/databinding/FragmentCameraBinding.java
+ com.example.android.camera2.basic.databinding.FragmentCameraBinding
+com/example/android/camera2/basic/fragments/PermissionsFragmentDirections.java
+ com.example.android.camera2.basic.fragments.PermissionsFragmentDirections
+com/example/android/camera2/basic/databinding/ActivityCameraBinding.java
+ com.example.android.camera2.basic.databinding.ActivityCameraBinding
+com/example/android/camera2/basic/fragments/CameraFragmentDirections.java
+ com.example.android.camera2.basic.fragments.CameraFragmentDirections
+ com.example.android.camera2.basic.fragments.CameraFragmentDirections$1
+ com.example.android.camera2.basic.fragments.CameraFragmentDirections$ActionCameraToJpegViewer
+com/example/android/camera2/basic/fragments/SelectorFragmentDirections.java
+ com.example.android.camera2.basic.fragments.SelectorFragmentDirections
+ com.example.android.camera2.basic.fragments.SelectorFragmentDirections$1
+ com.example.android.camera2.basic.fragments.SelectorFragmentDirections$ActionSelectorToCamera
+com/example/android/camera2/basic/BuildConfig.java
+ com.example.android.camera2.basic.BuildConfig
+com/example/android/camera2/basic/fragments/CameraFragmentArgs.java
+ com.example.android.camera2.basic.fragments.CameraFragmentArgs
+ com.example.android.camera2.basic.fragments.CameraFragmentArgs$1
+ com.example.android.camera2.basic.fragments.CameraFragmentArgs$Builder
