@@ -39,7 +39,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private final static String TAG = "MqttDemo";
     //private final static String IOT_PLATFORM_URL = "iot-mqtts.cn-north-4.myhuaweicloud.com";
-    private final static String IOT_PLATFORM_URL = "broker-cn.emqx.io";
+//    private final static String IOT_PLATFORM_URL = "broker-cn.emqx.io";
+    private final static String IOT_PLATFORM_URL = "58.49.84.121";
     private Context mContext;
     private Toast mToast;
     private long minBackoff = 1000;
@@ -243,6 +244,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mqttConnectOptions.setConnectionTimeout(30);
         //mqttConnectOptions.setUserName(editText_mqtt_device_connect_deviceId.getText().toString());
         //mqttConnectOptions.setPassword(password.toCharArray());
+        mqttConnectOptions.setUserName("8155test");
+        mqttConnectOptions.setPassword("test1234".toCharArray());
         return mqttConnectOptions;
     }
 
