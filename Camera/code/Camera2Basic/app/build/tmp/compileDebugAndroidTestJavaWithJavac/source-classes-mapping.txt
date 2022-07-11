@@ -1,0 +1,2 @@
+com/example/android/camera2/basic/test/BuildConfig.java
+ com.example.android.camera2.basic.test.BuildConfig

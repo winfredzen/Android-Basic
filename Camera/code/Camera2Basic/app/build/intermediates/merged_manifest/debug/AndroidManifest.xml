@@ -38,8 +38,7 @@
         android:debuggable="true"
         android:fullBackupContent="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:testOnly="true" >
+        android:label="@string/app_name" >
         <activity
             android:name="com.example.android.camera2.basic.CameraActivity"
             android:clearTaskOnLaunch="true"
