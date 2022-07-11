@@ -345,6 +345,57 @@ class Student : Person {
 
 
 
+**接口**
+
+Kotlin接口，允许对接口中定义的函数进行默认实现
+
+```kotlin
+interface Study {
+ fun readBooks()
+ fun doHomework() {
+ 	println("do homework default implementation.")
+ }
+}
+```
+
+
+
+**函数的可见性修饰符**
+
+Kotlin中`public`修饰符是默认项，而在Java中`default`才是默认项
+
+![031](https://github.com/winfredzen/Android-Basic/blob/master/Kotlin/images/031.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
