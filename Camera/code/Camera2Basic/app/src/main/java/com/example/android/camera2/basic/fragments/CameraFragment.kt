@@ -139,6 +139,8 @@ class CameraFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
+        Log.d(TAG, "onCreateView")
+
         _fragmentCameraBinding = FragmentCameraBinding.inflate(inflater, container, false)
         return fragmentCameraBinding.root
     }
@@ -146,6 +148,7 @@ class CameraFragment : Fragment() {
     @SuppressLint("MissingPermission")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d(TAG, "onViewCreated")
         fragmentCameraBinding.captureButton.setOnApplyWindowInsetsListener { v, insets ->
             v.translationX = (-insets.systemWindowInsetRight).toFloat()
             v.translationY = (-insets.systemWindowInsetBottom).toFloat()
@@ -163,6 +166,7 @@ class CameraFragment : Fragment() {
 
             override fun surfaceCreated(holder: SurfaceHolder) {
                 // Selects appropriate preview size and configures view finder
+                Log.d(TAG, "onViewCreated surfaceCreated")
                 val previewSize = getPreviewOutputSize(
                     fragmentCameraBinding.viewFinder.display,
                     characteristics,
@@ -196,6 +200,7 @@ class CameraFragment : Fragment() {
      * - Sets up the still image capture listeners
      */
     private fun initializeCamera() = lifecycleScope.launch(Dispatchers.Main) {
+        Log.d(TAG, "initializeCamera")
         // Open the selected camera
         camera = openCamera(cameraManager, args.cameraId, cameraHandler)
 

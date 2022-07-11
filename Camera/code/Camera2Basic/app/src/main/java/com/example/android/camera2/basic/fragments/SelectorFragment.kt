@@ -91,6 +91,7 @@ class SelectorFragment : Fragment() {
                 //当前Camera设备支持的功能列表
                 val capabilities = characteristics.get(
                         CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES)
+                //每个相机设备都支持的最小功能集
                 capabilities?.contains(
                         CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_BACKWARD_COMPATIBLE) ?: false
             }
