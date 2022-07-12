@@ -345,7 +345,7 @@ class Student : Person {
 
 
 
-**接口**
+### 接口
 
 Kotlin接口，允许对接口中定义的函数进行默认实现
 
@@ -368,15 +368,35 @@ Kotlin中`public`修饰符是默认项，而在Java中`default`才是默认项
 
 
 
+### 数据类
+
+数据类通常需要重写`equals()`、`hashCode()`、`toString()`这几个方法
+
+> `equals()`方法用于判断两个数据类是否相等。
+>
+> `hashCode()`方法作为`equals()`的配套方法，也需要一起重写，否则会导致`HashMap`、`HashSet`等hash相关的系统类无法正常工作
+>
+> `toString()`方法用于提供更清晰的输入日志，否则一个数据类默认打印出来的就是一行内存地址
+
+```kotlin
+data class Cellphone(val brand: String, val price: Double)
+```
+
+> 当在一个类前面声明了`data`关键字时，就表明你希望这个类是一个数据类，Kotlin会根据主构造函数中的参数帮你将`equals()`、`hashCode()`、`toString()`等固定且无实际逻辑意义的方法自动生成，从而大大减少了开发的工作量。
 
 
 
+### 单例类
 
+在Kotlin中创建一个单例类的方式极其简单，只需要将class关键字改成`object`关键字即可
 
-
-
-
-
+```kotlin
+object Singleton {
+    fun singletonTest() {
+        println("singletonTest is called.")
+    }
+}
+```
 
 
 

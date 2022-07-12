@@ -19,3 +19,11 @@ class Student(val sno: String, val grade: Int, name: String, age: Int) : Person(
 fun main() {
     val stu = Student("a123", 5)
 }
+
+data class Cellphone(val brand: String, val price: Double)
+
+object Singleton {
+    fun singletonTest() {
+        println("singletonTest is called.")
+    }
+}
