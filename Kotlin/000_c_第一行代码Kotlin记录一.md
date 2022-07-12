@@ -28,6 +28,35 @@ fun largerNumber(num1: Int, num2: Int) = max(num1, num2)
 
 
 
+**函数的默认值**
+
+```kotlin
+fun printParams(num: Int, str: String = "hello") {
+ println("num is $num , str is $str")
+}
+```
+
+给第二个参数设置了默认值，这样在调用函数时，第二个参数就不用设置默认值了
+
+```kotlin
+fun printParams(num: Int, str: String = "hello") {
+ println("num is $num , str is $str")
+}
+fun main() {
+ printParams(123)
+}
+```
+
+但如果修改了默认参数的，比如取消掉了第二个参数的默认值，给第一个参数赋予默认值，则会调用出错
+
+这个时候，可以使用键值对来传参
+
+```kotlin
+printParams(str = "world", num = 123)
+```
+
+
+
 
 
 ## 流程控制
