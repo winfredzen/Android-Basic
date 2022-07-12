@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":utils" external.linked.project.path="$MODULE_DIR$/../../../utils" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="Camera2Basic" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android-gradle" name="Android-Gradle">
+      <configuration>
+        <option name="GRADLE_PROJECT_PATH" value=":utils" />
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="4.2.2" />
+        <option name="LAST_KNOWN_AGP_VERSION" value="4.2.2" />
+      </configuration>
+    </facet>
+    <facet type="kotlin-language" name="Kotlin">
+      <configuration version="4" platform="JVM 1.8" allPlatforms="JVM [1.8]" useProjectSettings="false">
+        <compilerSettings>
+          <option name="additionalArguments" value="-Xallow-no-source-files" />
+        </compilerSettings>
+        <compilerArguments>
+          <option name="destination" value="$MODULE_DIR$/../../../utils/build/tmp/kotlin-classes/debug" />
+          <option name="classpath" value="$MODULE_DIR$/../../../utils/build/intermediates/compile_r_class_jar/debug/R.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/f7ca5ab2770d11caa1bfd1f8fef61e7c/jetified-kotlin-stdlib-jdk8-1.7.0.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/11b0b6b93ed695ef480b967f7bcb06f6/jetified-kotlinx-coroutines-android-1.3.4.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/736a402f86ac73743c45ac33fa09bfb0/jetified-kotlin-stdlib-jdk7-1.7.0.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/822734d6ddc662d0f1ce452e36f21aaa/jetified-kotlinx-coroutines-core-1.3.4.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/1100056c75f219abef9e6be20c7064ff/jetified-kotlin-stdlib-1.7.0.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/4971b8718aaa666755d46c4882b1eb61/jetified-kotlin-stdlib-common-1.7.0.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/5cb3944968aaf55a58996306e31a8e22/jetified-annotations-13.0.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/35010f63b5bf099b648fc759343881f2/appcompat-1.1.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/267ec660d18529c57ae3bbf01045b625/recyclerview-1.1.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/58e9f5aaef9bba5caf4437b12a07f90f/exifinterface-1.2.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/113bdf57963810523e949b885003d409/fragment-1.1.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/485ed71440ac179dc99c9adaf5d0fa6a/jetified-appcompat-resources-1.1.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/a34e3c70c295b4ae98caaab8793dc6a9/drawerlayout-1.0.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/aa7630780e8da6c637342e36566c9a70/viewpager-1.0.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b462b820391c4777df878219a4ab9ccf/customview-1.0.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/dd99464bfff95dbd446cd62285af87f0/loader-1.0.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/086b43110feac92b3abaf44424098b60/jetified-activity-1.0.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/3ea769b5146d72e8af6da4449bca2904/vectordrawable-animated-1.1.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b6851d25d6cb010d5371d7febfe34fbd/vectordrawable-1.1.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/8e2aae3b1c37fc205e43214d1d9da69e/core-1.1.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/cf51621434f352e6fdd1e8cab65daf54/cursoradapter-1.0.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/83f0a47203b04916348757a1c99a169c/versionedparcelable-1.1.0-api.jar:/Users/wangzhen/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/9044cb5b18970e74206985d8b5115620/lifecycle-viewmodel-2.1.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/6b349dc8bcbfd8c19c3ca289368c8c1c/lifecycle-runtime-2.1.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/deec26c547e716f7250c994e6a97567b/jetified-savedstate-1.0.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/01398e04346f5b9577a5a462eb5022e5/interpolator-1.0.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/dae0b83ae05da79fa73dc35f1041dc66/lifecycle-livedata-2.0.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/40022bfee1f99ac7c45c41c1f74ebd02/lifecycle-livedata-core-2.0.0-api.jar:/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2b64ef8fb3a1a04f8add1ac976577592/core-runtime-2.0.0-api.jar:/Users/wangzhen/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.1.0/b3152fc64428c9354344bd89848ecddc09b6f07e/core-common-2.1.0.jar:/Users/wangzhen/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.1.0/c67e7807d9cd6c329b9d0218b2ec4e505dd340b7/lifecycle-common-2.1.0.jar:/Users/wangzhen/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.1.0/e3a6fb2f40e3a3842e6b7472628ba4ce416ea4c8/annotation-1.1.0.jar:/Users/wangzhen/Library/Android/sdk/platforms/android-29/android.jar:/Users/wangzhen/Library/Android/sdk/build-tools/30.0.2/core-lambda-stubs.jar" />
+          <option name="noStdlib" value="true" />
+          <option name="noReflect" value="true" />
+          <option name="moduleName" value="utils_debug" />
+          <option name="languageVersion" value="1.6" />
+          <option name="apiVersion" value="1.6" />
+          <option name="pluginOptions">
+            <array />
+          </option>
+          <option name="pluginClasspaths">
+            <array />
+          </option>
+          <option name="errors">
+            <ArgumentParseErrors />
+          </option>
+        </compilerArguments>
+      </configuration>
+    </facet>
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="SELECTED_BUILD_VARIANT" value="debug" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
+        <afterSyncTasks>
+          <task>generateDebugSources</task>
+        </afterSyncTasks>
+        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../utils/src/main/res;file://$MODULE_DIR$/../../../utils/src/debug/res;file://$MODULE_DIR$/../../../utils/build/generated/res/rs/debug;file://$MODULE_DIR$/../../../utils/build/generated/res/resValues/debug" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../utils/src/androidTest/res;file://$MODULE_DIR$/../../../utils/src/androidTestDebug/res;file://$MODULE_DIR$/../../../utils/build/generated/res/rs/androidTest/debug;file://$MODULE_DIR$/../../../utils/build/generated/res/resValues/androidTest/debug" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
+        <option name="PROJECT_TYPE" value="1" />
+      </configuration>
+    </facet>
+  </component>
+</module>
