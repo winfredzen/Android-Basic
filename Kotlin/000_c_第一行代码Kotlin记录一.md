@@ -355,6 +355,16 @@ class Student(val sno: String, val grade: Int, name: String, age: Int) : Person(
 
 
 
+上面的形式，也可以通过默认参数值来实现
+
+```kotlin
+class Student(val sno: String = "", val grade: Int = 0, name: String = "", age: Int = 0) :
+ Person(name, age) {
+}
+```
+
+
+
 **特殊情况**
 
 类中只有次构造函数，没有主构造函数
