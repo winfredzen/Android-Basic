@@ -4,7 +4,7 @@
             "outputFile": "/Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b977a157e94f06ec5549233200aa48dd/appcompat-1.1.0/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/67c683a852e8d0efb964bf7a224996d3/appcompat-1.1.0/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

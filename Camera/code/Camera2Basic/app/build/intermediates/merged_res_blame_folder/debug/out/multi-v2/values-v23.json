@@ -4,7 +4,7 @@
             "outputFile": "/Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b977a157e94f06ec5549233200aa48dd/appcompat-1.1.0/res/values-v23/values-v23.xml",
+                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/67c683a852e8d0efb964bf7a224996d3/appcompat-1.1.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,37,41,42,43,44",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/2d6601bc3ec88ce95cd891efb95560a6/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/fc9e504d29f50047be9fe72257ea3ce3/cardview-1.0.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

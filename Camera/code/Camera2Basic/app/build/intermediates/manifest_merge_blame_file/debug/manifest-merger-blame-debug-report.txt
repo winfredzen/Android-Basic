@@ -46,7 +46,7 @@
 36        android:allowBackup="true"
 36-->/Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:29:9-35
 37        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-37-->[androidx.core:core:1.6.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b73355adf9893281e3474e977492bfb8/core-1.6.0/AndroidManifest.xml:24:18-86
+37-->[androidx.core:core:1.6.0] /Users/wangzhen/.gradle/caches/transforms-2/files-2.1/75bc8a431b136f359256a7c4b75d02aa/core-1.6.0/AndroidManifest.xml:24:18-86
 38        android:debuggable="true"
 39        android:fullBackupContent="true"
 39-->/Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/src/main/AndroidManifest.xml:30:9-41

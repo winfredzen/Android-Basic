@@ -4,26 +4,7 @@
             "outputFile": "/Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b73355adf9893281e3474e977492bfb8/core-1.6.0/res/values-v21/values-v21.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,13",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,173,237,304,368,484,610,736,864,1036",
-                        "endLines": "2,3,4,5,6,7,8,9,12,17",
-                        "endColumns": "117,63,66,63,115,125,125,127,12,12",
-                        "endOffsets": "168,232,299,363,479,605,731,859,1031,1383"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,264,265,266,267,300,303",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,173,237,304,19284,19400,19526,19652,21493,21665",
-                        "endLines": "2,3,4,5,264,265,266,267,302,307",
-                        "endColumns": "117,63,66,63,115,125,125,127,12,12",
-                        "endOffsets": "168,232,299,363,19395,19521,19647,19775,21660,22012"
-                    }
-                },
-                {
-                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b977a157e94f06ec5549233200aa48dd/appcompat-1.1.0/res/values-v21/values-v21.xml",
+                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/67c683a852e8d0efb964bf7a224996d3/appcompat-1.1.0/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,19,20,21,22,24,26,27,28,29,30,32,34,36,38,40,42,43,48,50,52,53,54,56,58,59,60,61,62,63,106,109,152,155,158,160,162,164,167,171,174,175,176,179,180,181,182,183,184,187,188,190,192,194,196,200,202,203,204,205,207,211,213,215,216,217,218,219,220,222,223,224,234,235,236,248",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -42,7 +23,26 @@
                     }
                 },
                 {
-                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/981feb5ecdc1e2f9ff9ddb856ba933f2/material-1.0.0/res/values-v21/values-v21.xml",
+                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/75bc8a431b136f359256a7c4b75d02aa/core-1.6.0/res/values-v21/values-v21.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,173,237,304,368,484,610,736,864,1036",
+                        "endLines": "2,3,4,5,6,7,8,9,12,17",
+                        "endColumns": "117,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "168,232,299,363,479,605,731,859,1031,1383"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,264,265,266,267,300,303",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,173,237,304,19284,19400,19526,19652,21493,21665",
+                        "endLines": "2,3,4,5,264,265,266,267,302,307",
+                        "endColumns": "117,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "168,232,299,363,19395,19521,19647,19775,21660,22012"
+                    }
+                },
+                {
+                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/4360d0845643ec309989405009c7c6d7/material-1.0.0/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,10,18,26",
                         "startColumns": "4,4,4,4",

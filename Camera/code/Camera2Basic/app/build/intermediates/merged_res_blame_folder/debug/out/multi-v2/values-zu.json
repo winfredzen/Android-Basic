@@ -4,7 +4,24 @@
             "outputFile": "/Users/wangzhen/Documents/GitHub/Android-Basic/Camera/code/Camera2Basic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zu/values-zu.xml",
             "map": [
                 {
-                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b977a157e94f06ec5549233200aa48dd/appcompat-1.1.0/res/values-zu/values-zu.xml",
+                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/7510f04e6b959670dbab64f0926b35e9/navigation-ui-2.2.2/res/values-zu/values-zu.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,168",
+                        "endColumns": "112,120",
+                        "endOffsets": "163,284"
+                    },
+                    "to": {
+                        "startLines": "29,30",
+                        "startColumns": "4,4",
+                        "startOffsets": "2791,2904",
+                        "endColumns": "112,120",
+                        "endOffsets": "2899,3020"
+                    }
+                },
+                {
+                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/67c683a852e8d0efb964bf7a224996d3/appcompat-1.1.0/res/values-zu/values-zu.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b73355adf9893281e3474e977492bfb8/core-1.6.0/res/values-zu/values-zu.xml",
+                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/75bc8a431b136f359256a7c4b75d02aa/core-1.6.0/res/values-zu/values-zu.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -35,23 +52,6 @@
                         "startOffsets": "3106",
                         "endColumns": "100",
                         "endOffsets": "3202"
-                    }
-                },
-                {
-                    "source": "/Users/wangzhen/.gradle/caches/transforms-2/files-2.1/b2c051ae8af79659cc75051ab3e1e8f0/navigation-ui-2.2.2/res/values-zu/values-zu.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,168",
-                        "endColumns": "112,120",
-                        "endOffsets": "163,284"
-                    },
-                    "to": {
-                        "startLines": "29,30",
-                        "startColumns": "4,4",
-                        "startOffsets": "2791,2904",
-                        "endColumns": "112,120",
-                        "endOffsets": "2899,3020"
                     }
                 }
             ]
