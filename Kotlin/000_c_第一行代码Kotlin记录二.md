@@ -400,11 +400,17 @@ fun doStudy(study: Study?) {
 
 
 
+## 字符串内嵌表达式
 
+```kotlin
+"hello, ${obj.name}. nice to meet you!"
+```
 
+当表达式中仅有一个变量的时候，还可以将两边的大括号省略
 
-
-
+```kotlin
+"hello, $name. nice to meet you!"
+```
 
 
 
