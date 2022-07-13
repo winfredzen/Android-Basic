@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recyclerview_image_gallery.iml" filepath="$PROJECT_DIR$/.idea/modules/recyclerview_image_gallery.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/recyclerview_image_gallery.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/recyclerview_image_gallery.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Camera2API.iml" filepath="$PROJECT_DIR$/.idea/modules/Camera2API.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Camera2API.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Camera2API.app.iml" />
     </modules>
   </component>
 </project>
