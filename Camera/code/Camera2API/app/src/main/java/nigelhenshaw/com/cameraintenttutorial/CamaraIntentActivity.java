@@ -477,7 +477,7 @@ public class CamaraIntentActivity extends Activity {
 
             int rotation = getWindowManager().getDefaultDisplay().getRotation();
             Log.e(TAG, "rotation = " + rotation + "ORIENTATIONS.get(rotation) = " + ORIENTATIONS.get(rotation));
-            captureStillBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
+//            captureStillBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
 
 //            CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
 //            CameraCharacteristics characteristics = cameraManager.getCameraCharacteristics(mCameraId);
