@@ -225,7 +225,7 @@ public class CamaraIntentActivity extends Activity {
 //        ORIENTATIONS.append(Surface.ROTATION_270, 270);
 //    }
     static {
-        ORIENTATIONS.append(Surface.ROTATION_0, 270);
+        ORIENTATIONS.append(Surface.ROTATION_0, 90);
         ORIENTATIONS.append(Surface.ROTATION_90, 0);
         ORIENTATIONS.append(Surface.ROTATION_180, 270);
         ORIENTATIONS.append(Surface.ROTATION_270, 180);
@@ -477,16 +477,16 @@ public class CamaraIntentActivity extends Activity {
 
             int rotation = getWindowManager().getDefaultDisplay().getRotation();
             Log.e(TAG, "rotation = " + rotation + "ORIENTATIONS.get(rotation) = " + ORIENTATIONS.get(rotation));
+            captureStillBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
 
-            CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-            CameraCharacteristics characteristics = cameraManager.getCameraCharacteristics(mCameraId);
-            Integer sensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
-            Log.e(TAG, "sensorOrientation = " + sensorOrientation);
-
-            int jpegOrientation = getJpegOrientation(characteristics, rotation);
-            Log.e(TAG, "jpegOrientation = " + jpegOrientation);
-
-            captureStillBuilder.set(CaptureRequest.JPEG_ORIENTATION, jpegOrientation);
+//            CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+//            CameraCharacteristics characteristics = cameraManager.getCameraCharacteristics(mCameraId);
+//            Integer sensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
+//            Log.e(TAG, "sensorOrientation = " + sensorOrientation);
+//
+//            int jpegOrientation = getJpegOrientation(characteristics, rotation);
+//            Log.e(TAG, "jpegOrientation = " + jpegOrientation);
+//            captureStillBuilder.set(CaptureRequest.JPEG_ORIENTATION, jpegOrientation);
 
             CameraCaptureSession.CaptureCallback captureCallback =
                     new CameraCaptureSession.CaptureCallback() {
