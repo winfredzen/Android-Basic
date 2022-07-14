@@ -5,17 +5,25 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
+import android.hardware.camera2.CaptureFailure;
 import android.hardware.camera2.CaptureRequest;
+import android.hardware.camera2.CaptureResult;
+import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.media.Image;
+import android.media.ImageReader;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.provider.MediaStore;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,18 +31,22 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.LruCache;
 import android.util.Size;
+import android.util.SparseIntArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -108,6 +120,31 @@ public class CamaraIntentActivity extends Activity {
     private CaptureRequest.Builder mPreviewCaptureRequestBuilder;
     private CameraCaptureSession mCameraCaptureSession;
     private CameraCaptureSession.CaptureCallback mSessionCaptureCallback = new CameraCaptureSession.CaptureCallback() {
+
+
+        private void process(CaptureResult result) {
+            //Log.e(TAG, "process mState = " + mState);
+            switch(mState) {
+                case STATE_PREVIEW:
+                    // Do nothing
+                    break;
+                case STATE__WAIT_LOCK:
+                    mState = STATE_PREVIEW;//这里要设置为STATE_PREVIEW，否则抓拍时会多次调用
+                    Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
+                    // TODO: 2022/7/14 这里的判断有点问题，afState的状态估计有延迟
+                    Log.e(TAG, "afState = " + afState);
+                    if(afState == CaptureRequest.CONTROL_AF_STATE_FOCUSED_LOCKED
+                            || afState == CaptureRequest.CONTROL_AF_STATE_PASSIVE_FOCUSED) {
+                        //unLockFocus();
+                        //Toast.makeText(getApplicationContext(), "Focus Lock Successful", Toast.LENGTH_SHORT).show();
+
+                        //抓拍
+                        captureStillImage();
+                    }
+                    break;
+            }
+        }
+
         @Override
         public void onCaptureStarted(CameraCaptureSession session,
                                      CaptureRequest request,
@@ -115,7 +152,84 @@ public class CamaraIntentActivity extends Activity {
                                      long frameNumber) {
             super.onCaptureStarted(session, request, timestamp, frameNumber);
         }
+
+        @Override
+        public void onCaptureCompleted(CameraCaptureSession session, CaptureRequest request, TotalCaptureResult result) {
+            super.onCaptureCompleted(session, request, result);
+            process(result);
+        }
+        @Override
+        public void onCaptureFailed(CameraCaptureSession session, CaptureRequest request, CaptureFailure failure) {
+            super.onCaptureFailed(session, request, failure);
+            Toast.makeText(getApplicationContext(), "Focus Lock Unsuccessful", Toast.LENGTH_SHORT).show();
+        }
     };
+
+    //将耗时任务放到非UI线程
+    private HandlerThread mBackgroundThread;
+    private Handler mBackgroundHandler;
+
+    //focus lock
+    private static final int STATE_PREVIEW = 0;
+    private static final int STATE__WAIT_LOCK = 1;
+    private int mState;
+
+    //保存图片
+    private static File mImageFile;
+    private ImageReader mImageReader;
+    private final ImageReader.OnImageAvailableListener mOnImageAvailableListener = new ImageReader.OnImageAvailableListener() {
+                @Override
+                public void onImageAvailable(ImageReader reader) {
+                    Log.e(TAG, "onImageAvailable");
+                    Image image = reader.acquireNextImage();
+                    mBackgroundHandler.post(new ImageSaver(image));
+                }
+            };
+
+    private static class ImageSaver implements Runnable {
+        private final Image mImage;
+        private ImageSaver(Image image) {
+            mImage = image;
+        }
+        @Override
+        public void run() {
+            ByteBuffer byteBuffer = mImage.getPlanes()[0].getBuffer();
+            byte[] bytes = new byte[byteBuffer.remaining()];
+            byteBuffer.get(bytes);
+            FileOutputStream fileOutputStream = null;
+            try {
+                fileOutputStream = new FileOutputStream(mImageFile);
+                fileOutputStream.write(bytes);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                mImage.close();
+                if(fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    //Create a SparseIntArray member to translating the orientations from the display screen to jpeg images.
+    //创建一个 SparseIntArray 成员以将显示屏幕的方向转换为 jpeg 图像
+    private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
+//    static {
+//        ORIENTATIONS.append(Surface.ROTATION_0, 0);
+//        ORIENTATIONS.append(Surface.ROTATION_90, 90);
+//        ORIENTATIONS.append(Surface.ROTATION_180, 180);
+//        ORIENTATIONS.append(Surface.ROTATION_270, 270);
+//    }
+    static {
+        ORIENTATIONS.append(Surface.ROTATION_0, 270);
+        ORIENTATIONS.append(Surface.ROTATION_90, 0);
+        ORIENTATIONS.append(Surface.ROTATION_180, 270);
+        ORIENTATIONS.append(Surface.ROTATION_270, 180);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,10 +262,21 @@ public class CamaraIntentActivity extends Activity {
     @Override
     public void onResume() {
         super.onResume();
+        //后台线程
+        openBackgroundThread();
         if(mTextureView.isAvailable()) {
+            setupCamera(mTextureView.getWidth(), mTextureView.getHeight());
+            openCamera();
         } else {
             mTextureView.setSurfaceTextureListener(mSurfaceTextureListener);
         }
+    }
+
+    @Override
+    public void onPause() {
+        closeCamera();
+        closeBackgroundThread();
+        super.onPause();
     }
 
     //设置相机
@@ -167,6 +292,26 @@ public class CamaraIntentActivity extends Activity {
                     continue;
                 }
                 StreamConfigurationMap map = cameraCharacteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+
+                //calculate the size of the largest image the camera can capture 计算最大的能capture的图片大小
+                Size largestImageSize = Collections.max(Arrays.asList(map.getOutputSizes(ImageFormat.JPEG)),
+                        new Comparator<Size>() {
+                            @Override
+                            public int compare(Size lhs, Size rhs) {
+                                return Long.signum(lhs.getWidth() * lhs.getHeight() -
+                                        rhs.getWidth() * rhs.getHeight());
+                            }
+                        }
+                );
+                Log.e(TAG, "setupCamera largestImageSize = " + largestImageSize.toString());
+
+                mImageReader = ImageReader.newInstance(largestImageSize.getWidth(),
+                        largestImageSize.getHeight(),
+                        ImageFormat.JPEG,
+                        1);
+                mImageReader.setOnImageAvailableListener(mOnImageAvailableListener, mBackgroundHandler);
+
+
                 //获取预览的尺寸
                 mPreviewSize = getPreferredPreviewSize(map.getOutputSizes(SurfaceTexture.class), width, height);
                 mCameraId = cameraId;
@@ -216,10 +361,27 @@ public class CamaraIntentActivity extends Activity {
         Log.d(TAG, "openCamera");
         CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {
-            //这里没有指定Handler
-            cameraManager.openCamera(mCameraId, mCameraDeviceStateCallback, null);
+            //指定mBackgroundHandler
+            cameraManager.openCamera(mCameraId, mCameraDeviceStateCallback, mBackgroundHandler);
         } catch (CameraAccessException e) {
             e.printStackTrace();
+        }
+    }
+
+    //关闭相机
+    private void closeCamera() {
+        Log.d(TAG, "closeCamera");
+        if (mCameraCaptureSession != null) {
+            mCameraCaptureSession.close();
+            mCameraCaptureSession = null;
+        }
+        if (mCameraDevice != null) {
+            mCameraDevice.close();
+            mCameraDevice = null;
+        }
+        if(mImageReader != null) {
+            mImageReader.close();
+            mImageReader = null;
         }
     }
 
@@ -231,7 +393,8 @@ public class CamaraIntentActivity extends Activity {
             Surface previewSurface = new Surface(surfaceTexture);
             mPreviewCaptureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
             mPreviewCaptureRequestBuilder.addTarget(previewSurface);
-            mCameraDevice.createCaptureSession(Arrays.asList(previewSurface),
+            //预览 & 抓拍
+            mCameraDevice.createCaptureSession(Arrays.asList(previewSurface, mImageReader.getSurface()),
                     new CameraCaptureSession.StateCallback() {
                         @Override
                         public void onConfigured(CameraCaptureSession session) {
@@ -241,10 +404,11 @@ public class CamaraIntentActivity extends Activity {
                             try {
                                 mPreviewCaptureRequest = mPreviewCaptureRequestBuilder.build();
                                 mCameraCaptureSession = session;
+                                //在mBackgroundHandler处理
                                 mCameraCaptureSession.setRepeatingRequest(
                                         mPreviewCaptureRequest,
                                         mSessionCaptureCallback,
-                                        null
+                                        mBackgroundHandler
                                 );
                             } catch (CameraAccessException e) {
                                 e.printStackTrace();
@@ -259,6 +423,83 @@ public class CamaraIntentActivity extends Activity {
                             ).show();
                         }
                     }, null);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void openBackgroundThread() {
+        mBackgroundThread = new HandlerThread("Camera2 background thread");
+        mBackgroundThread.start();
+        mBackgroundHandler = new Handler(mBackgroundThread.getLooper());
+    }
+
+    private void closeBackgroundThread() {
+        mBackgroundThread.quitSafely();
+        try {
+            mBackgroundThread.join();
+            mBackgroundThread = null;
+            mBackgroundHandler = null;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Auto Focus
+    private void lockFocus() {
+        try {
+            mState = STATE__WAIT_LOCK;
+            mPreviewCaptureRequestBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER, CaptureRequest.CONTROL_AF_TRIGGER_START);
+            mCameraCaptureSession.capture(mPreviewCaptureRequestBuilder.build(), mSessionCaptureCallback, mBackgroundHandler);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+    }
+    private void unLockFocus() {
+        try {
+            mState = STATE_PREVIEW;
+            mPreviewCaptureRequestBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER, CaptureRequest.CONTROL_AF_TRIGGER_CANCEL);
+            mCameraCaptureSession.capture(mPreviewCaptureRequestBuilder.build(), mSessionCaptureCallback, mBackgroundHandler);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //抓拍
+    private void captureStillImage() {
+        Log.d(TAG, "captureStillImage");
+        //UI线程
+        Handler uiHandler = new Handler(getMainLooper());
+
+        try {
+            CaptureRequest.Builder captureStillBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+            captureStillBuilder.addTarget(mImageReader.getSurface());
+
+            int rotation = getWindowManager().getDefaultDisplay().getRotation();
+            Log.e(TAG, "rotation = " + rotation + "ORIENTATIONS.get(rotation) = " + ORIENTATIONS.get(rotation));
+
+            CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+            CameraCharacteristics characteristics = cameraManager.getCameraCharacteristics(mCameraId);
+            Integer sensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
+            Log.e(TAG, "sensorOrientation = " + sensorOrientation);
+
+            int jpegOrientation = getJpegOrientation(characteristics, rotation);
+            Log.e(TAG, "jpegOrientation = " + jpegOrientation);
+
+            captureStillBuilder.set(CaptureRequest.JPEG_ORIENTATION, jpegOrientation);
+
+            CameraCaptureSession.CaptureCallback captureCallback =
+                    new CameraCaptureSession.CaptureCallback() {
+                        @Override
+                        public void onCaptureCompleted(CameraCaptureSession session, CaptureRequest request, TotalCaptureResult result) {
+                            super.onCaptureCompleted(session, request, result);
+                            Log.d(TAG, "captureStillImage captureStillImage");
+                            //Toast.makeText(getApplicationContext(), "Image Captured!", Toast.LENGTH_SHORT).show();
+                            swapImageAdapter();
+                            unLockFocus();
+                        }
+                    };
+            mCameraCaptureSession.capture(captureStillBuilder.build(), captureCallback, uiHandler);
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
@@ -287,20 +528,29 @@ public class CamaraIntentActivity extends Activity {
     }
 
     public void takePhoto(View view) {
-        Intent callCameraApplicationIntent = new Intent();
-        callCameraApplicationIntent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        File photoFile = null;
+        // TODO: 2022/7/14 这里先创建图片文件，再lockFocus，会导致创建空文件
         try {
-           photoFile = createImageFile();
-
+            mImageFile = createImageFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //注意使用此种方式传递数据，在高版本上可能会报错
-        callCameraApplicationIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+        lockFocus();
 
-        startActivityForResult(callCameraApplicationIntent, ACTIVITY_START_CAMERA_APP);
+
+//        Intent callCameraApplicationIntent = new Intent();
+//        callCameraApplicationIntent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+//
+//        File photoFile = null;
+//        try {
+//           photoFile = createImageFile();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        //注意使用此种方式传递数据，在高版本上可能会报错
+//        callCameraApplicationIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+//
+//        startActivityForResult(callCameraApplicationIntent, ACTIVITY_START_CAMERA_APP);
     }
 
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
@@ -326,6 +576,11 @@ public class CamaraIntentActivity extends Activity {
             mGalleryFolder.mkdirs();
         }
 
+    }
+
+    private void swapImageAdapter() {
+        RecyclerView.Adapter newImageAdapter = new ImageAdapter(sortFilesToLatest(mGalleryFolder));
+        mRecyclerView.swapAdapter(newImageAdapter, false);
     }
 
     File createImageFile() throws IOException {
@@ -374,8 +629,30 @@ public class CamaraIntentActivity extends Activity {
     }
 
     public static void setBitmapToMemoryCache(String key, Bitmap bitmap) {
-        if(getBitmapFromMemoryCache(key) == null) {
+        if(getBitmapFromMemoryCache(key) == null && bitmap != null) {
             mMemoryCache.put(key, bitmap);
         }
     }
+
+    //------------------------------------------------//
+
+    private int getJpegOrientation(CameraCharacteristics c, int deviceOrientation) {
+        if (deviceOrientation == android.view.OrientationEventListener.ORIENTATION_UNKNOWN) return 0;
+        int sensorOrientation = c.get(CameraCharacteristics.SENSOR_ORIENTATION);
+
+        // Round device orientation to a multiple of 90
+        deviceOrientation = (deviceOrientation + 45) / 90 * 90;
+
+        // Reverse device orientation for front-facing cameras
+        boolean facingFront = c.get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_FRONT;
+        if (facingFront) deviceOrientation = -deviceOrientation;
+
+        // Calculate desired JPEG orientation relative to camera orientation to make
+        // the image upright relative to the device orientation
+        int jpegOrientation = (sensorOrientation + deviceOrientation + 360) % 360;
+
+        return jpegOrientation;
+    }
+
+
 }
