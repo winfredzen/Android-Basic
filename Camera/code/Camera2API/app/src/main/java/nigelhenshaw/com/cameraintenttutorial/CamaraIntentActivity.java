@@ -1,5 +1,7 @@
 package nigelhenshaw.com.cameraintenttutorial;
 
+import static nigelhenshaw.com.cameraintenttutorial.SingleImageActivity.IMAGE_FILE_LOCATION;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -56,7 +58,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class CamaraIntentActivity extends Activity {
+public class CamaraIntentActivity extends Activity implements RecyclerViewClickPositionInterface {
     private static final String TAG = "CamaraIntentActivity";
 
     private static final int ACTIVITY_START_CAMERA_APP = 0;
@@ -242,7 +244,7 @@ public class CamaraIntentActivity extends Activity {
         GridLayoutManager layoutManager = new GridLayoutManager(this, 1);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mRecyclerView.setLayoutManager(layoutManager);
-        RecyclerView.Adapter imageAdapter = new ImageAdapter(sortFilesToLatest(mGalleryFolder));
+        RecyclerView.Adapter imageAdapter = new ImageAdapter(sortFilesToLatest(mGalleryFolder), this);
         mRecyclerView.setAdapter(imageAdapter);
 
         final int maxMemorySize = (int) Runtime.getRuntime().maxMemory() / 1024;
@@ -477,7 +479,7 @@ public class CamaraIntentActivity extends Activity {
 
             int rotation = getWindowManager().getDefaultDisplay().getRotation();
             Log.e(TAG, "rotation = " + rotation + "ORIENTATIONS.get(rotation) = " + ORIENTATIONS.get(rotation));
-//            captureStillBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
+            captureStillBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
 
 //            CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
 //            CameraCharacteristics characteristics = cameraManager.getCameraCharacteristics(mCameraId);
@@ -563,7 +565,7 @@ public class CamaraIntentActivity extends Activity {
             // mPhotoCapturedImageView.setImageBitmap(photoCapturedBitmap);
             // setReducedImageSize();
             //获取到拍摄的图片
-            RecyclerView.Adapter newImageAdapter = new ImageAdapter(sortFilesToLatest(mGalleryFolder));
+            RecyclerView.Adapter newImageAdapter = new ImageAdapter(sortFilesToLatest(mGalleryFolder), this);
             mRecyclerView.swapAdapter(newImageAdapter, false);
 
         }
@@ -579,7 +581,7 @@ public class CamaraIntentActivity extends Activity {
     }
 
     private void swapImageAdapter() {
-        RecyclerView.Adapter newImageAdapter = new ImageAdapter(sortFilesToLatest(mGalleryFolder));
+        RecyclerView.Adapter newImageAdapter = new ImageAdapter(sortFilesToLatest(mGalleryFolder), this);
         mRecyclerView.swapAdapter(newImageAdapter, false);
     }
 
@@ -652,6 +654,19 @@ public class CamaraIntentActivity extends Activity {
         int jpegOrientation = (sensorOrientation + deviceOrientation + 360) % 360;
 
         return jpegOrientation;
+    }
+
+
+    @Override
+    public void getRecyclerViewAdapterPosition(int position) {
+        Log.d(TAG, "getRecyclerViewAdapterPosition position = " + position);
+        Toast.makeText(this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+
+        // Toast.makeText(this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+        Intent sendFileAddressIntent = new Intent(this, SingleImageActivity.class);
+        sendFileAddressIntent.putExtra(IMAGE_FILE_LOCATION, sortFilesToLatest(mGalleryFolder)[position].toString());
+        startActivity(sendFileAddressIntent);
+
     }
 
 
