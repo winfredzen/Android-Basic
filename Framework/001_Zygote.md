@@ -3,7 +3,7 @@
 **zygote的作用是什么？**
 
 + 启动SystemServer
-+ 孵化应用进场
++ 孵化应用进程
 
 **启动三段式**
 
@@ -99,6 +99,42 @@ zygote进程启动之后，执行了execve系统调用，系统调用执行的�
 + 进入Loop循环
 
 ![014](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/014.png)
+
+
+
+**Loop循环里面是怎么处理Socket请求的？**
+
+zygote在启动之后，会进入socket循环，在循环中，不断的轮询socket，当有新的请求过来时，就会去执行`runOnce`
+
+![015](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/015.png)
+
+这个函数，做了三件事：
+
+1. 读取参数列表
+
+2. 再根据参数启动子进程
+
+3. 在子进程中开始干活，起始就是执行力Java类的main函数，就是入口函数，java类型就是来源子上面读取的参数列表，参数列表是AMS跨进程发过来的，类名就是`ActivityThread.main()`.
+
+   就是说，应用程序进程启动之后，会马上执行`ActivityThread.main()`函数
+
+
+
+**要注意的细节**
+
+1.Zygote的fork要单线程，不管父进程有多少个线程，子进程在创建时它就只有一个线程，也就是所对子进程来说，这些线程就不见了。在父进程创建子进程的时候，就把除主线程之外的子线程都停了，等创建完了子进程之后，再把这些线程重启
+
+2.Zygote的跨进程并没有采用binder，而是采用的本地socket，所以应用程序的binder机制，并不是从zygote继承过来的，而是在应用程序启动之后，自己启动的binder机制
+
+
+
+
+
+
+
+
+
+
 
 
 
