@@ -3,6 +3,11 @@
 参考：
 
 + [【Android开发】zygote启动systemServer进程的过程](https://www.bilibili.com/video/BV1134y157zo?spm_id_from=333.337.search-card.all.click&vd_source=308fc9b57cdc925a463da02262234ff6)
++ [第20章 systemserver服务分析](https://www.bilibili.com/video/BV1xL411x7PU?spm_id_from=333.337.search-card.all.click&vd_source=308fc9b57cdc925a463da02262234ff6)
+
+
+
+SystemServer是Zygote孵化出来的第一个Android服务程序，而这个服务程序，在启动过程中，会启动系统所有的核心服务
 
 
 
@@ -146,9 +151,11 @@
 
 
 
+**SystemServer启动的服务**
 
+![026](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/026.png)
 
-
+![027](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/027.png)
 
 
 
