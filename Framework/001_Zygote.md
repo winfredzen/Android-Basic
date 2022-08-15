@@ -13,11 +13,11 @@
 
 #### 1.zygote进程是怎么启动的？
 
-a.`init`进程时linux启动之后，用户空间的第一个进程
+a.`init`进程是linux启动之后，用户空间的第一个进程
 
-b.`init`进程启动之后，首先回去加载一个配置文件`init.rc`
+b.`init`进程启动之后，首先会去加载一个配置文件`init.rc`
 
-c.配置文件`init.rc`定义了系统服务需要启动，zygote就是其中之一
+c.配置文件`init.rc`定义了需要启动的系统服务，zygote就是其中之一
 
 ![008](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/008.png)
 
@@ -52,7 +52,7 @@ c.配置文件`init.rc`定义了系统服务需要启动，zygote就是其中之
 
 ![010](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/010.png)
 
-> `fork`函数，会返回2次，子进程中返回的pid是0，父进程中返回的pid是子进程的pid，所以可以通过判断pid是0，来判断当前是子进程还是父进程
+> `fork`函数，有两种返回，子进程中返回的pid是0，父进程中返回的pid是子进程的pid，所以可以通过判断pid是0，来判断当前是子进程还是父进程
 >
 > 默认的情况下，创建的子进程是继承了父进程的所有资源的
 >
@@ -88,7 +88,7 @@ zygote进程启动之后，执行了execve系统调用，系统调用执行的�
 
 问：我们的应用里面好像可以直接JNI调用，并没有先需要创建Java虚拟机？
 
-答：Java虚拟机在zygote进程就已经创建好了，应用进程就是由zygote孵化出来的，继承了它的虚拟机，所以就不用再创建一遍了。需要做的就是，在进程启动的时候，重置一下虚拟机的状态，在重启下虚拟机里面的使用线程
+答：Java虚拟机在zygote进程就已经创建好了，应用进程就是由zygote孵化出来的，继承了它的虚拟机，所以就不用再创建一遍了。需要做的就是，在进程启动的时候，重置一下虚拟机的状态，再重启下虚拟机里面的使用线程
 
 
 
