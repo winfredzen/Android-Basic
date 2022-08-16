@@ -104,6 +104,8 @@
 
 
 
+## 系统服务
+
 **系统服务是怎么启动？**
 
 1.系统服务是如何发布的？
@@ -119,6 +121,106 @@
 + 分批启动
 
 + 分阶段启动
+
+
+
+**怎么添加一个系统服务？**
+
+![034](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/034.png)
+
+Client要使用Service的话，需要先拿到service的binder，再通过binder发起系统调用
+
+
+
+**如何使用系统服务？**
+
+![035](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/035.png)
+
+![036](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/036.png)
+
+`createService`的实现，以power_service为例
+
+![037](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/037.png)
+
+`ServiceManager`的`getService`的实现：
+
+```java
+    /**
+     * Returns a reference to a service with the given name.
+     *
+     * @param name the name of the service to get
+     * @return a reference to the service, or <code>null</code> if the service doesn't exist
+     * @hide
+     */
+    @UnsupportedAppUsage
+    public static IBinder getService(String name) {
+        try {
+            IBinder service = sCache.get(name);
+            if (service != null) {
+                return service;
+            } else {
+                return Binder.allowBlocking(rawGetService(name));
+            }
+        } catch (RemoteException e) {
+            Log.e(TAG, "error in getService", e);
+        }
+        return null;
+    }
+
+```
+
+
+
+**如何注册系统服务？**
+
+```java
+    /**
+     * Place a new @a service called @a name into the service
+     * manager.
+     *
+     * @param name the name of the new service
+     * @param service the service object
+     * @param allowIsolated set to true to allow isolated sandboxed processes
+     * @param dumpPriority supported dump priority levels as a bitmask
+     * to access this service
+     * @hide
+     */
+    @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.R, trackingBug = 170729553)
+    public static void addService(String name, IBinder service, boolean allowIsolated,
+            int dumpPriority) {
+        try {
+            getIServiceManager().addService(name, service, allowIsolated, dumpPriority);
+        } catch (RemoteException e) {
+            Log.e(TAG, "error in addService", e);
+        }
+    }
+```
+
+
+
+**什么时候注册的系统服务？**
+
+在SystemServer启动的时候，注册的系统服务
+
+
+
+**独立进程的系统服务**
+
+如`surfaceflinger`
+
+![038](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/038.png)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
