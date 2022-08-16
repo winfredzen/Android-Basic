@@ -108,7 +108,11 @@ Client要使用Service的话，需要先拿到service的binder，再通过binder
 
 **什么时候注册的系统服务？**
 
-在SystemServer启动的时候，注册的系统服务
+> 系统服务可以分成两大类：
+>
+> 一是有**独立进程**的ServiceManager、SurfaceFlinger等，他们在**init进程启动时就会被fork创建**；
+>
+> 二是**非独立进程**的AMS、PMS、WMS等，他们在init进程fork出Zygote进程，Zygote进程fork出的**SystemServer进程创建**。
 
 
 

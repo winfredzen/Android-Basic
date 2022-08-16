@@ -10,6 +10,17 @@
 
 
 
+另外可参考：
+
++ [图解 | Android系统的启动](https://mp.weixin.qq.com/s/xsoc9omtu-gGAFG1pCsCsQ)
++ [图解 | 一图摸清Android应用进程的启动](https://juejin.cn/post/6887431834041483271)
+
+
+
+![040](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/040.png)
+
+
+
 **有哪些主要的系统进程？**
 
 查看`init.rc`配置文件，在这个文件中，定义了许多需要启动的系统进程，如
