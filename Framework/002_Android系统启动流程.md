@@ -52,15 +52,67 @@
 >
 > 上图前4步骤（即颜色为紫色的流程）运行在是`Zygote`进程，从第5步（即颜色为蓝色的流程）`ZygoteInit.handleSystemServerProcess`开始是运行在新创建的`system_server`，这是fork机制实现的（fork会返回2次）
 
+`SystemServer`的`main`函数
+
+```java
+    /**
+     * The main entry point from zygote.
+     */
+    public static void main(String[] args) {
+        new SystemServer().run();
+    }
+```
+
+`run()`方法主要结构如下：
+
+```java
+    private void run() {
+        TimingsTraceAndSlog t = new TimingsTraceAndSlog();
+        try {
+						......
+						// 为主线程创建Looper
+            Looper.prepareMainLooper();
+            Looper.getMainLooper().setSlowLogThresholdMs(
+                    SLOW_DISPATCH_THRESHOLD_MS, SLOW_DELIVERY_THRESHOLD_MS);
+
+            SystemServiceRegistry.sEnableServiceNotFoundWtf = true;
+
+            // Initialize native services. 加载共享库
+            System.loadLibrary("android_servers");
+
+						......
+
+            // Initialize the system context. 创建系统上下文
+            createSystemContext();
+
+        // Start services.
+        try {
+            t.traceBegin("StartServices");
+            startBootstrapServices(t);
+            startCoreServices(t);
+            startOtherServices(t);
+        } catch (Throwable ex) {
+            
+        } finally {
+           
+        }
+
+        // Loop forever.
+        Looper.loop();
+    }
+```
 
 
 
+**系统服务是怎么启动？**
 
+1.系统服务是如何发布的？
 
+![032](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/032.png)
 
+最终是将系统服务注册到了ServcieManager中
 
-
-
+2.系统服务跑在什么线程？
 
 
 
