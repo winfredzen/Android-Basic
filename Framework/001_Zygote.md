@@ -1,5 +1,11 @@
 # zygote
 
+参考《Android进阶解密》
+
+> 在Android系统中，DVM（Dalvik虚拟机）和ART、应用程序进程以及运行系统的关键服务SystemServer进程都是由Zygote进程来创建的，我么 称之为孵化器。它通过fork（复制进程）的形式来创建应用程序进程和SystemServer进程，由于Zygote进程在启动时会创建DVM或ART，因此通过fork而创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本
+
+
+
 **zygote的作用是什么？**
 
 + 启动SystemServer
@@ -103,6 +109,8 @@ zygote进程启动之后，执行了execve系统调用，系统调用执行的�
 
 
 **Loop循环里面是怎么处理Socket请求的？**
+
+> `Socket`用于等待`ActivityManagerService`请求`Zygote`来创建新的应用程序进程
 
 zygote在启动之后，会进入socket循环，在循环中，不断的轮询socket，当有新的请求过来时，就会去执行`runOnce`
 
