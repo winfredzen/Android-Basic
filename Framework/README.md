@@ -12,7 +12,18 @@
 
 
 
+书籍：
+
++ 《Android进阶解密》——刘望舒
 
 
 
+**Linux操作系统图示**
 
+![041](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/041.png)
+
+
+
+**Android架构图**
+
+![042](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/042.png)

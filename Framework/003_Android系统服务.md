@@ -124,7 +124,7 @@ Client要使用Service的话，需要先拿到service的binder，再通过binder
 
 
 
-
+> 综上，不管是**由init进程启动的独立进程的系统服务**如SurfaceFlinger，还是**由SystemServer进程启动的非独立进程的系统服务**如AMS，都是在**ServiceManager进程**中完成注册和获取的，在跨进程通信上使用了Android的binder机制。
 
 
 
