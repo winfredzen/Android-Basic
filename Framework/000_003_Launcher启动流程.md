@@ -12,3 +12,25 @@ Launcher的启动流程大致如下：
 
 ![033](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/033.png)
 
+
+
+参考《Android核心解密》一书：
+
+> 系统启动的最后一步是启动一个应用程序来显示系统已安装的应用程序，这个应用程序就是Launcher。
+>
+> Launcher在启动的过程中会请求`PackageManagerService`返回系统中已安装的应用程序信息，并将这些信息封装成一个快捷图标列表显示在屏幕上
+>
+> SystemServer进程在启动的过程中会启动`PackageManagerService`，`PackageManagerService`启动后会将系统中的应用程序安装完成，在此之情已经启动AMS会将Launcher启动起来
+
+
+
+> 启动Launcher的入口为AMS的`systemReady`方法
+
+![043](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/043.png)
+
+
+
+
+
+
+
