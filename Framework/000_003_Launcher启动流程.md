@@ -30,6 +30,30 @@ Launcher的启动流程大致如下：
 
 
 
+我参考Android核心解密》一书，总结了 Launcher获取所有应用的过程，大致如下：
+
+![044](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/044.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
