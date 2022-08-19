@@ -62,6 +62,7 @@ public class BookManagerActivity extends AppCompatActivity {
             IBookManager bookManager = IBookManager.Stub.asInterface(service);
             mRemoteBookManager = bookManager;
             try {
+                //设置死亡代理
                 mRemoteBookManager.asBinder().linkToDeath(mDeathRecipient, 0);
 
                 //获取book

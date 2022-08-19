@@ -44,26 +44,26 @@ public class BookManagerService extends Service {
             mBookList.add(book);
         }
 
-//        public boolean onTransact(int code, Parcel data, Parcel reply, int flags)
-//                throws RemoteException {
-//            int check = checkCallingOrSelfPermission("com.ryg.chapter_2.permission.ACCESS_BOOK_SERVICE");
-//            Log.d(TAG, "check=" + check);
-//            if (check == PackageManager.PERMISSION_DENIED) {
-//                return false;
-//            }
-//
-//            String packageName = null;
-//            String[] packages = getPackageManager().getPackagesForUid(getCallingUid());
-//            if (packages != null && packages.length > 0) {
-//                packageName = packages[0];
-//            }
-//            Log.d(TAG, "onTransact: " + packageName);
-//            if (!packageName.startsWith("com.ryg")) {
-//                return false;
-//            }
-//
-//            return super.onTransact(code, data, reply, flags);
-//        }
+        public boolean onTransact(int code, Parcel data, Parcel reply, int flags)
+                throws RemoteException {
+            int check = checkCallingOrSelfPermission("com.wz.ipcdemo.permission.ACCESS_BOOK_SERVICE");
+            Log.d(TAG, "check=" + check);
+            if (check == PackageManager.PERMISSION_DENIED) {
+                return false;
+            }
+
+            String packageName = null;
+            String[] packages = getPackageManager().getPackagesForUid(getCallingUid());
+            if (packages != null && packages.length > 0) {
+                packageName = packages[0];
+            }
+            Log.d(TAG, "onTransact: " + packageName);
+            if (!packageName.startsWith("com.wz")) {
+                return false;
+            }
+
+            return super.onTransact(code, data, reply, flags);
+        }
 
         @Override
         public void registerListener(IOnNewBookArrivedListener listener) throws RemoteException {
@@ -101,11 +101,12 @@ public class BookManagerService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-//        int check = checkCallingOrSelfPermission("com.ryg.chapter_2.permission.ACCESS_BOOK_SERVICE");
-//        Log.d(TAG, "onbind check=" + check);
-//        if (check == PackageManager.PERMISSION_DENIED) {
-//            return null;
-//        }
+        //验证permission
+        int check = checkCallingOrSelfPermission("com.wz.ipcdemo.permission.ACCESS_BOOK_SERVICE");
+        Log.d(TAG, "onbind check=" + check);
+        if (check == PackageManager.PERMISSION_DENIED) {
+            return null;
+        }
         return mBinder;
     }
 
