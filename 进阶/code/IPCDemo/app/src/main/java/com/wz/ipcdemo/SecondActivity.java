@@ -9,19 +9,18 @@ import android.view.View;
 
 import com.wz.ipcdemo.manager.UserManager;
 
-public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
+public class SecondActivity extends AppCompatActivity {
+    private static final String TAG = "SecondActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_second);
 
-        UserManager.sUserId = 2;
         Log.d(TAG, "onCreate UserManager.sUserId = " + UserManager.sUserId);
     }
 
     public void onClick(View view) {
-        startActivity(new Intent(MainActivity.this, SecondActivity.class));
+        startActivity(new Intent(SecondActivity.this, ThirdActivity.class));
     }
 }
