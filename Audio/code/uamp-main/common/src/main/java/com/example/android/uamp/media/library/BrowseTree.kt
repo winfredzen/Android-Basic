@@ -78,6 +78,7 @@ class BrowseTree(
     init {
         val rootList = mediaIdToChildren[UAMP_BROWSABLE_ROOT] ?: mutableListOf()
 
+        //推荐
         val recommendedMetadata = MediaMetadataCompat.Builder().apply {
             id = UAMP_RECOMMENDED_ROOT
             title = context.getString(R.string.recommended_title)
@@ -86,6 +87,7 @@ class BrowseTree(
             flag = MediaBrowserCompat.MediaItem.FLAG_BROWSABLE
         }.build()
 
+        //Album
         val albumsMetadata = MediaMetadataCompat.Builder().apply {
             id = UAMP_ALBUMS_ROOT
             title = context.getString(R.string.albums_title)
@@ -98,13 +100,16 @@ class BrowseTree(
         rootList += albumsMetadata
         mediaIdToChildren[UAMP_BROWSABLE_ROOT] = rootList
 
+        //调用的是JsonSource的catalog的遍历
         musicSource.forEach { mediaItem ->
             val albumMediaId = mediaItem.album.urlEncoded
+            //子专辑
             val albumChildren = mediaIdToChildren[albumMediaId] ?: buildAlbumRoot(mediaItem)
             albumChildren += mediaItem
 
             // Add the first track of each album to the 'Recommended' category
             if (mediaItem.trackNumber == 1L) {
+                //推荐数据
                 val recommendedChildren = mediaIdToChildren[UAMP_RECOMMENDED_ROOT]
                     ?: mutableListOf()
                 recommendedChildren += mediaItem

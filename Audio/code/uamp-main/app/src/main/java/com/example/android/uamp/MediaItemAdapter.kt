@@ -82,6 +82,7 @@ class MediaItemAdapter(
     }
 }
 
+//item项
 class MediaViewHolder(
     binding: FragmentMediaitemBinding,
     itemClickedListener: (MediaItemData) -> Unit
@@ -94,6 +95,7 @@ class MediaViewHolder(
 
     var item: MediaItemData? = null
 
+    //点击事件
     init {
         binding.root.setOnClickListener {
             item?.let { itemClickedListener(it) }

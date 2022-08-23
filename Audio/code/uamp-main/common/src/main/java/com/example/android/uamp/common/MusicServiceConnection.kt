@@ -68,6 +68,7 @@ class MusicServiceConnection(context: Context, serviceComponent: ComponentName) 
         get() = mediaController.transportControls
 
     private val mediaBrowserConnectionCallback = MediaBrowserConnectionCallback(context)
+    //构造 MediaBrowserCompat
     private val mediaBrowser = MediaBrowserCompat(
         context,
         serviceComponent,
@@ -101,6 +102,15 @@ class MusicServiceConnection(context: Context, serviceComponent: ComponentName) 
         false
     }
 
+    /**
+     *
+     * 当您的 Activity 构造 MediaBrowserCompat 时，您必须创建 ConnectionCallback 的实例。
+     * 修改其 onConnected() 方法以从 MediaBrowserService 检索媒体会话令牌，并使用该令牌创建 MediaControllerCompat。
+     *
+     * 使用便捷方法 MediaControllerCompat.setMediaController() 保存指向控制器的链接，以便处理媒体按钮。
+     * 您还可利用此方法在构建传输控件时调用 MediaControllerCompat.getMediaController() 来检索控制器。
+     *
+     */
     private inner class MediaBrowserConnectionCallback(private val context: Context) :
         MediaBrowserCompat.ConnectionCallback() {
         /**
@@ -131,6 +141,11 @@ class MusicServiceConnection(context: Context, serviceComponent: ComponentName) 
         }
     }
 
+    /**
+     * 界面应显示媒体会话的当前状态（通过其 PlaybackState 和元数据来描述）。
+     * 创建传输控件时，您可以抓取会话的当前状态，将其显示在界面中，并根据状态及其可用操作启用和停用传输控件。
+     *
+     */
     private inner class MediaControllerCallback : MediaControllerCompat.Callback() {
 
         override fun onPlaybackStateChanged(state: PlaybackStateCompat?) {

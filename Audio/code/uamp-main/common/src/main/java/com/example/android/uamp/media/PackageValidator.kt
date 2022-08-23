@@ -47,6 +47,8 @@ import java.security.NoSuchAlgorithmException
  * xml tags to add to allow the caller.
  *
  * For more information, see res/xml/allowed_media_browser_callers.xml.
+ *
+ * 在某些情况下，您可能会希望实现白名单/黑名单方案来控制连接。有关白名单的示例，请参见 Universal Android Music Player 应用示例中的 PackageValidator 类。
  */
 internal class PackageValidator(context: Context, @XmlRes xmlResId: Int) {
     private val context: Context

@@ -64,6 +64,7 @@ internal class JsonSource(private val source: Uri) : AbstractMusicSource() {
         state = STATE_INITIALIZING
     }
 
+    //实现的Iterable接口
     override fun iterator(): Iterator<MediaMetadataCompat> = catalog.iterator()
 
     override suspend fun load() {
@@ -96,6 +97,7 @@ internal class JsonSource(private val source: Uri) : AbstractMusicSource() {
 
             Log.e("TAG", "baseUri = $baseUri");
 
+            // List<MediaMetadataCompat!>
             val mediaMetadataCompats = musicCat.music.map { song ->
                 // The JSON may have paths that are relative to the source of the JSON
                 // itself. We need to fix them up here to turn them into absolute paths.
@@ -113,6 +115,7 @@ internal class JsonSource(private val source: Uri) : AbstractMusicSource() {
                 val imageUri = AlbumArtContentProvider.mapUri(jsonImageUri)
                 Log.e("TAG", "imageUri = $imageUri");
 
+                //从JsonMusic转为MediaMetadataCompat
                 MediaMetadataCompat.Builder()
                     .from(song)
                     .apply {
@@ -148,6 +151,8 @@ internal class JsonSource(private val source: Uri) : AbstractMusicSource() {
 /**
  * Extension method for [MediaMetadataCompat.Builder] to set the fields from
  * our JSON constructed object (to make the code a bit easier to see).
+ *
+ * MediaMetadataCompat.Builder扩展方法
  */
 fun MediaMetadataCompat.Builder.from(jsonMusic: JsonMusic): MediaMetadataCompat.Builder {
     // The duration from the JSON is given in seconds, but the rest of the code works in

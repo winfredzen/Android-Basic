@@ -94,6 +94,7 @@ open class MusicService : MediaBrowserServiceCompat() {
 
     private lateinit var notificationManager: UampNotificationManager
     private lateinit var mediaSource: MusicSource
+    //包验证器
     private lateinit var packageValidator: PackageValidator
 
     // The current player will either be an ExoPlayer (for local playback) or a CastPlayer (for
@@ -263,12 +264,18 @@ open class MusicService : MediaBrowserServiceCompat() {
     /**
      * Returns the "root" media ID that the client should request to get the list of
      * [MediaItem]s to browse/play.
+     *
+     * onGetRoot() 方法返回内容层次结构的根节点。如果该方法返回 null，则会拒绝连接。
+     * 要允许客户端连接到您的服务并浏览其媒体内容，onGetRoot() 必须返回非 null 的 BrowserRoot，这是代表您的内容层次结构的根 ID。
+     * 要允许客户端连接到您的 MediaSession 而不进行浏览，onGetRoot() 仍然必须返回非 null 的 BrowserRoot，但此根 ID 应代表一个空的内容层次结构。
      */
     override fun onGetRoot(
         clientPackageName: String,
         clientUid: Int,
         rootHints: Bundle?
     ): BrowserRoot? {
+
+        Log.e(TAG, "onGetRoot clientPackageName = $clientPackageName clientUid = $clientUid")
 
         /*
          * By default, all known clients are permitted to search, but only tell unknown callers
@@ -285,6 +292,8 @@ open class MusicService : MediaBrowserServiceCompat() {
             putInt(CONTENT_STYLE_PLAYABLE_HINT, CONTENT_STYLE_LIST)
         }
 
+        Log.e(TAG, "onGetRoot isKnownCaller = $isKnownCaller")
+
         return if (isKnownCaller) {
             /**
              * By default return the browsable root. Treat the EXTRA_RECENT flag as a special case
@@ -292,6 +301,7 @@ open class MusicService : MediaBrowserServiceCompat() {
              */
             val isRecentRequest = rootHints?.getBoolean(EXTRA_RECENT) ?: false
             val browserRootPath = if (isRecentRequest) UAMP_RECENT_ROOT else UAMP_BROWSABLE_ROOT
+            Log.e(TAG, "onGetRoot isRecentRequest = $isRecentRequest browserRootPath = $browserRootPath")
             BrowserRoot(browserRootPath, rootExtras)
         } else {
             /**
@@ -311,11 +321,19 @@ open class MusicService : MediaBrowserServiceCompat() {
      * Returns (via the [result] parameter) a list of [MediaItem]s that are child
      * items of the provided [parentMediaId]. See [BrowseTree] for more details on
      * how this is build/more details about the relationships.
+     *
+     * 客户端连接后，可以通过重复调用 MediaBrowserCompat.subscribe() 来遍历内容层次结构，
+     * 以构建界面的本地表示方式。subscribe() 方法将回调 onLoadChildren() 发送给服务，该服务会返回 MediaBrowser.MediaItem 对象的列表。
+     *
+     * 每个 MediaItem 都有一个唯一的 ID 字符串，这是一个不透明令牌。
+     * 当客户端想要打开子菜单或播放某项内容时，它就会传递此 ID。您的服务负责将此 ID 与相应的菜单节点或内容项关联起来。
      */
     override fun onLoadChildren(
         parentMediaId: String,
         result: Result<List<MediaItem>>
     ) {
+
+        Log.e(TAG, "onLoadChildren parentMediaId = $parentMediaId result = $result")
 
         /**
          * If the caller requests the recent root, return the most recently played song.
