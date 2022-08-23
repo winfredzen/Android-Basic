@@ -168,6 +168,7 @@ class MediaItemFragmentViewModel(
         } ?: emptyList()
     }
 
+    //ViewModel自定义参数的写法，通过Factory来实现
     class Factory(
         private val mediaId: String,
         private val musicServiceConnection: MusicServiceConnection

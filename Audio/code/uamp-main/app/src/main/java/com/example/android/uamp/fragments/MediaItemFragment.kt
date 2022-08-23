@@ -17,6 +17,7 @@
 package com.example.android.uamp.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,9 @@ import com.example.android.uamp.viewmodels.MediaItemFragmentViewModel
  * A fragment representing a list of MediaItems.
  */
 class MediaItemFragment : Fragment() {
+
+
+
     private val mainActivityViewModel by activityViewModels<MainActivityViewModel> {
         InjectorUtils.provideMainActivityViewModel(requireContext())
     }
@@ -49,6 +53,9 @@ class MediaItemFragment : Fragment() {
     }
 
     companion object {
+
+        public val TAG = MediaItemFragment::class.qualifiedName
+
         fun newInstance(mediaId: String): MediaItemFragment {
 
             return MediaItemFragment().apply {
@@ -63,12 +70,17 @@ class MediaItemFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        Log.d(TAG, "onCreateView")
+
         binding = FragmentMediaitemListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        Log.d(TAG, "onActivityCreated")
 
         // Always true, but lets lint know that as well.
         mediaId = arguments?.getString(MEDIA_ID_ARG) ?: return

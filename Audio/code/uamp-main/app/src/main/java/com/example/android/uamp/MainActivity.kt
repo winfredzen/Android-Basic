@@ -32,6 +32,9 @@ import com.google.android.gms.cast.framework.CastButtonFactory
 import com.google.android.gms.cast.framework.CastContext
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+         public val TAG = MainActivity::class.qualifiedName
+    }
 
     private val viewModel by viewModels<MainActivityViewModel> {
         InjectorUtils.provideMainActivityViewModel(this)
@@ -56,6 +59,7 @@ class MainActivity : AppCompatActivity() {
          * fragment swap.
          */
         viewModel.navigateToFragment.observe(this, Observer {
+            Log.d(TAG, "viewModel.navigateToFragment.observe")
             it?.getContentIfNotHandled()?.let { fragmentRequest ->
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(

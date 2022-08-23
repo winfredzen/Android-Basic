@@ -20,6 +20,7 @@ import android.net.Uri
 import android.support.v4.media.MediaBrowserCompat.MediaItem
 import android.support.v4.media.MediaDescriptionCompat.STATUS_NOT_DOWNLOADED
 import android.support.v4.media.MediaMetadataCompat
+import android.util.Log
 import com.example.android.uamp.media.extensions.album
 import com.example.android.uamp.media.extensions.albumArtUri
 import com.example.android.uamp.media.extensions.artist
@@ -82,18 +83,25 @@ internal class JsonSource(private val source: Uri) : AbstractMusicSource() {
     private suspend fun updateCatalog(catalogUri: Uri): List<MediaMetadataCompat>? {
         return withContext(Dispatchers.IO) {
             val musicCat = try {
+                //获取json数据
                 downloadJson(catalogUri)
             } catch (ioException: IOException) {
                 return@withContext null
             }
 
+            Log.e("TAG", "catalogUri = $catalogUri");
+
             // Get the base URI to fix up relative references later.
             val baseUri = catalogUri.toString().removeSuffix(catalogUri.lastPathSegment ?: "")
+
+            Log.e("TAG", "baseUri = $baseUri");
 
             val mediaMetadataCompats = musicCat.music.map { song ->
                 // The JSON may have paths that are relative to the source of the JSON
                 // itself. We need to fix them up here to turn them into absolute paths.
                 catalogUri.scheme?.let { scheme ->
+                    Log.e("TAG", "scheme = $scheme")
+
                     if (!song.source.startsWith(scheme)) {
                         song.source = baseUri + song.source
                     }
@@ -103,6 +111,7 @@ internal class JsonSource(private val source: Uri) : AbstractMusicSource() {
                 }
                 val jsonImageUri = Uri.parse(song.image)
                 val imageUri = AlbumArtContentProvider.mapUri(jsonImageUri)
+                Log.e("TAG", "imageUri = $imageUri");
 
                 MediaMetadataCompat.Builder()
                     .from(song)

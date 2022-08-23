@@ -22,6 +22,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import android.os.ParcelFileDescriptor
+import android.util.Log
 import com.bumptech.glide.Glide
 import java.io.File
 import java.io.FileNotFoundException
@@ -36,7 +37,12 @@ internal class AlbumArtContentProvider : ContentProvider() {
         private val uriMap = mutableMapOf<Uri, Uri>()
 
         fun mapUri(uri: Uri): Uri {
+            Log.e("TAG", "Uri ${uri.toString()}")
+
             val path = uri.encodedPath?.substring(1)?.replace('/', ':') ?: return Uri.EMPTY
+
+            Log.e("TAG", "path $path")
+
             val contentUri = Uri.Builder()
                 .scheme(ContentResolver.SCHEME_CONTENT)
                 .authority("com.example.android.uamp")
