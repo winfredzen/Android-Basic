@@ -69,6 +69,7 @@ class AuthActivity : AppCompatActivity() {
   private fun showLogin() {
     supportFragmentManager.commit {
       replace(R.id.fragmentContainer, LoginFragment.newInstance())
+      // shared elements transition
       val sharedView = findViewById<View>(R.id.logo)
       addSharedElement(sharedView, sharedView.transitionName)
       addToBackStack(null)

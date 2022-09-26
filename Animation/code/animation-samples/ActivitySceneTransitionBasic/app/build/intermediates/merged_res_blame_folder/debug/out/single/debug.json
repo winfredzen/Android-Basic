@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "com.example.android.activityscenetransitionbasic.app-merged_res-17:/drawable-mdpi_ic_launcher.png.flat",
+        "source": "com.example.android.activityscenetransitionbasic.app-main-19:/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.android.activityscenetransitionbasic.app-merged_res-17:/layout_grid_item.xml.flat",
+        "source": "com.example.android.activityscenetransitionbasic.app-main-19:/layout/grid_item.xml"
+    },
+    {
+        "merged": "com.example.android.activityscenetransitionbasic.app-merged_res-17:/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "com.example.android.activityscenetransitionbasic.app-main-19:/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.android.activityscenetransitionbasic.app-merged_res-17:/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "com.example.android.activityscenetransitionbasic.app-main-19:/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.android.activityscenetransitionbasic.app-merged_res-17:/transition_grid_detail_transition.xml.flat",
+        "source": "com.example.android.activityscenetransitionbasic.app-main-19:/transition/grid_detail_transition.xml"
+    },
+    {
+        "merged": "com.example.android.activityscenetransitionbasic.app-merged_res-17:/layout_grid.xml.flat",
+        "source": "com.example.android.activityscenetransitionbasic.app-main-19:/layout/grid.xml"
+    },
+    {
+        "merged": "com.example.android.activityscenetransitionbasic.app-merged_res-17:/layout_details.xml.flat",
+        "source": "com.example.android.activityscenetransitionbasic.app-main-19:/layout/details.xml"
+    },
+    {
+        "merged": "com.example.android.activityscenetransitionbasic.app-merged_res-17:/drawable-hdpi_tile.9.png.flat",
+        "source": "com.example.android.activityscenetransitionbasic.app-main-19:/drawable-hdpi/tile.9.png"
+    },
+    {
+        "merged": "com.example.android.activityscenetransitionbasic.app-merged_res-17:/drawable-hdpi_ic_launcher.png.flat",
+        "source": "com.example.android.activityscenetransitionbasic.app-main-19:/drawable-hdpi/ic_launcher.png"
+    }
+]

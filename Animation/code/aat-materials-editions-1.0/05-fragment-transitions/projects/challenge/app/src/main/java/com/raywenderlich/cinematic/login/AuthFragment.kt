@@ -40,6 +40,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.transition.Fade
 import androidx.transition.Slide
 import androidx.transition.TransitionSet
 import com.google.android.material.transition.MaterialSharedAxis
@@ -54,6 +55,10 @@ class AuthFragment : Fragment() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
+//    enterTransition = Fade()
+
+
     val materialSlideOut = MaterialSharedAxis(MaterialSharedAxis.X, true).apply {
       excludeTarget(R.id.logo, true)
       duration = 1000

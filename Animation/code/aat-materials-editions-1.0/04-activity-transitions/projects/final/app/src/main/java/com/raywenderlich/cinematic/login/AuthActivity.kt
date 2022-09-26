@@ -49,6 +49,7 @@ class AuthActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     val binding = ActivityAuthBinding.inflate(layoutInflater)
     setContentView(binding.root)
+    //添加AuthFragment
     supportFragmentManager.commit {
       replace(R.id.fragmentContainer, AuthFragment.newInstance())
     }
@@ -56,7 +57,8 @@ class AuthActivity : AppCompatActivity() {
     //展示Main
     viewModel.showMain.observe(this) {
       startActivity(Intent(this, MainActivity::class.java))
-      //overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
+      //添加转场动画
+      overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
     }
     viewModel.showLogin.observe(this) {
       showLogin()
@@ -67,6 +69,7 @@ class AuthActivity : AppCompatActivity() {
   }
 
   private fun showLogin() {
+    //添加LoginFragment
     supportFragmentManager.commit {
       replace(R.id.fragmentContainer, LoginFragment.newInstance())
       addToBackStack(null)

@@ -65,6 +65,6 @@ class MainActivity : AppCompatActivity() {
 
   override fun finish() {
     super.finish()
-    //overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
+    overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
   }
 }

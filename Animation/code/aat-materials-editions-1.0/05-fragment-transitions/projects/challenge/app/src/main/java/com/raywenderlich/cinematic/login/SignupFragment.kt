@@ -56,6 +56,9 @@ class SignupFragment : Fragment() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
+//    enterTransition = Fade()
+
     val logoSlide = Slide(Gravity.TOP).addTarget(R.id.signup_logo).setDuration(1000)
     val logoFade = Fade().addTarget(R.id.signup_logo).setDuration(2000)
     val enterTransitionSet = TransitionSet().apply {
