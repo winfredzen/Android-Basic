@@ -1,0 +1,84 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3 Copyright 2013 The Android Open Source Project
+4
+5 Licensed under the Apache License, Version 2.0 (the "License");
+6 you may not use this file except in compliance with the License.
+7 You may obtain a copy of the License at
+8
+9     http://www.apache.org/licenses/LICENSE-2.0
+10
+11 Unless required by applicable law or agreed to in writing, software
+12 distributed under the License is distributed on an "AS IS" BASIS,
+13 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14 See the License for the specific language governing permissions and
+15 limitations under the License.
+16-->
+17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+18    package="com.example.android.customtransition"
+19    android:versionCode="1"
+20    android:versionName="1.0" >
+21
+22    <uses-sdk
+23        android:minSdkVersion="19"
+23-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml
+24        android:targetSdkVersion="32" />
+24-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml
+25
+26    <!-- Min/target SDK versions (<uses-sdk>) managed by build.gradle -->
+27    <application
+27-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:26:5-40:19
+28        android:allowBackup="true"
+28-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:27:9-35
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.7.0] /Users/wangzhen/.gradle/caches/transforms-3/0c734a8f9451ded3159b05d46fc9a23a/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+30        android:debuggable="true"
+31        android:icon="@drawable/ic_launcher"
+31-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:28:9-45
+32        android:label="@string/app_name"
+32-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:29:9-41
+33        android:testOnly="true"
+34        android:theme="@style/AppTheme" >
+34-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:30:9-40
+35        <activity
+35-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:32:9-39:20
+36            android:name="com.example.android.customtransition.MainActivity"
+36-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:33:13-41
+37            android:exported="true" >
+37-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:34:13-36
+38            <intent-filter>
+38-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:35:13-38:29
+39                <action android:name="android.intent.action.MAIN" />
+39-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:36:17-69
+39-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:36:25-66
+40
+41                <category android:name="android.intent.category.LAUNCHER" />
+41-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:37:17-77
+41-->/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/src/main/AndroidManifest.xml:37:27-74
+42            </intent-filter>
+43        </activity>
+44
+45        <provider
+45-->[androidx.emoji2:emoji2:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/73850b32b2c7ce32b12b91c16b2382c2/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+46            android:name="androidx.startup.InitializationProvider"
+46-->[androidx.emoji2:emoji2:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/73850b32b2c7ce32b12b91c16b2382c2/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+47            android:authorities="com.example.android.customtransition.androidx-startup"
+47-->[androidx.emoji2:emoji2:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/73850b32b2c7ce32b12b91c16b2382c2/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+48            android:exported="false" >
+48-->[androidx.emoji2:emoji2:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/73850b32b2c7ce32b12b91c16b2382c2/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+49            <meta-data
+49-->[androidx.emoji2:emoji2:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/73850b32b2c7ce32b12b91c16b2382c2/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+50                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+50-->[androidx.emoji2:emoji2:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/73850b32b2c7ce32b12b91c16b2382c2/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+51                android:value="androidx.startup" />
+51-->[androidx.emoji2:emoji2:1.0.0] /Users/wangzhen/.gradle/caches/transforms-3/73850b32b2c7ce32b12b91c16b2382c2/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+52            <meta-data
+52-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/wangzhen/.gradle/caches/transforms-3/280b8c662ae12c28e2c58a98b88e76a9/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+53                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+53-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/wangzhen/.gradle/caches/transforms-3/280b8c662ae12c28e2c58a98b88e76a9/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+54                android:value="androidx.startup" />
+54-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/wangzhen/.gradle/caches/transforms-3/280b8c662ae12c28e2c58a98b88e76a9/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+55        </provider>
+56    </application>
+57
+58</manifest>

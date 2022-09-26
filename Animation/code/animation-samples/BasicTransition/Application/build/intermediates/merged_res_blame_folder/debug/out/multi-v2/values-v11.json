@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.android.basictransition.Application-mergeDebugResources-15:/values-v11/values-v11.xml",
+            "map": [
+                {
+                    "source": "/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/BasicTransition/Application/src/main/res/values-v11/template-styles.xml",
+                    "from": {
+                        "startLines": "19",
+                        "startColumns": "4",
+                        "startOffsets": "650",
+                        "endColumns": "65",
+                        "endOffsets": "711"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "64",
+                        "endOffsets": "115"
+                    }
+                }
+            ]
+        }
+    ]
+}

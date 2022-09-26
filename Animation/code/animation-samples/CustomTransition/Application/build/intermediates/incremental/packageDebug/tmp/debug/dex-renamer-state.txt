@@ -1,0 +1,4 @@
+#Mon Sep 26 18:01:31 CST 2022
+base.0=/Users/wangzhen/Documents/GitHub/Android-Basic/Animation/code/animation-samples/CustomTransition/Application/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

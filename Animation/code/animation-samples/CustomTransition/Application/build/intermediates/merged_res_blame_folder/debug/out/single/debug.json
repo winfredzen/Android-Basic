@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "com.example.android.customtransition.Application-merged_res-17:/drawable-hdpi_ic_launcher.png.flat",
+        "source": "com.example.android.customtransition.Application-main-19:/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.android.customtransition.Application-merged_res-17:/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "com.example.android.customtransition.Application-main-19:/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.android.customtransition.Application-merged_res-17:/layout_activity_main.xml.flat",
+        "source": "com.example.android.customtransition.Application-main-19:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.android.customtransition.Application-merged_res-17:/layout-w720dp_activity_main.xml.flat",
+        "source": "com.example.android.customtransition.Application-main-19:/layout-w720dp/activity_main.xml"
+    },
+    {
+        "merged": "com.example.android.customtransition.Application-merged_res-17:/menu_main.xml.flat",
+        "source": "com.example.android.customtransition.Application-main-19:/menu/main.xml"
+    },
+    {
+        "merged": "com.example.android.customtransition.Application-merged_res-17:/layout_scene1.xml.flat",
+        "source": "com.example.android.customtransition.Application-main-19:/layout/scene1.xml"
+    },
+    {
+        "merged": "com.example.android.customtransition.Application-merged_res-17:/drawable-mdpi_ic_launcher.png.flat",
+        "source": "com.example.android.customtransition.Application-main-19:/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.android.customtransition.Application-merged_res-17:/layout_fragment_custom_transition.xml.flat",
+        "source": "com.example.android.customtransition.Application-main-19:/layout/fragment_custom_transition.xml"
+    },
+    {
+        "merged": "com.example.android.customtransition.Application-merged_res-17:/drawable-hdpi_tile.9.png.flat",
+        "source": "com.example.android.customtransition.Application-main-19:/drawable-hdpi/tile.9.png"
+    },
+    {
+        "merged": "com.example.android.customtransition.Application-merged_res-17:/layout_scene2.xml.flat",
+        "source": "com.example.android.customtransition.Application-main-19:/layout/scene2.xml"
+    },
+    {
+        "merged": "com.example.android.customtransition.Application-merged_res-17:/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "com.example.android.customtransition.Application-main-19:/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.android.customtransition.Application-merged_res-17:/layout_scene3.xml.flat",
+        "source": "com.example.android.customtransition.Application-main-19:/layout/scene3.xml"
+    }
+]
