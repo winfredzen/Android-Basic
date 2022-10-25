@@ -4,6 +4,10 @@
 
 + [音频应用概览](https://developer.android.com/guide/topics/media-apps/audio-app/building-an-audio-app?hl=zh-cn)
 
++ [构建车载媒体应用](https://developer.android.com/training/cars/media?hl=zh-cn#build_hierarchy)
+
+
+
 
 
 代码可参考：
