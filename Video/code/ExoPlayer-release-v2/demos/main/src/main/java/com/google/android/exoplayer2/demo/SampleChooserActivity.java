@@ -532,6 +532,7 @@ public class SampleChooserActivity extends AppCompatActivity
       View view = convertView;
       if (view == null) {
         view = getLayoutInflater().inflate(R.layout.sample_list_item, parent, false);
+        //下载按钮
         View downloadButton = view.findViewById(R.id.download_button);
         downloadButton.setOnClickListener(this);
         downloadButton.setFocusable(false);
