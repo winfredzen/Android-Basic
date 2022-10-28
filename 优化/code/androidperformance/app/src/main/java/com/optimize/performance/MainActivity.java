@@ -75,48 +75,48 @@ public class MainActivity extends AppCompatActivity implements OnFeedShowCallBac
     protected void onCreate(Bundle savedInstanceState) {
 
         // 以下代码是为了演示修改任务的名称
-        ThreadPoolUtils.getService().execute(new Runnable() {
-            @Override
-            public void run() {
-                Process.setThreadPriority(Process.THREAD_PRIORITY_DEFAULT);
-                String oldName = Thread.currentThread().getName();
-                Thread.currentThread().setName("new Name");
-                LogUtils.i("");
-                Thread.currentThread().setName(oldName);
-            }
-        });
+//        ThreadPoolUtils.getService().execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                Process.setThreadPriority(Process.THREAD_PRIORITY_DEFAULT);
+//                String oldName = Thread.currentThread().getName();
+//                Thread.currentThread().setName("new Name");
+////                LogUtils.i("");
+//                Thread.currentThread().setName(oldName);
+//            }
+//        });
 
-        // 以下代码是为了演示Msg导致的主线程卡顿
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                LogUtils.i("Msg 执行");
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
+//        // 以下代码是为了演示Msg导致的主线程卡顿
+//        new Handler().post(new Runnable() {
+//            @Override
+//            public void run() {
+////                LogUtils.i("Msg 执行");
+////                try {
+////                    Thread.sleep(1000);
+////                } catch (InterruptedException e) {
+////                    e.printStackTrace();
+////                }
+//            }
+//        });
+
+//        LayoutInflaterCompat.setFactory2(getLayoutInflater(), new LayoutInflater.Factory2() {
+//            @Override
+//            public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
+//
+//                if (TextUtils.equals(name, "TextView")) {
+//                    // 生成自定义TextView
 //                }
-            }
-        });
-
-        LayoutInflaterCompat.setFactory2(getLayoutInflater(), new LayoutInflater.Factory2() {
-            @Override
-            public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
-
-                if (TextUtils.equals(name, "TextView")) {
-                    // 生成自定义TextView
-                }
-                long time = System.currentTimeMillis();
-                View view = getDelegate().createView(parent, name, context, attrs);
-                LogUtils.i(name + " cost " + (System.currentTimeMillis() - time));
-                return view;
-            }
-
-            @Override
-            public View onCreateView(String name, Context context, AttributeSet attrs) {
-                return null;
-            }
-        });
+//                long time = System.currentTimeMillis();
+//                View view = getDelegate().createView(parent, name, context, attrs);
+////                LogUtils.i(name + " cost " + (System.currentTimeMillis() - time));
+//                return view;
+//            }
+//
+//            @Override
+//            public View onCreateView(String name, Context context, AttributeSet attrs) {
+//                return null;
+//            }
+//        });
 
         new AsyncLayoutInflater(MainActivity.this).inflate(R.layout.activity_main, null, new AsyncLayoutInflater.OnInflateFinishedListener() {
             @Override
@@ -132,33 +132,33 @@ public class MainActivity extends AppCompatActivity implements OnFeedShowCallBac
         setTheme(R.style.AppTheme);
 
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        X2C.setContentView(MainActivity.this, R.layout.activity_main);
+        setContentView(R.layout.activity_main);
+//        X2C.setContentView(MainActivity.this, R.layout.activity_main);
         mNewsAdapter = new NewsAdapter(mItems);
 
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_BATTERY_CHANGED);
         Intent intent = registerReceiver(null, filter);
-        LogUtils.i("battery " + intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1));
+//        LogUtils.i("battery " + intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1));
 
         getNews();
-        getFPS();
+//        getFPS();
 
 
-        // 以下代码是为了演示业务不正常场景下的监控
-        try {
-            // 一些业务处理
-            Log.i("", "");
-        } catch (Exception e) {
-            ExceptionMonitor.monitor(Log.getStackTraceString(e));
-        }
-
-        boolean flag = true;
-        if (flag) {
-            // 正常，继续执行流程
-        } else {
-            ExceptionMonitor.monitor("");
-        }
+//        // 以下代码是为了演示业务不正常场景下的监控
+//        try {
+//            // 一些业务处理
+//            Log.i("", "");
+//        } catch (Exception e) {
+//            ExceptionMonitor.monitor(Log.getStackTraceString(e));
+//        }
+//
+//        boolean flag = true;
+//        if (flag) {
+//            // 正常，继续执行流程
+//        } else {
+//            ExceptionMonitor.monitor("");
+//        }
     }
 
     /**

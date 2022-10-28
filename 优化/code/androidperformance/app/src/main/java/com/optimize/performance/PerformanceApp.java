@@ -118,7 +118,7 @@ public class PerformanceApp extends Application {
 //
 //
 //        LaunchTimer.startRecord();
-//        mApplication = this;
+        mApplication = this;
 //
 //        TaskDispatcher.init(PerformanceApp.this);
 //
