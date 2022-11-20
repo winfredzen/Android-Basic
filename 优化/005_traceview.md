@@ -40,6 +40,52 @@ Debug.stopMethodTracing();
 
 `Self` - 执行自己代码的时间，`Children` - 调用其它代码所使用的时间
 
+`Top Down` - 函数的调用列表
+
+
+
+![013](https://github.com/winfredzen/Android-Basic/blob/master/%E4%BC%98%E5%8C%96/images/013.png)
+
++ 橙色 - 系统API
++ 绿色 - 应用自身的API
++ 蓝色 - 第三方的API
+
+
+
+
+
+总结：
+
++ `traceview`运行开销严重，整体会变慢
++ 可能会带偏优化的方向
++ 虽然在新版中使用的cpu profiler，但是`traceview`可以在代码中埋点，更方便，更准确
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
