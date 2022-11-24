@@ -10,7 +10,7 @@ import org.aspectj.lang.annotation.Aspect;
 @Aspect
 public class PerformanceAop {
 
-    @Around("call(* com.optimize.performance.PerformanceApp.**(..))")
+    @Around("call(void com.optimize.performance.PerformanceApp.**(..))")
     public void getTime(ProceedingJoinPoint joinPoint) {
         Signature signature = joinPoint.getSignature();
         String name = signature.toShortString();
