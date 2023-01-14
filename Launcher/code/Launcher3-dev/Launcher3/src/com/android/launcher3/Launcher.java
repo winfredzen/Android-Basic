@@ -475,6 +475,7 @@ public class Launcher extends StatefulActivity<LauncherState>
         mAppWidgetHost = createAppWidgetHost();
         mAppWidgetHost.startListening();
 
+        //布局R.layout.launcher
         inflateRootView(R.layout.launcher);
         setupViews();
         crossFadeWithPreviousAppearance();

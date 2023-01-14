@@ -976,6 +976,7 @@ public class LoaderTask implements Runnable {
             // Create the ApplicationInfos
             for (int i = 0; i < apps.size(); i++) {
                 LauncherActivityInfo app = apps.get(i);
+                Log.d(TAG, app.getName() + " " + app.getApplicationInfo().packageName);
                 AppInfo appInfo = new AppInfo(app, user, quietMode);
 
                 iconRequestInfos.add(new IconRequestInfo<>(

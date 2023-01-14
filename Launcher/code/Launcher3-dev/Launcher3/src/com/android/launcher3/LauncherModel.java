@@ -256,6 +256,7 @@ public class LauncherModel extends LauncherApps.Callback implements InstallSessi
         MODEL_EXECUTOR.execute(mModelDelegate::destroy);
     }
 
+    //收到广播后执行的方法
     public void onBroadcastIntent(Intent intent) {
         if (DEBUG_RECEIVER) Log.d(TAG, "onReceive intent=" + intent);
         final String action = intent.getAction();
