@@ -402,6 +402,7 @@ public class LauncherModel extends LauncherApps.Callback implements InstallSessi
                     return true;
                 } else {
                     stopLoader();
+                    //开始调用LoaderTask
                     mLoaderTask = new LoaderTask(
                             mApp, mBgAllAppsList, mBgDataModel, mModelDelegate, loaderResults);
 

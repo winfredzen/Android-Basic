@@ -93,6 +93,7 @@ public class LauncherAppState implements SafeCloseable {
 
         mContext.getSystemService(LauncherApps.class).registerCallback(mModel);
 
+        //广播
         SimpleBroadcastReceiver modelChangeReceiver =
                 new SimpleBroadcastReceiver(mModel::onBroadcastIntent);
         modelChangeReceiver.register(mContext, Intent.ACTION_LOCALE_CHANGED,

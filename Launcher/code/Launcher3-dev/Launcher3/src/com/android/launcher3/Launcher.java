@@ -499,6 +499,7 @@ public class Launcher extends StatefulActivity<LauncherState>
             }
         }
 
+        //这里注册回调，并开始请求数据
         if (!mModel.addCallbacksAndLoad(this)) {
             if (!internalStateHandled) {
                 Log.d(BAD_STATE, "Launcher onCreate not binding sync, prevent drawing");
