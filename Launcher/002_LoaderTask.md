@@ -23,7 +23,7 @@
 
 **Launcher是如何调用到LoaderTask的？**
 
-
+![001](https://github.com/winfredzen/Android-Basic/blob/master/Launcher/images/001.png)
 
 
 
