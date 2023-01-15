@@ -963,6 +963,7 @@ public class LoaderTask implements Runnable {
         // Clear the list of apps
         mBgAllAppsList.clear();
 
+        //查询所有的App
         List<IconRequestInfo<AppInfo>> iconRequestInfos = new ArrayList<>();
         for (UserHandle user : profiles) {
             // Query for the set of apps
@@ -976,7 +977,7 @@ public class LoaderTask implements Runnable {
             // Create the ApplicationInfos
             for (int i = 0; i < apps.size(); i++) {
                 LauncherActivityInfo app = apps.get(i);
-                Log.d(TAG, app.getName() + " " + app.getApplicationInfo().packageName);
+                Log.e("WZ", app.getName() + " " + app.getApplicationInfo().packageName);
                 AppInfo appInfo = new AppInfo(app, user, quietMode);
 
                 iconRequestInfos.add(new IconRequestInfo<>(
