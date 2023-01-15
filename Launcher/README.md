@@ -30,9 +30,17 @@ configurations.all {
 
 
 
-## 其它文章
+## 文章
+
+1.[App shortcuts overview](https://developer.android.com/develop/ui/views/launch/shortcuts)
+
+
+
+
+
+## Other
 
 1.[Launcher3源码分析系列](https://fookwood.com/android)
 
-
+2.[Android中Launcher解析](https://ericchows.github.io/Android-Launcher-Analysis/)
 
