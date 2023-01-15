@@ -23,3 +23,16 @@ configurations.all {
 
 
 不知道为啥编译需要使用`./gradlew assembleAospWithoutQuickstep`
+
+
+
+3.[https://github.com/luohaohaha/launcher3](https://github.com/luohaohaha/launcher3)
+
+
+
+## 其它文章
+
+1.[Launcher3源码分析系列](https://fookwood.com/android)
+
+
+
