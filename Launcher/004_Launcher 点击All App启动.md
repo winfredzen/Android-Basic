@@ -1,4 +1,4 @@
-# Launcher App启动
+# Launcher 点击All App启动
 
 可参考：
 
