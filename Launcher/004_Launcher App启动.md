@@ -41,6 +41,46 @@ void setup(@NonNull View rv, @Nullable ItemInfoMatcher matcher) {
 
 
 
+在`AllAppsGridAdapter`的`onCreateViewHolder`中，给`BubbleTextView`设置`OnClickListener`
+
+![004](https://github.com/winfredzen/Android-Basic/blob/master/Launcher/images/004.png)
+
+
+
+这个`mOnIconClickListener`，是在`AllAppsGridAdapter`的初始化方法中设置的：
+
+![005](https://github.com/winfredzen/Android-Basic/blob/master/Launcher/images/005.png)
+
+
+
+而`BaseDraggingActivity`的`getItemOnClickListener`方法如下：
+
+```java
+public OnClickListener getItemOnClickListener() {
+    return ItemClickHandler.INSTANCE;
+}
+```
+
+`ItemClickHandler.INSTANCE`返回的就是一个lambda表达式
+
+```java
+/**
+ * Instance used for click handling on items
+ */
+public static final OnClickListener INSTANCE = getInstance(null);
+public static final OnClickListener getInstance(String sourceContainer) {
+    return v -> onClick(v, sourceContainer);
+}
+```
+
+
+
+**所以最终的点击事件是由`ItemClickHandler`来处理的**
+
+![006](https://github.com/winfredzen/Android-Basic/blob/master/Launcher/images/006.png)
+
+
+
 
 
 
