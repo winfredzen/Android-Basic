@@ -77,11 +77,19 @@ public static final OnClickListener getInstance(String sourceContainer) {
 
 **所以最终的点击事件是由`ItemClickHandler`来处理的**
 
+`onClick(View v, String sourceContainer)`方法如下：
+
 ![006](https://github.com/winfredzen/Android-Basic/blob/master/Launcher/images/006.png)
 
+` startAppShortcutOrInfoActivity(View v, ItemInfo item, Launcher launcher, @Nullable String sourceContainer)`方法如下：
+
+![007](https://github.com/winfredzen/Android-Basic/blob/master/Launcher/images/007.png)
 
 
 
+调用过程如下：
+
+![008](https://github.com/winfredzen/Android-Basic/blob/master/Launcher/images/008.png)
 
 
 
