@@ -80,6 +80,18 @@ String mTopAction = Intent.ACTION_MAIN;
 
 
 
+## Maybe
+
+在`PhoneWindowManager`中有个 `Intent mHomeIntent`变量，其创建过程如下：
+
+```java
+mHomeIntent =  new Intent(Intent.ACTION_MAIN, null);
+mHomeIntent.addCategory(Intent.CATEGORY_HOME);
+mHomeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+```
+
+
+
 
 
 
