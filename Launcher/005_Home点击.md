@@ -52,6 +52,34 @@
 
 ### PhoneWindowManager
 
+`PhoneWindowManager`的调用过程分析（不一定正确）
+
+对于Home按键（keycode为3），`PhoneWindowManager`会通过`interceptKeyBeforeDispatching`方法进行一些处理
+
+![012](https://github.com/winfredzen/Android-Basic/blob/master/Launcher/images/012.png)
+
+`RootWindowContainer`中的`startHomeOnTaskDisplayArea`方法，有调用`mService.getHomeIntent()`
+
+其调用的是`ActivityTaskManagerService`中的方法：
+
+```java
+    Intent getHomeIntent() {
+        Intent intent = new Intent(mTopAction, mTopData != null ? Uri.parse(mTopData) : null);
+        intent.setComponent(mTopComponent);
+        intent.addFlags(Intent.FLAG_DEBUG_TRIAGED_MISSING);
+        if (mFactoryTest != FactoryTest.FACTORY_TEST_LOW_LEVEL) {
+            intent.addCategory(Intent.CATEGORY_HOME);
+        }
+        return intent;
+    }
+```
+
+```java
+String mTopAction = Intent.ACTION_MAIN;
+```
+
+
+
 
 
 
