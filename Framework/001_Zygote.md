@@ -2,7 +2,7 @@
 
 参考《Android进阶解密》
 
-> 在Android系统中，DVM（Dalvik虚拟机）和ART、应用程序进程以及运行系统的关键服务SystemServer进程都是由Zygote进程来创建的，我么 称之为孵化器。它通过fork（复制进程）的形式来创建应用程序进程和SystemServer进程，由于Zygote进程在启动时会创建DVM或ART，因此通过fork而创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本
+> 在Android系统中，DVM（Dalvik虚拟机）和ART、应用程序进程以及运行系统的关键服务SystemServer进程都是由Zygote进程来创建的，我们称之为**孵化器**。它通过**fork**（复制进程）的形式来创建应用程序进程和SystemServer进程，由于Zygote进程在启动时会创建DVM或ART，因此通过fork而创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本
 
 
 
