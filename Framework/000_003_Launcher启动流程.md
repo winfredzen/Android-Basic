@@ -8,6 +8,12 @@
 
 
 
+SystemServer进程在启动的过程中会启动PackageManagerService，PackageManagerService启动后会将系统中的应用程序安装完成。在此前已启动的AMS会将Launcher启动起来
+
+![049](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/049.png)
+
+
+
 Launcher的启动流程大致如下：
 
 ![033](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/033.png)
