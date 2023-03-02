@@ -121,10 +121,6 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub
 
 
 
-![055](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/055.png)
-
-
-
 
 
 
