@@ -6,6 +6,24 @@
 
 
 
+`《Android进阶解密》`一书中的内容，在最新的Android 系统版本中有变化
+
+参考：
+
++ [从Launcher启动一个APP流程 Android 12](https://blog.csdn.net/followYouself/article/details/125176288)
+
+
+
+![059](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/059.png)
+
+
+
+
+
+------
+
+
+
 ## Launcher请求AMS过程
 
 原书中的时序图如下：
@@ -19,6 +37,18 @@
 ![058](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/058.png)
 
 其中就新引入了**`ActivityTaskManagerService`**
+
+
+
+**ActivityTaskManagerService**
+
+> System service for managing activities and their containers (task, displays,... ).
+
+> `ActivityTaskManagerService`(以下简称ATMS)是Android 10新增加的系统服务类，承担了`ActivityManagerService`(AMS)的部分工作(activities、task, stacks, displays相关)，比如将Activity的启动相关的调用转移到了ATMS中
+
+```java
+public class ActivityTaskManagerService extends IActivityTaskManager.Stub
+```
 
 
 
