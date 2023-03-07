@@ -190,8 +190,8 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub
 
 参考：
 
-+ [[深入理解 Activity 启动流程和 AMS 框架（一）](https://my.oschina.net/u/3735058/blog/4468490)](https://my.oschina.net/u/3735058/blog/4468490)
-+ [[深入理解 Activity 启动流程和 AMS 框架（二）](https://my.oschina.net/u/3735058/blog/4468488)](https://my.oschina.net/u/3735058/blog/4468488)
++ [深入理解 Activity 启动流程和 AMS 框架（一）](https://my.oschina.net/u/3735058/blog/4468490)
++ [深入理解 Activity 启动流程和 AMS 框架（二）](https://my.oschina.net/u/3735058/blog/4468488)
 + [android线程管理五（ActivityThread与ApplicationThread）](https://blog.csdn.net/lu1024188315/article/details/75722420)
 + [Android启动过程剖析-深入浅出](https://juejin.cn/post/6844903630462517255#heading-6)
 
