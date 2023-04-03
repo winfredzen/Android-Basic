@@ -6,6 +6,14 @@
 
 + [Gradle学习系列（七）：Android Gradle Plugin 源码解析](https://juejin.cn/post/6974962797973078046)
 + [一文读懂Android Gradle](https://github.com/JeremyLiao/android-gradle-study)
++ [Android Gradle Plugin 插件主要流程](https://github.com/5A59/android-training/blob/master/gradle/android_gradle_plugin-%E4%B8%BB%E8%A6%81%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90.md)
+
+
+
+官方文档：
+
++ [Build Lifecycle](https://docs.gradle.org/current/userguide/build_lifecycle.html)
++ [配置 build](https://developer.android.com/studio/build?hl=zh-cn)
 
 
 
