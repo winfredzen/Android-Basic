@@ -1,0 +1,20 @@
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+
+
+task intro(dependsOn: hello) { 
+    doLast {
+        println "I'm Gradle" 
+    }
+}
+
+4.times { 
+    counter -> task "task$counter" {
+        doLast {
+            println "I'm task number $counter"
+        }
+    }
+}
