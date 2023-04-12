@@ -64,6 +64,55 @@ This line is from pid 7309, value = 3
 
 
 
+**说明：**
+
+假设上面的程序执行到了 **fork()**这儿：
+
+![065](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/065.jpeg)
+
+如果 **fork()**执行成功了，Unix会：
+
++ 制作两个相同的地址空间副本，一个给parent，另一个给 child
++ 两个进程都将在 `fork()` 调用之后的下一条语句开始执行。 在这种情况下，两个进程都将在赋值语句处开始执行，如下所示：
+
+![066](https://github.com/winfredzen/Android-Basic/blob/master/Framework/images/066.jpeg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
