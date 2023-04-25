@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mNumberPicker = findViewById(R.id.number_picker);
-
-        mNumberPicker.setMaxValue(4);
-        mNumberPicker.setMinValue(0);
+//        mNumberPicker = findViewById(R.id.number_picker);
+//
+//        mNumberPicker.setMaxValue(4);
+//        mNumberPicker.setMinValue(0);
 
 //        pickerVals = new String[] {"dog", "cat", "lizard", "turtle", "axolotl"};
 //
