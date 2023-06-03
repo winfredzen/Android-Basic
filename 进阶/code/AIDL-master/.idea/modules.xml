@@ -4,7 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/AIDL-master.iml" filepath="$PROJECT_DIR$/.idea/AIDL-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AIDL-master.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AIDL-master.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AIDL-master.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AIDL-master.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AIDL-master.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AIDL-master.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AIDL-master.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AIDL-master.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/client/AIDL-master.client.iml" filepath="$PROJECT_DIR$/.idea/modules/client/AIDL-master.client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/client/AIDL-master.client.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/client/AIDL-master.client.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/client/AIDL-master.client.main.iml" filepath="$PROJECT_DIR$/.idea/modules/client/AIDL-master.client.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/client/AIDL-master.client.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/client/AIDL-master.client.unitTest.iml" />
     </modules>
   </component>
 </project>

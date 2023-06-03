@@ -2,6 +2,7 @@ package com.aidl.service;
 
 import android.app.Service;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteCallbackList;
@@ -24,6 +25,7 @@ public class MyService extends Service {
 
         //发送消息
         public void sendMsg(Msg msg) {
+            Log.i("wz", "sendMsg", new Exception());
             receiveMsg(msg);
         }
 

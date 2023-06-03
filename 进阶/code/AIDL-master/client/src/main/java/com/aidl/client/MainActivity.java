@@ -140,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onReceive(Msg msg) throws RemoteException {
+            Log.i("wz", "onReceive", new Exception());
             msg.setTime(System.currentTimeMillis());
             if (mMsgs.size() > 100) {
                 mMsgs.clear();
