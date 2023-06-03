@@ -13,3 +13,11 @@
  adb logcat --help
 ```
 
+
+
+**event日志**
+
+```shell
+logcat -b events
+```
+
