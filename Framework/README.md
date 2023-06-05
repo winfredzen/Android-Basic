@@ -8,6 +8,12 @@
 + [Android Framework学习教程-BootAnimation开机动画启动流程源码分析](https://blog.csdn.net/learnframework/article/details/117173110)
 + [Android Framework实战视频--init进程的bootanimation启动源码分析（补充Android 10部分的BootAnimation的启动源码分析）](https://blog.csdn.net/learnframework/article/details/116719986)
 
++ [Android系统开发进阶-BootAnimation启动与结束流程](http://qiushao.net/2020/02/23/Android%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/BootAnimation%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/)
+
+
+
+
+
 
 
 **Zygote**
