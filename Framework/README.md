@@ -32,6 +32,21 @@
 
 
 
+**Binder**
+
+**Binder中级**
+
++ [Android Framework实战开发-(1)binder通信常见使用方式，及案例分析](https://blog.csdn.net/learnframework/article/details/119769754)
++ [Binder通信之startActivity跨进程源码分析](https://blog.csdn.net/learnframework/article/details/119859818)
+
++ [Binder专题讲解之aidl文件的详细分析](https://blog.csdn.net/learnframework/article/details/119634022)
+
+
+
+
+
+
+
 
 
 -----
