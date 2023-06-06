@@ -34,6 +34,8 @@
 
 **Binder**
 
+[千里马Android Framework实战开发-跨进程通信专题博客总结](https://blog.csdn.net/learnframework/article/details/120103471)
+
 **Binder中级**
 
 + [Android Framework实战开发-(1)binder通信常见使用方式，及案例分析](https://blog.csdn.net/learnframework/article/details/119769754)
@@ -41,7 +43,7 @@
 
 + [Binder专题讲解之aidl文件的详细分析](https://blog.csdn.net/learnframework/article/details/119634022)
 
-
++ [Android Framework实战开发-binder通信常见（oneway，in，out，inout）元素介绍及binder双向通信的实现](https://blog.csdn.net/learnframework/article/details/119812520)
 
 
 
