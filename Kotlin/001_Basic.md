@@ -15,6 +15,15 @@
 
 使用`val`表示常量，只能为其赋值一次，使用`var`表示变量
 
+声明时可以加类型，也可以不加类型
+
+```kotlin
+    val a : Int = 42
+    val b = 43
+```
+
+
+
 ## 区间与数列
 
 调用 `kotlin.ranges` 包中的 [`rangeTo()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/range-to.html) 函数及其操作符形式的 `..` 轻松地创建两个值的区间
