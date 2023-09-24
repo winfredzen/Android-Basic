@@ -1,7 +1,7 @@
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import kotlin.concurrent.thread
+import kotlin.coroutines.CoroutineContext
+import kotlin.coroutines.EmptyCoroutineContext
 
 fun main(args: Array<String>) {
     GlobalScope.launch {
@@ -16,6 +16,31 @@ fun main(args: Array<String>) {
 
     log("Hello, ")
     Thread.sleep(2000L)
+
+
+//    val name: CoroutineName = CoroutineName("A name")
+//    val element: CoroutineContext.Element = name
+//    val context: CoroutineContext = element
+//
+//    val job: Job = Job()
+//    val jobElement: CoroutineContext.Element = job
+//    val jobContext: CoroutineContext = jobElement
+
+
+//    val ctx: CoroutineContext = CoroutineName("A name")
+//
+//    val coroutineName: CoroutineName? = ctx[CoroutineName]
+//    // or ctx.get(CoroutineName)
+//    println(coroutineName?.name) // A name
+//    val job: Job? = ctx[Job] // or ctx.get(Job)
+//    println(job) // null
+
+    val empty: CoroutineContext = EmptyCoroutineContext
+    println(empty[CoroutineName]) // null
+    println(empty[Job]) // null
+
+    val ctxName = empty + CoroutineName("Name1") + empty
+    println(ctxName[CoroutineName]) // CoroutineName(Name1)
 }
 
 private fun log(msg: Any?) = println("[${Thread.currentThread().name}] $msg")

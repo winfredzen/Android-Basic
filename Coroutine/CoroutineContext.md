@@ -113,15 +113,86 @@ public interface CoroutineContext {
 
 
 
+## 使用
+
+参考：
+
++ [**What is CoroutineContext and how does it work?**](https://kt.academy/article/cc-coroutine-context)
+
+如：
+
+```kotlin
+    val name: CoroutineName = CoroutineName("A name")
+    val element: CoroutineContext.Element = name
+    val context: CoroutineContext = element
+
+    val job: Job = Job()
+    val jobElement: CoroutineContext.Element = job
+    val jobContext: CoroutineContext = jobElement
+```
 
 
 
+**查找 `CoroutineContext`的元素**
+
+```kotlin
+    val ctx: CoroutineContext = CoroutineName("A name")
+
+    val coroutineName: CoroutineName? = ctx[CoroutineName]
+    // or ctx.get(CoroutineName)
+    println(coroutineName?.name) // A name
+    val job: Job? = ctx[Job] // or ctx.get(Job)
+    println(job) // null
+```
 
 
 
+**Context相加**
+
+```kotlin
+fun main() {
+    val ctx1: CoroutineContext = CoroutineName("Name1")
+    println(ctx1[CoroutineName]?.name) // Name1
+    println(ctx1[Job]?.isActive) // null
+
+    val ctx2: CoroutineContext = Job()
+    println(ctx2[CoroutineName]?.name) // null
+    println(ctx2[Job]?.isActive) // true, because "Active"
+    // is the default state of a job created this way
+
+    val ctx3 = ctx1 + ctx2
+    println(ctx3[CoroutineName]?.name) // Name1
+    println(ctx3[Job]?.isActive) // true
+}
+```
+
+如果有相同的key存在，后面的会替换前面的
+
+```kotlin
+fun main() {
+    val ctx1: CoroutineContext = CoroutineName("Name1")
+    println(ctx1[CoroutineName]?.name) // Name1
+
+    val ctx2: CoroutineContext = CoroutineName("Name2")
+    println(ctx2[CoroutineName]?.name) // Name2
+
+    val ctx3 = ctx1 + ctx2
+    println(ctx3[CoroutineName]?.name) // Name2
+}
+```
 
 
 
+**空coroutine context**
+
+```kotlin
+    val empty: CoroutineContext = EmptyCoroutineContext
+    println(empty[CoroutineName]) // null
+    println(empty[Job]) // null
+
+    val ctxName = empty + CoroutineName("Name1") + empty
+    println(ctxName[CoroutineName]) // CoroutineName(Name1)
+```
 
 
 
