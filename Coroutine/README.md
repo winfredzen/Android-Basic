@@ -4,6 +4,12 @@
 
 + [协程基础](https://www.kotlincn.net/docs/reference/coroutines/basics.html#协程基础)
 
++ [一文快速入门 Kotlin 协程](https://juejin.cn/post/6908271959381901325#heading-4)
+
+
+
+协程是轻量级的线程
+
 
 
 ## GlobalScope
@@ -62,7 +68,9 @@ log输出如下：
 [DefaultDispatcher-worker-1] World!
 ```
 
+如果将`GlobalScope.launch { …… }` 替换为 `thread { …… }`，会有如下错误：
 
+![001](./images/001.png)
 
 
 
