@@ -6,7 +6,14 @@ fun main(args: Array<String>) {
     println("Program arguments: ${args.joinToString()}")
 
     println("getScore ${getScore("wz")}")
-    
+
+    val stu = Student("1", 1, "Jack", 19)
+
+    val student1 = Student()
+    val student2 = Student("Jack", 19)
+    val student3 = Student("a123", 5, "Jack", 19)
+
+
 }
 
 fun getScore(name: String) = when (name) {
