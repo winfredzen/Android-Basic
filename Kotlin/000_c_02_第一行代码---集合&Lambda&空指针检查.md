@@ -271,11 +271,42 @@ Thread {
 
 
 
+如Android的点击事件接口`OnClickListener`
+
+```java
+public interface OnClickListener {
+ void onClick(View v);
+}
+```
+
+使用Java代码去注册这个按钮的点击事件，需要这么写
+
+```java
+button.setOnClickListener(new View.OnClickListener() {
+ @Override
+ public void onClick(View v) {
+ }
+});
+```
+
+而用Kotlin代码实现同样的功能，就可以使用函数式API的写法来对代码进行简化，结果如下：
+
+```java
+button.setOnClickListener {
+}
+```
+
+
+
+
+
 ## 空指针检查
 
 ### 判空辅助工具
 
 最常用的`?.`操作符
+
+当对象不为空时正常调用相应的方法，当对象为空时则什么都不做
 
 ```kotlin
 if (a != null) {
@@ -414,23 +445,60 @@ fun doStudy(study: Study?) {
 
 
 
+## 函数的参数默认值
+
+如下的函数：
+
+```kotlin
+fun printParams(num: Int, str: String = "hello") {
+    println("num is $num, str is $str")
+}
+```
+
+第二个参数有默认参数，所以调用的时候可以忽略第二参数值：
+
+```kotlin
+printParams(100)
+// num is 100, str is hello
+```
+
+但如果给第一个参数设置默认值呢？调用的时候会提示*类型不匹配错误*：
+
+![035](./images/035.png)
+
+Kotlin提供了另外一种神奇的机制，就是可以通过键值对的方式来传参，从而不必像传统写法那样按照参数定义的**顺序**来传参
+
+```kotlin
+ printParams(str = "Hello")
+```
 
 
 
+**这个功能可以在很大程度上替代次构造函数的作用**
 
+可将
 
+```kotlin
+class Student(val sno: String, val grade: Int, name: String, age: Int) : Person(name, age) {
+    init {
+        println("sno is " + sno)
+        println("grade is " + grade)
+    }
 
+    constructor(name: String, age: Int) : this("", 0, name, age) {
+    }
+    constructor() : this("", 0) {
+    }
+}
+```
 
+替换为：
 
-
-
-
-
-
-
-
-
-
+```kotlin
+class Student(val sno: String = "", val grade: Int = 0, name: String = "", age: Int = 0) :
+ Person(name, age) {
+}
+```
 
 
 
