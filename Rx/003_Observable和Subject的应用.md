@@ -129,7 +129,7 @@ fun addPhoto(photo: Photo) {
 
 ![](./images/001.png)
 
-代码位置：
+代码位置：[源码](https://github.com/winfredzen/Android-Basic/tree/master/Rx/source_code/Combinestagram)
 
 
 
