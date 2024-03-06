@@ -10,14 +10,18 @@ fun main(args: Array<String>) {
 //    println("Program arguments: ${args.joinToString()}")
 
 
-
-    exampleOf("toList") {
-        val subscriptions = CompositeDisposable()
-        val items = Observable.just("A", "B", "C")
-
-        subscriptions.add(items.toList().subscribeBy {
-            println(it)
-        })
+    exampleOf("just") {
+        val observable: Observable<Int> = Observable.just(1, 2, 3)
     }
+
+
+//    exampleOf("toList") {
+//        val subscriptions = CompositeDisposable()
+//        val items = Observable.just("A", "B", "C")
+//
+//        subscriptions.add(items.toList().subscribeBy {
+//            println(it)
+//        })
+//    }
 
 }
