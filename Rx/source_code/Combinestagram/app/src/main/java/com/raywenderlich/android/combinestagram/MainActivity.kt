@@ -37,7 +37,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.kotlin.subscribeBy
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -104,15 +107,28 @@ class MainActivity : AppCompatActivity() {
     private fun actionSave() {
 //    println("actionSave")
 
-        viewModel.saveBitmapFromImageView(collageImage, this).subscribeBy(
-            onNext = { file ->
-                println("onNext Thread started: ${Thread. currentThread(). name}")
+//        viewModel.saveBitmapFromImageView(collageImage, this).subscribeBy(
+//            onNext = { file ->
+//                println("onNext Thread started: ${Thread. currentThread(). name}")
+//                Toast.makeText(this, "$file saved", Toast.LENGTH_SHORT).show()
+//            }, onError = { e ->
+//                println("onError Thread started: ${Thread. currentThread(). name}")
+//                Toast.makeText(this, "Error saving file :${e.localizedMessage}", Toast.LENGTH_SHORT)
+//                    .show()
+//            })
+
+        viewModel.saveBitmapFromImageView(collageImage, this)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+            onSuccess = { file ->
                 Toast.makeText(this, "$file saved", Toast.LENGTH_SHORT).show()
-            }, onError = { e ->
-                println("onError Thread started: ${Thread. currentThread(). name}")
+            },
+            onError = { e ->
                 Toast.makeText(this, "Error saving file :${e.localizedMessage}", Toast.LENGTH_SHORT)
                     .show()
-            })
+            }
+        )
 
     }
 

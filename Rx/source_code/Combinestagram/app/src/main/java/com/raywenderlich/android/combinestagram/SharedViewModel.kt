@@ -103,10 +103,9 @@ class SharedViewModel : ViewModel() {
             .addTo(disposables)
     }
 
-    fun saveBitmapFromImageView(imageView: ImageView, context: Context): Observable<String> {
-Single
+    fun saveBitmapFromImageView(imageView: ImageView, context: Context): Single<String> {
 
-        return Observable.create { emitter ->
+        return Single.create { emitter ->
             println("saveBitmapFromImageView Thread started: ${Thread. currentThread(). name}")
             val tmpImg = "${System.currentTimeMillis()}.png"
 
@@ -127,8 +126,7 @@ Single
                 os.close()
 
                 // emit创建图片的名称
-                emitter.onNext(tmpImg)
-                emitter.onComplete()
+                emitter.onSuccess(tmpImg)
 
             } catch (e: IOException) {
                 Log.e("MainActivity", "Problem saving collage", e)
@@ -137,6 +135,40 @@ Single
                 emitter.onError(e)
             }
         }
+
+//    fun saveBitmapFromImageView(imageView: ImageView, context: Context): Observable<String> {
+//
+//        return Observable.create { emitter ->
+//            println("saveBitmapFromImageView Thread started: ${Thread. currentThread(). name}")
+//            val tmpImg = "${System.currentTimeMillis()}.png"
+//
+//            val os: OutputStream?
+//
+//            val collagesDirectory = File(context.getExternalFilesDir(null), "collages")
+//            if (!collagesDirectory.exists()) {
+//                collagesDirectory.mkdirs()
+//            }
+//
+//            val file = File(collagesDirectory, tmpImg)
+//
+//            try {
+//                os = FileOutputStream(file)
+//                val bitmap = (imageView.drawable as BitmapDrawable).bitmap
+//                bitmap.compress(Bitmap.CompressFormat.PNG, 100, os)
+//                os.flush()
+//                os.close()
+//
+//                // emit创建图片的名称
+//                emitter.onNext(tmpImg)
+//                emitter.onComplete()
+//
+//            } catch (e: IOException) {
+//                Log.e("MainActivity", "Problem saving collage", e)
+//
+//                // 发生错误，emit错误
+//                emitter.onError(e)
+//            }
+//        }
 
 
     }
