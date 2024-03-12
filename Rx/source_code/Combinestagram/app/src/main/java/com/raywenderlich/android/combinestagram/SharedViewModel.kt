@@ -39,6 +39,7 @@ import android.widget.ImageView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.subjects.BehaviorSubject
@@ -103,8 +104,10 @@ class SharedViewModel : ViewModel() {
     }
 
     fun saveBitmapFromImageView(imageView: ImageView, context: Context): Observable<String> {
+Single
 
         return Observable.create { emitter ->
+            println("saveBitmapFromImageView Thread started: ${Thread. currentThread(). name}")
             val tmpImg = "${System.currentTimeMillis()}.png"
 
             val os: OutputStream?
@@ -123,13 +126,14 @@ class SharedViewModel : ViewModel() {
                 os.flush()
                 os.close()
 
-                //
+                // emit创建图片的名称
                 emitter.onNext(tmpImg)
                 emitter.onComplete()
 
             } catch (e: IOException) {
                 Log.e("MainActivity", "Problem saving collage", e)
 
+                // 发生错误，emit错误
                 emitter.onError(e)
             }
         }

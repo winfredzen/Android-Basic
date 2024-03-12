@@ -127,6 +127,80 @@ fun addPhoto(photo: Photo) {
 
 
 
+## 创建自定义的observable
+
+书中的例子是，获取到`ImageView`的`drawable`，并保存起来。
+
+操作时阻塞的过程。这里返回一个`Observable<String>` 
+
+```kotlin
+    fun saveBitmapFromImageView(imageView: ImageView, context: Context): Observable<String> {
+
+        return Observable.create { emitter ->
+            println("saveBitmapFromImageView Thread started: ${Thread. currentThread(). name}")
+            val tmpImg = "${System.currentTimeMillis()}.png"
+
+            val os: OutputStream?
+
+            val collagesDirectory = File(context.getExternalFilesDir(null), "collages")
+            if (!collagesDirectory.exists()) {
+                collagesDirectory.mkdirs()
+            }
+
+            val file = File(collagesDirectory, tmpImg)
+
+            try {
+                os = FileOutputStream(file)
+                val bitmap = (imageView.drawable as BitmapDrawable).bitmap
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, os)
+                os.flush()
+                os.close()
+
+                // emit创建图片的名称
+                emitter.onNext(tmpImg)
+                emitter.onComplete()
+
+            } catch (e: IOException) {
+                Log.e("MainActivity", "Problem saving collage", e)
+
+                // 发生错误，emit错误
+                emitter.onError(e)
+            }
+        }
+```
+
+使用方式如下：
+
+```kotlin
+        viewModel.saveBitmapFromImageView(collageImage, this).subscribeBy(
+            onNext = { file ->
+                println("onNext Thread started: ${Thread. currentThread(). name}")
+                Toast.makeText(this, "$file saved", Toast.LENGTH_SHORT).show()
+            }, onError = { e ->
+                println("onError Thread started: ${Thread. currentThread(). name}")
+                Toast.makeText(this, "Error saving file :${e.localizedMessage}", Toast.LENGTH_SHORT)
+                    .show()
+            })
+```
+
+我自己的理解：
+
+1.这里好像调用过程还是阻塞的，在主线程
+
+2.`subscribeBy`应该是属于RxKotlin的方法：
+
+```kotlin
+@CheckReturnValue
+@SchedulerSupport(SchedulerSupport.NONE)
+fun <T : Any> Observable<T>.subscribeBy(
+        onError: (Throwable) -> Unit = onErrorStub,
+        onComplete: () -> Unit = onCompleteStub,
+        onNext: (T) -> Unit = onNextStub
+): Disposable = subscribe(onNext.asConsumer(), onError.asOnErrorConsumer(), onComplete.asOnCompleteAction())
+```
+
+
+
 ![](./images/001.png)
 
 代码位置：[源码](https://github.com/winfredzen/Android-Basic/tree/master/Rx/source_code/Combinestagram)

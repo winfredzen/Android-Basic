@@ -106,8 +106,10 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.saveBitmapFromImageView(collageImage, this).subscribeBy(
             onNext = { file ->
+                println("onNext Thread started: ${Thread. currentThread(). name}")
                 Toast.makeText(this, "$file saved", Toast.LENGTH_SHORT).show()
             }, onError = { e ->
+                println("onError Thread started: ${Thread. currentThread(). name}")
                 Toast.makeText(this, "Error saving file :${e.localizedMessage}", Toast.LENGTH_SHORT)
                     .show()
             })
