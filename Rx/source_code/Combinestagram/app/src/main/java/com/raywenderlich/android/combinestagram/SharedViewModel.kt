@@ -38,7 +38,6 @@ import android.util.Log
 import android.widget.ImageView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
@@ -52,7 +51,7 @@ import java.io.OutputStream
 class SharedViewModel : ViewModel() {
 
     // 处理订阅的销毁相关操作
-    private val disposables = CompositeDisposable()
+    private val subscriptions = CompositeDisposable()
 
     // imagesSubject发射MutableList<Photo>类型的值，表示选择的photos，其默认值为空list
     private val imagesSubject: BehaviorSubject<MutableList<Photo>> = BehaviorSubject.createDefault(
@@ -67,12 +66,12 @@ class SharedViewModel : ViewModel() {
         imagesSubject.subscribe { photos ->
             // LiveData的更新
             selectedPhotos.value = photos
-        }.addTo(disposables)
+        }.addTo(subscriptions)
     }
 
     // ViewModels onCleared() method is a great place to dispose of any disposables you may have lying around
     override fun onCleared() {
-        disposables.clear()
+        subscriptions.clear()
         super.onCleared()
     }
 
@@ -91,17 +90,31 @@ class SharedViewModel : ViewModel() {
         return selectedPhotos
     }
 
-    fun subscribeSelectedPhotos(selectedPhotos: Observable<Photo>) {
-        selectedPhotos
+    fun subscribeSelectedPhotos(fragment: PhotosBottomDialogFragment) {
+        // 使用share，不会每次都创建一个新的Observable
+        val newPhotos = fragment.selectedPhotos.share()
+        subscriptions.add(newPhotos
             .doOnComplete {
                 Log.v("SharedViewModel", "Completed selecting photos")
             }
             .subscribe { photo ->
                 imagesSubject.value?.add(photo)
-                imagesSubject.onNext(imagesSubject.value!!)
+                imagesSubject.onNext(imagesSubject.value ?: mutableListOf())
             }
-            .addTo(disposables)
+        )
     }
+
+//    fun subscribeSelectedPhotos(selectedPhotos: Observable<Photo>) {
+//        selectedPhotos
+//            .doOnComplete {
+//                Log.v("SharedViewModel", "Completed selecting photos")
+//            }
+//            .subscribe { photo ->
+//                imagesSubject.value?.add(photo)
+//                imagesSubject.onNext(imagesSubject.value!!)
+//            }
+//            .addTo(disposables)
+//    }
 
     fun saveBitmapFromImageView(imageView: ImageView, context: Context): Single<String> {
 
