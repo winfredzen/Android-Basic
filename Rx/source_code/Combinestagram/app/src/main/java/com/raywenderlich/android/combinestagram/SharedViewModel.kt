@@ -33,11 +33,13 @@ package com.raywenderlich.android.combinestagram
 import androidx.lifecycle.ViewModel
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.util.Log
 import android.widget.ImageView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
@@ -46,6 +48,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
+import java.util.concurrent.TimeUnit
 
 
 class SharedViewModel : ViewModel() {
@@ -101,10 +104,26 @@ class SharedViewModel : ViewModel() {
     fun subscribeSelectedPhotos(fragment: PhotosBottomDialogFragment) {
         // 使用share，不会每次都创建一个新的Observable
         val newPhotos = fragment.selectedPhotos.share()
+
+        // 过滤一些不需要的数据
         subscriptions.add(newPhotos
             .doOnComplete {
                 Log.v("SharedViewModel", "Completed selecting photos")
             }
+            .takeWhile {
+                imagesSubject.value?.size ?: 0 < 6
+            }
+            .filter { newImage ->
+                // 过滤掉portrait 图片
+                val bitmap = BitmapFactory.decodeResource(fragment.resources, newImage.drawable)
+                bitmap.width > bitmap.height
+            }
+            .filter { newImage ->
+                // 防止添加重复的图片
+                val photos = imagesSubject.value ?: mutableListOf()
+                !(photos.map { it.drawable }.contains(newImage.drawable))
+            }
+            .debounce(250, TimeUnit.MILLISECONDS, AndroidSchedulers.mainThread())
             .subscribe { photo ->
                 imagesSubject.value?.add(photo)
                 imagesSubject.onNext(imagesSubject.value ?: mutableListOf())
