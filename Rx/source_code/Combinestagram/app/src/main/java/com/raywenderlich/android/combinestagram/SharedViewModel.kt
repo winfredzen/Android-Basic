@@ -61,6 +61,9 @@ class SharedViewModel : ViewModel() {
     // selectedPhotos
     private val selectedPhotos = MutableLiveData<List<Photo>>()
 
+    // 用来通知MainActivity更新缩略图
+    private val thumbnailStatus = MutableLiveData<ThumbnailStatus>()
+
     init {
         // 订阅imagesSubject
         imagesSubject.subscribe { photos ->
@@ -90,6 +93,11 @@ class SharedViewModel : ViewModel() {
         return selectedPhotos
     }
 
+    fun getThumbnailStatus(): LiveData<ThumbnailStatus> {
+        return thumbnailStatus
+    }
+
+
     fun subscribeSelectedPhotos(fragment: PhotosBottomDialogFragment) {
         // 使用share，不会每次都创建一个新的Observable
         val newPhotos = fragment.selectedPhotos.share()
@@ -100,6 +108,13 @@ class SharedViewModel : ViewModel() {
             .subscribe { photo ->
                 imagesSubject.value?.add(photo)
                 imagesSubject.onNext(imagesSubject.value ?: mutableListOf())
+            }
+        )
+
+        subscriptions.add(newPhotos
+            .ignoreElements() // 只允许 complete or error 事件
+            .subscribe {
+                thumbnailStatus.postValue(ThumbnailStatus.READY)
             }
         )
     }

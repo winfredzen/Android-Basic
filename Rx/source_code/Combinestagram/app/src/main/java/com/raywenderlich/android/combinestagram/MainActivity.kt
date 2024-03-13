@@ -88,6 +88,14 @@ class MainActivity : AppCompatActivity() {
             updateUI(photos)
         })
 
+
+        // 缩略图
+        viewModel.getThumbnailStatus().observe(this, Observer { status ->
+            if (status == ThumbnailStatus.READY) {
+                thumbnail.setImageDrawable(collageImage.drawable)
+            }
+        })
+
     }
 
     private fun actionAdd() {
@@ -96,7 +104,7 @@ class MainActivity : AppCompatActivity() {
         val addPhotoBottomDialogFragment = PhotosBottomDialogFragment.newInstance()
         addPhotoBottomDialogFragment.show(supportFragmentManager, "PhotosBottomDialogFragment")
 
-        viewModel.subscribeSelectedPhotos(addPhotoBottomDialogFragment.selectedPhotos)
+        viewModel.subscribeSelectedPhotos(addPhotoBottomDialogFragment)
 
     }
 
