@@ -80,7 +80,13 @@ public interface GitHubService {
 
 
 
+## 返回值的类型
 
+RxJava和Retrofit结合后，网络请求有3种返回形式：`Observable<BodyType>`, `Observable<Response<BodyType>>`, 或者 `Observable<Result<BodyType>>`
+
+从`RxJava3CallAdapterFactory`的源码也可以看出来：
+
+![033](./images/033.png)
 
 
 
