@@ -37,6 +37,14 @@ if (!bluetoothAdapter.isEnabled()) {
 
 
 
+## 其它参考
+
+1.[Android中蓝牙的基本使用----BluetoothAdapter类简介](https://blog.csdn.net/qinjuning/article/details/7726093)
+
+2.Android源码中的[**LocalBluetoothAdapter**](https://cs.android.com/android/platform/superproject/+/master:frameworks/base/packages/SettingsLib/src/com/android/settingslib/bluetooth/LocalBluetoothAdapter.java;l=91?q=LocalBluetoothAdapter&ss=android%2Fplatform%2Fsuperproject)也封装了很多`BluetoothAdapter`的方法调用
+
+
+
 
 
 
