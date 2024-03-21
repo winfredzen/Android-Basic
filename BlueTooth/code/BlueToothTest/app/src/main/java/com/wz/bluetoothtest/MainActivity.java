@@ -71,6 +71,14 @@ public class MainActivity extends AppCompatActivity {
         setUpBluetooth();
     }
 
+
+    private void registerReceiver() {
+        // Register for broadcasts when a device is discovered.
+        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+        registerReceiver(receiver, filter);
+    }
+
+
     public void requestPermissions() {
         // 检查是否有相应的权限
         boolean isAllGranted = checkPermissionsAllGranted(permissions);
@@ -135,13 +143,16 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "startDiscovery b = " + b);
     }
 
-    private void registerReceiver() {
-        // Register for broadcasts when a device is discovered.
-        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        registerReceiver(receiver, filter);
+    //------------------ 打开or关闭蓝牙 --------------------//
+
+    public boolean setBluetoothEnabled(View view) {
+        boolean enabled = bluetoothAdapter.isEnabled();
+        boolean success = enabled ? bluetoothAdapter.disable() : bluetoothAdapter.enable();
+        return success;
     }
 
 
+    //------------------ 打开or关闭蓝牙 --------------------//
 
 
     /**

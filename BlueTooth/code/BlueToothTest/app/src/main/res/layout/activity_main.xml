@@ -8,6 +8,14 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/button_on_off"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开or关闭蓝牙"
+        android:onClick="setBluetoothEnabled"
+        />
+
+    <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
