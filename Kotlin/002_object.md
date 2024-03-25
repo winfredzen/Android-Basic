@@ -30,6 +30,50 @@ textView.setOnClickListener(object : OnClickListener {
 })
 ```
 
+或者如如下的例子：
+
+```kotlin
+Thread(object : Runnable {
+ override fun run() {
+ println("Thread is running")
+ }
+}).start()
+```
+
+> 由于Kotlin完全舍弃了`new`关键字，因此创建匿名类实例的时候就不能再使用`new`了，而是改用了`object`关键字
+
+由于`Thread`类的构造方法是符合Java函数式API的使用条件的，所以可以精简
+
+```kotlin
+Thread(Runnable {
+ println("Thread is running")
+}).start()
+```
+
+> 因为`Runnable`类中只有一个待实现方法，即使这里没有显式地重写`run()`方法，Kotlin也能自动明白`Runnable`后面的Lambda表达式就是要在`run()`方法中实现的内容
+
+如果一个Java方法的参数列表中有且仅有一个Java单抽象方法接口参数，我们还可以将 接口名进行省略
+
+```kotlin
+Thread({
+ println("Thread is running")
+}).start()
+```
+
+当Lambda表达式是方法的最后一个参数时，可以将Lambda表达式移到方法括号的外面
+
+```kotlin
+Thread {
+ println("Thread is running")
+}.start()
+```
+
+
+
+
+
+
+
 ## Object declarations
 
 用`object` 修饰的类为静态类，里面的方法和变量都为`静态`的。
@@ -181,7 +225,6 @@ public final class Person {
 ```
 
 **使用伴生对象实际上是在这个类内部创建了一个名为 Companion 的静态单例内部类**
-
 
 
 
