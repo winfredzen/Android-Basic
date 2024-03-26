@@ -2,17 +2,18 @@ package org.example
 
 fun main() {
 
+    doSomething()
 
-    val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape")
-    val result = with(StringBuilder()) {
-        append("Start eating fruits.\n")
-        for (fruit in list) {
-            append(fruit).append("\n")
-        }
-        append("Ate all fruits.")
-        toString()
-    }
-    println(result)
+//    val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape")
+//    val result = with(StringBuilder()) {
+//        append("Start eating fruits.\n")
+//        for (fruit in list) {
+//            append(fruit).append("\n")
+//        }
+//        append("Ate all fruits.")
+//        toString()
+//    }
+//    println(result)
 
 //    val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape")
 //    val builder = StringBuilder()

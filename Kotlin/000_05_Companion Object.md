@@ -97,6 +97,80 @@ public final class Person {
 
 
 
+## 真正实现静态方法
+
+前面使用的单例类和`companion object`都只是在语法的形式上模仿了静态方法的调用方式，实际上它们都不是真正的静态方法。因此如果你在Java代码中以静态方法的形式去调用的话，你会发现这些方法并不存在
+
+### @JvmStatic注解
+
+`@JvmStatic`注解只能加在单例类或`companion object`中的方法上
+
+```kotlin
+class Util {
+    fun doAction1() {
+        println("do action1")
+    }
+
+    companion object {
+
+        @JvmStatic
+        fun doAction2() {
+            println("do action2")
+        }
+    }
+}
+```
+
+将kotlin转为java后的代码如下：
+
+```java
+@Metadata(mv={1, 9, 0}, k=1, xi=48, d1={"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\u0018\u0000 \u00052\u00020\u0001:\u0001\u0005B\u0005\u00a2\u0006\u0002\u0010\u0002J\u0006\u0010\u0003\u001a\u00020\u0004\u00a8\u0006\u0006"}, d2={"Lorg/example/Util;", "", "()V", "doAction1", "", "Companion", "KotlinTest"})
+public final class Util {
+    @NotNull
+    public static final Companion Companion = new Companion(null);
+
+    public final void doAction1() {
+        System.out.println((Object)"do action1");
+    }
+
+    @JvmStatic
+    public static final void doAction2() {
+        Companion.doAction2();
+    }
+
+    @Metadata(mv={1, 9, 0}, k=1, xi=48, d1={"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002J\b\u0010\u0003\u001a\u00020\u0004H\u0007\u00a8\u0006\u0005"}, d2={"Lorg/example/Util$Companion;", "", "()V", "doAction2", "", "KotlinTest"})
+    public static final class Companion {
+        private Companion() {
+        }
+
+        @JvmStatic
+        public final void doAction2() {
+            System.out.println((Object)"do action2");
+        }
+
+        public /* synthetic */ Companion(DefaultConstructorMarker $constructor_marker) {
+            this();
+        }
+    }
+}
+```
+
+
+
+### 顶层方法
+
+Kotlin编译器会将所有的顶层方法全部编译成静态方法
+
+![036](./images/036.png)
+
+![037](./images/037.png)
+
+
+
+刚才创建的Kotlin文件名叫作`Helper.kt`，于是Kotlin编译器会自动创建一个叫作`HelperKt`的Java类，`doSomething()`方法就是以静态方法的形式定义在`HelperKt`类里面的，因此在Java中使用`HelperKt.doSomething()`的写法来调用就可以了
+
+![038](./images/038.png)
+
 
 
 
