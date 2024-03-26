@@ -1,5 +1,28 @@
 # Companion Object
 
+使用单例类的写法会将整个类中的所有方法全部变成类似于静态方法的调用方式，而如果我们只是希望让类中的某一个方法变成静态方法的调用方式该怎么办呢?
+
+使用`companion object`
+
+```kotlin
+class Util {
+    fun doAction1() {
+        println("do action1")
+    }
+    companion object {
+        fun doAction2() {
+            println("do action2")
+        }
+    }
+}
+```
+
+> `doAction2()`方法其实也并不是静态方法，`companion object`这个关键字实际上会在`Util`类的内部创建一个伴生类，而`doAction2()`方法就是定义在这个伴生类里面的实例方法。只是Kotlin会保证`Util`类始终只会存在一个伴生类对象，因此调用`Util.doAction2()`方法实际上就是调用了`Util`类中伴生对象的`doAction2()`方法
+
+
+
+------
+
 我自己的理解类似一个static方法，但其实不是static，只是类似
 
 > 请注意，即使伴生对象的成员看起来像其他语言的静态成员，在运行时他们仍然是真实对象的实例成员，而且，例如还可以实现接口
