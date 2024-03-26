@@ -93,29 +93,33 @@ println("First item after modifications: '$modifiedFirstItem'")
 `with` 可以理解为“使用此对象，执行以下操作”
 
 ```kotlin
-val numbers = mutableListOf("one", "two", "three")
-with(numbers) {
-    println("'with' is called with argument $this")
-    println("It contains $size elements")
-}
+    val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape")
+    val builder = StringBuilder()
+    builder.append("Start eating fruits.\n")
+    for (fruit in list) {
+        builder.append(fruit).append("\n")
+    }
+    builder.append("Ate all fruits.")
+    val result = builder.toString()
+    println(result)
 ```
 
-> 'with' is called with argument [one, two, three]
->
->  It contains 3 elements
-
-`with` 的另一个用例是引入一个辅助对象，其属性或函数将用于计算值
+使用`with`后
 
 ```kotlin
-val numbers = mutableListOf("one", "two", "three")
-val firstAndLast = with(numbers) {
-    "The first element is ${first()}," +
-    " the last element is ${last()}"
-}
-println(firstAndLast)
+    val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape")
+    val result = with(StringBuilder()) {
+        append("Start eating fruits.\n")
+        for (fruit in list) {
+            append(fruit).append("\n")
+        }
+        append("Ate all fruits.")
+        toString()
+    }
+    println(result)
 ```
 
-> The first element is one, the last element is three
+Lambda表达式的最后一行代码会作为`with`函数的返回值返回
 
 
 
@@ -169,6 +173,8 @@ for (match in hexNumberRegex.findAll("+123 -FFFF !%*& 88 XYZ")) {
 > **The context object** is available as a receiver (`this`). **The return value** is the object itself.
 >
 > 上下文对象是`this`，返回值是自身
+
+`apply`函数无法指定返回值，而是会自动返回调用对象本身
 
 `apply` 的常见情况是对象配置
 
