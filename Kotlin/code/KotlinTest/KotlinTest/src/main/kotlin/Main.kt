@@ -2,7 +2,11 @@ package org.example
 
 fun main() {
 
-    doSomething()
+    val hardDisk = Computer("Desktop").HardDisk(100)
+    println(hardDisk.getInfo())
+
+
+//    doSomething()
 
 //    val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape")
 //    val result = with(StringBuilder()) {
