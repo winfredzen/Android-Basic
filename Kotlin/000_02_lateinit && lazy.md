@@ -10,6 +10,44 @@
 private lateinit var textView: TextView
 ```
 
+使用`lateinit`有什么好处？以《第一行代码》中的例子来说：
+
+```kotlin
+private var adapter: MsgAdapter? = null
+```
+
+在使用时需要做非空判断，否则编译可能不会通过
+
+```kotlin
+adapter?.notifyItemInserted(msgList.size - 1)
+```
+
+如果代码中有很多这样的变量时，这个问题就会变得越来越明显。**必须编写大量额外的判空处理代码，只是为了满足Kotlin编译器的要求**
+
+延迟初始化使用的是`lateinit`关键字，它可以告诉Kotlin编译器，我会在晚些时候对这个变量进行初始化，这样就不用在一开始的时候将它赋值为`null`了
+
+```kotlin
+private lateinit var adapter: MsgAdapter
+
+adapter.notifyItemInserted(msgList.size - 1)
+```
+
+如果我们在`adapter`变量还没有初始化的 情况下就直接使用它，那么程序就一定会崩溃，并且抛出一个`UninitializedPropertyAccessException`异常
+
+另外，我们还可以通过代码来判断一个全局变量是否已经完成了初始化
+
+```kotlin
+ if (!::adapter.isInitialized) {
+ 		adapter = MsgAdapter(msgList)
+ }
+```
+
+`::adapter.isInitialized`可用于判断`adapter`变量是否已经初始化
+
+
+
+
+
 
 
 ## lazy
