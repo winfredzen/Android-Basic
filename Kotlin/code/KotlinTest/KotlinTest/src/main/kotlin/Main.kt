@@ -2,8 +2,18 @@ package org.example
 
 fun main() {
 
-    val count = "ABC123xyz!@#".lettersCount()
-    println("count = $count")
+    val str = "abc" * 3
+    println(str)
+
+//    val money1 = Money(5)
+//    val money2 = Money(10)
+//    val money3 = money1 + money2
+//    println(money3.value)
+//    val money4 = money3 + 20
+//    println(money4.value)
+
+//    val count = "ABC123xyz!@#".lettersCount()
+//    println("count = $count")
 
 //    val hardDisk = Computer("Desktop").HardDisk(100)
 //    println(hardDisk.getInfo())
