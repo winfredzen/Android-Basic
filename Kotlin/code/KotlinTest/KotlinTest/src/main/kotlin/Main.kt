@@ -2,8 +2,11 @@ package org.example
 
 fun main() {
 
-    val hardDisk = Computer("Desktop").HardDisk(100)
-    println(hardDisk.getInfo())
+    val count = "ABC123xyz!@#".lettersCount()
+    println("count = $count")
+
+//    val hardDisk = Computer("Desktop").HardDisk(100)
+//    println(hardDisk.getInfo())
 
 
 //    doSomething()
